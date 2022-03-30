@@ -133,9 +133,10 @@
     height: auto;
   }
 
+  // 사이드바에 프로필 이미지 수정
   img {
     max-width: 110px;
-    border-radius: 50%;
+    border-radius: 15%; // 
 
     @include breakpoint($large) {
       padding: 5px;
