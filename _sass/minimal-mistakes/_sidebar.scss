@@ -135,8 +135,8 @@
 
   // 사이드바에 프로필 이미지 수정
   img {
-    max-width: 110px;
-    border-radius: 15%; // 
+    max-width: 240px;
+    border-radius: 15%; // 숫자가 작을 수록 직사각형에 가까워짐
 
     @include breakpoint($large) {
       padding: 5px;
