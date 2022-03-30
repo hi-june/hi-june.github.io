@@ -465,9 +465,18 @@
 .nav__list .nav__items {
   margin: 0;
   font-size: 1.25rem;
+  font-family: $sans-serif;
 
-  a {
+  img { // 방문자수 이미지 크기 맞추느라 추가했던 것
+    width: auto; height: auto;
+    max-width: 140px;
+    max-height: 38px;
+    margin-bottom: 1em;
+  }
+
+  a { // 소 카테고리 글씨 설정
     color: inherit;
+    
   }
 
   .active {
@@ -513,15 +522,16 @@
   font-weight: bold;
 }
 
-.nav__sub-title {
+.nav__sub-title { // 카테고리 글씨 설정
   display: block;
   margin: 0.5rem 0;
   padding: 0.25rem 0;
   font-family: $sans-serif-narrow;
-  font-size: $type-size-6;
+  font-size: 20px;
   font-weight: bold;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   border-bottom: 1px solid $border-color;
+  color: $primary-color;
 }
 
 /*
