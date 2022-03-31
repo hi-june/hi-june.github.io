@@ -1,4 +1,4 @@
-I"÷
+I"J
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -13,6 +13,8 @@
               <a href="/index.html">Home</a>
             </li><li class="masthead__menu-item">
               <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="">Tag</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">

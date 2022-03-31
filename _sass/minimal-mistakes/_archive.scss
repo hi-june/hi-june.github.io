@@ -18,7 +18,7 @@
   }
 }
 
-.archive__item {
+.archive__item { // 테그랑 카테고리 블록
   position: relative;
 
   a {
@@ -43,9 +43,10 @@
   }
 }
 
-.archive__item-title {
+.archive__item-title {  // home 키 누르면 나오는 게시글 폰트
   margin-bottom: 0.25em;
   font-family: $sans-serif-narrow;
+  font-size: 20px;
   line-height: initial;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -69,6 +70,7 @@
   .archive__item-title {
     margin-top: 1em;
     border-bottom: none;
+    
   }
 }
 
