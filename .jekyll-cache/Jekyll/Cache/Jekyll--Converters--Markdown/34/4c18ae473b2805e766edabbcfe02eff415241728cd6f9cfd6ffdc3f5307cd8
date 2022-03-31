@@ -1,0 +1,60 @@
+I"�<!-- 공백이 포함되어 있는 카테고리 이름의 경우 site.categories['a b c'] 이런식으로! -->
+
+<hr />
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/algorithm/test2/">[Jekyll] 블로그 포스팅해보기1</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.03.31
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#algorithm" class="page__taxonomy-item-category" rel="tag">Algorithm</a>
+                    
+                    
+                    <a href="/tags/#test-tag1" class="page__taxonomy-item-tag" rel="tag">Test Tag1</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#test-tag2" class="page__taxonomy-item-tag" rel="tag">Test Tag2</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/algorithm/my-third-post/">[Jekyll] 블로그 포스팅해보기3</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.03.29
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#algorithm" class="page__taxonomy-item-category" rel="tag">Algorithm</a>
+                    
+                    
+                    <a href="/tags/#test-tag1" class="page__taxonomy-item-tag" rel="tag">Test Tag1</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#test-tag3" class="page__taxonomy-item-tag" rel="tag">Test Tag3</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+:ET
