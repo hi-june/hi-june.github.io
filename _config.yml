@@ -19,7 +19,7 @@ locale                   : "ko-KR"
 title                    : " June & Directory "
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "까먹을 때 꺼내보는 지식저장소"
+name                     : "June & Directory"
 description              : "공부 & 취미 블로그"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
