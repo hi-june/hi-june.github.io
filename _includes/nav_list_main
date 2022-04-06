@@ -59,7 +59,23 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Java Prac" %}
-                        <li><a href="/categories/java-prac" class="">Java 개념 ({{category[1].size}})</a></li>
+                        <li><a href="/categories/java-prac" class="">Java 연습문제 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        <span class="nav__sub-title">Spring/Spring Boot</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Spring" %}
+                        <li><a href="/categories/spring" class="">Spring ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Spring Boot" %}
+                        <li><a href="/categories/spring-boot" class="">Spring Boot ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>

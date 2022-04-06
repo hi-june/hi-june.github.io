@@ -5,18 +5,6 @@ var store = [{
         "url": "/it%20news/my-first-post/",
         "teaser": null
       },{
-        "title": "[Jekyll] 블로그 포스팅해보기2",
-        "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1 가나다라마다밞ㄴㅇㄹ       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["IT News"],
-        "tags": ["Test tag1","Test Tag2"],
-        "url": "/it%20news/my-second-post/",
-        "teaser": null
-      },{
-        "title": "[Jekyll] 블로그 포스팅해보기3",
-        "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["Algorithm"],
-        "tags": ["Test Tag1","Test Tag3"],
-        "url": "/algorithm/my-third-post/",
-        "teaser": null
-      },{
         "title": "[Jekyll] 블로그 포스팅해보기1",
         "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["DataStructure"],
         "tags": ["Test Tag1","Test Tag2"],
@@ -57,5 +45,47 @@ var store = [{
         "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["DataBase Concept"],
         "tags": ["Test Tag1","Test Tag2"],
         "url": "/database%20concept/test6/",
+        "teaser": null
+      },{
+        "title": "[Jekyll] 블로그 포스팅해보기1",
+        "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["Java Concept"],
+        "tags": ["Test Tag1","Test Tag2"],
+        "url": "/java%20concept/test10/",
+        "teaser": null
+      },{
+        "title": "[Jekyll] 블로그 포스팅해보기1",
+        "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["Java Prac"],
+        "tags": ["Test Tag1","Test Tag2"],
+        "url": "/java%20prac/test11/",
+        "teaser": null
+      },{
+        "title": "[Jekyll] 블로그 포스팅해보기1",
+        "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["Oracle"],
+        "tags": ["Test Tag1","Test Tag2"],
+        "url": "/oracle/test12/",
+        "teaser": null
+      },{
+        "title": "[Jekyll] 블로그 포스팅해보기1",
+        "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["mySQL"],
+        "tags": ["Test Tag1","Test Tag2"],
+        "url": "/mysql/test13/",
+        "teaser": null
+      },{
+        "title": "[Jekyll] 블로그 포스팅해보기1",
+        "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["Question"],
+        "tags": ["Test Tag1","Test Tag2"],
+        "url": "/question/test14/",
+        "teaser": null
+      },{
+        "title": "[Jekyll] 블로그 포스팅해보기1",
+        "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["Spring"],
+        "tags": ["Test Tag1","Test Tag2"],
+        "url": "/spring/test8/",
+        "teaser": null
+      },{
+        "title": "[Jekyll] 블로그 포스팅해보기1",
+        "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["Spring Boot"],
+        "tags": ["Test Tag1","Test Tag2"],
+        "url": "/spring%20boot/test9/",
         "teaser": null
       }]
