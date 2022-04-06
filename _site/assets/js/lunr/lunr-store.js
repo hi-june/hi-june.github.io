@@ -78,14 +78,14 @@ var store = [{
         "teaser": null
       },{
         "title": "[Jekyll] 블로그 포스팅해보기1",
-        "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["Spring"],
-        "tags": ["Test Tag1","Test Tag2"],
-        "url": "/spring/test8/",
-        "teaser": null
-      },{
-        "title": "[Jekyll] 블로그 포스팅해보기1",
         "excerpt":"1. 포스트 소제목 테스트1  내용도 테스트 해보자..1       2. 포스트 소제목 테스트2  내용도 테스트 해보자..2   3. 포스트 소제목 테스트3  내용도 테스트 해보자..3  ","categories": ["Spring Boot"],
         "tags": ["Test Tag1","Test Tag2"],
         "url": "/spring%20boot/test9/",
+        "teaser": null
+      },{
+        "title": "[스프링 입문] Section 01 - 프로젝트 환경설정",
+        "excerpt":"1. 스프링 프로젝트 생성 - 스프링 부트 스타터를 이용함 밑바닥부터 만드는 것이 아닌 boot를 사용하여 시작하도록 한다. (https://start.spring.io) - 프로젝트 선택 Project: Gradle Project Spring Boot: 가장 최신 버전 Language: Java Java: 11 Gradle Project: 필요한 라이브러리를 땡겨오고, 빌드하는 Life Cycle까지 관리해주는 Tool로써, 과거 maven에서 요즘은 graddle로 바뀌는 추세라고 한다....","categories": ["Spring"],
+        "tags": ["Java"],
+        "url": "/spring/Section01/",
         "teaser": null
       }]

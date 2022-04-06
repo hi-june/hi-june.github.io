@@ -1,13 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-06T20:37:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/spring%20boot/test9/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/spring%20boot/test9</id><content type="html" xml:base="http://localhost:4000/spring%20boot/test9/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
-<p>내용도 테스트 해보자..1
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-06T23:02:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 입문] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/spring/Section01/" rel="alternate" type="text/html" title="[스프링 입문] Section 01 - 프로젝트 환경설정" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section01</id><content type="html" xml:base="http://localhost:4000/spring/Section01/"><![CDATA[<h2 id="1-스프링-프로젝트-생성">1. 스프링 프로젝트 생성</h2>
+<h3 id="--스프링-부트-스타터를-이용함">- 스프링 부트 스타터를 이용함</h3>
+<p>밑바닥부터 만드는 것이 아닌 boot를 사용하여 시작하도록 한다. (https://start.spring.io)</p>
+
+<h3 id="--프로젝트-선택">- 프로젝트 선택</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Project</code>: Gradle Project</li>
+  <li><code class="language-plaintext highlighter-rouge">Spring Boot</code>: 가장 최신 버전</li>
+  <li><code class="language-plaintext highlighter-rouge">Language</code>: Java</li>
+  <li><code class="language-plaintext highlighter-rouge">Java</code>: 11</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Gradle Project</code>: 필요한 라이브러리를 땡겨오고, 빌드하는 Life Cycle까지 관리해주는 Tool로써, 과거 maven에서 요즘은 graddle로 바뀌는 추세라고 한다.</p>
+
+<h3 id="--project-metadata">- Project Metadata</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Group Id</code>: hello</li>
+  <li><code class="language-plaintext highlighter-rouge">artifactId</code>: hello- spring</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">artifact</code>: 빌드되어 나오는 결과물</p>
+
+<h3 id="--dependencies">- Dependencies</h3>
+<p>‘라이브러리 간 의존관계’를 말하는 것으로 여기서는 어떤 라이브러리를 가져다 쓸 것인지 선택하는 것이다.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Spring Web</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Thymeleaf</code></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Thymeleaf</code>: html을 만들어주는 템플릿 엔진</p>
+
+<h2 id="2-라이브러리를-살펴보자">2. 라이브러리를 살펴보자</h2>
+<p>Gradle은 의존관계가 있는 라이브러리를 함께 다운로드 한다.<br />
+main 과 test의 폴더가 나뉘어져 있음 -&gt; test code의 중요성을 의미한다.</p>
+<h3 id="--스프링-부트-라이브러리">- 스프링 부트 라이브러리</h3>
+<ul>
+  <li>spring-boot-starter-web
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">spring-boot-starter-tomcat</code>: 톰캣(웹서버)</li>
+      <li>spring-webmvc: 스프링 웹 MVC</li>
+    </ul>
+  </li>
+  <li>spring-boot-starter-thymeleaf: 타임리프 템플릿 엔진(View)</li>
+  <li>spring-boot-starter(공통): 스프링부트 + 스프링 코어 + 로깅
+    <ul>
+      <li>spring-boot
+        <ul>
+          <li>spring-core</li>
+        </ul>
+      </li>
+      <li>spring-boot-starter-logging
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">logback</code>, <code class="language-plaintext highlighter-rouge">slf4j</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">spring-boot-starter-tomcat</code>: 과거엔 웹 서버에 java code를 직접 밀어 넣는 방식이었는데, 지금은 소스 라이브러리에 웹 서버가 내장되어 있다.<br />
+<code class="language-plaintext highlighter-rouge">logback</code>, <code class="language-plaintext highlighter-rouge">slf4j</code>: 이 두 라이브러리를 주로 많이 쓴다고 한다.<br />
+<code class="language-plaintext highlighter-rouge">log</code>에 대하여: 결과값 출력을 system에 하지 않고 log로 출력하는 이유는 로그 파일도 따로 관리가 되고, 심각한 에러 발생 시에 따로 모아서 볼 수도 있기 때문이다.</p>
+
+<h3 id="--테스트-라이브러리">- 테스트 라이브러리</h3>
+<ul>
+  <li>spring-boot-starter-test
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">junit</code>: 테스트 프레임워크</li>
+      <li><code class="language-plaintext highlighter-rouge">mockito</code>: 목 라이브러리</li>
+      <li><code class="language-plaintext highlighter-rouge">assertj</code>: 테스트 코드를 좀 더 편하게 작성하게 도와주는 라이브러리</li>
+      <li><code class="language-plaintext highlighter-rouge">spring-test</code>: 스프링 통합 테스트 지원</li>
+    </ul>
+  </li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">junit</code>: 자바에서 테스트할 때 주로 쓰는 라이브러리로 요즘 4에서 5로 넘어가는 추세라고 한다.</p>
+
+<h2 id="3-welcome-page를-통해-동작-과정을-알아보자">3. Welcome Page를 통해 동작 과정을 알아보자</h2>
+<p><img src="/assets/images/section1.png" alt="image" />
 <br />
-<br /></p>
-
-<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
-<p>내용도 테스트 해보자..2</p>
-
-<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring Boot" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/java%20concept/test10/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20concept/test10</id><content type="html" xml:base="http://localhost:4000/java%20concept/test10/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
+<br />
+1st. 웹 브라우저가 서버에 요청하면<br />
+2nd. Mapping 되어 있는 것을 찾아서<br />
+3rd. 해당 controller에 있는 메소드를 실행한다.<br />
+4th. controller가 반환한 값을 받아 viewResolver가 화면을 찾아 처리해준다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring" /><category term="Java" /><summary type="html"><![CDATA[프로젝트를 만들어봅시다.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/java%20concept/test10/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20concept/test10</id><content type="html" xml:base="http://localhost:4000/java%20concept/test10/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
 <p>내용도 테스트 해보자..1
 <br />
 <br /></p>
@@ -52,7 +127,7 @@
 <p>내용도 테스트 해보자..2</p>
 
 <h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Question" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/spring/test8/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/spring/test8</id><content type="html" xml:base="http://localhost:4000/spring/test8/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
+<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Question" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/spring%20boot/test9/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/spring%20boot/test9</id><content type="html" xml:base="http://localhost:4000/spring%20boot/test9/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
 <p>내용도 테스트 해보자..1
 <br />
 <br /></p>
@@ -61,7 +136,7 @@
 <p>내용도 테스트 해보자..2</p>
 
 <h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/datastructure/test1/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-03-31T00:00:00+09:00</published><updated>2022-03-31T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/test1</id><content type="html" xml:base="http://localhost:4000/datastructure/test1/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
+<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring Boot" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/datastructure/test1/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-03-31T00:00:00+09:00</published><updated>2022-03-31T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/test1</id><content type="html" xml:base="http://localhost:4000/datastructure/test1/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
 <p>내용도 테스트 해보자..1
 <br />
 <br /></p>
