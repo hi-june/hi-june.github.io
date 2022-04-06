@@ -1,4 +1,93 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-06T23:02:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 입문] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/spring/Section01/" rel="alternate" type="text/html" title="[스프링 입문] Section 01 - 프로젝트 환경설정" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section01</id><content type="html" xml:base="http://localhost:4000/spring/Section01/"><![CDATA[<h2 id="1-스프링-프로젝트-생성">1. 스프링 프로젝트 생성</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-07T01:22:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 입문] Section 02 - 스프링 웹 개발 기초</title><link href="http://localhost:4000/spring/Section02/" rel="alternate" type="text/html" title="[스프링 입문] Section 02 - 스프링 웹 개발 기초" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-07T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section02</id><content type="html" xml:base="http://localhost:4000/spring/Section02/"><![CDATA[<h2 id="web을-개발하는-3가지-방법">Web을 개발하는 3가지 방법</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">정적 컨텐츠</code>: 파일을 그냥 웹 브라우저에 내려주는 것</li>
+  <li><code class="language-plaintext highlighter-rouge">MVC와 템플릿 엔진</code>: html, PHP, JSP 같은 파일을 서버에서 프로그래밍해서 동적으로 바꾼 후 내려주는 것</li>
+  <li><code class="language-plaintext highlighter-rouge">API</code>: 예를 들자면, 만약 Android나 ios같은 Client랑 개발해야할 떄, ‘jason’이라는 포멧으로 내려주는 것</li>
+</ul>
+
+<h2 id="1-정적-컨텐츠">1. 정적 컨텐츠</h2>
+<p><img src="/assets/images/section2_1.png" alt="Image" /></p>
+
+<p>1st. 웹 브라우저가 요청을 서버에 넘겨줌<br />
+2nd. controller 쪽에서 관련 컨트롤러가 있는지 찾아봄<br />
+3rd. 관련 컨트롤러가 없기 떄문에 resources에서 파일을 찾아봄<br />
+4th. 별도 변환 과정 없이 그냥 반환해 줌</p>
+
+<h2 id="2-mvc와-템플릿-엔진">2. MVC와 템플릿 엔진</h2>
+<p>MVC: <code class="language-plaintext highlighter-rouge">Model</code>, <code class="language-plaintext highlighter-rouge">View</code>, <code class="language-plaintext highlighter-rouge">Controller</code>의 앞 자만 따서 부른다.<br />
+<code class="language-plaintext highlighter-rouge">View</code>는 화면과 관련된 일만 하도록, <code class="language-plaintext highlighter-rouge">Controller</code>는 비지니스 로직과 관련된 일만 하도록 <strong><em><span style="color:gold">‘분리’</span></em></strong> 한다는 것이 핵심이다.</p>
+
+<p><img src="/assets/images/section2_2.png" alt="Image" /></p>
+
+<p>1st. 웹 브라우저에서 요청이 들어오면<br />
+2nd. 해당 <code class="language-plaintext highlighter-rouge">Controller</code>가 mapping 되어있는 메소드를 찾아서 실행 후<br />
+3rd. 반환된 값을 통해 <code class="language-plaintext highlighter-rouge">viewResolver</code>가 해당하는 <code class="language-plaintext highlighter-rouge">view</code>를 찾아주고 템플릿 엔진에 연결시켜줌<br />
+4th. 템플릿 엔진은 해당 파일을 렌더링 후 웹 브라우저에 반환해준다.</p>
+
+<h2 id="3-api">3. API</h2>
+<p><img src="/assets/images/section2_3.png" alt="Image" /></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@ResponseBody</code>를 사용하면
+    <ul>
+      <li>HTTP의 BODY에 문자 내용을 직접 반환한다.</li>
+      <li><code class="language-plaintext highlighter-rouge">viewResolver</code>대신 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 동작하는데(spring에 셋팅되어있음)
+        <ul>
+          <li>기본 문자 처리의 경우: <code class="language-plaintext highlighter-rouge">StringHttpMessageConverter</code></li>
+          <li>기본 객체 처리의 경우: <code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code> &lt;-</li>
+          <li>기타 등등의 경우에 맞는 여러 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 기본으로 등록되어있음</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>-&gt; <code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code>: 객체를 jason으로 바꿔주는 라이브러리들 중 하나</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring" /><category term="Java" /><summary type="html"><![CDATA[Web을 개발하는 3가지 방법에 대해 알아보자]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/java%20prac/test11/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20prac/test11</id><content type="html" xml:base="http://localhost:4000/java%20prac/test11/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
+<p>내용도 테스트 해보자..1
+<br />
+<br /></p>
+
+<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
+<p>내용도 테스트 해보자..2</p>
+
+<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
+<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Java Prac" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/oracle/test12/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/oracle/test12</id><content type="html" xml:base="http://localhost:4000/oracle/test12/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
+<p>내용도 테스트 해보자..1
+<br />
+<br /></p>
+
+<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
+<p>내용도 테스트 해보자..2</p>
+
+<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
+<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Oracle" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/mysql/test13/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/mysql/test13</id><content type="html" xml:base="http://localhost:4000/mysql/test13/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
+<p>내용도 테스트 해보자..1
+<br />
+<br /></p>
+
+<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
+<p>내용도 테스트 해보자..2</p>
+
+<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
+<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="mySQL" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/question/test14/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/question/test14</id><content type="html" xml:base="http://localhost:4000/question/test14/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
+<p>내용도 테스트 해보자..1
+<br />
+<br /></p>
+
+<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
+<p>내용도 테스트 해보자..2</p>
+
+<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
+<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Question" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/spring%20boot/test9/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/spring%20boot/test9</id><content type="html" xml:base="http://localhost:4000/spring%20boot/test9/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
+<p>내용도 테스트 해보자..1
+<br />
+<br /></p>
+
+<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
+<p>내용도 테스트 해보자..2</p>
+
+<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
+<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring Boot" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[스프링 입문] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/spring/Section01/" rel="alternate" type="text/html" title="[스프링 입문] Section 01 - 프로젝트 환경설정" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section01</id><content type="html" xml:base="http://localhost:4000/spring/Section01/"><![CDATA[<h2 id="1-스프링-프로젝트-생성">1. 스프링 프로젝트 생성</h2>
 <h3 id="--스프링-부트-스타터를-이용함">- 스프링 부트 스타터를 이용함</h3>
 <p>밑바닥부터 만드는 것이 아닌 boot를 사용하여 시작하도록 한다. (https://start.spring.io)</p>
 
@@ -91,52 +180,7 @@ main 과 test의 폴더가 나뉘어져 있음 -&gt; test code의 중요성을 �
 <p>내용도 테스트 해보자..2</p>
 
 <h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Java Concept" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/java%20prac/test11/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20prac/test11</id><content type="html" xml:base="http://localhost:4000/java%20prac/test11/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
-<p>내용도 테스트 해보자..1
-<br />
-<br /></p>
-
-<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
-<p>내용도 테스트 해보자..2</p>
-
-<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Java Prac" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/oracle/test12/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/oracle/test12</id><content type="html" xml:base="http://localhost:4000/oracle/test12/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
-<p>내용도 테스트 해보자..1
-<br />
-<br /></p>
-
-<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
-<p>내용도 테스트 해보자..2</p>
-
-<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Oracle" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/mysql/test13/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/mysql/test13</id><content type="html" xml:base="http://localhost:4000/mysql/test13/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
-<p>내용도 테스트 해보자..1
-<br />
-<br /></p>
-
-<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
-<p>내용도 테스트 해보자..2</p>
-
-<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="mySQL" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/question/test14/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/question/test14</id><content type="html" xml:base="http://localhost:4000/question/test14/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
-<p>내용도 테스트 해보자..1
-<br />
-<br /></p>
-
-<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
-<p>내용도 테스트 해보자..2</p>
-
-<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Question" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/spring%20boot/test9/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/spring%20boot/test9</id><content type="html" xml:base="http://localhost:4000/spring%20boot/test9/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
-<p>내용도 테스트 해보자..1
-<br />
-<br /></p>
-
-<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
-<p>내용도 테스트 해보자..2</p>
-
-<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring Boot" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/datastructure/test1/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-03-31T00:00:00+09:00</published><updated>2022-03-31T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/test1</id><content type="html" xml:base="http://localhost:4000/datastructure/test1/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
+<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Java Concept" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/datastructure/test1/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-03-31T00:00:00+09:00</published><updated>2022-03-31T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/test1</id><content type="html" xml:base="http://localhost:4000/datastructure/test1/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
 <p>내용도 테스트 해보자..1
 <br />
 <br /></p>
@@ -154,13 +198,4 @@ main 과 test의 폴더가 나뉘어져 있음 -&gt; test code의 중요성을 �
 <p>내용도 테스트 해보자..2</p>
 
 <h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Programmers" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry><entry><title type="html">[Jekyll] 블로그 포스팅해보기1</title><link href="http://localhost:4000/algorithm/test2/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅해보기1" /><published>2022-03-31T00:00:00+09:00</published><updated>2022-03-31T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/test2</id><content type="html" xml:base="http://localhost:4000/algorithm/test2/"><![CDATA[<h1 id="1-포스트-소제목-테스트1">1. 포스트 소제목 테스트1</h1>
-<p>내용도 테스트 해보자..1
-<br />
-<br /></p>
-
-<h1 id="2-포스트-소제목-테스트2">2. 포스트 소제목 테스트2</h1>
-<p>내용도 테스트 해보자..2</p>
-
-<h1 id="3-포스트-소제목-테스트3">3. 포스트 소제목 테스트3</h1>
-<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Algorithm" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry></feed>
+<p>내용도 테스트 해보자..3</p>]]></content><author><name>hi~ June!!</name></author><category term="Programmers" /><category term="Test Tag1" /><category term="Test Tag2" /><summary type="html"><![CDATA[md 파일에 마크다운 문법으로 작성하여 Github 원격 저장소에 업로드 해보자. 에디터는 Visual Studio code 사용! 로컬 서버에서 확인도 해보자.]]></summary></entry></feed>
