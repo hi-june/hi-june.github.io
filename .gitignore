@@ -1,3 +1,11 @@
+#Apple
 .DS_Store
+.AppleDouble
+.LSOverride
+
+#jekyll blog
 .jekyll-cache/
 .idea/
+.sass-cache/
+.jekyll-metadata
+Gemfile.lock
