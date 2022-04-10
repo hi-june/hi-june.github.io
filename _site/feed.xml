@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-07T20:37:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 입문] Section 02 - 스프링 웹 개발 기초</title><link href="http://localhost:4000/spring/Section02/" rel="alternate" type="text/html" title="[스프링 입문] Section 02 - 스프링 웹 개발 기초" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-07T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section02</id><content type="html" xml:base="http://localhost:4000/spring/Section02/"><![CDATA[<h2 id="web을-개발하는-3가지-방법">Web을 개발하는 3가지 방법</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-10T14:56:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경</title><link href="http://localhost:4000/android%20basic/Chapter01/" rel="alternate" type="text/html" title="[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-07T00:00:00+09:00</updated><id>http://localhost:4000/android%20basic/Chapter01</id><content type="html" xml:base="http://localhost:4000/android%20basic/Chapter01/"><![CDATA[<h2 id="1-안드로이드-개요">1. 안드로이드 개요</h2>
+<ul>
+  <li>안드로이드 주요 기능<br />
+안드로이드는 모바일 기기를 위한 운영체제로 <code class="language-plaintext highlighter-rouge">안드로이드 SDK</code>는 <code class="language-plaintext highlighter-rouge">JAVA</code> 기반으로 안드로이드 애플리케이션을 개발할 수 있는 <code class="language-plaintext highlighter-rouge">API</code>를 제공하고 있다.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">애플리케이션 프레임워크</code>를 통해서 제공되는 <code class="language-plaintext highlighter-rouge">API</code>를 사용함으로써 코드를 재사용하여 효율적이고 빠른 애플리케이션 개발 가능</li>
+      <li>모바일 기기에 최적화된 <code class="language-plaintext highlighter-rouge">달빅</code> 또는 <code class="language-plaintext highlighter-rouge">아트런타임(ART : Android Run Time)</code> 제공</li>
+      <li>2D 그래픽 및 3차원 그래픽을 최적화하여 표현</li>
+      <li>모바일용 데이터베이스인 <code class="language-plaintext highlighter-rouge">SQLite</code>를 제공</li>
+      <li>각종 오디오, 비디오 및 이미지 형식을 지원</li>
+      <li>모바일 기기에 내장된 각종 하드웨어(블루투스, 카메라, 센서, WiFi 등) 지원</li>
+      <li><code class="language-plaintext highlighter-rouge">이클립스 IDE</code> 또는 <code class="language-plaintext highlighter-rouge">Android Studio</code>를 통해서 강력하고 빠른 개발 환경 제공
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>안드로이드의 특징
+    <ul>
+      <li>안드로이드의 핵심 커널은 <code class="language-plaintext highlighter-rouge">Linux</code>로 구성되어있다. <code class="language-plaintext highlighter-rouge">안드로이드 커널</code>은 이 리눅스 커널에서 모바일용으로 적합한 내용을 추출하여 필요한 기능을 추가한 것이다.</li>
+      <li>개발 언어로 <code class="language-plaintext highlighter-rouge">Java</code> 또는 <code class="language-plaintext highlighter-rouge">Kotlin</code>을 사용한다. 더 나아가 <code class="language-plaintext highlighter-rouge">NDK</code>(Native Development Kit)도 제공하기 때문에 C, C++ 기반으로 개발하여 더 빠른 성능과 세밀한 조작까지도 가능하다.</li>
+      <li><code class="language-plaintext highlighter-rouge">안드로이드 SDK</code>에 많은 라이브러리를 포함하고 있다. 특히 <code class="language-plaintext highlighter-rouge">SQLite</code>, <code class="language-plaintext highlighter-rouge">OpenGL</code> 등도 지원한다.</li>
+      <li>오픈소스를 지향하고, 지속적인 업그레이드를 제공한다.
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>안드로이드의 구조<br />
+<img src="/assets/images/%5BAndroid-Basic%5DCh01_1.png" alt="Image" />
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">응용 프로그램</code>: 사용자가 쓰는 일반적인 응용프로그램</li>
+      <li><code class="language-plaintext highlighter-rouge">응용 프로그램 프레임워크</code>: 안드로이드 API가 존재하는 곳. 애플리케이션은 API를 통해 안드로이드 커널에 접근할 수 있음</li>
+      <li><code class="language-plaintext highlighter-rouge">안드로이드 런타임</code>: Java 코어 라이브러리, 달빅 가상 머신, 아트 런타임으로 구성됨. Java, Kotlin 등으로 프로그래밍 후 JVM을 쓰지 않고 대신하여 사용함. 모바일 환경에 최적화되어있음.</li>
+      <li><code class="language-plaintext highlighter-rouge">라이브러리</code>: 시스템 접근 때문에 Java, Kotlin이 아닌 C로 작성되어 있음. 성능이 뛰어나고 세밀한 조작 가능</li>
+      <li><code class="language-plaintext highlighter-rouge">리눅스 커널</code>: 하드웨어의 운영(메모리 관리, 디바이스 드라이버, 보안 등)과 관련된 저수준의 관리 기능이 들어있음.</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>hi~ June!!</name></author><category term="Android Basic" /><category term="Kotlin" /><summary type="html"><![CDATA[안드로이드 프로그래밍을 시작해보자!!]]></summary></entry><entry><title type="html">[스프링 입문] Section 02 - 스프링 웹 개발 기초</title><link href="http://localhost:4000/spring/Section02/" rel="alternate" type="text/html" title="[스프링 입문] Section 02 - 스프링 웹 개발 기초" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-07T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section02</id><content type="html" xml:base="http://localhost:4000/spring/Section02/"><![CDATA[<h2 id="web을-개발하는-3가지-방법">Web을 개발하는 3가지 방법</h2>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">정적 컨텐츠</code>: 파일을 그냥 웹 브라우저에 내려주는 것</li>
   <li><code class="language-plaintext highlighter-rouge">MVC와 템플릿 엔진</code>: html, PHP, JSP 같은 파일을 서버에서 프로그래밍해서 동적으로 바꾼 후 내려주는 것</li>
