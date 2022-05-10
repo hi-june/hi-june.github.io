@@ -1,65 +1,539 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-12T08:12:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[안드로이드 기초] Chapter 05 - 레이아웃 익히기</title><link href="http://localhost:4000/android%20basic/Chapter05/" rel="alternate" type="text/html" title="[안드로이드 기초] Chapter 05 - 레이아웃 익히기" /><published>2022-04-11T00:00:00+09:00</published><updated>2022-04-11T00:00:00+09:00</updated><id>http://localhost:4000/android%20basic/Chapter05</id><content type="html" xml:base="http://localhost:4000/android%20basic/Chapter05/"><![CDATA[<h2 id="1-레이아웃의-개요">1. 레이아웃의 개요</h2>
-<ul>
-  <li>레이아웃의 기본 개념<br />
-레이아웃은 레이아웃 안에 존재하는 위젯을 배치하게 해준다. 다음과 같은 속성들이 있다.
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">orientation</code>: 레이아웃 안에 배치할 위젯의 수직 또는 수평 방향을 설정</li>
-      <li><code class="language-plaintext highlighter-rouge">gravity</code>: 레이아웃 안에 배치할 위젯의 정렬 방향을 좌측, 우측, 중앙 등으로 설정</li>
-      <li><code class="language-plaintext highlighter-rouge">padding</code>: 레이아웃 안에 배치할 위젯의 여백을 설정</li>
-      <li><code class="language-plaintext highlighter-rouge">layout_weight</code>: 레이아웃이 전체 화면에서 차지하는 공간의 가중값을 설정</li>
-      <li><code class="language-plaintext highlighter-rouge">baselineAligned</code>: 레이아웃 안에 배치할 위젯을 보기 좋게 정렬함
-<br /><br /></li>
-    </ul>
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[안드로이드 기초] Chapter 04 - 기본 위젯 익히기 -  June &amp; Directory</title>
+<meta name="description" content="View 와 Widget에 대해 알아보자 ">
+
+
+  <meta name="author" content="hi~ June!!">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content=" June & Directory ">
+<meta property="og:title" content="[안드로이드 기초] Chapter 04 - 기본 위젯 익히기">
+<meta property="og:url" content="http://localhost:4000/android%20basic/Chapter04/">
+
+
+  <meta property="og:description" content="View 와 Widget에 대해 알아보자 ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/think.jpeg">
+
+
+
+
+
+  <meta property="article:published_time" content="2022-04-07T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-04-10T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/android%20basic/Chapter04/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "June & Directory",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" June & Directory  Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+
+    <!-- 스크롤바 커스터마이징 -->
+    <style> 
+      ::-webkit-scrollbar{width: 16px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb:hover {background: #4cb7ff;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:12px;height:12px;background:transparent; }
+
+      
+    </style>
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           June & Directory 
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/index.html">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">카테고리 Click</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#android-basic" itemprop="item"><span itemprop="name">Android basic</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[안드로이드 기초] Chapter 04 - 기본 위젯 익히기</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/think.jpeg" alt="hi~ June!!" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">hi~ June!!</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>반갑습니다 :)</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:wnsgur735@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
   </li>
-  <li>레이아웃의 종류<br />
-<img src="/assets/images/%5BAndroid-Basic%5DCh05_1.png" alt="Image" />
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">Linear Layout</code>: 레이아웃의 왼쪽 위부터 아래쪽 또는 오른쪽으로 차례로 배치</li>
-      <li><code class="language-plaintext highlighter-rouge">Relative Layout</code>: 위젯 자신이 속한 레이아웃의 상하좌우 위치를 지정하여 배치 or 다른 위젯으로부터 상대적인 위치를 지정함</li>
-      <li><code class="language-plaintext highlighter-rouge">Table Layout</code>: 행과 열의 개수를 지정한 테이블 형태로 위젯을 배열한다.</li>
-      <li><code class="language-plaintext highlighter-rouge">Grid Layout</code>: 테이블 레이아웃과 비슷하지만 행 또는 열을 확장하여 다양하게 배치할 때 더 편리하다.</li>
-      <li><code class="language-plaintext highlighter-rouge">Frame Layout</code>: 위젯을 왼쪽 위에 일률적으로 겹쳐서 배치하여 중복되어 보이는 효과를 낼 수 있다. 여러 개의 위젯을 배치한 후 상황에 따라서 필요한 위젯을 보이는 방식에 주로 활용한다.</li>
+-->
     </ul>
-  </li>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">카테고리 Click</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Nanum Gothic Coding';">전체 글 수</style> <span style="font-family:'Nanum Gothic Coding';">5</style> <span style="font-family:'Nanum Gothic Coding';">개</style> 
+      </li>
+      <li>
+
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+        
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Java</span>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Spring/Spring Boot</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/spring" class="">Spring (2)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">DataBase</span>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Android</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/android-basic" class="">안드로이드 기본 (3)</a></li>
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+            
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[안드로이드 기초] Chapter 04 - 기본 위젯 익히기">
+    <meta itemprop="description" content="View 와 Widget에 대해 알아보자">
+    <meta itemprop="datePublished" content="2022-04-07T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-04-10T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[안드로이드 기초] Chapter 04 - 기본 위젯 익히기
+</h1>
+          
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-04-07T00:00:00+09:00">2022.04.07</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-04-10">2022.04.10</time></p>
+          
+          
+            
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#android-basic" class="page__taxonomy-item-category" rel="tag">Android Basic</a>
+    
+    </span>
+  </p>
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#kotlin" class="page__taxonomy-item-tag" rel="tag">Kotlin</a>
+    
+    </span>
+  </p>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#1-뷰의-개요">1. 뷰의 개요</a></li>
+  <li><a href="#2-텍스트뷰">2. 텍스트뷰</a></li>
+  <li><a href="#3-버튼과-에디트텍스트">3. 버튼과 에디트텍스트</a></li>
 </ul>
 
-<h2 id="2-리니어레이아웃">2. 리니어레이아웃</h2>
-
-<h2 id="3-기타-레이아웃">3. 기타 레이아웃</h2>]]></content><author><name>hi~ June!!</name></author><category term="Android Basic" /><category term="Kotlin" /><summary type="html"><![CDATA[Layout에 대해 알아보자]]></summary></entry><entry><title type="html">[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경</title><link href="http://localhost:4000/android%20basic/Chapter01/" rel="alternate" type="text/html" title="[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-07T00:00:00+09:00</updated><id>http://localhost:4000/android%20basic/Chapter01</id><content type="html" xml:base="http://localhost:4000/android%20basic/Chapter01/"><![CDATA[<h2 id="1-안드로이드-개요">1. 안드로이드 개요</h2>
-<ul>
-  <li>안드로이드 주요 기능<br />
-안드로이드는 모바일 기기를 위한 운영체제로 <code class="language-plaintext highlighter-rouge">안드로이드 SDK</code>는 <code class="language-plaintext highlighter-rouge">JAVA</code> 기반으로 안드로이드 애플리케이션을 개발할 수 있는 <code class="language-plaintext highlighter-rouge">API</code>를 제공하고 있다.
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">애플리케이션 프레임워크</code>를 통해서 제공되는 <code class="language-plaintext highlighter-rouge">API</code>를 사용함으로써 코드를 재사용하여 효율적이고 빠른 애플리케이션 개발 가능</li>
-      <li>모바일 기기에 최적화된 <code class="language-plaintext highlighter-rouge">달빅</code> 또는 <code class="language-plaintext highlighter-rouge">아트런타임(ART : Android Run Time)</code> 제공</li>
-      <li>2D 그래픽 및 3차원 그래픽을 최적화하여 표현</li>
-      <li>모바일용 데이터베이스인 <code class="language-plaintext highlighter-rouge">SQLite</code>를 제공</li>
-      <li>각종 오디오, 비디오 및 이미지 형식을 지원</li>
-      <li>모바일 기기에 내장된 각종 하드웨어(블루투스, 카메라, 센서, WiFi 등) 지원</li>
-      <li><code class="language-plaintext highlighter-rouge">이클립스 IDE</code> 또는 <code class="language-plaintext highlighter-rouge">Android Studio</code>를 통해서 강력하고 빠른 개발 환경 제공
-<br /><br /></li>
-    </ul>
-  </li>
-  <li>안드로이드의 특징
-    <ul>
-      <li>안드로이드의 핵심 커널은 <code class="language-plaintext highlighter-rouge">Linux</code>로 구성되어있다. <code class="language-plaintext highlighter-rouge">안드로이드 커널</code>은 이 리눅스 커널에서 모바일용으로 적합한 내용을 추출하여 필요한 기능을 추가한 것이다.</li>
-      <li>개발 언어로 <code class="language-plaintext highlighter-rouge">Java</code> 또는 <code class="language-plaintext highlighter-rouge">Kotlin</code>을 사용한다. 더 나아가 <code class="language-plaintext highlighter-rouge">NDK</code>(Native Development Kit)도 제공하기 때문에 C, C++ 기반으로 개발하여 더 빠른 성능과 세밀한 조작까지도 가능하다.</li>
-      <li><code class="language-plaintext highlighter-rouge">안드로이드 SDK</code>에 많은 라이브러리를 포함하고 있다. 특히 <code class="language-plaintext highlighter-rouge">SQLite</code>, <code class="language-plaintext highlighter-rouge">OpenGL</code> 등도 지원한다.</li>
-      <li>오픈소스를 지향하고, 지속적인 업그레이드를 제공한다.
-<br /><br /></li>
-    </ul>
-  </li>
-  <li>안드로이드의 구조<br />
-<img src="/assets/images/%5BAndroid-Basic%5DCh01_1.png" alt="Image" />
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">응용 프로그램</code>: 사용자가 쓰는 일반적인 응용프로그램</li>
-      <li><code class="language-plaintext highlighter-rouge">응용 프로그램 프레임워크</code>: 안드로이드 API가 존재하는 곳. 애플리케이션은 API를 통해 안드로이드 커널에 접근할 수 있음</li>
-      <li><code class="language-plaintext highlighter-rouge">안드로이드 런타임</code>: Java 코어 라이브러리, 달빅 가상 머신, 아트 런타임으로 구성됨. Java, Kotlin 등으로 프로그래밍 후 JVM을 쓰지 않고 대신하여 사용함. 모바일 환경에 최적화되어있음.</li>
-      <li><code class="language-plaintext highlighter-rouge">라이브러리</code>: 시스템 접근 때문에 Java, Kotlin이 아닌 C로 작성되어 있음. 성능이 뛰어나고 세밀한 조작 가능</li>
-      <li><code class="language-plaintext highlighter-rouge">리눅스 커널</code>: 하드웨어의 운영(메모리 관리, 디바이스 드라이버, 보안 등)과 관련된 저수준의 관리 기능이 들어있음.</li>
-    </ul>
-  </li>
-</ul>]]></content><author><name>hi~ June!!</name></author><category term="Android Basic" /><category term="Kotlin" /><summary type="html"><![CDATA[안드로이드 프로그래밍을 시작해보자!!]]></summary></entry><entry><title type="html">[안드로이드 기초] Chapter 04 - 기본 위젯 익히기</title><link href="http://localhost:4000/android%20basic/Chapter04/" rel="alternate" type="text/html" title="[안드로이드 기초] Chapter 04 - 기본 위젯 익히기" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-10T00:00:00+09:00</updated><id>http://localhost:4000/android%20basic/Chapter04</id><content type="html" xml:base="http://localhost:4000/android%20basic/Chapter04/"><![CDATA[<h2 id="1-뷰의-개요">1. 뷰의 개요</h2>
+            </nav>
+          </aside>
+        
+        <h2 id="1-뷰의-개요">1. 뷰의 개요</h2>
 <p><img src="/assets/images/%5BAndroid-Basic%5DCh04_1.png" alt="Image" width="60%" height="60%" />
 <br /></p>
 
@@ -326,132 +800,275 @@ xml 파일에서 설정하는 내용의 대부분을 Kotlin 코드에서도 메�
       </li>
     </ol>
   </li>
-</ul>]]></content><author><name>hi~ June!!</name></author><category term="Android Basic" /><category term="Kotlin" /><summary type="html"><![CDATA[View 와 Widget에 대해 알아보자]]></summary></entry><entry><title type="html">[스프링 입문] Section 02 - 스프링 웹 개발 기초</title><link href="http://localhost:4000/spring/Section02/" rel="alternate" type="text/html" title="[스프링 입문] Section 02 - 스프링 웹 개발 기초" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-07T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section02</id><content type="html" xml:base="http://localhost:4000/spring/Section02/"><![CDATA[<h2 id="web을-개발하는-3가지-방법">Web을 개발하는 3가지 방법</h2>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">정적 컨텐츠</code>: 파일을 그냥 웹 브라우저에 내려주는 것</li>
-  <li><code class="language-plaintext highlighter-rouge">MVC와 템플릿 엔진</code>: html, PHP, JSP 같은 파일을 서버에서 프로그래밍해서 동적으로 바꾼 후 내려주는 것</li>
-  <li><code class="language-plaintext highlighter-rouge">API</code>: 예를 들자면, 만약 Android나 ios같은 Client랑 개발해야할 떄, ‘jason’이라는 포멧으로 내려주는 것</li>
 </ul>
 
-<h2 id="1-정적-컨텐츠">1. 정적 컨텐츠</h2>
-<p><img src="/assets/images/section2_1.png" alt="Image" /></p>
 
-<p>1st. 웹 브라우저가 요청을 서버에 넘겨줌<br />
-2nd. controller 쪽에서 관련 컨트롤러가 있는지 찾아봄<br />
-3rd. 관련 컨트롤러가 없기 떄문에 resources에서 파일을 찾아봄<br />
-4th. 별도 변환 과정 없이 그냥 반환해 줌</p>
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <!-- '카테고리 내 다른 글 보러가기' -->
+        <p></p>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Android Basic</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <!--
 
-<h2 id="2-mvc와-템플릿-엔진">2. MVC와 템플릿 엔진</h2>
-<p>MVC: <code class="language-plaintext highlighter-rouge">Model</code>, <code class="language-plaintext highlighter-rouge">View</code>, <code class="language-plaintext highlighter-rouge">Controller</code>의 앞 자만 따서 부른다.<br />
-<code class="language-plaintext highlighter-rouge">View</code>는 화면과 관련된 일만 하도록, <code class="language-plaintext highlighter-rouge">Controller</code>는 비지니스 로직과 관련된 일만 하도록 <strong><em><span style="color:gold">‘분리’</span></em></strong> 한다는 것이 핵심이다.</p>
+  <nav class="pagination">
+    
+      <a href="/android%20basic/Chapter01/" class="pagination--pager" title="[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경
+">이전</a>
+    
+    
+      <a href="/spring/Section02/" class="pagination--pager" title="[스프링 입문] Section 02 - 스프링 웹 개발 기초
+">다음</a>
+    
+  </nav>
 
-<p><img src="/assets/images/section2_2.png" alt="Image" /></p>
+-->
 
-<p>1st. 웹 브라우저에서 요청이 들어오면<br />
-2nd. 해당 <code class="language-plaintext highlighter-rouge">Controller</code>가 mapping 되어있는 메소드를 찾아서 실행 후<br />
-3rd. 반환된 값을 통해 <code class="language-plaintext highlighter-rouge">viewResolver</code>가 해당하는 <code class="language-plaintext highlighter-rouge">view</code>를 찾아주고 템플릿 엔진에 연결시켜줌<br />
-4th. 템플릿 엔진은 해당 파일을 렌더링 후 웹 브라우저에 반환해준다.</p>
 
-<h2 id="3-api">3. API</h2>
-<p><img src="/assets/images/section2_3.png" alt="Image" /></p>
 
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">@ResponseBody</code>를 사용하면
-    <ul>
-      <li>HTTP의 BODY에 문자 내용을 직접 반환한다.</li>
-      <li><code class="language-plaintext highlighter-rouge">viewResolver</code>대신 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 동작하는데(spring에 셋팅되어있음)
-        <ul>
-          <li>기본 문자 처리의 경우: <code class="language-plaintext highlighter-rouge">StringHttpMessageConverter</code></li>
-          <li>기본 객체 처리의 경우: <code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code> &lt;-</li>
-          <li>기타 등등의 경우에 맞는 여러 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 기본으로 등록되어있음</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
 
-<p>-&gt; <code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code>: 객체를 jason으로 바꿔주는 라이브러리들 중 하나이다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring" /><category term="Java" /><summary type="html"><![CDATA[Web을 개발하는 3가지 방법에 대해 알아보자]]></summary></entry><entry><title type="html">[스프링 입문] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/spring/Section01/" rel="alternate" type="text/html" title="[스프링 입문] Section 01 - 프로젝트 환경설정" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section01</id><content type="html" xml:base="http://localhost:4000/spring/Section01/"><![CDATA[<h2 id="1-스프링-프로젝트-생성">1. 스프링 프로젝트 생성</h2>
-<h3 id="--스프링-부트-스타터를-이용함">- 스프링 부트 스타터를 이용함</h3>
-<p>밑바닥부터 만드는 것이 아닌 boot를 사용하여 시작하도록 한다. (https://start.spring.io)</p>
+  
 
-<h3 id="--프로젝트-선택">- 프로젝트 선택</h3>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Project</code>: Gradle Project</li>
-  <li><code class="language-plaintext highlighter-rouge">Spring Boot</code>: 가장 최신 버전</li>
-  <li><code class="language-plaintext highlighter-rouge">Language</code>: Java</li>
-  <li><code class="language-plaintext highlighter-rouge">Java</code>: 11</li>
-</ul>
+  
+  	
+  	
+  	
+  	
+  	
 
-<p><code class="language-plaintext highlighter-rouge">Gradle Project</code>: 필요한 라이브러리를 땡겨오고, 빌드하는 Life Cycle까지 관리해주는 Tool로써, 과거 maven에서 요즘은 graddle로 바뀌는 추세라고 한다.</p>
 
-<h3 id="--project-metadata">- Project Metadata</h3>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Group Id</code>: hello</li>
-  <li><code class="language-plaintext highlighter-rouge">artifactId</code>: hello- spring</li>
-</ul>
+  <nav class="pagination_prev_next">
+    
+      <a href="/android%20basic/Chapter01/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경</a>
+    
+    
+      <a href="/android%20basic/Chapter05/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[안드로이드 기초] Chapter 05 - 레이아웃 익히기</a>
+    
+  </nav>
 
-<p><code class="language-plaintext highlighter-rouge">artifact</code>: 빌드되어 나오는 결과물</p>
 
-<h3 id="--dependencies">- Dependencies</h3>
-<p>‘라이브러리 간 의존관계’를 말하는 것으로 여기서는 어떤 라이브러리를 가져다 쓸 것인지 선택하는 것이다.</p>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Spring Web</code></li>
-  <li><code class="language-plaintext highlighter-rouge">Thymeleaf</code></li>
-</ul>
+<!--
 
-<p><code class="language-plaintext highlighter-rouge">Thymeleaf</code>: html을 만들어주는 템플릿 엔진</p>
 
-<h2 id="2-라이브러리를-살펴보자">2. 라이브러리를 살펴보자</h2>
-<p>Gradle은 의존관계가 있는 라이브러리를 함께 다운로드 한다.<br />
-main 과 test의 폴더가 나뉘어져 있음 -&gt; test code의 중요성을 의미한다.</p>
-<h3 id="--스프링-부트-라이브러리">- 스프링 부트 라이브러리</h3>
-<ul>
-  <li>spring-boot-starter-web
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">spring-boot-starter-tomcat</code>: 톰캣(웹서버)</li>
-      <li>spring-webmvc: 스프링 웹 MVC</li>
-    </ul>
-  </li>
-  <li>spring-boot-starter-thymeleaf: 타임리프 템플릿 엔진(View)</li>
-  <li>spring-boot-starter(공통): 스프링부트 + 스프링 코어 + 로깅
-    <ul>
-      <li>spring-boot
-        <ul>
-          <li>spring-core</li>
-        </ul>
-      </li>
-      <li>spring-boot-starter-logging
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">logback</code>, <code class="language-plaintext highlighter-rouge">slf4j</code></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
 
-<p><code class="language-plaintext highlighter-rouge">spring-boot-starter-tomcat</code>: 과거엔 웹 서버에 java code를 직접 밀어 넣는 방식이었는데, 지금은 소스 라이브러리에 웹 서버가 내장되어 있다.<br />
-<code class="language-plaintext highlighter-rouge">logback</code>, <code class="language-plaintext highlighter-rouge">slf4j</code>: 이 두 라이브러리를 주로 많이 쓴다고 한다.<br />
-<code class="language-plaintext highlighter-rouge">log</code>에 대하여: 결과값 출력을 system에 하지 않고 log로 출력하는 이유는 로그 파일도 따로 관리가 되고, 심각한 에러 발생 시에 따로 모아서 볼 수도 있기 때문이다.</p>
+-->
 
-<h3 id="--테스트-라이브러리">- 테스트 라이브러리</h3>
-<ul>
-  <li>spring-boot-starter-test
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">junit</code>: 테스트 프레임워크</li>
-      <li><code class="language-plaintext highlighter-rouge">mockito</code>: 목 라이브러리</li>
-      <li><code class="language-plaintext highlighter-rouge">assertj</code>: 테스트 코드를 좀 더 편하게 작성하게 도와주는 라이브러리</li>
-      <li><code class="language-plaintext highlighter-rouge">spring-test</code>: 스프링 통합 테스트 지원</li>
-    </ul>
-  </li>
-</ul>
 
-<p><code class="language-plaintext highlighter-rouge">junit</code>: 자바에서 테스트할 때 주로 쓰는 라이브러리로 요즘 4에서 5로 넘어가는 추세라고 한다.</p>
 
-<h2 id="3-welcome-page를-통해-동작-과정을-알아보자">3. Welcome Page를 통해 동작 과정을 알아보자</h2>
-<p><img src="/assets/images/section1.png" alt="image" />
-<br />
-<br />
-1st. 웹 브라우저가 서버에 요청하면<br />
-2nd. Mapping 되어 있는 것을 찾아서<br />
-3rd. 해당 controller에 있는 메소드를 실행한다.<br />
-4th. controller가 반환한 값을 받아 viewResolver가 화면을 찾아 처리해준다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring" /><category term="Java" /><summary type="html"><![CDATA[프로젝트를 만들어봅시다.]]></summary></entry></feed>
+        <p></p>
+
+        <!-- archive 중간 광고 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+            data-ad-client="ca-pub-6111782407607310"
+            data-ad-slot="5458515780"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+      <footer class="page__meta">
+        
+        <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C+%EA%B8%B0%EC%B4%88%5D+Chapter+04+-+%EA%B8%B0%EB%B3%B8+%EC%9C%84%EC%A0%AF+%EC%9D%B5%ED%9E%88%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fandroid%2520basic%2FChapter04%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fandroid%2520basic%2FChapter04%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fandroid%2520basic%2FChapter04%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+  </article>
+
+  
+  
+    <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
+      <h4 class="page__related-title">최근 글 10 개 :)</h4>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/android%20basic/Chapter05/">[안드로이드 기초] Chapter 05 - 레이아웃 익히기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.04.11
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#android-basic" class="page__taxonomy-item-category" rel="tag">Android Basic</a>
+                    
+                    
+                    <a href="/tags/#kotlin" class="page__taxonomy-item-tag" rel="tag">Kotlin</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/spring/Section02/">[스프링 입문] Section 02 - 스프링 웹 개발 기초</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.04.07
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring" class="page__taxonomy-item-category" rel="tag">Spring</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">Java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/android%20basic/Chapter01/">[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.04.07
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#android-basic" class="page__taxonomy-item-category" rel="tag">Android Basic</a>
+                    
+                    
+                    <a href="/tags/#kotlin" class="page__taxonomy-item-tag" rel="tag">Kotlin</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/spring/Section01/">[스프링 입문] Section 01 - 프로젝트 환경설정</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.04.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring" class="page__taxonomy-item-category" rel="tag">Spring</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">Java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 June & Directory. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'hi-june/hi-june.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'photon-dark');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </body>
+</html>
