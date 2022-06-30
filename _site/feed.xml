@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-28T11:45:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[안드로이드 기초] Chapter 05 - 레이아웃 익히기</title><link href="http://localhost:4000/android%20basic/Chapter05/" rel="alternate" type="text/html" title="[안드로이드 기초] Chapter 05 - 레이아웃 익히기" /><published>2022-04-11T00:00:00+09:00</published><updated>2022-04-11T00:00:00+09:00</updated><id>http://localhost:4000/android%20basic/Chapter05</id><content type="html" xml:base="http://localhost:4000/android%20basic/Chapter05/"><![CDATA[<h2 id="1-레이아웃의-개요">1. 레이아웃의 개요</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-01T01:01:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[SiDoli Project] 어플 개요</title><link href="http://localhost:4000/android%20team/Test/" rel="alternate" type="text/html" title="[SiDoli Project] 어플 개요" /><published>2022-06-29T00:00:00+09:00</published><updated>2022-07-01T00:00:00+09:00</updated><id>http://localhost:4000/android%20team/Test</id><content type="html" xml:base="http://localhost:4000/android%20team/Test/"><![CDATA[<h2 id="0-들어가기에-앞서">0. 들어가기에 앞서</h2>
+<p>학교에서 ‘안드로이드 프로그래밍’이라는 과목을 수강하면서 팀 프로젝트를 진행하게 되었다.<br />
+시흥시와 협력하는 ce 교과로써 시흥시에 도움이 될 만한 어플을 고안해서 제안해보는 과제였다.<br />
+우리 팀은 시흥시가 뭔가 위험하다는 이미지가 있는 것 같고, 이를 개선하기 위해 ‘시흥시 안전지도’라는 컨셉으로 어플리케이션을 개발해보자 라는 결론에 이르렀다.</p>
+
+<p>그리고 현재 기능적으로는 어플이 완성된 상태이고, 자잘한 버그와 디자인만 손 보면 구글 플레이스토어에 업로드하여 서비스해볼 생각이다. 그에 앞서 개발하면서 배웠던 점들에 대해서 정리해보는 시간을 갖고자 한다.</p>
+
+<h2 id="1-제안서-소개">1. 제안서 소개</h2>
+<h3 id="--주제-선정-및-필요성">- 주제 선정 및 필요성</h3>
+<p><img src="/assets/images/SiDoli/a.png" alt="image" class="align-center" width="90%" height="90%" /></p>
+
+<p><img src="/assets/images/SiDoli/b.png" alt="image" class="align-center" width="90%" height="90%" /></p>
+
+<p>학교가 시흥에 있다는 말을 들었을 때 주변의 반응이 ‘거기 위험하지 않아?’라든지, ‘공단 있는 곳 아니야?’라든지 다소 위험하다는 인식이 많았다. 실제로 학교 근처에 공단이 위치해있다보니 가로등이 없는 거리도 꽤 있고, 어두운 거리들도 많아서 좀 더 밝은 귀갓길을 결정하는데 도움이 될 수 있는 서비스가 있다면 시흥시에 대한 인식도 개선될 수 있을 것이다.</p>
+
+<h3 id="--참고한-유사-서비스">- 참고한 유사 서비스</h3>
+<ol>
+  <li>
+    <p>화순군 스마트 조명 지킴이
+<img src="/assets/images/SiDoli/c.png" alt="image" class="align-center" /></p>
+
+    <p>보안등 데이터를 불러와서 지도에 보여줄 수 있다면 사용자로 하여금 좀 더 안전한 경로를 결정할 때 도움이 될 것 같다는 생각에 참고한 어플리케이션이다.</p>
+  </li>
+  <li>
+    <p>안심해
+<img src="/assets/images/SiDoli/d.png" alt="image" /></p>
+
+    <p>전반적인 기능들과 컨셉이 우리 팀이 구현하고자 하는 어플과 상당히 유사하여 참고하게 된 어플이다.</p>
+  </li>
+</ol>
+
+<h3 id="--차별성">- 차별성</h3>
+<p><img src="/assets/images/SiDoli/e.png" alt="image" class="align-center" width="90%" height="90%" /></p>
+
+<p>그렇다면, 시흥시의 데이터를 이용해서 시흥시만의 특화된 서비스를 만들어보자!!</p>
+
+<h2 id="2-sidoli-어플리케이션-소개">2. SiDoli 어플리케이션 소개</h2>
+<p><img src="/assets/images/SiDoli/f.png" alt="image" class="align-center" width="90%" height="90%" /></p>
+
+<!-- Courtesy of embedresponsively.com //-->
+<div class="responsive-video-container">
+
+  <iframe src="https://www.youtube-nocookie.com/embed/tgOPO2Vbt5M" frameborder="0" allowfullscreen=""></iframe>
+
+</div>
+
+<ul>
+  <li>기본 기능(지도의 기본적인 기능)
+    <ol>
+      <li>Map View: <code class="language-plaintext highlighter-rouge">구글맵 api</code>를 이용하여 지도를 보여준다.</li>
+      <li>현 위치 조회: <code class="language-plaintext highlighter-rouge">GPS</code>를 이용하여 현 위치를 조회하고 지도에 표시해준다.</li>
+    </ol>
+  </li>
+  <li>특화 기능
+    <ol>
+      <li>보안등 정보: 시흥시에 설치된 보안등의 위치를 지도에 보여준다.</li>
+      <li>안심벨: 긴급 상황에 대비해 주변에 위험을 알릴 수 있도록 알림음이 울리도록 구현했다.</li>
+      <li>긴급신고: 인근 경찰서에 긴급신고하는 기능이다.</li>
+      <li>경찰서 안내: 현위치부터 시흥시에 있는 경찰서까지의 경로를 안내해준다.</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="3-앞으로의-게시글-예고">3. 앞으로의 게시글 예고</h2>
+<p>프로젝트를 진행하면서 새로 배웠던 것들을 하나씩 정리해보자. 주로 코틀린 관련 내용들을 포스팅할 예정이고, 대략 이런 게시글들이 있지 않을까..</p>
+
+<ol>
+  <li>구글 맵 api 초기 설정</li>
+  <li>공공 데이터 포털에서 필요한 데이터 이용하기</li>
+  <li>json parsing</li>
+  <li>기타 사항(Kotlin)
+    <ul>
+      <li>db 파일 내부 저장소로 옮기기</li>
+      <li>마커와 클러스트링</li>
+      <li>위치 정보와 길찾기 api</li>
+      <li>기타 잡다한 기능(ringtone, uri)</li>
+    </ul>
+  </li>
+</ol>]]></content><author><name>hi~ June!!</name></author><category term="Android Team" /><category term="Kotlin" /><summary type="html"><![CDATA[팀 Grean Apple Bean의 프로젝트]]></summary></entry><entry><title type="html">[안드로이드 기초] Chapter 05 - 레이아웃 익히기</title><link href="http://localhost:4000/android%20basic/Chapter05/" rel="alternate" type="text/html" title="[안드로이드 기초] Chapter 05 - 레이아웃 익히기" /><published>2022-04-11T00:00:00+09:00</published><updated>2022-04-11T00:00:00+09:00</updated><id>http://localhost:4000/android%20basic/Chapter05</id><content type="html" xml:base="http://localhost:4000/android%20basic/Chapter05/"><![CDATA[<h2 id="1-레이아웃의-개요">1. 레이아웃의 개요</h2>
 <ul>
   <li>레이아웃의 기본 개념<br />
 레이아웃은 레이아웃 안에 존재하는 위젯을 배치하게 해준다. 다음과 같은 속성들이 있다.

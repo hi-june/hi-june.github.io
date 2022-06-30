@@ -28,4 +28,10 @@ var store = [{
         "tags": ["Kotlin"],
         "url": "/android%20basic/Chapter05/",
         "teaser": null
+      },{
+        "title": "[SiDoli Project] 어플 개요",
+        "excerpt":"0. 들어가기에 앞서 학교에서 ‘안드로이드 프로그래밍’이라는 과목을 수강하면서 팀 프로젝트를 진행하게 되었다. 시흥시와 협력하는 ce 교과로써 시흥시에 도움이 될 만한 어플을 고안해서 제안해보는 과제였다. 우리 팀은 시흥시가 뭔가 위험하다는 이미지가 있는 것 같고, 이를 개선하기 위해 ‘시흥시 안전지도’라는 컨셉으로 어플리케이션을 개발해보자 라는 결론에 이르렀다. 그리고 현재 기능적으로는 어플이 완성된 상태이고,...","categories": ["Android Team"],
+        "tags": ["Kotlin"],
+        "url": "/android%20team/Test/",
+        "teaser": null
       }]
