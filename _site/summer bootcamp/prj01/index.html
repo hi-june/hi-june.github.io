@@ -683,7 +683,9 @@
     <p>WSGI 서버의 동작 원리를 구체적으로 보자<br />
 <code class="language-plaintext highlighter-rouge">웹 서버</code>로 들어온 동적 페이지 요청 -&gt; <code class="language-plaintext highlighter-rouge">WSGI 서버</code>를 호출 -&gt; <code class="language-plaintext highlighter-rouge">WSGI 어플리케이션</code> 호출 -&gt; 동적 요청 처리<br /></p>
 
-    <p>즉, 동적 페이지 요청은 결국 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>이 처리하는 것이고, 이런 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>에는 <code class="language-plaintext highlighter-rouge">django</code>, <code class="language-plaintext highlighter-rouge">flask</code>, <code class="language-plaintext highlighter-rouge">tornado</code> 등이 있는 것이다!<br /></p>
+    <p>즉, 동적 페이지 요청은 결국 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>이 처리하는 것이고, 이런 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>에는 <code class="language-plaintext highlighter-rouge">django</code>, <code class="language-plaintext highlighter-rouge">flask</code>, <code class="language-plaintext highlighter-rouge">fast api</code> 등이 있는 것이다!<br /></p>
+
+    <p><img src="/assets/images/Summer%20BootCamp/1-g.png" alt="image" width="50%" height="50%" /></p>
 
     <p>++ <code class="language-plaintext highlighter-rouge">WSGI 서버</code>는 <code class="language-plaintext highlighter-rouge">웹 서버</code>와 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code> 중간에 위치해서 <code class="language-plaintext highlighter-rouge">WSGI 미들웨어</code>, <code class="language-plaintext highlighter-rouge">WSGI 컨테이너</code> 라고도 한다.</p>
   </li>
