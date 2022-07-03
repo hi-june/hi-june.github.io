@@ -119,6 +119,15 @@
                 {% endfor %}
             </ul>
 
+        <span class="nav__sub-title">Web</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Summer BootCamp" %}
+                        <li><a href="/categories/web-project" class="">Silicon Valley Boot Camp ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
         <span class="nav__sub-title">etc</span>
             <ul>
                 {% for category in site.categories %}

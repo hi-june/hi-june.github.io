@@ -34,4 +34,10 @@ var store = [{
         "tags": ["Kotlin"],
         "url": "/android%20team/Test/",
         "teaser": null
+      },{
+        "title": "Flask의 기초 - 웹 브라우저와 서버의 동작방식",
+        "excerpt":"아키텍처를 보며.. python으로 웹 application을 만들 때 -&gt; 기본적으로 socket을 제공하니까 개 노가다 하면 만들 수야 있겠지만 의미도 없고.. -&gt; 따라서, python을 이용하여 WSGI 라는 인터페이스를 만들어 사용하고 있다. WSGI가 뭔데? WSGI는 ‘Web Server GateWay Interface’의 약자로 web server로 들어오는 request를 python으로 쓰여진 web application으로 forwarding 해주는 interface를 말한다. 예시)...","categories": ["Summer BootCamp"],
+        "tags": ["Python"],
+        "url": "/summer%20bootcamp/prj01/",
+        "teaser": null
       }]
