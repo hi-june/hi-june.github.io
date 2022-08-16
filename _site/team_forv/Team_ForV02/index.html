@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Flask의 기초 - 웹 브라우저와 서버의 동작방식 -  June &amp; Directory</title>
-<meta name="description" content="큰 그림부터 보자. ">
+<!-- begin _includes/seo.html --><title>[Team_ForV] 프로젝트 소개 -  June &amp; Directory</title>
+<meta name="description" content="Team_ForV의 프로젝트 ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="Flask의 기초 - 웹 브라우저와 서버의 동작방식">
-<meta property="og:url" content="http://localhost:4000/team_forv/prj01/">
+<meta property="og:title" content="[Team_ForV] 프로젝트 소개">
+<meta property="og:url" content="http://localhost:4000/team_forv/Team_ForV02/">
 
 
-  <meta property="og:description" content="큰 그림부터 보자. ">
+  <meta property="og:description" content="Team_ForV의 프로젝트 ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-07-03T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-08-16T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-07-03T00:00:00+09:00">
+  <meta property="article:modified_time" content="2022-08-16T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/team_forv/prj01/">
+<link rel="canonical" href="http://localhost:4000/team_forv/Team_ForV02/">
 
 
 
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">Flask의 기초 - 웹 브라우저와 서버의 동작방식</li>
+        <li class="current">[Team_ForV] 프로젝트 소개</li>
       
     
   </ol>
@@ -488,6 +488,8 @@
                     
                 
             </ul>
+
+        <span class="nav__sub-title">Project</span>
             <ul>
                 
                     
@@ -495,14 +497,12 @@
                     
                 
                     
-                        <li><a href="/categories/android-team" class="">안드로이드 팀플 (1)</a></li>
+                        <li><a href="/categories/SiDoli" class="">SiDoli (1)</a></li>
                     
                 
                     
                 
             </ul>
-
-        <span class="nav__sub-title">Project</span>
             <ul>
                 
                     
@@ -554,18 +554,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Flask의 기초 - 웹 브라우저와 서버의 동작방식">
-    <meta itemprop="description" content="큰 그림부터 보자.">
-    <meta itemprop="datePublished" content="2022-07-03T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-07-03T00:00:00+09:00">
+    <meta itemprop="headline" content="[Team_ForV] 프로젝트 소개">
+    <meta itemprop="description" content="Team_ForV의 프로젝트">
+    <meta itemprop="datePublished" content="2022-08-16T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-08-16T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Flask의 기초 - 웹 브라우저와 서버의 동작방식
+          <h1 id="page-title" class="page__title" itemprop="headline">[Team_ForV] 프로젝트 소개
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-07-03T00:00:00+09:00">2022.07.03</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-07-03">2022.07.03</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-08-16T00:00:00+09:00">2022.08.16</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-08-16">2022.08.16</time></p>
           
           
             
@@ -598,7 +598,7 @@
     
       
       
-      <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">Python</a>
+      <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
     
     </span>
   </p>
@@ -613,88 +613,96 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#아키텍처를-보며">아키텍처를 보며..</a></li>
-  <li><a href="#wsgi가-뭔데">WSGI가 뭔데?</a></li>
-  <li><a href="#proxy-server는-무엇이냐">Proxy Server는 무엇이냐</a></li>
-  <li><a href="#아키텍처를-보며-다시-정리해보자">아키텍처를 보며 다시 정리해보자!</a>
+  <li><a href="#들어가기에-앞서">들어가기에 앞서..</a></li>
+  <li><a href="#프로젝트-소개">프로젝트 소개</a></li>
+  <li><a href="#프로젝트-목적">프로젝트 목적</a></li>
+  <li><a href="#세부-구성">세부 구성</a>
     <ul>
-      <li><a href="#참고-자료">참고 자료</a></li>
+      <li><a href="#main-page">Main page</a></li>
+      <li><a href="#detail-page">Detail page</a></li>
+      <li><a href="#make-tts-page">Make-TTS page</a></li>
+      <li><a href="#responsive-web">Responsive web</a></li>
     </ul>
   </li>
+  <li><a href="#demo">Demo</a></li>
+  <li><a href="#앞으로의-포스팅-예고">앞으로의 포스팅 예고!</a></li>
+  <li><a href="#appendix--reference">Appendix &amp; Reference</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="아키텍처를-보며">아키텍처를 보며..</h2>
-<p><img src="/assets/images/Team_ForV/1-a.png" alt="image" width="120%" height="120%" /></p>
+        <h2 id="들어가기에-앞서">들어가기에 앞서..</h2>
+<p>여름방학을 맞아 학교 사람들과 같이 프로젝트를 진행해보았다.<br />
+AI 기술을 활용하여 web 서비스를 만들며 end to end 경험을 해보는 경험을 했다.<br />
+프로젝트가 끝나고 기억이 흐려지기 전에 프로젝트를 진행하며 겪었던 시행착오들과 공부했던 내용을 차곡차곡 정리해보고자 한다.</p>
 
-<p><code class="language-plaintext highlighter-rouge">python</code>으로 웹 application을 만들 때<br />
--&gt; 기본적으로 socket을 제공하니까 개 노가다 하면 만들 수야 있겠지만 의미도 없고..<br />
--&gt; 따라서, <code class="language-plaintext highlighter-rouge">python</code>을 이용하여 <code class="language-plaintext highlighter-rouge">WSGI</code> 라는 인터페이스를 만들어 사용하고 있다.<br /></p>
+<h2 id="프로젝트-소개">프로젝트 소개</h2>
+<p>프로젝트를 시작하기에 앞서 여러 AI 관련 프로젝트들을 참고하였고, 그 중 눈에 들어왔던 기술은..</p>
 
-<h2 id="wsgi가-뭔데">WSGI가 뭔데?</h2>
-<p><img src="/assets/images/Team_ForV/1-b.png" alt="image" width="50%" height="50%" />
-<img src="/assets/images/Team_ForV/1-c.png" alt="image" /></p>
+<p><img src="/assets/images/Team_ForV/2-1.png" alt="image" width="80%" height="80%" class="align-center" /><br />
+네이버에서 진행하는 개발자 컨퍼런스 DEVIEW의 ‘연예인의 목소리로 책 읽어주기’발표에서 선보인 ‘사람의 목소리를 학습시키는 기술’이었다.</p>
 
-<p><code class="language-plaintext highlighter-rouge">WSGI</code>는 ‘Web Server GateWay Interface’의 약자로 web server로 들어오는 request를 python으로 쓰여진 web application으로 forwarding 해주는 interface를 말한다.<br />
-예시) <code class="language-plaintext highlighter-rouge">gunicorn</code>, <code class="language-plaintext highlighter-rouge">uwsgi</code> 등등이 있음</p>
+<p>사람의 목소리를 학습시켜 그 목소리로 오디오북을 만들어준다는 내용이었고, 이 발표를 보고 한 아이디어를 떠올렸다.</p>
 
-<dl>
-  <dt>Q) 근데, flask, django 사용했을 때 gunicorn 같은 거 없이도 web server 잘 돌아가던데?<br /></dt>
-  <dd>사실은 프레임워크 안에 자체적으로 WSGI가 내장되어 있어서 잘 돌아갔던 것..</dd>
-</dl>
+<p><img src="/assets/images/Team_ForV/2-2.png" alt="image" width="80%" height="80%" class="align-center" /><br />
+우리나라에서 엔터테인먼트 사업이 한하다는 걸 얘기하는 건 어쩌면 뻔하게 들릴 수도 있을만큼, k-pop의 인기는 굳이 따로 설명하지 않아도 전 세계적으로 인정받고 있는 대중문화의 일종이다.</p>
 
-<p>web application을 만들기 위해선 <code class="language-plaintext highlighter-rouge">flask</code>나 <code class="language-plaintext highlighter-rouge">django</code>가 제공해주는 <code class="language-plaintext highlighter-rouge">template</code>나 <code class="language-plaintext highlighter-rouge">view</code>를 가지고 <code class="language-plaintext highlighter-rouge">python</code>으로 웹 서버를 만드는 것인데..(결국 <code class="language-plaintext highlighter-rouge">flask</code>나 <code class="language-plaintext highlighter-rouge">django</code>는 프레임워크에 불과하다는 소리!)<br />
--&gt; 실제로 deploy까지 하게 되면 <code class="language-plaintext highlighter-rouge">WSGI</code>라는 인터페이스가 있고, 그런 인터페이스의 제공을 위해 <code class="language-plaintext highlighter-rouge">gunicorn</code> 등을 이용하는 것이다.<br />
--&gt; 다만, python web server는 보안 및 퍼포먼스의 문제가 있어 전문적 web server를 <code class="language-plaintext highlighter-rouge">proxy server</code>로 두는데..<br /></p>
+<p>이런 흐름에 맞춰서 기획사들도 소비자들을 확보하기 위해 다양한 노력을 기울이고 있는데,</p>
 
-<h2 id="proxy-server는-무엇이냐">Proxy Server는 무엇이냐</h2>
-<p><img src="/assets/images/Team_ForV/1-d.png" alt="image" width="50%" height="50%" />
-<img src="/assets/images/Team_ForV/1-e.jpeg" alt="image" width="40%" height="50%" /></p>
+<p>z세대가 핵심 소비자인 브랜드라면, 다른 데선 할 수 없는 특이한 체험을 마케팅에 접목하면 좋다’라던지,<br />
+이미 몇몇 회사에서는 소속 연예인들의 음성 데이터를 활용하는 방안들도 검토 중이라는 걸 알 수 있었다.<br /></p>
 
-<p><code class="language-plaintext highlighter-rouge">Proxy</code>: 서버와 클라이언트 사이에서 대리로 통신을 수행해주는 것<br />
-즉, Client가 자신을 거쳐 다른 네트워크에 접속할 수 있도록 중간에서 대리해주는 서버를 말한다.<br />
-사용자가 많거나, performance, security를 고려하여 전문적 server를 두는 것이다.<br /></p>
+<p><img src="/assets/images/Team_ForV/2-3.png" alt="image" width="80%" height="80%" class="align-center" /><br />
+직접 목소리를 학습시켜 TTS를 만드는 서비스를 새로운 엔터테인먼트 사업의 한 홍보수단으로 활용해본다면 어떨까하는 생각이 들어서 이 프로젝트를 시작하게 되었다.</p>
 
-<h2 id="아키텍처를-보며-다시-정리해보자">아키텍처를 보며 다시 정리해보자!</h2>
-<p><img src="/assets/images/Team_ForV/1-a.png" alt="image" width="120%" height="120%" /></p>
+<h2 id="프로젝트-목적">프로젝트 목적</h2>
+<p>‘팀원들의 목소리로 TTS 서비스를 제공하는 프로젝트’를 아티스트 홍보 페이지의 한 예시로 제시한다.</p>
 
-<ol>
-  <li>웹 브라우저의 동작방식<br />
-사용자가 서비스를 이용하려면 웹 브라우저에 URL을 입력하는데, 이 때 웹 브라우저가 URL을 사용해서 서버에 요청하는 페이지는 크게 2가지 종류가 있다.
-    <ul>
-      <li>정적 페이지 요청<br />
-   예를 들어 <code class="language-plaintext highlighter-rouge">http://3.37.58.70:5000/static/hello.css</code>라는 URL 접속 요청이 들어오면, 서비스는 <code class="language-plaintext highlighter-rouge">static/hello.css</code>라는 파일을 찾아서 웹 브라우저로 보내주는 것이다. .js, .jpg, .png 등등의 파일은 변하지 않는 성질 때문에 ‘정적 파일’이라고 하며, 웹 브라우저에서 이런 정적 파일을 요청하는 행위를 ‘정적 페이지 요청’이라 한다.</li>
-      <li>동적 페이지 요청<br />
-   서버의 데이터베이스에 어떤 내용이 있는지에 따라 수시로 변하는 파일들이 있다. 웹 브라우저의 이러한 요청을 ‘동적 페이지 요청’이라고 한다. 이러한 동적 요청은 정적 요청과는 달리 조금 복잡한 과정을 거쳐 응답한다.</li>
-    </ul>
+<h2 id="세부-구성">세부 구성</h2>
+<p>프론트엔드 담당해주신 분들이 디자인을 예쁘게 해주셨다.<br />
+별도 설명이 없어도 사용자가 서비스를 쉽게 이용할 수 있도록 최대한 직관적이고, 심플하게 디자인했다.<br />
+또, 사용자의 환경에 따라 같은 화면을 보여주기 위해 모든 페이지는 반응형웹으로 디자인했다.</p>
+
+<ul>
+  <li>
+    <h3 id="main-page">Main page</h3>
+    <p><img src="/assets/images/Team_ForV/2-4.png" alt="image" width="80%" height="80%" /></p>
   </li>
   <li>
-    <p>동적 페이지 요청의 처리를 위해 웹 서버와 WSGI 서버가 필요하다!<br />
-웹 서버에 동적 페이지 요청이 들어오면 파이썬 프로그램을 호출해야 한다<br />
--&gt; 대부분의 웹 서버는 어떻게 파이썬 프로그램을 호출해야 하는지 모르기 때문에 파이썬 프로그램을 호출하지 못한다.<br />
--&gt; 이런 경우에 파이썬 프로그램을 호출하는 WSGI 서버가 필요한 것이다.<br /></p>
-
-    <p>즉, 동적 페이지 요청의 과정은<br />
-웹 서버가 WSGI 서버 호출 -&gt; WSGI 서버가 파이썬 프로그램을 호출<br /></p>
+    <h3 id="detail-page">Detail page</h3>
+    <p><img src="/assets/images/Team_ForV/2-5.png" alt="image" width="80%" height="80%" /></p>
   </li>
   <li>
-    <p>WSGI 서버의 동작 원리를 구체적으로 보자<br />
-<code class="language-plaintext highlighter-rouge">웹 서버</code>로 들어온 동적 페이지 요청 -&gt; <code class="language-plaintext highlighter-rouge">WSGI 서버</code>를 호출 -&gt; <code class="language-plaintext highlighter-rouge">WSGI 어플리케이션</code> 호출 -&gt; 동적 요청 처리<br /></p>
-
-    <p>즉, 동적 페이지 요청은 결국 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>이 처리하는 것이고, 이런 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>에는 <code class="language-plaintext highlighter-rouge">django</code>, <code class="language-plaintext highlighter-rouge">flask</code>, <code class="language-plaintext highlighter-rouge">fast api</code> 등이 있는 것이다!<br /></p>
-
-    <p><img src="/assets/images/Team_ForV/1-g.png" alt="image" width="50%" height="50%" /></p>
-
-    <p>++ <code class="language-plaintext highlighter-rouge">WSGI 서버</code>는 <code class="language-plaintext highlighter-rouge">웹 서버</code>와 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code> 중간에 위치해서 <code class="language-plaintext highlighter-rouge">WSGI 미들웨어</code>, <code class="language-plaintext highlighter-rouge">WSGI 컨테이너</code> 라고도 한다.</p>
+    <h3 id="make-tts-page">Make-TTS page</h3>
+    <p><img src="/assets/images/Team_ForV/2-6.png" alt="image" width="80%" height="80%" /></p>
   </li>
-</ol>
+  <li>
+    <h3 id="responsive-web">Responsive web</h3>
+    <p><img width="48%" height="48%" src="https://user-images.githubusercontent.com/98803599/183294274-d0c7a378-536c-4fe6-8522-1e82d89f9294.gif" />
+  <img width="48%" height="48%" src="https://user-images.githubusercontent.com/98803599/183294585-a59fa2c3-b9c6-463c-b211-0042fd356c9a.gif" /></p>
+  </li>
+</ul>
 
-<h3 id="참고-자료">참고 자료</h3>
-<p><a href="https://liveyourit.tistory.com/251">https://liveyourit.tistory.com/251</a> [프록시 서버란?]<br />
-<a href="https://wikidocs.net/81076">https://wikidocs.net/81076</a> [점프 투 플라스크]<br />
-<a href="https://www.youtube.com/watch?v=5rjhJRyu8s8&amp;t=0s">https://www.youtube.com/watch?v=5rjhJRyu8s8&amp;t=0s</a> [<code class="language-plaintext highlighter-rouge">django</code>, <code class="language-plaintext highlighter-rouge">flask</code> 배포 스택 구성]<br /></p>
+<h2 id="demo">Demo</h2>
+
+<!-- Courtesy of embedresponsively.com //-->
+<div class="responsive-video-container">
+
+  <iframe src="https://www.youtube-nocookie.com/embed/HNyv6iGliqA" frameborder="0" allowfullscreen=""></iframe>
+
+</div>
+
+<h2 id="앞으로의-포스팅-예고">앞으로의 포스팅 예고!</h2>
+<p>가볍게 프로젝트의 아키텍처를 보며 어떤 기술들을 왜 적용했는지, 그리고 그 특징들이 무엇인지 살펴보고<br />
+내가 맡은 백엔드와 AI 파트 위주로 보면서 그동안 겪었던 시행착오들과 코드들을 정리해보고자 한다!</p>
+
+<h2 id="appendix--reference">Appendix &amp; Reference</h2>
+<p><a href="https://github.com/2022SiliconValley-Team-ForV">https://github.com/2022SiliconValley-Team-ForV</a> [Team_ForV 프로젝트 깃허브 링크]<br /></p>
+
+<p><a href="https://sce-tts.github.io/#/v2/index">https://sce-tts.github.io/#/v2/index</a> [내 목소리로 TTS 만들기 프로젝트]
+<a href="https://deview.kr/2017/schedule/182">https://deview.kr/2017/schedule/182</a> [2017년 ‘책 읽어주는 딥러닝’ - 데브시스터즈 / 김태훈님]
+<a href="https://deview.kr/2018/schedule/247">https://deview.kr/2018/schedule/247</a> [2018년 ‘누구나 만드는 내 목소리 합성기’ - 네이버 / 이봉준님]</p>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -706,12 +714,11 @@
 
   <nav class="pagination">
     
-      <a href="/android%20team/Test/" class="pagination--pager" title="[SiDoli Project] 어플 개요
+      <a href="/team_forv/Team_ForV01/" class="pagination--pager" title="Flask의 기초 - 웹 브라우저와 서버의 동작방식
 ">이전</a>
     
     
-      <a href="/team_forv/prj02/" class="pagination--pager" title="[Team_ForV] 프로젝트 소개
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -719,8 +726,6 @@
 
 
 
-
-  
 
   
   	
@@ -732,10 +737,10 @@
 
   <nav class="pagination_prev_next">
     
-      <a href="#" class="pagination_prev_next--pager disabled-first-child">첫 번째 글입니다</a>
+      <a href="/team_forv/Team_ForV01/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>Flask의 기초 - 웹 브라우저와 서버의 동작방식</a>
     
     
-      <a href="/team_forv/prj02/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[Team_ForV] 프로젝트 소개</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -768,11 +773,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Flask%EC%9D%98+%EA%B8%B0%EC%B4%88+-+%EC%9B%B9+%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%99%80+%EC%84%9C%EB%B2%84%EC%9D%98+%EB%8F%99%EC%9E%91%EB%B0%A9%EC%8B%9D%20http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2Fprj01%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BTeam_ForV%5D+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%86%8C%EA%B0%9C%20http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV02%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2Fprj01%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV02%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2Fprj01%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV02%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -791,10 +796,10 @@
     <article class="archive-item">
         <div>
             <span>
-              <a href="/team_forv/prj02/">[Team_ForV] 프로젝트 소개</a>
+              <a href="/team_forv/Team_ForV01/">Flask의 기초 - 웹 브라우저와 서버의 동작방식</a>
             </span>
             <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.16
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.07.03
               <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
         
@@ -802,7 +807,7 @@
             <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
                     
                     
-                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+                    <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">Python</a>
                 
             </span>
         </span>
@@ -815,7 +820,7 @@
     <article class="archive-item">
         <div>
             <span>
-              <a href="/android%20team/Test/">[SiDoli Project] 어플 개요</a>
+              <a href="/sidoli/SiDoli01/">[SiDoli] 프로젝트 소개</a>
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.06.29
@@ -823,10 +828,10 @@
 <!--page__taxonomy.html에서 가져 옴-->
         
         <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#android-team" class="page__taxonomy-item-category" rel="tag">Android Team</a>
+            <span itemprop="keywords"><a href="/categories/#sidoli" class="page__taxonomy-item-category" rel="tag">SiDoli</a>
                     
                     
-                    <a href="/tags/#kotlin" class="page__taxonomy-item-tag" rel="tag">Kotlin</a>
+                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
                 
             </span>
         </span>

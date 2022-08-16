@@ -1,7 +1,7 @@
 ---
 title: "SiDoli"
 layout: archive
-permalink: categories/android-team
+permalink: categories/SiDoli
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories['Android Team']%}
+{% assign posts = site.categories.SiDoli%}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

@@ -29,21 +29,21 @@ var store = [{
         "url": "/android%20basic/Chapter05/",
         "teaser": null
       },{
-        "title": "[SiDoli Project] 어플 개요",
-        "excerpt":"0. 들어가기에 앞서 학교에서 ‘안드로이드 프로그래밍’이라는 과목을 수강하면서 팀 프로젝트를 진행하게 되었다. 시흥시와 협력하는 ce 교과로써 시흥시에 도움이 될 만한 어플을 고안해서 제안해보는 과제였다. 우리 팀은 시흥시가 뭔가 위험하다는 이미지가 있는 것 같고, 이를 개선하기 위해 ‘시흥시 안전지도’라는 컨셉으로 어플리케이션을 개발해보자 라는 결론에 이르렀다. 그리고 현재 기능적으로는 어플이 완성된 상태이고,...","categories": ["Android Team"],
-        "tags": ["Kotlin"],
-        "url": "/android%20team/Test/",
+        "title": "[SiDoli] 프로젝트 소개",
+        "excerpt":"0. 들어가기에 앞서 학교에서 ‘안드로이드 프로그래밍’이라는 과목을 수강하면서 팀 프로젝트를 진행하게 되었다. 시흥시와 협력하는 ce 교과로써 시흥시에 도움이 될 만한 어플을 고안해서 제안해보는 과제였다. 우리 팀은 시흥시가 뭔가 위험하다는 이미지가 있는 것 같고, 이를 개선하기 위해 ‘시흥시 안전지도’라는 컨셉으로 어플리케이션을 개발해보자 라는 결론에 이르렀다. 그리고 현재 기능적으로는 어플이 완성된 상태이고,...","categories": ["SiDoli"],
+        "tags": ["Info"],
+        "url": "/sidoli/SiDoli01/",
         "teaser": null
       },{
         "title": "Flask의 기초 - 웹 브라우저와 서버의 동작방식",
         "excerpt":"아키텍처를 보며.. python으로 웹 application을 만들 때 -&gt; 기본적으로 socket을 제공하니까 개 노가다 하면 만들 수야 있겠지만 의미도 없고.. -&gt; 따라서, python을 이용하여 WSGI 라는 인터페이스를 만들어 사용하고 있다. WSGI가 뭔데? WSGI는 ‘Web Server GateWay Interface’의 약자로 web server로 들어오는 request를 python으로 쓰여진 web application으로 forwarding 해주는 interface를 말한다. 예시)...","categories": ["Team_ForV"],
         "tags": ["Python"],
-        "url": "/team_forv/prj01/",
+        "url": "/team_forv/Team_ForV01/",
         "teaser": null
       },{
         "title": "[Team_ForV] 프로젝트 소개",
         "excerpt":"들어가기에 앞서.. 여름방학을 맞아 학교 사람들과 같이 프로젝트를 진행해보았다. AI 기술을 활용하여 web 서비스를 만들며 end to end 경험을 해보는 경험을 했다. 프로젝트가 끝나고 기억이 흐려지기 전에 프로젝트를 진행하며 겪었던 시행착오들과 공부했던 내용을 차곡차곡 정리해보고자 한다. 프로젝트 소개 프로젝트를 시작하기에 앞서 여러 AI 관련 프로젝트들을 참고하였고, 그 중 눈에 들어왔던...","categories": ["Team_ForV"],
         "tags": ["Info"],
-        "url": "/team_forv/prj02/",
+        "url": "/team_forv/Team_ForV02/",
         "teaser": null
       }]
