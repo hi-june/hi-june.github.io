@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-17T00:26:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[Team_ForV] 프로젝트 소개</title><link href="http://localhost:4000/team_forv/Team_ForV02/" rel="alternate" type="text/html" title="[Team_ForV] 프로젝트 소개" /><published>2022-08-16T00:00:00+09:00</published><updated>2022-08-16T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV02</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV02/"><![CDATA[<h2 id="들어가기에-앞서">들어가기에 앞서..</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-17T00:51:33+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[Team_ForV] 프로젝트 소개</title><link href="http://localhost:4000/team_forv/Team_ForV02/" rel="alternate" type="text/html" title="[Team_ForV] 프로젝트 소개" /><published>2022-08-16T00:00:00+09:00</published><updated>2022-08-16T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV02</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV02/"><![CDATA[<h2 id="들어가기에-앞서">들어가기에 앞서..</h2>
 <p>여름방학을 맞아 학교 사람들과 같이 프로젝트를 진행해보았다.<br />
 AI 기술을 활용하여 web 서비스를 만들며 end to end 경험을 해보는 경험을 했다.<br />
 프로젝트가 끝나고 기억이 흐려지기 전에 프로젝트를 진행하며 겪었던 시행착오들과 공부했던 내용을 차곡차곡 정리해보고자 한다.</p>
@@ -228,7 +228,7 @@ AI 기술을 활용하여 web 서비스를 만들며 end to end 경험을 해보
     </ul>
   </li>
   <li>레이아웃의 종류<br />
-<img src="/assets/images/%5BAndroid-Basic%5DCh05_1.png" alt="Image" />
+<img src="/assets/images/Android/%5BAndroid-Basic%5DCh05_1.png" alt="Image" />
     <ul>
       <li><code class="language-plaintext highlighter-rouge">Linear Layout</code>: 레이아웃의 왼쪽 위부터 아래쪽 또는 오른쪽으로 차례로 배치</li>
       <li><code class="language-plaintext highlighter-rouge">Relative Layout</code>: 위젯 자신이 속한 레이아웃의 상하좌우 위치를 지정하여 배치 or 다른 위젯으로부터 상대적인 위치를 지정함</li>
@@ -266,7 +266,7 @@ AI 기술을 활용하여 web 서비스를 만들며 end to end 경험을 해보
     </ul>
   </li>
   <li>안드로이드의 구조<br />
-<img src="/assets/images/%5BAndroid-Basic%5DCh01_1.png" alt="Image" />
+<img src="/assets/images/Android/%5BAndroid-Basic%5DCh01_1.png" alt="Image" />
     <ul>
       <li><code class="language-plaintext highlighter-rouge">응용 프로그램</code>: 사용자가 쓰는 일반적인 응용프로그램</li>
       <li><code class="language-plaintext highlighter-rouge">응용 프로그램 프레임워크</code>: 안드로이드 API가 존재하는 곳. 애플리케이션은 API를 통해 안드로이드 커널에 접근할 수 있음</li>
@@ -276,7 +276,7 @@ AI 기술을 활용하여 web 서비스를 만들며 end to end 경험을 해보
     </ul>
   </li>
 </ul>]]></content><author><name>hi~ June!!</name></author><category term="Android" /><category term="Kotlin" /><summary type="html"><![CDATA[안드로이드 프로그래밍을 시작해보자!!]]></summary></entry><entry><title type="html">[안드로이드 기초] Chapter 04 - 기본 위젯 익히기</title><link href="http://localhost:4000/android/Chapter04/" rel="alternate" type="text/html" title="[안드로이드 기초] Chapter 04 - 기본 위젯 익히기" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-10T00:00:00+09:00</updated><id>http://localhost:4000/android/Chapter04</id><content type="html" xml:base="http://localhost:4000/android/Chapter04/"><![CDATA[<h2 id="1-뷰의-개요">1. 뷰의 개요</h2>
-<p><img src="/assets/images/%5BAndroid-Basic%5DCh04_1.png" alt="Image" width="60%" height="60%" />
+<p><img src="/assets/images/Android/%5BAndroid-Basic%5DCh04_1.png" alt="Image" width="60%" height="60%" />
 <br /></p>
 
 <ul>
@@ -328,17 +328,17 @@ AI 기술을 활용하여 web 서비스를 만들며 end to end 경험을 해보
 </code></pre></div>        </div>
         <p><br />
 <code class="language-plaintext highlighter-rouge">padding</code>: ‘레이아웃의 경계선’과 ‘위젯’ 사이에 여백을 줌<br />
-<img src="/assets/images/%5BAndroid-Basic%5DCh04_2.png" alt="Image" width="30%" height="30%" /></p>
+<img src="/assets/images/Android/%5BAndroid-Basic%5DCh04_2.png" alt="Image" width="30%" height="30%" /></p>
         <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">android</span><span class="p">:</span><span class="n">padding</span> <span class="p">=</span> <span class="s">"30dp"</span>
 </code></pre></div>        </div>
         <p><br />
 <code class="language-plaintext highlighter-rouge">layout_margin</code>: ‘위젯’과 ‘위젯’사이에 여백을 줌<br />
-<img src="/assets/images/%5BAndroid-Basic%5DCh04_3.png" alt="Image" width="30%" height="30%" /></p>
+<img src="/assets/images/Android/%5BAndroid-Basic%5DCh04_3.png" alt="Image" width="30%" height="30%" /></p>
         <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">android</span><span class="p">:</span><span class="n">layout_margin</span> <span class="p">=</span> <span class="s">"30dp"</span>
 </code></pre></div>        </div>
         <p><br />
 <code class="language-plaintext highlighter-rouge">visibility</code>: 위젯을 보일 것인지 여부. default, invisible, gone 세 가지 상태가 있다.<br />
-<img src="/assets/images/%5BAndroid-Basic%5DCh04_4.png" alt="Image" width="30%" height="30%" /></p>
+<img src="/assets/images/Android/%5BAndroid-Basic%5DCh04_4.png" alt="Image" width="30%" height="30%" /></p>
         <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nc">Button</span><span class="p">&gt;</span>
     <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"버튼 1"</span><span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nc">Button</span><span class="p">&gt;</span>
@@ -355,7 +355,7 @@ AI 기술을 활용하여 web 서비스를 만들며 end to end 경험을 해보
 </code></pre></div>        </div>
         <p><br />
 <code class="language-plaintext highlighter-rouge">enabled</code>, <code class="language-plaintext highlighter-rouge">clickable</code>: 위젯의 동작 여부는 <code class="language-plaintext highlighter-rouge">enable</code>속성, 클릭이나 터치가 가능하게 하는 것은 <code class="language-plaintext highlighter-rouge">clickable</code>속성으로 지정한다. 디폴트는 true이다.<br />
-<img src="/assets/images/%5BAndroid-Basic%5DCh04_5.png" alt="Image" width="30%" height="30%" /></p>
+<img src="/assets/images/Android/%5BAndroid-Basic%5DCh04_5.png" alt="Image" width="30%" height="30%" /></p>
         <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;!--</span> <span class="n">enable</span><span class="err">은</span> <span class="err">버튼이</span> <span class="err">불투명하게</span> <span class="err">변함</span> <span class="p">--&gt;</span>
 <span class="p">&lt;</span><span class="nc">Button</span><span class="p">&gt;</span>
     <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"버튼 1"</span> <span class="p">/&gt;</span>
@@ -382,7 +382,7 @@ AI 기술을 활용하여 web 서비스를 만들며 end to end 경험을 해보
 </ul>
 
 <h2 id="2-텍스트뷰">2. 텍스트뷰</h2>
-<p><img src="/assets/images/%5BAndroid-Basic%5DCh04_6.png" alt="Image" width="60%" height="60%" /></p>
+<p><img src="/assets/images/Android/%5BAndroid-Basic%5DCh04_6.png" alt="Image" width="60%" height="60%" /></p>
 <ul>
   <li>텍스트뷰: 텍스트뷰의 속성을 알아봄으로써 그 하위에서 상속받는 다른 위젯들의 속성도 이해해보자.
     <ul>
@@ -500,7 +500,7 @@ xml 파일에서 설정하는 내용의 대부분을 Kotlin 코드에서도 메�
 </ul>
 
 <h2 id="3-버튼과-에디트텍스트">3. 버튼과 에디트텍스트</h2>
-<p><img src="/assets/images/%5BAndroid-Basic%5DCh04_7.png" alt="Image" width="60%" height="60%" /><br />
+<p><img src="/assets/images/Android/%5BAndroid-Basic%5DCh04_7.png" alt="Image" width="60%" height="60%" /><br />
 <br />
 ‘버튼’과 ‘에디트텍스트’는 사용자에게서 어떤 값을 입력받기 위한 가장 기본적인 위젯임<br />
 <br /></p>
