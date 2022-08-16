@@ -5,11 +5,11 @@
 <lastmod>2022-04-06T00:00:00+09:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/android%20basic/Chapter01/</loc>
+<loc>http://localhost:4000/android/Chapter01/</loc>
 <lastmod>2022-04-07T00:00:00+09:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/android%20basic/Chapter04/</loc>
+<loc>http://localhost:4000/android/Chapter04/</loc>
 <lastmod>2022-04-10T00:00:00+09:00</lastmod>
 </url>
 <url>
@@ -17,7 +17,7 @@
 <lastmod>2022-04-07T00:00:00+09:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/android%20basic/Chapter05/</loc>
+<loc>http://localhost:4000/android/Chapter05/</loc>
 <lastmod>2022-04-11T00:00:00+09:00</lastmod>
 </url>
 <url>
@@ -36,6 +36,9 @@
 <loc>http://localhost:4000/categories/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/categories/Android</loc>
+</url>
+<url>
 <loc>http://localhost:4000/categories/SiDoli</loc>
 </url>
 <url>
@@ -43,9 +46,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/algorithm</loc>
-</url>
-<url>
-<loc>http://localhost:4000/categories/android-basic</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/boj</loc>

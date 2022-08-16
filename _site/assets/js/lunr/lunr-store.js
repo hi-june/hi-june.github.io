@@ -6,15 +6,15 @@ var store = [{
         "teaser": null
       },{
         "title": "[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경",
-        "excerpt":"1. 안드로이드 개요 안드로이드 주요 기능 안드로이드는 모바일 기기를 위한 운영체제로 안드로이드 SDK는 JAVA 기반으로 안드로이드 애플리케이션을 개발할 수 있는 API를 제공하고 있다. 애플리케이션 프레임워크를 통해서 제공되는 API를 사용함으로써 코드를 재사용하여 효율적이고 빠른 애플리케이션 개발 가능 모바일 기기에 최적화된 달빅 또는 아트런타임(ART : Android Run Time) 제공 2D 그래픽 및...","categories": ["Android Basic"],
+        "excerpt":"1. 안드로이드 개요 안드로이드 주요 기능 안드로이드는 모바일 기기를 위한 운영체제로 안드로이드 SDK는 JAVA 기반으로 안드로이드 애플리케이션을 개발할 수 있는 API를 제공하고 있다. 애플리케이션 프레임워크를 통해서 제공되는 API를 사용함으로써 코드를 재사용하여 효율적이고 빠른 애플리케이션 개발 가능 모바일 기기에 최적화된 달빅 또는 아트런타임(ART : Android Run Time) 제공 2D 그래픽 및...","categories": ["Android"],
         "tags": ["Kotlin"],
-        "url": "/android%20basic/Chapter01/",
+        "url": "/android/Chapter01/",
         "teaser": null
       },{
         "title": "[안드로이드 기초] Chapter 04 - 기본 위젯 익히기",
-        "excerpt":"1. 뷰의 개요 뷰와 뷰그룹 안드로이드 화면에서 실제로 사용되는 것들은 모두 View라는 클래스(‘위젯’이라고도 함)의 상속 받음 버튼, 라디오버튼, 이미지 등등 모두 View의 서브클래스이다. 레이아웃: 다른 위젯을 담을 수 있는 위젯. ViewGroup이라는 클래스 아래에 존재함. 위젯은 단독 존재하지 않고, 위젯을 담아 배치하는 틀이 레이아웃이다. (위젯을 포함하는 컨테이너 역할을 함) View 클래스의...","categories": ["Android Basic"],
+        "excerpt":"1. 뷰의 개요 뷰와 뷰그룹 안드로이드 화면에서 실제로 사용되는 것들은 모두 View라는 클래스(‘위젯’이라고도 함)의 상속 받음 버튼, 라디오버튼, 이미지 등등 모두 View의 서브클래스이다. 레이아웃: 다른 위젯을 담을 수 있는 위젯. ViewGroup이라는 클래스 아래에 존재함. 위젯은 단독 존재하지 않고, 위젯을 담아 배치하는 틀이 레이아웃이다. (위젯을 포함하는 컨테이너 역할을 함) View 클래스의...","categories": ["Android"],
         "tags": ["Kotlin"],
-        "url": "/android%20basic/Chapter04/",
+        "url": "/android/Chapter04/",
         "teaser": null
       },{
         "title": "[스프링 입문] Section 02 - 스프링 웹 개발 기초",
@@ -24,9 +24,9 @@ var store = [{
         "teaser": null
       },{
         "title": "[안드로이드 기초] Chapter 05 - 레이아웃 익히기",
-        "excerpt":"1. 레이아웃의 개요 레이아웃의 기본 개념 레이아웃은 레이아웃 안에 존재하는 위젯을 배치하게 해준다. 다음과 같은 속성들이 있다. orientation: 레이아웃 안에 배치할 위젯의 수직 또는 수평 방향을 설정 gravity: 레이아웃 안에 배치할 위젯의 정렬 방향을 좌측, 우측, 중앙 등으로 설정 padding: 레이아웃 안에 배치할 위젯의 여백을 설정 layout_weight: 레이아웃이 전체 화면에서...","categories": ["Android Basic"],
+        "excerpt":"1. 레이아웃의 개요 레이아웃의 기본 개념 레이아웃은 레이아웃 안에 존재하는 위젯을 배치하게 해준다. 다음과 같은 속성들이 있다. orientation: 레이아웃 안에 배치할 위젯의 수직 또는 수평 방향을 설정 gravity: 레이아웃 안에 배치할 위젯의 정렬 방향을 좌측, 우측, 중앙 등으로 설정 padding: 레이아웃 안에 배치할 위젯의 여백을 설정 layout_weight: 레이아웃이 전체 화면에서...","categories": ["Android"],
         "tags": ["Kotlin"],
-        "url": "/android%20basic/Chapter05/",
+        "url": "/android/Chapter05/",
         "teaser": null
       },{
         "title": "[SiDoli] 프로젝트 소개",
