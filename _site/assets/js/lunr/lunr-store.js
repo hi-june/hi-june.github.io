@@ -35,12 +35,6 @@ var store = [{
         "url": "/sidoli/SiDoli01/",
         "teaser": null
       },{
-        "title": "Flask의 기초 - 웹 브라우저와 서버의 동작방식",
-        "excerpt":"아키텍처를 보며.. python으로 웹 application을 만들 때 -&gt; 기본적으로 socket을 제공하니까 개 노가다 하면 만들 수야 있겠지만 의미도 없고.. -&gt; 따라서, python을 이용하여 WSGI 라는 인터페이스를 만들어 사용하고 있다. WSGI가 뭔데? WSGI는 ‘Web Server GateWay Interface’의 약자로 web server로 들어오는 request를 python으로 쓰여진 web application으로 forwarding 해주는 interface를 말한다. 예시)...","categories": ["Team_ForV"],
-        "tags": ["Python"],
-        "url": "/team_forv/Team_ForV01/",
-        "teaser": null
-      },{
         "title": "[Team_ForV] 프로젝트 소개",
         "excerpt":"들어가기에 앞서.. 여름방학을 맞아 학교 사람들과 같이 프로젝트를 진행해보았다. AI 기술을 활용한 web 서비스를 end to end로 개발해보는 경험을 했다. 프로젝트가 끝나고 기억이 흐려지기 전에 프로젝트를 진행하며 겪었던 시행착오들과 공부했던 내용을 차곡차곡 정리해보고자 한다. 프로젝트 소개 프로젝트를 시작하기에 앞서 여러 AI 관련 프로젝트들을 참고하였고, 그 중 눈에 들어왔던 기술은.. 네이버에서...","categories": ["Team_ForV"],
         "tags": ["Info"],
@@ -51,5 +45,11 @@ var store = [{
         "excerpt":"아키텍처 소개 Front-End Back-End DevOps AI (Tools, Env) UI/UX, MockUp Design Team Collaboration Tool 프로젝트의 흐름 이 프로젝트의 기본 흐름은 이러하다. react(클라이언트)로부터 사용자의 요청이 들어오면, nginx(proxy 서버)가 클라이언트와 서버 사이에서 대리로 통신을 수행해준다. django나 flask는 python으로 쓰여진 web application이기 때문에 gunicorn과 같은 wsgi 서버를 통해 forwarding해주게 되고, 사용자의 요청에 따라...","categories": ["Team_ForV"],
         "tags": ["Info"],
         "url": "/team_forv/Team_ForV03/",
+        "teaser": null
+      },{
+        "title": "[Team_ForV] Python Web Framework",
+        "excerpt":"아키텍처를 보며.. python으로 웹 application을 만들 때 -&gt; 기본적으로 socket을 제공하니까 개 노가다 하면 만들 수야 있겠지만 의미도 없고.. -&gt; 따라서, python을 이용하여 WSGI 라는 인터페이스를 만들어 사용하고 있다. WSGI가 뭔데? WSGI는 ‘Web Server GateWay Interface’의 약자로 web server로 들어오는 request를 python으로 쓰여진 web application으로 forwarding 해주는 interface를 말한다. 예시)...","categories": ["Team_ForV"],
+        "tags": ["python"],
+        "url": "/team_forv/Team_ForV04/",
         "teaser": null
       }]
