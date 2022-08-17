@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경 -  June &amp; Directory</title>
-<meta name="description" content="안드로이드 프로그래밍을 시작해보자!! ">
+<!-- begin _includes/seo.html --><title>[Team_ForV] 아키텍처 및 기술스택 소개 -  June &amp; Directory</title>
+<meta name="description" content="Team_ForV의 프로젝트 ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경">
-<meta property="og:url" content="http://localhost:4000/android/Chapter01/">
+<meta property="og:title" content="[Team_ForV] 아키텍처 및 기술스택 소개">
+<meta property="og:url" content="http://localhost:4000/team_forv/Team_ForV03/">
 
 
-  <meta property="og:description" content="안드로이드 프로그래밍을 시작해보자!! ">
+  <meta property="og:description" content="Team_ForV의 프로젝트 ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-04-07T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-08-17T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-04-07T00:00:00+09:00">
+  <meta property="article:modified_time" content="2022-08-17T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/android/Chapter01/">
+<link rel="canonical" href="http://localhost:4000/team_forv/Team_ForV03/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#android" itemprop="item"><span itemprop="name">Android</span></a>
+          <a href="/categories/#team_forv" itemprop="item"><span itemprop="name">Team_forv</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경</li>
+        <li class="current">[Team_ForV] 아키텍처 및 기술스택 소개</li>
       
     
   </ol>
@@ -554,18 +554,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경">
-    <meta itemprop="description" content="안드로이드 프로그래밍을 시작해보자!!">
-    <meta itemprop="datePublished" content="2022-04-07T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-04-07T00:00:00+09:00">
+    <meta itemprop="headline" content="[Team_ForV] 아키텍처 및 기술스택 소개">
+    <meta itemprop="description" content="Team_ForV의 프로젝트">
+    <meta itemprop="datePublished" content="2022-08-17T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-08-17T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경
+          <h1 id="page-title" class="page__title" itemprop="headline">[Team_ForV] 아키텍처 및 기술스택 소개
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-04-07T00:00:00+09:00">2022.04.07</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-04-07">2022.04.07</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-08-17T00:00:00+09:00">2022.08.17</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-08-17">2022.08.17</time></p>
           
           
             
@@ -581,7 +581,7 @@
     
       
       
-      <a href="/categories/#android" class="page__taxonomy-item-category" rel="tag">Android</a>
+      <a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
     
     </span>
   </p>
@@ -598,7 +598,7 @@
     
       
       
-      <a href="/tags/#kotlin" class="page__taxonomy-item-tag" rel="tag">Kotlin</a>
+      <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
     
     </span>
   </p>
@@ -613,65 +613,117 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#1-안드로이드-개요">1. 안드로이드 개요</a></li>
+  <li><a href="#아키텍처-소개">아키텍처 소개</a></li>
+  <li><a href="#프로젝트의-흐름">프로젝트의 흐름</a></li>
+  <li><a href="#서버의-분리와-비동기처리">서버의 분리와 비동기처리</a>
+    <ul>
+      <li><a href="#서버의-분리">서버의 분리</a></li>
+      <li><a href="#message-queue와-worker를-이용한-비동기처리">Message Queue와 Worker를 이용한 비동기처리</a></li>
+    </ul>
+  </li>
+  <li><a href="#다음-글-소개">다음 글 소개</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="1-안드로이드-개요">1. 안드로이드 개요</h2>
+        <h2 id="아키텍처-소개">아키텍처 소개</h2>
+<p><img width="921" alt="스크린샷 2022-08-03 오후 8 56 10" src="https://user-images.githubusercontent.com/70627982/182602386-c5919ba2-ac66-43a0-86c2-ed7f12c6d3f2.png" /><br /></p>
+
 <ul>
-  <li>안드로이드 주요 기능<br />
-안드로이드는 모바일 기기를 위한 운영체제로 <code class="language-plaintext highlighter-rouge">안드로이드 SDK</code>는 <code class="language-plaintext highlighter-rouge">JAVA</code> 기반으로 안드로이드 애플리케이션을 개발할 수 있는 <code class="language-plaintext highlighter-rouge">API</code>를 제공하고 있다.
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">애플리케이션 프레임워크</code>를 통해서 제공되는 <code class="language-plaintext highlighter-rouge">API</code>를 사용함으로써 코드를 재사용하여 효율적이고 빠른 애플리케이션 개발 가능</li>
-      <li>모바일 기기에 최적화된 <code class="language-plaintext highlighter-rouge">달빅</code> 또는 <code class="language-plaintext highlighter-rouge">아트런타임(ART : Android Run Time)</code> 제공</li>
-      <li>2D 그래픽 및 3차원 그래픽을 최적화하여 표현</li>
-      <li>모바일용 데이터베이스인 <code class="language-plaintext highlighter-rouge">SQLite</code>를 제공</li>
-      <li>각종 오디오, 비디오 및 이미지 형식을 지원</li>
-      <li>모바일 기기에 내장된 각종 하드웨어(블루투스, 카메라, 센서, WiFi 등) 지원</li>
-      <li><code class="language-plaintext highlighter-rouge">이클립스 IDE</code> 또는 <code class="language-plaintext highlighter-rouge">Android Studio</code>를 통해서 강력하고 빠른 개발 환경 제공
-<br /><br /></li>
-    </ul>
+  <li>
+    <p><b>Front-End</b><br />
+<img src="https://img.shields.io/badge/react-02569B?style=for-the-badge&amp;logo=react&amp;logoColor=white" /> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&amp;logo=javascript&amp;logoColor=black" /></p>
   </li>
-  <li>안드로이드의 특징
-    <ul>
-      <li>안드로이드의 핵심 커널은 <code class="language-plaintext highlighter-rouge">Linux</code>로 구성되어있다. <code class="language-plaintext highlighter-rouge">안드로이드 커널</code>은 이 리눅스 커널에서 모바일용으로 적합한 내용을 추출하여 필요한 기능을 추가한 것이다.</li>
-      <li>개발 언어로 <code class="language-plaintext highlighter-rouge">Java</code> 또는 <code class="language-plaintext highlighter-rouge">Kotlin</code>을 사용한다. 더 나아가 <code class="language-plaintext highlighter-rouge">NDK</code>(Native Development Kit)도 제공하기 때문에 C, C++ 기반으로 개발하여 더 빠른 성능과 세밀한 조작까지도 가능하다.</li>
-      <li><code class="language-plaintext highlighter-rouge">안드로이드 SDK</code>에 많은 라이브러리를 포함하고 있다. 특히 <code class="language-plaintext highlighter-rouge">SQLite</code>, <code class="language-plaintext highlighter-rouge">OpenGL</code> 등도 지원한다.</li>
-      <li>오픈소스를 지향하고, 지속적인 업그레이드를 제공한다.
-<br /><br /></li>
-    </ul>
+  <li>
+    <p><b>Back-End</b><br />
+<img src="https://img.shields.io/badge/django-007396?style=for-the-badge&amp;logo=django&amp;logoColor=white" /> <img src="https://img.shields.io/badge/flask-6DB33F?style=for-the-badge&amp;logo=flask&amp;logoColor=white" /> <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" /> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&amp;logo=mysql&amp;logoColor=white" /> <img src="https://img.shields.io/badge/celery-000000?style=for-the-badge&amp;logo=celery&amp;logoColor=white" /> <img src="https://img.shields.io/badge/rabbitmq-FF6F00?style=for-the-badge&amp;logo=rabbitmq&amp;logoColor=white" /> <img src="https://img.shields.io/badge/gunicorn-499848?style=for-the-badge&amp;logo=gunicorn&amp;logoColor=black" /></p>
   </li>
-  <li>안드로이드의 구조<br />
-<img src="/assets/images/Android/%5BAndroid-Basic%5DCh01_1.png" alt="Image" />
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">응용 프로그램</code>: 사용자가 쓰는 일반적인 응용프로그램</li>
-      <li><code class="language-plaintext highlighter-rouge">응용 프로그램 프레임워크</code>: 안드로이드 API가 존재하는 곳. 애플리케이션은 API를 통해 안드로이드 커널에 접근할 수 있음</li>
-      <li><code class="language-plaintext highlighter-rouge">안드로이드 런타임</code>: Java 코어 라이브러리, 달빅 가상 머신, 아트 런타임으로 구성됨. Java, Kotlin 등으로 프로그래밍 후 JVM을 쓰지 않고 대신하여 사용함. 모바일 환경에 최적화되어있음.</li>
-      <li><code class="language-plaintext highlighter-rouge">라이브러리</code>: 시스템 접근 때문에 Java, Kotlin이 아닌 C로 작성되어 있음. 성능이 뛰어나고 세밀한 조작 가능</li>
-      <li><code class="language-plaintext highlighter-rouge">리눅스 커널</code>: 하드웨어의 운영(메모리 관리, 디바이스 드라이버, 보안 등)과 관련된 저수준의 관리 기능이 들어있음.</li>
-    </ul>
+  <li>
+    <p><b>DevOps</b>  <br />
+<img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&amp;logo=docker&amp;logoColor=white" /> <img src="https://img.shields.io/badge/NGINX-009639?style=for-the-badge&amp;logo=nginx&amp;logoColor=black" /> <!-- <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> --></p>
+  </li>
+  <li>
+    <p><b>AI (Tools, Env)</b>  <br />
+<img src="https://img.shields.io/badge/colab-F9AB00?style=for-the-badge&amp;logo=googlecolab&amp;logoColor=white" /> <img src="https://img.shields.io/badge/pytorch-F7931E?style=for-the-badge&amp;logo=pytorch&amp;logoColor=white" /></p>
+  </li>
+  <li>
+    <p><b>UI/UX, MockUp Design </b>  <br />
+<img src="https://img.shields.io/badge/figma-34A7C1?style=for-the-badge&amp;logo=figma&amp;logoColor=white" /> <img src="https://img.shields.io/badge/zeplin-31A8FF?style=for-the-badge&amp;logo=zeplin&amp;logoColor=white" /></p>
+  </li>
+  <li>
+    <p><b>Team Collaboration Tool</b>  <br />
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white" /> <img src="https://img.shields.io/badge/notion-0052CC?style=for-the-badge&amp;logo=notion&amp;logoColor=white" /> <img src="https://img.shields.io/badge/slack-D24939?style=for-the-badge&amp;logo=slack&amp;logoColor=white" /> <img src="https://img.shields.io/badge/zoom-2496ED?style=for-the-badge&amp;logo=zoom&amp;logoColor=white" /></p>
   </li>
 </ul>
 
+<h2 id="프로젝트의-흐름">프로젝트의 흐름</h2>
+<p>이 프로젝트의 기본 흐름은 이러하다.</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">react</code>(클라이언트)로부터 사용자의 요청이 들어오면,</li>
+  <li><code class="language-plaintext highlighter-rouge">nginx</code>(proxy 서버)가 클라이언트와 서버 사이에서 대리로 통신을 수행해준다.</li>
+  <li><code class="language-plaintext highlighter-rouge">django</code>나 <code class="language-plaintext highlighter-rouge">flask</code>는 python으로 쓰여진 web application이기 때문에 <code class="language-plaintext highlighter-rouge">gunicorn</code>과 같은 wsgi 서버를 통해 forwarding해주게 되고,</li>
+  <li>사용자의 요청에 따라
+    <ul>
+      <li>단순한 페이지 조회 요청이 들어오면 <code class="language-plaintext highlighter-rouge">django</code> api 서버로 연결되어 필요한 정보들을 <code class="language-plaintext highlighter-rouge">mysql</code> 데이터베이스에서 조회해 보여주고,</li>
+      <li>음성 합성 요청이 들어오게 되면 <code class="language-plaintext highlighter-rouge">flask</code> model 서버가 필요한 모델 파일들로 음성 파일을 합성하여 <code class="language-plaintext highlighter-rouge">google cloud storage</code>로 올린다.</li>
+    </ul>
+  </li>
+  <li>앞선 백엔드단의 작업이 완료되면, client는 원하는 멤버의 프로필 정보를 확인하거나, 원하는 문장을 원하는 멤버의 목소리로 들어볼 수 있게 된다.</li>
+  <li>마지막으로, 개발환경의 통합과 신속한 배포를 위해 <code class="language-plaintext highlighter-rouge">docker</code>로 컨테이너화하여 개발을 진행하였다.</li>
+</ol>
+
+<p>이 일련의 과정들을 수행함에 있어서, 사용자의 요청이 많은 상황에 대비하여 몇몇 ‘장치’들을 추가했는데…</p>
+
+<h2 id="서버의-분리와-비동기처리">서버의 분리와 비동기처리</h2>
+<ul>
+  <li>
+    <h3 id="서버의-분리">서버의 분리</h3>
+    <p><img src="/assets/images/Team_ForV/3-1.png" alt="image" width="50%" height="50%" /><br /></p>
+  </li>
+</ul>
+
+<p>아키텍처에서 볼 수 있듯이, 기능별로 서버를 분리했다. <br />
+이렇게 서버를 분리하여 운영할 시 model 서버가 다운되도 api 서버는 동작하듯이, 한 기능을 못 쓰게 되더라도 전체 서비스가 죽는 것은 방지할 수 있다.<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">django</code>는 자체 ORM을 내장하여 다양한 데이터베이스에 유연하게 액세스할 수 있다. <br />
+따라서, 데이터베이스와 연결되는 모든 작업들은 <code class="language-plaintext highlighter-rouge">django</code>가 api server로써 동작하도록 만들었고, <br />
+<code class="language-plaintext highlighter-rouge">flask</code>는 비교적 가벼워서 음성 합성 작업만 전담하는 model sever로 선택했다.</p>
+
+<ul>
+  <li>
+    <h3 id="message-queue와-worker를-이용한-비동기처리">Message Queue와 Worker를 이용한 비동기처리</h3>
+    <p><img src="/assets/images/Team_ForV/3-2.png" alt="image" width="50%" height="50%" /><br /></p>
+  </li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">python</code> 서버는 사용자의 요청이 수행되는 동안 또다른 요청이 들어올 시에 앞선 요청이 수행될 때까지 대기하고 있게 된다. 이는 다중 사용자가 서비스를 이용하기에 매우 안 좋은 환경이다.</p>
+
+<p>따라서, <code class="language-plaintext highlighter-rouge">rabbitMQ</code>와 <code class="language-plaintext highlighter-rouge">celery</code>를 이용하여 비동기처리를 하도록 만들었다. <br />
+사용자의 요청을 task화하여 <code class="language-plaintext highlighter-rouge">celery</code>에게 전달하고, <br />
+<code class="language-plaintext highlighter-rouge">celery</code> worker가 그 작업을 비동기적으로 수행하게끔하여, 서버가 여러가지 일을 수행할 수 있도록하였다!</p>
+
+<h2 id="다음-글-소개">다음 글 소개</h2>
+<p>단순히 Frontend와 Backend를 넘어 Proxy Server, WSGI, Bucket, Docker, AWS … 등등 많은 기술들이 등장했다. <br />
+앞으로의 글에서는 앞서 언급한 기술들에 대해 하나씩 정리하고자 한다.</p>
+
+<p>먼저, <code class="language-plaintext highlighter-rouge">python</code> 기반의 Backend framework에서의 work flow를 살펴보자!</p>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Android</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Team_ForV</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/spring/Section01/" class="pagination--pager" title="[스프링 입문] Section 01 - 프로젝트 환경설정
+      <a href="/team_forv/Team_ForV02/" class="pagination--pager" title="[Team_ForV] 프로젝트 소개
 ">이전</a>
     
     
-      <a href="/android/Chapter04/" class="pagination--pager" title="[안드로이드 기초] Chapter 04 - 기본 위젯 익히기
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -679,10 +731,6 @@
 
 
 
-
-  
-
-  
 
   
   	
@@ -694,10 +742,10 @@
 
   <nav class="pagination_prev_next">
     
-      <a href="#" class="pagination_prev_next--pager disabled-first-child">첫 번째 글입니다</a>
+      <a href="/team_forv/Team_ForV02/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[Team_ForV] 프로젝트 소개</a>
     
     
-      <a href="/android/Chapter04/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[안드로이드 기초] Chapter 04 - 기본 위젯 익히기</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -730,11 +778,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C+%EA%B8%B0%EC%B4%88%5D+Chapter+01+-+%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98+%EA%B0%9C%EC%9A%94%EC%99%80+%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%20http%3A%2F%2Flocalhost%3A4000%2Fandroid%2FChapter01%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BTeam_ForV%5D+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98+%EB%B0%8F+%EA%B8%B0%EC%88%A0%EC%8A%A4%ED%83%9D+%EC%86%8C%EA%B0%9C%20http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV03%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fandroid%2FChapter01%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV03%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fandroid%2FChapter01%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV03%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -748,30 +796,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/team_forv/Team_ForV03/">[Team_ForV] 아키텍처 및 기술스택 소개</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.17
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
-                    
-                    
-                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -898,6 +922,30 @@
         <div>
             <span>
               <a href="/android/Chapter04/">[안드로이드 기초] Chapter 04 - 기본 위젯 익히기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.04.07
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#android" class="page__taxonomy-item-category" rel="tag">Android</a>
+                    
+                    
+                    <a href="/tags/#kotlin" class="page__taxonomy-item-tag" rel="tag">Kotlin</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/android/Chapter01/">[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경</a>
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.04.07
