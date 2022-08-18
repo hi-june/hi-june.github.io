@@ -52,4 +52,10 @@ var store = [{
         "tags": ["python"],
         "url": "/team_forv/Team_ForV04/",
         "teaser": null
+      },{
+        "title": "[Team_ForV] Django API Server",
+        "excerpt":"Django API Server의 역할 Django API Server의 경우 총 3가지의 역할을 하고 있다. 서버가 올라갈 시 google-cloud-storage로부터 필요한 ai모델파일들을 서버로 불러온다. 사용자 정보 페이지 요청 시 db를 조회하여 필요한 정보(멤버들의 TMI 정보, 사진 정보 등등)들을 클라이언트에 제공해준다. 클라이언트로부터 오는 text 요청(특정 목소리로 읽어주었으면 하는 문장)을 db에 저장해둔다. 이처럼, django 서버는...","categories": ["Team_ForV"],
+        "tags": ["python","django","mysql"],
+        "url": "/team_forv/Team_ForV05/",
+        "teaser": null
       }]
