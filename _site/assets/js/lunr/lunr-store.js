@@ -58,4 +58,10 @@ var store = [{
         "tags": ["python","django","mysql"],
         "url": "/team_forv/Team_ForV05/",
         "teaser": null
+      },{
+        "title": "[Team_ForV] Flask Model Server",
+        "excerpt":"Flask Model Server의 역할 Flask Model Server는 단 한 가지 역할만 수행한다. 클라이언트로부터 음성 합성 요청을 받으면 -&gt; flask 서버가 celery에게 task를 할당하고 -&gt; celery worker가 task를 수행한다. -&gt; 여기서 task는 ‘입력받은 text를 지정된 멤버의 음성으로 wav 파일을 만들어 gcs에 업로드하는 것’이다. -&gt; task를 끝내면 celery worker가 flask에게 작업이 완료됨을...","categories": ["Team_ForV"],
+        "tags": ["python","flask","rabbitMQ","celery"],
+        "url": "/team_forv/Team_ForV06/",
+        "teaser": null
       }]

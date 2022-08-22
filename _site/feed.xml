@@ -1,4 +1,191 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-19T01:34:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[Team_ForV] Django API Server</title><link href="http://localhost:4000/team_forv/Team_ForV05/" rel="alternate" type="text/html" title="[Team_ForV] Django API Server" /><published>2022-08-19T00:00:00+09:00</published><updated>2022-08-19T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV05</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV05/"><![CDATA[<h2 id="django-api-server의-역할">Django API Server의 역할</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-22T22:01:27+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[Team_ForV] Flask Model Server</title><link href="http://localhost:4000/team_forv/Team_ForV06/" rel="alternate" type="text/html" title="[Team_ForV] Flask Model Server" /><published>2022-08-22T00:00:00+09:00</published><updated>2022-08-22T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV06</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV06/"><![CDATA[<h2 id="flask-model-server의-역할">Flask Model Server의 역할</h2>
+<p><img src="/assets/images/Team_ForV/6-1.png" alt="image" width="90%" height="90%" class="align-center" /><br />
+<code class="language-plaintext highlighter-rouge">Flask Model Server</code>는 단 한 가지 역할만 수행한다.
+클라이언트로부터 음성 합성 요청을 받으면<br />
+-&gt; <code class="language-plaintext highlighter-rouge">flask</code> 서버가 <code class="language-plaintext highlighter-rouge">celery</code>에게 task를 할당하고<br />
+-&gt; <code class="language-plaintext highlighter-rouge">celery worker</code>가 task를 수행한다.<br />
+-&gt; 여기서 task는 ‘입력받은 text를 지정된 멤버의 음성으로 wav 파일을 만들어 gcs에 업로드하는 것’이다.<br />
+-&gt; task를 끝내면 <code class="language-plaintext highlighter-rouge">celery worker</code>가 <code class="language-plaintext highlighter-rouge">flask</code>에게 작업이 완료됨을 알려주고, <code class="language-plaintext highlighter-rouge">flask</code>는 클라이언트에게 알려준다.<br />
+-&gt; 클라이언트는 <code class="language-plaintext highlighter-rouge">google cloud storage</code>에 업로드된 wav파일의 url을 통해서 생성된 음성파일을 재생한다.</p>
+
+<p>이처럼, <code class="language-plaintext highlighter-rouge">flask</code> 서버는 ‘TTS 음성 합성과 연관된 작업’만을 수행하도록 구성하였는데,<br />
+<code class="language-plaintext highlighter-rouge">flask</code> 프레임워크의 특징을 보면서 model server로 <code class="language-plaintext highlighter-rouge">flask</code>를 선택한 이유를 살펴보자!</p>
+
+<h2 id="flask에-대하여">Flask에 대하여..</h2>
+<p><img src="/assets/images/Team_ForV/6-2.png" alt="image" width="40%" height="40%" /><br />
+flask는 마이크로 웹 프레임워크다.
+즉 간결하게 유지하고 확장할 수 있음을 의미한다.</p>
+
+<p>간결하다는 것은? -&gt; 짧은 코드만으로도 완벽히 동작하는 웹 프로그램을 만들 수 있다.
+확장성 있는 설계? -&gt; 플라스크에는 다양한 확장 모듈을 통해 입맛대로 만들 수 있다.</p>
+
+<p>서버를 분리한 이유가 <strong>음성합성만을 하는 서버</strong>가 필요했기 때문이고, 이를 위해선<br />
+<strong>간단한 코드 구성만으로도 빠르게 뜨는 웹 프로그램</strong>이 필요했다. 따라서 model 서버로는 <code class="language-plaintext highlighter-rouge">flask</code>가 적절하겠다고 판단했다.</p>
+
+<h2 id="rabbitmq--celery를-사용한-비동기처리">rabbitMQ &amp; celery를 사용한 비동기처리</h2>
+<p><code class="language-plaintext highlighter-rouge">python</code> 서버는 사용자의 요청이 수행되는 동안 또다른 요청이 들어올 시에 앞선 요청이 수행될 때까지 대기하고 있게 된다. 이는 다중 사용자가 서비스를 이용하기에 매우 안 좋은 환경이다.</p>
+
+<p>따라서, <code class="language-plaintext highlighter-rouge">rabbitMQ</code>와 <code class="language-plaintext highlighter-rouge">celery</code>를 이용하여 비동기처리를 하도록 만들었다.</p>
+
+<p>파일들을 하나씩 뜯어보며 살펴보자.</p>
+
+<h3 id="--celery-app">- celery app</h3>
+<p>celery app을 생성하고 세부 항목들을 설정한다.</p>
+<ol>
+  <li>Celery App의 이름.</li>
+  <li>broker: 처리할 Task를 보관하는 Broker(중계자)</li>
+  <li>backend: 처리된 결과를 보관하는 Broker를 설정, 이를 생략하면 Task의 실행 결과를 받을 수 없음.</li>
+  <li>include: Worker가 처리할 Task를 지정.</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># celery_app.py: Celery App을 생성하는 파일
+</span><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="s">'celery'</span><span class="p">,</span>
+             <span class="n">broker</span><span class="o">=</span><span class="s">'amqp://tts:tts123@rabbit/tts_host'</span><span class="p">,</span>
+             <span class="n">backend</span><span class="o">=</span><span class="s">'rpc://'</span><span class="p">,</span>
+             <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s">'voice'</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="--task">- task</h3>
+<p>총 세 부분으로 구성되어있다.</p>
+<ol>
+  <li>음성 합성을 위해 각 멤버들에 대한 변수들을 설정하여 models 리스트에 저장해둔다.</li>
+  <li>celery app에 등록되어있는 task가 호출되면 전달된 인자들을 기반으로 wav 파일을 만들고,</li>
+  <li>서버에 저장하는 것이 아닌 google-cloude-storage에 저장한 후 True를 반환한다.</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># voice.py: Worker의 Task가 담겨있는 파일
+</span><span class="kn">from</span> <span class="nn">celery_app</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">google.cloud</span> <span class="kn">import</span> <span class="n">storage</span>
+
+<span class="kn">from</span> <span class="nn">tts_modules</span> <span class="kn">import</span> <span class="n">normalize_text</span>
+<span class="kn">from</span> <span class="nn">TTS.TTS.utils.synthesizer</span> <span class="kn">import</span> <span class="n">Synthesizer</span>
+
+<span class="c1">############################################################################################################
+</span><span class="n">models</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># models =&gt; [[id1_syn, id1_symbol], [id2_syn, id2_symbol], [id3_syn, id3_symbol], ...]
+</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">member</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'member </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s"> synthesizer start!!'</span><span class="p">)</span>
+    <span class="c1"># set synthesizer
+</span>    <span class="n">synthesizer</span> <span class="o">=</span> <span class="n">Synthesizer</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s">"./voice_model/glow-tts/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">g_checkpoint_30000.pth.tar"</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s">"./voice_model/glow-tts/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">g_config.json"</span><span class="p">,</span>
+        <span class="bp">None</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s">"./voice_model/hifigan-v2/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">h_checkpoint_305000.pth.tar"</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s">"./voice_model/hifigan-v2/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">h_config.json"</span><span class="p">,</span>
+        <span class="bp">None</span><span class="p">,</span>
+        <span class="bp">None</span><span class="p">,</span>
+        <span class="bp">False</span><span class="p">,)</span>
+    <span class="n">symbol</span> <span class="o">=</span> <span class="n">synthesizer</span><span class="p">.</span><span class="n">tts_config</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">characters</span>  <span class="c1"># normalize_text가 호출될 때 필요한 변수
+</span>    
+    <span class="n">member</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">synthesizer</span><span class="p">)</span>
+    <span class="n">member</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">symbol</span><span class="p">)</span>
+    <span class="n">models</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'member </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s"> synthesizer end!!'</span><span class="p">)</span>
+
+<span class="c1">############################################################################################################
+</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">"GOOGLE_APPLICATION_CREDENTIALS"</span><span class="p">]</span><span class="o">=</span><span class="s">"./micro-handler.json"</span> <span class="c1"># wav gcp bucket 업로드를 위한 key path
+</span>
+<span class="n">bucket_name</span> <span class="o">=</span> <span class="s">'forv_bucket'</span>    <span class="c1"># 서비스 계정 생성한 bucket 이름 입력
+</span><span class="n">storage_client</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">bucket</span> <span class="o">=</span> <span class="n">storage_client</span><span class="p">.</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
+
+<span class="c1"># source_file_name = ''    # GCP에 업로드할 파일 절대경로
+# destination_blob_name = ''    # 업로드할 파일을 GCP에 저장할 때의 이름
+# blob = bucket.blob(destination_blob_name)
+# blob.upload_from_filename(source_file_name)
+</span>
+<span class="c1">############################################################################################################
+</span><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"gan_wav"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">gan_wav</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">member_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">created_at</span><span class="p">):</span>
+    <span class="n">wav_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'wav_files/</span><span class="si">{</span><span class="n">member_id</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s">_</span><span class="si">{</span><span class="n">created_at</span><span class="si">}</span><span class="s">_voice.wav'</span>
+    <span class="n">wav_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'./temp/</span><span class="si">{</span><span class="n">member_id</span><span class="si">}</span><span class="s">_</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s">_</span><span class="si">{</span><span class="n">created_at</span><span class="si">}</span><span class="s">_voice.wav'</span>
+    
+    <span class="c1"># 미리 만들어둔 객체를 참조
+</span>    <span class="n">synth</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">member_id</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sym</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">member_id</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># g2pk 라이브러리를 이용한 입력된 텍스트 변환
+</span>    <span class="n">n_text</span> <span class="o">=</span> <span class="n">normalize_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">sym</span><span class="p">)</span>
+    
+    <span class="n">wav</span> <span class="o">=</span> <span class="n">synth</span><span class="p">.</span><span class="n">tts</span><span class="p">(</span><span class="n">n_text</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">synth</span><span class="p">.</span><span class="n">save_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">wav_path</span><span class="p">)</span>   <span class="c1"># change wav to .wav file
+</span>    
+    <span class="n">blob</span> <span class="o">=</span> <span class="n">bucket</span><span class="p">.</span><span class="n">blob</span><span class="p">(</span><span class="n">wav_file</span><span class="p">)</span>
+    <span class="n">blob</span><span class="p">.</span><span class="n">upload_from_filename</span><span class="p">(</span><span class="n">wav_path</span><span class="p">)</span> <span class="c1"># upload wav file to gcp bucket
+</span>
+    <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">wav_path</span><span class="p">):</span>
+        <span class="n">os</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">wav_path</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<h3 id="--flask-app">- flask app</h3>
+<p>특정 http 요청이 들어왔을 때 celery worker에게 작업을 수행하도록 만든다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app.py: Task를 실행시킬 파일
+</span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+
+<span class="kn">from</span> <span class="nn">voice</span> <span class="kn">import</span> <span class="n">gan_wav</span>   <span class="c1"># import celery task
+</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">cors</span> <span class="o">=</span> <span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="sa">r</span><span class="s">"/*"</span><span class="p">:</span> <span class="p">{</span><span class="s">"origins"</span><span class="p">:</span> <span class="s">"*"</span><span class="p">}})</span>   <span class="c1"># react와 연결을 위한 cors 설정
+</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">'result'</span><span class="p">:</span> <span class="s">'hello world!'</span><span class="p">}</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/api/texts'</span><span class="p">,</span> <span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_text</span><span class="p">():</span>
+    <span class="s">'''
+    {
+    "uuid": "022db29c-d0e2-11e5-bb4c-60f81dca7676",
+    "member_id": 1,
+    "text": "안녕하세요!",
+    "created_at": "2022-08-22"
+    }
+    '''</span>
+    <span class="k">if</span> <span class="n">request</span><span class="p">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">'POST'</span><span class="p">:</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">get_json</span><span class="p">()</span>
+        
+        <span class="n">uuid</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">'uuid'</span><span class="p">]</span>
+        <span class="n">member_id</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">'member_id'</span><span class="p">]</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">'text'</span><span class="p">]</span>
+        <span class="n">created_at</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">'created_at'</span><span class="p">]</span>
+        
+        <span class="n">gan_wav</span> <span class="o">=</span> <span class="n">gan_wav</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">member_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">created_at</span><span class="p">)</span> <span class="c1"># celery task에 인자 전달
+</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span> <span class="c1"># celery worker가 task를 완료하기를 기다림
+</span>            <span class="k">if</span> <span class="n">gan_wav</span><span class="p">.</span><span class="n">ready</span><span class="p">()</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+                <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s">'uuid'</span><span class="p">:</span> <span class="n">uuid</span><span class="p">,</span> <span class="s">'member_id'</span><span class="p">:</span> <span class="n">member_id</span><span class="p">,</span> <span class="s">'created_at'</span><span class="p">:</span> <span class="n">created_at</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="다음-글-소개">다음 글 소개</h2>
+<p>음성 합성에 필요한 핵심적인 부분은 tts와 g2pk라는 라이브러리이다.<br />
+이 라이브러리를 사용할 때 가장 곤란했던 점이 <strong>‘라이브러리들끼리의 의존성’</strong> 문제였다.<br />
+ai 관련 라이브러리들을 서로 의존성이 강하기 때문에 버전이 하나만 틀어져도 실행이 안 되는 경우가 많았고, 
+이로 인해 <code class="language-plaintext highlighter-rouge">django</code>서버와 <code class="language-plaintext highlighter-rouge">flask</code>서버의 python 버전을 다르게 구성을 해야했다.</p>
+
+<p>결론부터 말하자면 이 문제를 해결하기위해 <code class="language-plaintext highlighter-rouge">Docker</code>를 도입했다.<br />
+다음 게시글에서는 이 프로젝트에 쓰인 ai 관련 라이브러리들과 <code class="language-plaintext highlighter-rouge">Docker</code> 세팅에 대해 알아보자.</p>
+
+<h2 id="reference">Reference</h2>
+<p><a href="https://leffept.tistory.com/202">https://leffept.tistory.com/202</a> [Flask 란?]<br />
+<a href="https://heodolf.tistory.com/63">https://heodolf.tistory.com/63</a> [Celery 무작정 시작하기 (2) - Task]<br />
+<a href="https://buildabetterworld.tistory.com/144?category=874656">https://buildabetterworld.tistory.com/144?category=874656</a> [Celery Side-Project(Ant Platform) - 3. Flask에서 Celery로 비동기작업 수행하기(프로젝트 구조+Celery동작)]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="python" /><category term="flask" /><category term="rabbitMQ" /><category term="celery" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] Django API Server</title><link href="http://localhost:4000/team_forv/Team_ForV05/" rel="alternate" type="text/html" title="[Team_ForV] Django API Server" /><published>2022-08-18T00:00:00+09:00</published><updated>2022-08-19T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV05</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV05/"><![CDATA[<h2 id="django-api-server의-역할">Django API Server의 역할</h2>
 <p><img src="/assets/images/Team_ForV/5-1.png" alt="image" width="90%" height="90%" class="align-center" /><br />
 <code class="language-plaintext highlighter-rouge">Django API Server</code>의 경우 총 3가지의 역할을 하고 있다.</p>
 <ol>
@@ -491,7 +678,51 @@ AI 기술을 활용한 web 서비스를 end to end로 개발해보는 경험을 
 
 <h2 id="2-리니어레이아웃">2. 리니어레이아웃</h2>
 
-<h2 id="3-기타-레이아웃">3. 기타 레이아웃</h2>]]></content><author><name>hi~ June!!</name></author><category term="Android" /><category term="Kotlin" /><summary type="html"><![CDATA[Layout에 대해 알아보자]]></summary></entry><entry><title type="html">[안드로이드 기초] Chapter 04 - 기본 위젯 익히기</title><link href="http://localhost:4000/android/Chapter04/" rel="alternate" type="text/html" title="[안드로이드 기초] Chapter 04 - 기본 위젯 익히기" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-10T00:00:00+09:00</updated><id>http://localhost:4000/android/Chapter04</id><content type="html" xml:base="http://localhost:4000/android/Chapter04/"><![CDATA[<h2 id="1-뷰의-개요">1. 뷰의 개요</h2>
+<h2 id="3-기타-레이아웃">3. 기타 레이아웃</h2>]]></content><author><name>hi~ June!!</name></author><category term="Android" /><category term="Kotlin" /><summary type="html"><![CDATA[Layout에 대해 알아보자]]></summary></entry><entry><title type="html">[스프링 입문] Section 02 - 스프링 웹 개발 기초</title><link href="http://localhost:4000/spring/Section02/" rel="alternate" type="text/html" title="[스프링 입문] Section 02 - 스프링 웹 개발 기초" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-07T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section02</id><content type="html" xml:base="http://localhost:4000/spring/Section02/"><![CDATA[<h2 id="web을-개발하는-3가지-방법">Web을 개발하는 3가지 방법</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">정적 컨텐츠</code>: 파일을 그냥 웹 브라우저에 내려주는 것</li>
+  <li><code class="language-plaintext highlighter-rouge">MVC와 템플릿 엔진</code>: html, PHP, JSP 같은 파일을 서버에서 프로그래밍해서 동적으로 바꾼 후 내려주는 것</li>
+  <li><code class="language-plaintext highlighter-rouge">API</code>: 예를 들자면, 만약 Android나 ios같은 Client랑 개발해야할 떄, ‘jason’이라는 포멧으로 내려주는 것</li>
+</ul>
+
+<h2 id="1-정적-컨텐츠">1. 정적 컨텐츠</h2>
+<p><img src="/assets/images/section2_1.png" alt="Image" /></p>
+
+<p>1st. 웹 브라우저가 요청을 서버에 넘겨줌<br />
+2nd. controller 쪽에서 관련 컨트롤러가 있는지 찾아봄<br />
+3rd. 관련 컨트롤러가 없기 떄문에 resources에서 파일을 찾아봄<br />
+4th. 별도 변환 과정 없이 그냥 반환해 줌</p>
+
+<h2 id="2-mvc와-템플릿-엔진">2. MVC와 템플릿 엔진</h2>
+<p>MVC: <code class="language-plaintext highlighter-rouge">Model</code>, <code class="language-plaintext highlighter-rouge">View</code>, <code class="language-plaintext highlighter-rouge">Controller</code>의 앞 자만 따서 부른다.<br />
+<code class="language-plaintext highlighter-rouge">View</code>는 화면과 관련된 일만 하도록, <code class="language-plaintext highlighter-rouge">Controller</code>는 비지니스 로직과 관련된 일만 하도록 <strong><em><span style="color:gold">‘분리’</span></em></strong> 한다는 것이 핵심이다.</p>
+
+<p><img src="/assets/images/section2_2.png" alt="Image" /></p>
+
+<p>1st. 웹 브라우저에서 요청이 들어오면<br />
+2nd. 해당 <code class="language-plaintext highlighter-rouge">Controller</code>가 mapping 되어있는 메소드를 찾아서 실행 후<br />
+3rd. 반환된 값을 통해 <code class="language-plaintext highlighter-rouge">viewResolver</code>가 해당하는 <code class="language-plaintext highlighter-rouge">view</code>를 찾아주고 템플릿 엔진에 연결시켜줌<br />
+4th. 템플릿 엔진은 해당 파일을 렌더링 후 웹 브라우저에 반환해준다.</p>
+
+<h2 id="3-api">3. API</h2>
+<p><img src="/assets/images/section2_3.png" alt="Image" /></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@ResponseBody</code>를 사용하면
+    <ul>
+      <li>HTTP의 BODY에 문자 내용을 직접 반환한다.</li>
+      <li><code class="language-plaintext highlighter-rouge">viewResolver</code>대신 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 동작하는데(spring에 셋팅되어있음)
+        <ul>
+          <li>기본 문자 처리의 경우: <code class="language-plaintext highlighter-rouge">StringHttpMessageConverter</code></li>
+          <li>기본 객체 처리의 경우: <code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code> &lt;-</li>
+          <li>기타 등등의 경우에 맞는 여러 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 기본으로 등록되어있음</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>-&gt; <code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code>: 객체를 jason으로 바꿔주는 라이브러리들 중 하나이다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring" /><category term="Java" /><summary type="html"><![CDATA[Web을 개발하는 3가지 방법에 대해 알아보자]]></summary></entry><entry><title type="html">[안드로이드 기초] Chapter 04 - 기본 위젯 익히기</title><link href="http://localhost:4000/android/Chapter04/" rel="alternate" type="text/html" title="[안드로이드 기초] Chapter 04 - 기본 위젯 익히기" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-10T00:00:00+09:00</updated><id>http://localhost:4000/android/Chapter04</id><content type="html" xml:base="http://localhost:4000/android/Chapter04/"><![CDATA[<h2 id="1-뷰의-개요">1. 뷰의 개요</h2>
 <p><img src="/assets/images/Android/%5BAndroid-Basic%5DCh04_1.png" alt="Image" width="60%" height="60%" />
 <br /></p>
 
@@ -792,132 +1023,4 @@ xml 파일에서 설정하는 내용의 대부분을 Kotlin 코드에서도 메�
       <li><code class="language-plaintext highlighter-rouge">리눅스 커널</code>: 하드웨어의 운영(메모리 관리, 디바이스 드라이버, 보안 등)과 관련된 저수준의 관리 기능이 들어있음.</li>
     </ul>
   </li>
-</ul>]]></content><author><name>hi~ June!!</name></author><category term="Android" /><category term="Kotlin" /><summary type="html"><![CDATA[안드로이드 프로그래밍을 시작해보자!!]]></summary></entry><entry><title type="html">[스프링 입문] Section 02 - 스프링 웹 개발 기초</title><link href="http://localhost:4000/spring/Section02/" rel="alternate" type="text/html" title="[스프링 입문] Section 02 - 스프링 웹 개발 기초" /><published>2022-04-07T00:00:00+09:00</published><updated>2022-04-07T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section02</id><content type="html" xml:base="http://localhost:4000/spring/Section02/"><![CDATA[<h2 id="web을-개발하는-3가지-방법">Web을 개발하는 3가지 방법</h2>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">정적 컨텐츠</code>: 파일을 그냥 웹 브라우저에 내려주는 것</li>
-  <li><code class="language-plaintext highlighter-rouge">MVC와 템플릿 엔진</code>: html, PHP, JSP 같은 파일을 서버에서 프로그래밍해서 동적으로 바꾼 후 내려주는 것</li>
-  <li><code class="language-plaintext highlighter-rouge">API</code>: 예를 들자면, 만약 Android나 ios같은 Client랑 개발해야할 떄, ‘jason’이라는 포멧으로 내려주는 것</li>
-</ul>
-
-<h2 id="1-정적-컨텐츠">1. 정적 컨텐츠</h2>
-<p><img src="/assets/images/section2_1.png" alt="Image" /></p>
-
-<p>1st. 웹 브라우저가 요청을 서버에 넘겨줌<br />
-2nd. controller 쪽에서 관련 컨트롤러가 있는지 찾아봄<br />
-3rd. 관련 컨트롤러가 없기 떄문에 resources에서 파일을 찾아봄<br />
-4th. 별도 변환 과정 없이 그냥 반환해 줌</p>
-
-<h2 id="2-mvc와-템플릿-엔진">2. MVC와 템플릿 엔진</h2>
-<p>MVC: <code class="language-plaintext highlighter-rouge">Model</code>, <code class="language-plaintext highlighter-rouge">View</code>, <code class="language-plaintext highlighter-rouge">Controller</code>의 앞 자만 따서 부른다.<br />
-<code class="language-plaintext highlighter-rouge">View</code>는 화면과 관련된 일만 하도록, <code class="language-plaintext highlighter-rouge">Controller</code>는 비지니스 로직과 관련된 일만 하도록 <strong><em><span style="color:gold">‘분리’</span></em></strong> 한다는 것이 핵심이다.</p>
-
-<p><img src="/assets/images/section2_2.png" alt="Image" /></p>
-
-<p>1st. 웹 브라우저에서 요청이 들어오면<br />
-2nd. 해당 <code class="language-plaintext highlighter-rouge">Controller</code>가 mapping 되어있는 메소드를 찾아서 실행 후<br />
-3rd. 반환된 값을 통해 <code class="language-plaintext highlighter-rouge">viewResolver</code>가 해당하는 <code class="language-plaintext highlighter-rouge">view</code>를 찾아주고 템플릿 엔진에 연결시켜줌<br />
-4th. 템플릿 엔진은 해당 파일을 렌더링 후 웹 브라우저에 반환해준다.</p>
-
-<h2 id="3-api">3. API</h2>
-<p><img src="/assets/images/section2_3.png" alt="Image" /></p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">@ResponseBody</code>를 사용하면
-    <ul>
-      <li>HTTP의 BODY에 문자 내용을 직접 반환한다.</li>
-      <li><code class="language-plaintext highlighter-rouge">viewResolver</code>대신 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 동작하는데(spring에 셋팅되어있음)
-        <ul>
-          <li>기본 문자 처리의 경우: <code class="language-plaintext highlighter-rouge">StringHttpMessageConverter</code></li>
-          <li>기본 객체 처리의 경우: <code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code> &lt;-</li>
-          <li>기타 등등의 경우에 맞는 여러 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 기본으로 등록되어있음</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p>-&gt; <code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code>: 객체를 jason으로 바꿔주는 라이브러리들 중 하나이다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring" /><category term="Java" /><summary type="html"><![CDATA[Web을 개발하는 3가지 방법에 대해 알아보자]]></summary></entry><entry><title type="html">[스프링 입문] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/spring/Section01/" rel="alternate" type="text/html" title="[스프링 입문] Section 01 - 프로젝트 환경설정" /><published>2022-04-06T00:00:00+09:00</published><updated>2022-04-06T00:00:00+09:00</updated><id>http://localhost:4000/spring/Section01</id><content type="html" xml:base="http://localhost:4000/spring/Section01/"><![CDATA[<h2 id="1-스프링-프로젝트-생성">1. 스프링 프로젝트 생성</h2>
-<h3 id="--스프링-부트-스타터를-이용함">- 스프링 부트 스타터를 이용함</h3>
-<p>밑바닥부터 만드는 것이 아닌 boot를 사용하여 시작하도록 한다. (https://start.spring.io)</p>
-
-<h3 id="--프로젝트-선택">- 프로젝트 선택</h3>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Project</code>: Gradle Project</li>
-  <li><code class="language-plaintext highlighter-rouge">Spring Boot</code>: 가장 최신 버전</li>
-  <li><code class="language-plaintext highlighter-rouge">Language</code>: Java</li>
-  <li><code class="language-plaintext highlighter-rouge">Java</code>: 11</li>
-</ul>
-
-<p><code class="language-plaintext highlighter-rouge">Gradle Project</code>: 필요한 라이브러리를 땡겨오고, 빌드하는 Life Cycle까지 관리해주는 Tool로써, 과거 maven에서 요즘은 graddle로 바뀌는 추세라고 한다.</p>
-
-<h3 id="--project-metadata">- Project Metadata</h3>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Group Id</code>: hello</li>
-  <li><code class="language-plaintext highlighter-rouge">artifactId</code>: hello- spring</li>
-</ul>
-
-<p><code class="language-plaintext highlighter-rouge">artifact</code>: 빌드되어 나오는 결과물</p>
-
-<h3 id="--dependencies">- Dependencies</h3>
-<p>‘라이브러리 간 의존관계’를 말하는 것으로 여기서는 어떤 라이브러리를 가져다 쓸 것인지 선택하는 것이다.</p>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Spring Web</code></li>
-  <li><code class="language-plaintext highlighter-rouge">Thymeleaf</code></li>
-</ul>
-
-<p><code class="language-plaintext highlighter-rouge">Thymeleaf</code>: html을 만들어주는 템플릿 엔진</p>
-
-<h2 id="2-라이브러리를-살펴보자">2. 라이브러리를 살펴보자</h2>
-<p>Gradle은 의존관계가 있는 라이브러리를 함께 다운로드 한다.<br />
-main 과 test의 폴더가 나뉘어져 있음 -&gt; test code의 중요성을 의미한다.</p>
-<h3 id="--스프링-부트-라이브러리">- 스프링 부트 라이브러리</h3>
-<ul>
-  <li>spring-boot-starter-web
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">spring-boot-starter-tomcat</code>: 톰캣(웹서버)</li>
-      <li>spring-webmvc: 스프링 웹 MVC</li>
-    </ul>
-  </li>
-  <li>spring-boot-starter-thymeleaf: 타임리프 템플릿 엔진(View)</li>
-  <li>spring-boot-starter(공통): 스프링부트 + 스프링 코어 + 로깅
-    <ul>
-      <li>spring-boot
-        <ul>
-          <li>spring-core</li>
-        </ul>
-      </li>
-      <li>spring-boot-starter-logging
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">logback</code>, <code class="language-plaintext highlighter-rouge">slf4j</code></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><code class="language-plaintext highlighter-rouge">spring-boot-starter-tomcat</code>: 과거엔 웹 서버에 java code를 직접 밀어 넣는 방식이었는데, 지금은 소스 라이브러리에 웹 서버가 내장되어 있다.<br />
-<code class="language-plaintext highlighter-rouge">logback</code>, <code class="language-plaintext highlighter-rouge">slf4j</code>: 이 두 라이브러리를 주로 많이 쓴다고 한다.<br />
-<code class="language-plaintext highlighter-rouge">log</code>에 대하여: 결과값 출력을 system에 하지 않고 log로 출력하는 이유는 로그 파일도 따로 관리가 되고, 심각한 에러 발생 시에 따로 모아서 볼 수도 있기 때문이다.</p>
-
-<h3 id="--테스트-라이브러리">- 테스트 라이브러리</h3>
-<ul>
-  <li>spring-boot-starter-test
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">junit</code>: 테스트 프레임워크</li>
-      <li><code class="language-plaintext highlighter-rouge">mockito</code>: 목 라이브러리</li>
-      <li><code class="language-plaintext highlighter-rouge">assertj</code>: 테스트 코드를 좀 더 편하게 작성하게 도와주는 라이브러리</li>
-      <li><code class="language-plaintext highlighter-rouge">spring-test</code>: 스프링 통합 테스트 지원</li>
-    </ul>
-  </li>
-</ul>
-
-<p><code class="language-plaintext highlighter-rouge">junit</code>: 자바에서 테스트할 때 주로 쓰는 라이브러리로 요즘 4에서 5로 넘어가는 추세라고 한다.</p>
-
-<h2 id="3-welcome-page를-통해-동작-과정을-알아보자">3. Welcome Page를 통해 동작 과정을 알아보자</h2>
-<p><img src="/assets/images/section1.png" alt="image" />
-<br />
-<br />
-1st. 웹 브라우저가 서버에 요청하면<br />
-2nd. Mapping 되어 있는 것을 찾아서<br />
-3rd. 해당 controller에 있는 메소드를 실행한다.<br />
-4th. controller가 반환한 값을 받아 viewResolver가 화면을 찾아 처리해준다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring" /><category term="Java" /><summary type="html"><![CDATA[프로젝트를 만들어봅시다.]]></summary></entry></feed>
+</ul>]]></content><author><name>hi~ June!!</name></author><category term="Android" /><category term="Kotlin" /><summary type="html"><![CDATA[안드로이드 프로그래밍을 시작해보자!!]]></summary></entry></feed>
