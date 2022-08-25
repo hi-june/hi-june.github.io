@@ -64,4 +64,10 @@ var store = [{
         "tags": ["python","flask","rabbitMQ","celery"],
         "url": "/team_forv/Team_ForV06/",
         "teaser": null
+      },{
+        "title": "[Team_ForV] AI & Docker Setting",
+        "excerpt":"문제상황 발생! 음성파일 합성을 위해선 TTS 라는 라이브러리와 g2pk라는 라이브러리가 필요하다. g2pk는 영어가 입력되었을 시 보이는 것처럼 한국어 발음에 맞춰서 변환해주고, -&gt; 최종적으로 변환된 문장을 TTS라이브러리를 통해 음성으로 만들어준다. 그래, 여기까지는 그렇다 치는데 이 라이브러리들을 사용하는데에 2가지 문제가 있었다. 위 라이브러리들은 3.6 ~ 3.7 사이의 파이썬 버전을 요구했다. 하지만 API...","categories": ["Team_ForV"],
+        "tags": ["AI","docker"],
+        "url": "/team_forv/Team_ForV07/",
+        "teaser": null
       }]
