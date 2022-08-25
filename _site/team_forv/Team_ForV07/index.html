@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Team_ForV] AI &amp; Docker Setting -  June &amp; Directory</title>
+<!-- begin _includes/seo.html --><title>[Team_ForV] Docker Setting -  June &amp; Directory</title>
 <meta name="description" content="Team_ForV의 프로젝트 ">
 
 
@@ -19,7 +19,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[Team_ForV] AI &amp; Docker Setting">
+<meta property="og:title" content="[Team_ForV] Docker Setting">
 <meta property="og:url" content="http://localhost:4000/team_forv/Team_ForV07/">
 
 
@@ -37,7 +37,7 @@
 
 
 
-  <meta property="article:modified_time" content="2022-08-25T00:00:00+09:00">
+  <meta property="article:modified_time" content="2022-08-26T00:00:00+09:00">
 
 
 
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[Team_ForV] AI & Docker Setting</li>
+        <li class="current">[Team_ForV] Docker Setting</li>
       
     
   </ol>
@@ -554,18 +554,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Team_ForV] AI &amp; Docker Setting">
+    <meta itemprop="headline" content="[Team_ForV] Docker Setting">
     <meta itemprop="description" content="Team_ForV의 프로젝트">
     <meta itemprop="datePublished" content="2022-08-25T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-08-25T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-08-26T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Team_ForV] AI &amp; Docker Setting
+          <h1 id="page-title" class="page__title" itemprop="headline">[Team_ForV] Docker Setting
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-08-25T00:00:00+09:00">2022.08.25</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-08-25">2022.08.25</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-08-25T00:00:00+09:00">2022.08.25</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-08-26">2022.08.26</time></p>
           
           
             
@@ -598,11 +598,7 @@
     
       
       
-      <a href="/tags/#docker" class="page__taxonomy-item-tag" rel="tag">docker</a><span class="sep"> </span>
-    
-      
-      
-      <a href="/tags/#ai" class="page__taxonomy-item-tag" rel="tag">AI</a>
+      <a href="/tags/#docker" class="page__taxonomy-item-tag" rel="tag">docker</a>
     
     </span>
   </p>
@@ -619,6 +615,14 @@
               <ul class="toc__menu">
   <li><a href="#문제상황-발생">문제상황 발생!</a></li>
   <li><a href="#docker를-이용하여-문제를-해결해보자">Docker를 이용하여 문제를 해결해보자!!</a></li>
+  <li><a href="#docker-composeyml--dockerfile">docker-compose.yml &amp; DockerFile</a>
+    <ul>
+      <li><a href="#--docker-composeyml">- docker-compose.yml</a></li>
+      <li><a href="#--dockerfile">- Dockerfile</a></li>
+    </ul>
+  </li>
+  <li><a href="#다음-글-소개">다음 글 소개</a></li>
+  <li><a href="#reference">Reference</a></li>
 </ul>
 
             </nav>
@@ -635,10 +639,204 @@
 
 <ol>
   <li>위 라이브러리들은 3.6 ~ 3.7 사이의 파이썬 버전을 요구했다. 하지만 API Server가 이미 먼저 만들어진 상태였고, API Server는 최신 버전의 파이썬을 사용중이었기 때문에 버전이 맞지 않았다.</li>
-  <li>결정적으로 g2pk 라이브러리를 사용하기 위해 설치되는 서브 모듈 중 ‘mecab’이라는 라이브러리가 당최 가상환경에서 설치되지를 않았다. 구글링해보니 이미 악명 높은 라이브러리인 것 같더라..</li>
+  <li>결정적으로 g2pk 라이브러리를 사용하기 위해 설치되는 서브 모듈 중 ‘mecab’이라는 라이브러리가 당최 가상환경에서 설치되지를 않았다(아마 M1 환경에서 제대로 설치가 되지 않는 것 같다). 구글링해보니 이미 악명 높은 라이브러리인 것 같더라..</li>
 </ol>
 
 <h2 id="docker를-이용하여-문제를-해결해보자">Docker를 이용하여 문제를 해결해보자!!</h2>
+<p><img src="/assets/images/Team_ForV/7-2.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<p>Docker는 ‘컨테이너 기반의 오픈소스 가상화 플랫폼’이다.</p>
+
+<p>여기에서 말하는 ‘컨테이너’는 다양한 프로그램, 실행환경을 컨테이너로 추상화하고 동일한 인터페이스를 제공하여 프로그램의 배포 및 관리를 단순하게 해준다.<br />
+백엔드 프로그램, 데이터베이스 서버, 메시지 큐등 어떤 프로그램도 컨테이너로 추상화할 수 있고 AWS, Azure, Google cloud등 어디에서든 실행할 수 있다.</p>
+
+<p>Docker의 컨테이너 개념을 이용해서 필요한 각각의 실행환경들을 컨테이너로 분리하여 Docker 위에서 돌아가도록 구성하게 되었다.<br />
+이렇게 구성할 경우, model server와 api server의 실행환경이 다르더라도 하나의 서버에 여러개의 컨테이너를 실행하면서 서로 영향을 미치지 않고 독립적으로 실행되어 마치 가벼운 Virtual Machine을 사용하는 느낌을 줄 수 있다.</p>
+
+<h2 id="docker-composeyml--dockerfile">docker-compose.yml &amp; DockerFile</h2>
+<h3 id="--docker-composeyml">- docker-compose.yml</h3>
+<p>frontend(react), api server(django), model server(flask), mysql, rabbitMQ, celery<br />
+이렇게 총 6개의 컨테이너를 구성했다.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># docker-compose.yml</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3"</span>
+
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">frontend</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span>
+      <span class="na">context</span><span class="pi">:</span> <span class="s">./frontend</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="pi">[</span> <span class="s2">"</span><span class="s">npm"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">start"</span> <span class="pi">]</span> 
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">3000:3000</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">tts</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./frontend/:/frontend</span>
+      <span class="pi">-</span> <span class="s">./frontend/node_modules/:/frontend/node_modules</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">CI=true</span>
+      <span class="pi">-</span> <span class="s">CHOKIDAR_USEPOLLING=true</span>
+      <span class="pi">-</span> <span class="s">REACT_APP_BACKEND_URL=http://localhost:5000</span>
+    <span class="na">tty</span><span class="pi">:</span> <span class="no">true</span>
+  
+  <span class="na">apiserver</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span>
+      <span class="na">context</span><span class="pi">:</span> <span class="s">./backend/apiserver</span>
+      <span class="na">args</span><span class="pi">:</span>
+        <span class="na">DJANGO_ALLOWED_HOSTS</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*"</span>
+        <span class="na">DJANGO_SECRET_KEY</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*"</span>
+        <span class="na">DJANGO_CORS_ORIGIN_WHITELIST</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*"</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">sh -c "/wait &amp;&amp; python ./apiserver/manage.py makemigrations &amp;&amp; python ./apiserver/manage.py makemigrations mainApp &amp;&amp; python ./apiserver/manage.py migrate &amp;&amp; python ./apiserver/db_init.py &amp;&amp; python ./apiserver/model_init.py &amp;&amp; python ./apiserver/manage.py runserver 0.0.0.0:8000"</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">on-failure</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">8000:8000</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./backend:/backend</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">tts</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">ttsmysql</span>
+
+  <span class="na">ttsmysql</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">mysql</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">--lower_case_table_names=1</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">ttsmysql</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">3306:3306"</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">MYSQL_DATABASE=tts</span>
+      <span class="pi">-</span> <span class="s">MYSQL_USER = root</span>
+      <span class="pi">-</span> <span class="s">MYSQL_ROOT_PASSWORD=1234</span>
+      <span class="pi">-</span> <span class="s">TZ=Asia/Seoul</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">tts</span>
+
+  <span class="na">modelserver</span><span class="pi">:</span>
+    <span class="na">platform</span><span class="pi">:</span> <span class="s">linux/amd64</span>
+    <span class="na">build</span><span class="pi">:</span> <span class="s">./backend/modelserver</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">5000:5000</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">tts</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">FLASK_APP=app</span>
+      <span class="pi">-</span> <span class="s">FLASK_ENV=development</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">flask run --host=0.0.0.0</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./backend:/backend</span>
+
+  <span class="na">rabbit</span><span class="pi">:</span>
+      <span class="na">hostname</span><span class="pi">:</span> <span class="s">tts_host</span>
+      <span class="na">image</span><span class="pi">:</span> <span class="s">rabbitmq:3-management</span>
+      <span class="na">command</span><span class="pi">:</span> <span class="s">rabbitmq-server</span>
+      <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+      <span class="na">environment</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">RABBITMQ_DEFAULT_USER=tts</span>
+        <span class="pi">-</span> <span class="s">RABBITMQ_DEFAULT_PASS=tts123</span>
+        <span class="pi">-</span> <span class="s">RABBITMQ_DEFAULT_VHOST=tts_host</span>
+      <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">5672:5672</span>  
+        <span class="pi">-</span> <span class="s">15672:15672</span>
+      <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./backend:/var/lib/rabbitmq</span>
+      <span class="na">networks</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">tts</span>
+      <span class="na">depends_on</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">modelserver</span>
+
+  <span class="na">celery</span><span class="pi">:</span>
+    <span class="na">platform</span><span class="pi">:</span> <span class="s">linux/amd64</span>
+    <span class="na">build</span><span class="pi">:</span> <span class="s">./backend/modelserver</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">apiserver"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">rabbit"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">modelserver"</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">tts</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">celery"</span><span class="pi">,</span><span class="s2">"</span><span class="s">-A"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">celery_app"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">worker"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">--loglevel=info"</span><span class="pi">]</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./backend:/backend</span>
+
+<span class="na">networks</span><span class="pi">:</span>
+  <span class="na">tts</span><span class="pi">:</span>
+    <span class="na">driver</span><span class="pi">:</span> <span class="s">bridge</span>
+</code></pre></div></div>
+
+<h3 id="--dockerfile">- Dockerfile</h3>
+<p><img src="/assets/images/Team_ForV/7-3.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<p>Dockerfile을 이해하기 위해선 docker 이미지라는 개념을 먼저 알아야한다.</p>
+
+<p>도커 이미지란, 서비스 운영에 필요한 서버 프로그램, 소스 코드, 컴파일된 실행 파일을 묶은 형태로써 기존에 있는 이미지에 추가적인 구성을 더해 또 다른 이미지를 만들 수 있다.<br />
+도커 허브와 같은 컨테이너 레지스트리에서 pull 받아서 사용하거나, dockerfile을 직접 작성해 이미지를 만들어서 push할 수 있다.</p>
+
+<p>다 살펴보진 않고, 문제의 핵심부분인 model server에 쓰인 Dockerfile만 보자.</p>
+<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Dockerfile</span>
+<span class="k">FROM</span><span class="s"> python:3.6.15</span>
+
+<span class="c"># Python</span>
+<span class="k">RUN </span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\
+</span>  apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nt">--no-install-recommends</span> apt-utils <span class="o">&amp;&amp;</span> <span class="se">\
+</span>  apt-get <span class="nt">-y</span> <span class="nb">install </span>software-properties-common <span class="o">&amp;&amp;</span> <span class="se">\
+</span>  apt-get update <span class="nt">--fix-missing</span> <span class="o">&amp;&amp;</span> <span class="se">\
+</span>  apt-get <span class="nt">-y</span> <span class="nb">install</span> <span class="nt">--fix-missing</span> python3-pip <span class="o">&amp;&amp;</span> <span class="se">\
+</span>  python3 <span class="nt">-m</span> pip <span class="nb">install </span>pip <span class="nt">--upgrade</span>
+
+<span class="k">RUN </span>apt-get update <span class="nt">-y</span> <span class="o">&amp;&amp;</span> <span class="se">\
+</span>  apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nt">--no-install-recommends</span> build-essential gcc <span class="se">\
+</span>  libsndfile1
+
+<span class="c"># mecab start</span>
+<span class="k">RUN </span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\
+</span>  apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nt">--no-install-recommends</span> tzdata g++ git curl
+<span class="k">RUN </span>apt-get <span class="nb">install </span>python3-setuptools
+<span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> default-jdk default-jre
+<span class="c"># mecab end</span>
+
+<span class="k">WORKDIR</span><span class="s"> /backend/modelserver</span>
+
+<span class="k">COPY</span><span class="s"> requirements.txt .</span>
+<span class="k">COPY</span><span class="s"> requirements_TTS.txt .</span>
+
+<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">-r</span> requirements_TTS.txt
+
+<span class="k">RUN </span>pip <span class="nb">install </span>celery
+<span class="k">RUN </span>pip <span class="nb">install </span>google-cloud-storage
+
+<span class="k">RUN </span>pip <span class="nb">install </span><span class="nv">nltk</span><span class="o">==</span>3.6.7
+<span class="k">RUN </span>pip <span class="nb">install </span><span class="nv">konlpy</span><span class="o">==</span>0.6.0
+<span class="k">RUN </span>pip <span class="nb">install </span>mecab-ko<span class="o">==</span>1.0.0
+<span class="k">RUN </span>pip <span class="nb">install </span>mecab-python<span class="o">==</span>1.0.0
+<span class="k">RUN </span>pip <span class="nb">install </span>python-mecab-ko<span class="o">==</span>1.0.14
+<span class="k">RUN </span>pip <span class="nb">install </span><span class="nv">g2pk</span><span class="o">==</span>0.9.4
+
+<span class="c"># mecab start</span>
+<span class="c"># RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2</span>
+<span class="c"># RUN update-alternatives --config python3</span>
+<span class="k">RUN </span><span class="nb">cd</span> <span class="nb">.</span> <span class="o">&amp;&amp;</span> <span class="se">\
+</span>  curl <span class="nt">-s</span> https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh | bash <span class="nt">-s</span>
+<span class="c"># mecab end</span>
+
+<span class="k">RUN </span><span class="nb">export </span><span class="nv">LC_ALL</span><span class="o">=</span>C.UTF-8
+<span class="k">ENV</span><span class="s"> LANG=C.UTF-8</span>
+<span class="k">ENV</span><span class="s"> LANGUAGE=C.UTF-8</span>
+
+<span class="k">COPY</span><span class="s"> . .</span>
+<span class="k">USER</span><span class="s"> root</span>
+</code></pre></div></div>
+
+<h2 id="다음-글-소개">다음 글 소개</h2>
+<p>도커의 개념과 프로젝트에 사용한 도커 세팅에 대해 간단히 알아보았다.<br />
+다음 글에서는 ‘음성 학습’과 ‘음성 합성’에 필요한 AI 학습 모델과 라이브러리들에 대해 좀 더 자세히 알아보도록 하자.</p>
+
+<h2 id="reference">Reference</h2>
+<p><a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html">https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html</a> [초보를 위한 도커 안내서 - 도커란 무엇인가?]<br />
+<a href="https://somjang.tistory.com/entry/Docker-ubuntu1604-%EA%B8%B0%EB%B0%98%EC%97%90%EC%84%9C-mecab-ko-%ED%99%9C%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95">https://somjang.tistory.com/entry/Docker-ubuntu1604-%EA%B8%B0%EB%B0%98%EC%97%90%EC%84%9C-mecab-ko-%ED%99%9C%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95</a> [ubuntu16.04 기반에서 mecab-ko 활용하는 방법]<br />
+<a href="https://github.com/litsynp/flask-g2pk">https://github.com/litsynp/flask-g2pk</a> [flask-g2pk]</p>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -709,7 +907,7 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BTeam_ForV%5D+AI+%26+Docker+Setting%20http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV07%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BTeam_ForV%5D+Docker+Setting%20http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV07%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV07%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
