@@ -70,4 +70,10 @@ var store = [{
         "tags": ["docker"],
         "url": "/team_forv/Team_ForV07/",
         "teaser": null
+      },{
+        "title": "[Team_ForV] AI models",
+        "excerpt":"##  ","categories": ["Team_ForV"],
+        "tags": ["AI"],
+        "url": "/team_forv/Team_ForV08/",
+        "teaser": null
       }]

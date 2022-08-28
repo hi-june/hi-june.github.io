@@ -10,5 +10,9 @@ sidebar_main: true
 
 ***
 
+😆 **<u>Team_ForV</u>** 프로젝트에 관한 포스트 모음입니다!<br><br>
+[깃 허브 구경가기!](https://github.com/2022SiliconValley-Team-ForV/TTS)
+{: .notice--primary}
+
 {% assign posts = site.categories.Team_ForV %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
