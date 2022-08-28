@@ -71,8 +71,8 @@ var store = [{
         "url": "/team_forv/Team_ForV07/",
         "teaser": null
       },{
-        "title": "[Team_ForV] AI models",
-        "excerpt":"##  ","categories": ["Team_ForV"],
+        "title": "[Team_ForV] AI Models",
+        "excerpt":"음성 합성은 어떻게 이루어질까? 대부분의 음성 합성 네트워크는 두 단계로 이루어진다! 1) Mel-spectrogram 생성 2) waveform 생성 이 프로젝트에서는 Glow-TTS와 HiFi-GAN을 사용하여 위의 두 가지 단계를 수행하고, 그 결과물을 이용하여 음성 합성 과정을 수행한다. 각각에 대해서 차근차근 알아보자! Mel-spectrogram의 생성 학습에 필요한 음성 녹음을 마쳤다면, 녹음한 음성 데이터들로 목소리 학습을...","categories": ["Team_ForV"],
         "tags": ["AI"],
         "url": "/team_forv/Team_ForV08/",
         "teaser": null
