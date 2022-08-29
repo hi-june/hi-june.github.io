@@ -76,4 +76,10 @@ var store = [{
         "tags": ["AI"],
         "url": "/team_forv/Team_ForV08/",
         "teaser": null
+      },{
+        "title": "[Team_ForV] 프로젝트의 활용 가능성",
+        "excerpt":"프로젝트를 실제로 배포하고 운영까지 한다고 가정해보자.. 앞서 설명했듯이 client에서 각각의 서버로 다른 요청을 보낸다. 각 서버는 client로부터 요청을 받아, django api server에서는 사용자들의 요청에 대한 정보를 수집하여 데이터베이스에 저장하고, flask model server에서는 사용자의 요청에 따라 만든 wav파일을 gcs에 업로드한다. 홍보를 하는 입장에서는 소비자에 대한 정보와 니즈파악이 중요하다. 이것들이 앞으로의 ‘사업의...","categories": ["Team_ForV"],
+        "tags": ["Info"],
+        "url": "/team_forv/Team_ForV09/",
+        "teaser": null
       }]
