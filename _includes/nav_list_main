@@ -44,8 +44,8 @@
         <span class="nav__sub-title">Spring/Spring Boot</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Spring" %}
-                        <li><a href="/categories/spring" class="">Spring ({{category[1].size}})</a></li>
+                    {% if category[0] == "Spring-Tutorial" %}
+                        <li><a href="/categories/Spring-Tutorial" class="">Spring-Tutorial ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
