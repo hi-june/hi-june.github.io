@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-29T23:33:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[Team_ForV] 프로젝트의 활용 가능성</title><link href="http://localhost:4000/team_forv/Team_ForV09/" rel="alternate" type="text/html" title="[Team_ForV] 프로젝트의 활용 가능성" /><published>2022-08-29T00:00:00+09:00</published><updated>2022-08-29T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV09</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV09/"><![CDATA[<h2 id="프로젝트를-실제로-배포하고-운영까지-한다고-가정해보자">프로젝트를 실제로 배포하고 운영까지 한다고 가정해보자..</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-03T13:15:53+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[Team_ForV] 프로젝트의 활용 가능성</title><link href="http://localhost:4000/team_forv/Team_ForV09/" rel="alternate" type="text/html" title="[Team_ForV] 프로젝트의 활용 가능성" /><published>2022-08-29T00:00:00+09:00</published><updated>2022-08-29T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV09</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV09/"><![CDATA[<h2 id="프로젝트를-실제로-배포하고-운영까지-한다고-가정해보자">프로젝트를 실제로 배포하고 운영까지 한다고 가정해보자..</h2>
 <p>앞서 설명했듯이 client에서 각각의 서버로 다른 요청을 보낸다.</p>
 
 <p>각 서버는 client로부터 요청을 받아,<br />
@@ -71,10 +71,6 @@ member_id(사용자가 원하는 그룹 멤버의 정보) 등의 정보를 데�
 <img src="/assets/images/Team_ForV/9-6.png" alt="image" width="30%" height="30%" /><br /></p>
 
 <p>이렇게 이 프로젝트에 <code class="language-plaintext highlighter-rouge">Elasticsearch</code>를 추가한다면 앞서 말한 데이터들을 사용하는 데 유용하게 쓰일 것 같다!</p>
-
-<h2 id="다음-글-소개">다음 글 소개</h2>
-<p>프로젝트 소개글은 이렇게 마무리되었다! 🎉 👏<br />
-다음 글은 프로젝트 회고록이 될 예정이다.</p>
 
 <h2 id="reference">Reference</h2>
 <p>1) <a href="https://victorydntmd.tistory.com/308">https://victorydntmd.tistory.com/308</a> [Elasticsearch 기본 개념잡기]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="Info" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] AI Models</title><link href="http://localhost:4000/team_forv/Team_ForV08/" rel="alternate" type="text/html" title="[Team_ForV] AI Models" /><published>2022-08-26T00:00:00+09:00</published><updated>2022-08-29T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV08</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV08/"><![CDATA[<h2 id="음성-합성은-어떻게-이루어질까">음성 합성은 어떻게 이루어질까?</h2>

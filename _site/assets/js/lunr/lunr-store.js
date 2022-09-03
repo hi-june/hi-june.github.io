@@ -18,7 +18,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[스프링 입문] Section 02 - 스프링 웹 개발 기초",
-        "excerpt":"Web을 개발하는 3가지 방법 정적 컨텐츠: 파일을 그냥 웹 브라우저에 내려주는 것 MVC와 템플릿 엔진: html, PHP, JSP 같은 파일을 서버에서 프로그래밍해서 동적으로 바꾼 후 내려주는 것 API: 예를 들자면, 만약 Android나 ios같은 Client랑 개발해야할 떄, ‘jason’이라는 포멧으로 내려주는 것 1. 정적 컨텐츠 1st. 웹 브라우저가 요청을 서버에 넘겨줌 2nd....","categories": ["Spring"],
+        "excerpt":"Web을 개발하는 3가지 방법 정적 컨텐츠: 파일을 그냥 웹 브라우저에 내려주는 것 MVC와 템플릿 엔진: html, PHP, JSP 같은 파일을 서버에서 프로그래밍해서 동적으로 바꾼 후 내려주는 것 API: 예를 들자면, 만약 Android나 ios같은 Client랑 개발해야할 떄, ‘jason’이라는 포멧으로 내려주는 것 1. 정적 컨텐츠 By default, Spring Boot serves static content...","categories": ["Spring"],
         "tags": ["Java"],
         "url": "/spring/Section02/",
         "teaser": null
