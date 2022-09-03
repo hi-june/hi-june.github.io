@@ -1,7 +1,7 @@
 var store = [{
         "title": "[스프링 입문] Section 01 - 프로젝트 환경설정",
         "excerpt":"1. 스프링 프로젝트 생성 - 스프링 부트 스타터를 이용함 밑바닥부터 만드는 것이 아닌 boot를 사용하여 시작하도록 한다. (https://start.spring.io) - 프로젝트 선택 Project: Gradle Project Spring Boot: 가장 최신 버전 Language: Java Java: 11 Gradle Project: 필요한 라이브러리를 땡겨오고, 빌드하는 Life Cycle까지 관리해주는 Tool로써, 과거 maven에서 요즘은 graddle로 바뀌는 추세라고 한다....","categories": ["Spring-Tutorial"],
-        "tags": ["java"],
+        "tags": ["java","spring"],
         "url": "/spring-tutorial/Section01/",
         "teaser": null
       },{
@@ -19,7 +19,7 @@ var store = [{
       },{
         "title": "[스프링 입문] Section 02 - 스프링 웹 개발 기초",
         "excerpt":"Web을 개발하는 3가지 방법 정적 컨텐츠: 파일을 그냥 웹 브라우저에 내려주는 것 MVC와 템플릿 엔진: PHP, JSP같이 html 파일을 서버에서 프로그래밍해서 동적으로 바꾼 후 내려주는 것 API: 데이터 자체(객체, string 등등)를 내려주는 방식 1. 정적 컨텐츠 By default, Spring Boot serves static content from a directory called /static (or /public...","categories": ["Spring-Tutorial"],
-        "tags": ["java"],
+        "tags": ["java","spring"],
         "url": "/spring-tutorial/Section02/",
         "teaser": null
       },{
@@ -81,5 +81,11 @@ var store = [{
         "excerpt":"프로젝트를 실제로 배포하고 운영까지 한다고 가정해보자.. 앞서 설명했듯이 client에서 각각의 서버로 다른 요청을 보낸다. 각 서버는 client로부터 요청을 받아, django api server에서는 사용자들의 요청에 대한 정보를 수집하여 데이터베이스에 저장하고, flask model server에서는 사용자의 요청에 따라 만든 wav파일을 gcs에 업로드한다. 홍보를 하는 입장에서는 소비자에 대한 정보와 니즈파악이 중요하다. 이것들이 앞으로의 ‘사업의...","categories": ["Team_ForV"],
         "tags": ["Info"],
         "url": "/team_forv/Team_ForV09/",
+        "teaser": null
+      },{
+        "title": "[스프링 입문] Section 03 - 회원 관리 예제(백엔드 개발)",
+        "excerpt":"비즈니스 요구사항 정리 데이터: 회원 ID, 이름 기능: 회원 등록, 조회 아직 Database를 결정하지 않았다고 가정 - 일반적인 Web Application 계층 구조 Controller: 웹 MVC의 컨트롤러 역할 Service: 핵심 비즈니스 로직 구현, 비즈니스 도메인 객체를 가지고 서비스 로직이 돌아가도록 구현한 계층(ex. 회원은 중복 가입이 안 된다거나 하는 등의 것들) Repository:...","categories": ["Spring-Tutorial"],
+        "tags": ["java","spring"],
+        "url": "/spring-tutorial/Section03/",
         "teaser": null
       }]
