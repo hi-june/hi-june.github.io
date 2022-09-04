@@ -88,4 +88,10 @@ var store = [{
         "tags": ["java","spring"],
         "url": "/spring-tutorial/Section03/",
         "teaser": null
+      },{
+        "title": "[스프링 입문] Section 04 - 스프링 빈과 의존관계",
+        "excerpt":"들어가며… 화면을 붙이고 싶음 -&gt; 컨트롤러와 뷰 템플릿 필요 ‘멤버 컨트롤러’가 ‘멤버 서비스’를 통해서 회원가입 하고, 데이터를 조회할 수 있어야 함 ‘멤버 컨트롤러’와 ‘멤버 서비스’ -&gt; 서로 의존관계가 있다.(멤버 컨트롤러가 멤버 서비스를 의존한다.) spring의 주요 개념 IOC &amp; DI 앞으로 등장할 스프링 컨테이너와 스프링 빈을 이해하기 위해선 Spring의 가장 큰...","categories": ["Spring-Tutorial"],
+        "tags": ["java","spring"],
+        "url": "/spring-tutorial/Section04/",
+        "teaser": null
       }]

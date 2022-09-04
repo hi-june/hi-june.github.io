@@ -1,0 +1,1285 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[스프링 입문] Section 04 - 스프링 빈과 의존관계 -  June &amp; Directory</title>
+<meta name="description" content="Spring Introduction ">
+
+
+  <meta name="author" content="hi~ June!!">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content=" June & Directory ">
+<meta property="og:title" content="[스프링 입문] Section 04 - 스프링 빈과 의존관계">
+<meta property="og:url" content="http://localhost:4000/spring-tutorial/Section04/">
+
+
+  <meta property="og:description" content="Spring Introduction ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/Profile/jenga.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2022-09-04T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-09-04T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/spring-tutorial/Section04/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "June & Directory",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" June & Directory  Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+
+    <!-- 스크롤바 커스터마이징 -->
+    <style> 
+      ::-webkit-scrollbar{width: 16px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb:hover {background: #4cb7ff;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:12px;height:12px;background:transparent; }
+
+      
+    </style>
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           June & Directory 
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/index.html">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">카테고리 Click</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#spring-tutorial" itemprop="item"><span itemprop="name">Spring tutorial</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[스프링 입문] Section 04 - 스프링 빈과 의존관계</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile/jenga.jpg" alt="hi~ June!!" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">hi~ June!!</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>반갑습니다!! 😆</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:wnsgur735@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">카테고리 Click</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Nanum Gothic Coding';">전체 글 수</style> <span style="font-family:'Nanum Gothic Coding';">16</style> <span style="font-family:'Nanum Gothic Coding';">개</style> 
+      </li>
+      <li>
+
+        <span class="nav__sub-title">Project</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SiDoli" class="">SiDoli (1)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Team_ForV" class="">Team_ForV (8)</a></li>
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Java</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Spring/Spring Boot</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Spring-Tutorial" class="">Spring-Tutorial (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">DataBase</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        
+        <span class="nav__sub-title">Computer Science</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Mobile</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/Android" class="">Android (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[스프링 입문] Section 04 - 스프링 빈과 의존관계">
+    <meta itemprop="description" content="Spring Introduction">
+    <meta itemprop="datePublished" content="2022-09-04T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-09-04T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[스프링 입문] Section 04 - 스프링 빈과 의존관계
+</h1>
+          
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-09-04T00:00:00+09:00">2022.09.04</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-09-04">2022.09.04</time></p>
+          
+          
+            
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
+    
+    </span>
+  </p>
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#들어가며">들어가며…</a></li>
+  <li><a href="#spring의-주요-개념-ioc--di">spring의 주요 개념 IOC &amp; DI</a>
+    <ul>
+      <li><a href="#--제어의-역전-ioc-inversion-of-control">- 제어의 역전 (<code class="language-plaintext highlighter-rouge">IOC</code>, Inversion Of Control)</a></li>
+      <li><a href="#--의존성-주입-di-dependency-injection">- 의존성 주입 (<code class="language-plaintext highlighter-rouge">DI</code>, Dependency Injection)</a></li>
+    </ul>
+  </li>
+  <li><a href="#스프링-컨테이너와-스프링-빈">스프링 컨테이너와 스프링 빈</a>
+    <ul>
+      <li><a href="#--스프링-컨테이너">- 스프링 컨테이너</a></li>
+      <li><a href="#--스프링-빈">- 스프링 빈</a></li>
+    </ul>
+  </li>
+  <li><a href="#스프링-빈을-등록하는-방법">스프링 빈을 등록하는 방법</a>
+    <ul>
+      <li><a href="#--컴포넌트-스캔과-자동-의존관계-설정">- 컴포넌트 스캔과 자동 의존관계 설정</a></li>
+      <li><a href="#--자바-코드로-직접-스프링-빈-등록하기">- 자바 코드로 직접 스프링 빈 등록하기</a></li>
+    </ul>
+  </li>
+  <li><a href="#reference">Reference</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="들어가며">들어가며…</h2>
+<p>화면을 붙이고 싶음 -&gt; 컨트롤러와 뷰 템플릿 필요<br />
+‘멤버 컨트롤러’가 ‘멤버 서비스’를 통해서 회원가입 하고, 데이터를 조회할 수 있어야 함<br />
+‘멤버 컨트롤러’와 ‘멤버 서비스’ -&gt; 서로 의존관계가 있다.(멤버 컨트롤러가 멤버 서비스를 의존한다.)</p>
+
+<h2 id="spring의-주요-개념-ioc--di">spring의 주요 개념 IOC &amp; DI</h2>
+<p>앞으로 등장할 스프링 컨테이너와 스프링 빈을 이해하기 위해선 Spring의 가장 큰 특징인 <code class="language-plaintext highlighter-rouge">IOC</code>와 <code class="language-plaintext highlighter-rouge">DI</code>에 대해서 알아야 한다.</p>
+
+<h3 id="--제어의-역전-ioc-inversion-of-control">- <u>제어의 역전 (`IOC`, Inversion Of Control)</u></h3>
+<p>일반적인 자바 프로그램에서는 각 객체들이 ‘프로그램의 흐름을 결정’하고 ‘각 객체를 직접 생성하고 조작하는 작업(객체를 직접 생성하여 메소드 호출)’을 했다.</p>
+<blockquote>
+  <p>즉, 모든 작업을 사용자가 제어하는 구조!</p>
+</blockquote>
+
+<p>예를 들어 A 객체에서 B 객체에 있는 메소드를 사용하고 싶으면, B 객체를 직접 A 객체 내에서 생성하고 메소드를 호출한다.</p>
+
+<p>하지만 <code class="language-plaintext highlighter-rouge">IOC</code>가 적용된 경우, 객체의 생성을 ‘특별한 관리 위임 주체’에게 맡긴다.<br />
+이 경우 사용자는 객체를 직접 생성하지 않고, 객체의 생명주기를 컨트롤하는 주체는 다른 주체가 된다.</p>
+<blockquote>
+  <p>즉, 사용자의 제어권을 다른 주체에게 넘기는 것을 <code class="language-plaintext highlighter-rouge">IOC</code>(제어의 역전) 라고 한다.</p>
+</blockquote>
+
+<p>요약하면 Spring의 <code class="language-plaintext highlighter-rouge">Ioc</code>란<br />
+클래스 내부의 객체 생성 -&gt; 의존성 객체의 메소드 호출이 아닌,<br />
+‘스프링에게 제어를 위임’하여 스프링이 만든 객체를 주입 -&gt; 의존성 객체의 메소드 호출 구조이다.</p>
+
+<p>스프링에서는 모든 의존성 객체를 스프링이 실행될때 만들어주고 필요한 곳에 주입해준다.</p>
+
+<h3 id="--의존성-주입-di-dependency-injection">- <u>의존성 주입 (`DI`, Dependency Injection)</u></h3>
+<p>어떤 객체(B)를 사용하는 주체(A)가 객체(B)를 직접 생성하는게 아니라</p>
+<blockquote>
+  <p>객체를 외부(Spring)에서 생성해서 사용하려는 주체 객체(A)에 주입시켜주는 방식이다.</p>
+</blockquote>
+
+<p>사용하는 주체(A)가 사용하려는 객체(B)를 직접 생성하는 경우 의존성(변경사항이 있는 경우 서로에게 영향을 많이 준다)이 높아진다.</p>
+<blockquote>
+  <p>하지만, 외부(Spring)에서 직접 생성하여 관리하는 경우에는 A와 B의 의존성이 줄어든다.</p>
+</blockquote>
+
+<p>자세한 건 뒤 쪽 코드를 보며 살펴보자.</p>
+
+<h2 id="스프링-컨테이너와-스프링-빈">스프링 컨테이너와 스프링 빈</h2>
+<h3 id="--스프링-컨테이너">- <u>스프링 컨테이너</u></h3>
+<p>‘스프링 컨테이너’는 ‘스프링 빈’의 생명 주기를 관리하며, 생성된 스프링 빈들에게 추가적인 기능을 제공하는 역할을 한다. <code class="language-plaintext highlighter-rouge">IoC</code>와 <code class="language-plaintext highlighter-rouge">DI</code>의 원리가 스프링 컨테이너에 적용된다.</p>
+
+<p>개발자는 new 연산자, 인터페이스 호출, 팩토리 호출 방식으로 객체를 생성하고 소멸하지만, 스프링 컨테이너를 사용하면 해당 역할을 대신해 준다. 즉, 제어 흐름을 외부에서 관리하게 된다. 또한, 객체들 간의 의존 관계를 스프링 컨테이너가 런타임 과정에서 알아서 만들어 준다.</p>
+
+<h3 id="--스프링-빈">- <u>스프링 빈</u></h3>
+<p>Spring에서는 직접 new를 이용하여 생성한 객체가 아니라, Spring에 의하여 관리당하는 자바 객체를 사용한다. 이렇게 Spring에 의하여 생성되고 관리되는 자바 객체를 Bean이라고 한다.</p>
+
+<h2 id="스프링-빈을-등록하는-방법">스프링 빈을 등록하는 방법</h2>
+<p><img src="/assets/images/Spring-Tutorial/4-1.png" alt="Image" /><br /><br />
+스프링은 스프링이 뜰 때, 스프링 컨테이너에 객체를 생성해서 넣어두고 관리한다.</p>
+<blockquote>
+  <p>이것을 <u>스프링 컨테이너에서 스프링 빈이 관리된다.</u>고 한다.</p>
+</blockquote>
+
+<h3 id="--컴포넌트-스캔과-자동-의존관계-설정">- <u>컴포넌트 스캔과 자동 의존관계 설정</u></h3>
+<p><code class="language-plaintext highlighter-rouge">@Component</code> 애노테이션이 있으면 스프링 빈으로 자동 등록된다.</p>
+
+<p>1) <code class="language-plaintext highlighter-rouge">@Controller</code><br />
+2) <code class="language-plaintext highlighter-rouge">@Service</code><br />
+3) <code class="language-plaintext highlighter-rouge">@Repository</code></p>
+
+<p>위의 세 가지 애노테이션 모두 <code class="language-plaintext highlighter-rouge">@Component</code>을 포함하기 때문에 스프링 빈으로 자동 등록된다.<br />
+생성자에 <code class="language-plaintext highlighter-rouge">@Autowired</code>를 사용하면 객체 생성 시점에서 스프링 컨테이너에서 해당 스프링 빈을 찾아서 주입한다.</p>
+
+<p>코드를 살펴보자!</p>
+
+<p>1) MemberController</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">hello.hellospring.service.MemberService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+
+<span class="nd">@Controller</span> <span class="c1">// Controller라는 어노테이션이 있으면, 스프링이 스프링 컨테이너(스프링 뜰 때 생김)에 객체를 생성해서 넣어두고 관리 == 스프링 컨테이너에서 스프링 빈이 관리된다</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
+    <span class="cm">/*
+    컨트롤러가 MemberService를 가져다 써야하는데..
+
+    private final MemberService memberService = new MemberService();
+    스프링이 관리를 하게 되면, 다 스프링 컨테이너에 등록을 하고, 스프링 컨테이너로부터 받아서 쓰도록 바꾸어야 함
+    이런 식으로 new 해서 인스턴스를 직접 생성해서 쓴다면, 다른 여러 컨트롤러가 MemberService를 가져다 쓰는 등의 상황에서 각각 다른 인스턴스를 사용하는 것이 되기 때문에
+    하나만 생성해놓고 공유해서 쓰는 것이 좋다.
+     */</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="cm">/*
+    1. 스프링이 뜸
+    2. 스프링 컨테이너 생김
+    3. 생성자 호출
+    4. 스프링이 스프링 컨테이너에 있는 memberService를 컨트롤러에 자동으로 연결해줌(Autowired)
+     */</span>
+    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// 오류 뜨는 이유: 서비스에 어노테이션이 등록되어 있지 않다.</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+2) MemberService</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberService.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">hello.hellospring.domain.Member</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">hello.hellospring.repository.MemberRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">hello.hellospring.repository.MemoryMemberRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberService</span> <span class="o">{</span>
+    <span class="c1">// private final MemberRepository memberRepository = new MemoryMemberRepository(); // 기존 방식: MemberService가 MemoryMemberRepository를 직접 생성하게 함</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberRepository</span> <span class="n">memberRepository</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">MemberService</span><span class="o">(</span><span class="nc">MemberRepository</span> <span class="n">memberRepository</span><span class="o">)</span> <span class="o">{</span>   <span class="c1">// MemberService 코드를 DI 가능하게 변경한다.</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">memberRepository</span> <span class="o">=</span> <span class="n">memberRepository</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * 회원가입
+     */</span>
+    <span class="kd">public</span> <span class="nc">Long</span> <span class="nf">join</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">validateDuplicateMember</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>    <span class="c1">// 중복 회원 검증</span>
+        <span class="n">memberRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">validateDuplicateMember</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">memberRepository</span><span class="o">.</span><span class="na">findByName</span><span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getName</span><span class="o">())</span>   <span class="c1">// 회원 리포지토리에서 멤버 이름으로 찾아서</span>
+                <span class="o">.</span><span class="na">ifPresent</span><span class="o">(</span><span class="n">m</span> <span class="o">-&gt;</span> <span class="o">{</span>   <span class="c1">// 만약 존재한다면</span>
+                    <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="s">"이미 존재하는 회원입니다."</span><span class="o">);</span>  <span class="c1">// 이미 존재한다고 예외를 던지게끔 설계</span>
+                <span class="o">});</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * 전체 회원 조회
+     */</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findMembers</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">memberRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findOne</span><span class="o">(</span><span class="nc">Long</span> <span class="n">memberId</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">memberRepository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">memberId</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+3) MemoryMemberRepository</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemoryMemberRepository.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.repository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">hello.hellospring.domain.Member</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemoryMemberRepository</span> <span class="kd">implements</span> <span class="nc">MemberRepository</span><span class="o">{</span>
+
+    <span class="c1">// 실무에서는 동시성 문제가 있을 수 있어서 이렇게 공유되는 변수일 때는...</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Long</span><span class="o">,</span> <span class="nc">Member</span><span class="o">&gt;</span> <span class="n">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>   <span class="c1">// ConcurrentHashMap을 사용함</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">sequence</span> <span class="o">=</span> <span class="mi">0L</span><span class="o">;</span>  <span class="c1">// AtomicLong을 사용함</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Member</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">member</span><span class="o">.</span><span class="na">setId</span><span class="o">(++</span><span class="n">sequence</span><span class="o">);</span>   <span class="c1">// sequence로 id 설정</span>
+        <span class="n">store</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">(),</span> <span class="n">member</span><span class="o">);</span>  <span class="c1">// store라는 map 객체에 &lt;id, member&gt;인 객체 추가</span>
+        <span class="k">return</span> <span class="n">member</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">id</span><span class="o">));</span>  <span class="c1">// 해당 id를 가진 객체가 없는데 조회를 할 경우, null 처리를 위해 ofNullable로 감싸줌</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findByName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="na">values</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>  <span class="c1">// 3. 반환</span>
+                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">member</span> <span class="o">-&gt;</span> <span class="n">member</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">))</span>    <span class="c1">// 1. member.getName() 과 name이 같은지 확인하여</span>
+                <span class="o">.</span><span class="na">findAny</span><span class="o">();</span> <span class="c1">// 2. 같은 걸 하나라도 찾으면</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// store는 map인데, 반환은 리스트로 되어 있음 -&gt; java에서 실무할 땐 루프 돌리기도 쉽고 해서 리스트를 많이 쓴다고 함</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">store</span><span class="o">.</span><span class="na">values</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearStore</span><span class="o">(){</span>
+        <span class="n">store</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--자바-코드로-직접-스프링-빈-등록하기">- <u>자바 코드로 직접 스프링 빈 등록하기</u></h3>
+
+<h2 id="reference">Reference</h2>
+<p>1) <a href="https://steady-coding.tistory.com/594">https://steady-coding.tistory.com/594</a> [Spring Bean 총 정리]<br />
+2) <a href="https://melonicedlatte.com/2021/07/11/232800.html">https://melonicedlatte.com/2021/07/11/232800.html</a> [스프링 빈(Spring Bean)이란? 개념 정리]</p>
+
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <!-- '카테고리 내 다른 글 보러가기' -->
+        <p></p>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Spring-Tutorial</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <!--
+
+  <nav class="pagination">
+    
+      <a href="/spring-tutorial/Section03/" class="pagination--pager" title="[스프링 입문] Section 03 - 회원 관리 예제(백엔드 개발)
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+-->
+
+
+
+
+  
+  	
+  	
+  	
+  	
+  	
+
+
+  <nav class="pagination_prev_next">
+    
+      <a href="/spring-tutorial/Section03/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[스프링 입문] Section 03 - 회원 관리 예제(백엔드 개발)</a>
+    
+    
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
+    
+  </nav>
+
+
+<!--
+
+
+
+-->
+
+
+
+        <p></p>
+
+        <!-- archive 중간 광고 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+            data-ad-client="ca-pub-6111782407607310"
+            data-ad-slot="5458515780"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+      <footer class="page__meta">
+        
+        <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%8A%A4%ED%94%84%EB%A7%81+%EC%9E%85%EB%AC%B8%5D+Section+04+-+%EC%8A%A4%ED%94%84%EB%A7%81+%EB%B9%88%EA%B3%BC+%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%20http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection04%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection04%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection04%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+  </article>
+
+  
+  
+    <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
+      <h4 class="page__related-title">최근 글 10 개 :)</h4>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/spring-tutorial/Section03/">[스프링 입문] Section 03 - 회원 관리 예제(백엔드 개발)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/team_forv/Team_ForV09/">[Team_ForV] 프로젝트의 활용 가능성</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.29
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+                    
+                    
+                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/team_forv/Team_ForV08/">[Team_ForV] AI Models</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.26
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+                    
+                    
+                    <a href="/tags/#ai" class="page__taxonomy-item-tag" rel="tag">AI</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/team_forv/Team_ForV07/">[Team_ForV] Docker Setting</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.25
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+                    
+                    
+                    <a href="/tags/#docker" class="page__taxonomy-item-tag" rel="tag">docker</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/team_forv/Team_ForV06/">[Team_ForV] Flask Model Server</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.22
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+                    
+                    
+                    <a href="/tags/#celery" class="page__taxonomy-item-tag" rel="tag">celery</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#flask" class="page__taxonomy-item-tag" rel="tag">flask</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">python</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#rabbitmq" class="page__taxonomy-item-tag" rel="tag">rabbitMQ</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/team_forv/Team_ForV05/">[Team_ForV] Django API Server</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.18
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+                    
+                    
+                    <a href="/tags/#django" class="page__taxonomy-item-tag" rel="tag">django</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#mysql" class="page__taxonomy-item-tag" rel="tag">mysql</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">python</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/team_forv/Team_ForV04/">[Team_ForV] Python Web Framework</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.17
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+                    
+                    
+                    <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">python</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/team_forv/Team_ForV03/">[Team_ForV] 아키텍처 및 기술스택 소개</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.17
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+                    
+                    
+                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/team_forv/Team_ForV02/">[Team_ForV] 프로젝트 소개</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.16
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+                    
+                    
+                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/sidoli/SiDoli01/">[SiDoli] 프로젝트 소개</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.06.29
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#sidoli" class="page__taxonomy-item-category" rel="tag">SiDoli</a>
+                    
+                    
+                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 June & Directory. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'hi-june/hi-june.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'photon-dark');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </body>
+</html>

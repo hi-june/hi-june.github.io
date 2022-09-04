@@ -61,6 +61,10 @@
 <lastmod>2022-09-03T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/spring-tutorial/Section04/</loc>
+<lastmod>2022-09-04T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/categories/</loc>
 </url>
 <url>
@@ -128,6 +132,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/page3/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page4/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/google8a97825fdbe4bbc7.html</loc>
