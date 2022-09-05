@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경 -  June &amp; Directory</title>
-<meta name="description" content="안드로이드 프로그래밍을 시작해보자!! ">
+<!-- begin _includes/seo.html --><title>[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발) -  June &amp; Directory</title>
+<meta name="description" content="Spring Introduction ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경">
-<meta property="og:url" content="http://localhost:4000/android/Chapter01/">
+<meta property="og:title" content="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)">
+<meta property="og:url" content="http://localhost:4000/spring-tutorial/Section05/">
 
 
-  <meta property="og:description" content="안드로이드 프로그래밍을 시작해보자!! ">
+  <meta property="og:description" content="Spring Introduction ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-04-07T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-09-05T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-04-07T00:00:00+09:00">
+  <meta property="article:modified_time" content="2022-09-06T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/android/Chapter01/">
+<link rel="canonical" href="http://localhost:4000/spring-tutorial/Section05/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#android" itemprop="item"><span itemprop="name">Android</span></a>
+          <a href="/categories/#spring-tutorial" itemprop="item"><span itemprop="name">Spring tutorial</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경</li>
+        <li class="current">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</li>
       
     
   </ol>
@@ -554,18 +554,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경">
-    <meta itemprop="description" content="안드로이드 프로그래밍을 시작해보자!!">
-    <meta itemprop="datePublished" content="2022-04-07T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-04-07T00:00:00+09:00">
+    <meta itemprop="headline" content="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)">
+    <meta itemprop="description" content="Spring Introduction">
+    <meta itemprop="datePublished" content="2022-09-05T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-09-06T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[안드로이드 기초] Chapter 01 - 안드로이드의 개요와 개발환경
+          <h1 id="page-title" class="page__title" itemprop="headline">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-04-07T00:00:00+09:00">2022.04.07</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-04-07">2022.04.07</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-09-05T00:00:00+09:00">2022.09.05</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-09-06">2022.09.06</time></p>
           
           
             
@@ -581,7 +581,7 @@
     
       
       
-      <a href="/categories/#android" class="page__taxonomy-item-category" rel="tag">Android</a>
+      <a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
     
     </span>
   </p>
@@ -598,7 +598,11 @@
     
       
       
-      <a href="/tags/#kotlin" class="page__taxonomy-item-tag" rel="tag">Kotlin</a>
+      <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
     
     </span>
   </p>
@@ -613,65 +617,116 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#1-안드로이드-개요">1. 안드로이드 개요</a></li>
+  <li><a href="#file-tree-참고하기">File Tree 참고하기</a></li>
+  <li><a href="#홈-화면">홈 화면</a></li>
+  <li><a href="#회원-등록">회원 등록</a></li>
+  <li><a href="#회원-조회">회원 조회</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="1-안드로이드-개요">1. 안드로이드 개요</h2>
-<ul>
-  <li>안드로이드 주요 기능<br />
-안드로이드는 모바일 기기를 위한 운영체제로 <code class="language-plaintext highlighter-rouge">안드로이드 SDK</code>는 <code class="language-plaintext highlighter-rouge">JAVA</code> 기반으로 안드로이드 애플리케이션을 개발할 수 있는 <code class="language-plaintext highlighter-rouge">API</code>를 제공하고 있다.
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">애플리케이션 프레임워크</code>를 통해서 제공되는 <code class="language-plaintext highlighter-rouge">API</code>를 사용함으로써 코드를 재사용하여 효율적이고 빠른 애플리케이션 개발 가능</li>
-      <li>모바일 기기에 최적화된 <code class="language-plaintext highlighter-rouge">달빅</code> 또는 <code class="language-plaintext highlighter-rouge">아트런타임(ART : Android Run Time)</code> 제공</li>
-      <li>2D 그래픽 및 3차원 그래픽을 최적화하여 표현</li>
-      <li>모바일용 데이터베이스인 <code class="language-plaintext highlighter-rouge">SQLite</code>를 제공</li>
-      <li>각종 오디오, 비디오 및 이미지 형식을 지원</li>
-      <li>모바일 기기에 내장된 각종 하드웨어(블루투스, 카메라, 센서, WiFi 등) 지원</li>
-      <li><code class="language-plaintext highlighter-rouge">이클립스 IDE</code> 또는 <code class="language-plaintext highlighter-rouge">Android Studio</code>를 통해서 강력하고 빠른 개발 환경 제공
-<br /><br /></li>
-    </ul>
-  </li>
-  <li>안드로이드의 특징
-    <ul>
-      <li>안드로이드의 핵심 커널은 <code class="language-plaintext highlighter-rouge">Linux</code>로 구성되어있다. <code class="language-plaintext highlighter-rouge">안드로이드 커널</code>은 이 리눅스 커널에서 모바일용으로 적합한 내용을 추출하여 필요한 기능을 추가한 것이다.</li>
-      <li>개발 언어로 <code class="language-plaintext highlighter-rouge">Java</code> 또는 <code class="language-plaintext highlighter-rouge">Kotlin</code>을 사용한다. 더 나아가 <code class="language-plaintext highlighter-rouge">NDK</code>(Native Development Kit)도 제공하기 때문에 C, C++ 기반으로 개발하여 더 빠른 성능과 세밀한 조작까지도 가능하다.</li>
-      <li><code class="language-plaintext highlighter-rouge">안드로이드 SDK</code>에 많은 라이브러리를 포함하고 있다. 특히 <code class="language-plaintext highlighter-rouge">SQLite</code>, <code class="language-plaintext highlighter-rouge">OpenGL</code> 등도 지원한다.</li>
-      <li>오픈소스를 지향하고, 지속적인 업그레이드를 제공한다.
-<br /><br /></li>
-    </ul>
-  </li>
-  <li>안드로이드의 구조<br />
-<img src="/assets/images/Android/%5BAndroid-Basic%5DCh01_1.png" alt="Image" />
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">응용 프로그램</code>: 사용자가 쓰는 일반적인 응용프로그램</li>
-      <li><code class="language-plaintext highlighter-rouge">응용 프로그램 프레임워크</code>: 안드로이드 API가 존재하는 곳. 애플리케이션은 API를 통해 안드로이드 커널에 접근할 수 있음</li>
-      <li><code class="language-plaintext highlighter-rouge">안드로이드 런타임</code>: Java 코어 라이브러리, 달빅 가상 머신, 아트 런타임으로 구성됨. Java, Kotlin 등으로 프로그래밍 후 JVM을 쓰지 않고 대신하여 사용함. 모바일 환경에 최적화되어있음.</li>
-      <li><code class="language-plaintext highlighter-rouge">라이브러리</code>: 시스템 접근 때문에 Java, Kotlin이 아닌 C로 작성되어 있음. 성능이 뛰어나고 세밀한 조작 가능</li>
-      <li><code class="language-plaintext highlighter-rouge">리눅스 커널</code>: 하드웨어의 운영(메모리 관리, 디바이스 드라이버, 보안 등)과 관련된 저수준의 관리 기능이 들어있음.</li>
-    </ul>
-  </li>
-</ul>
+        <h2 id="file-tree-참고하기">File Tree 참고하기</h2>
+<p><img src="/assets/images/Spring-Tutorial/5-1.png" alt="Image" width="65%" height="65%" /></p>
 
+<h2 id="홈-화면">홈 화면</h2>
+<p>홈 컨트롤러를 추가해준다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeController.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeController</span> <span class="o">{</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"home"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Q) ‘/’ 요청 시, index.html 대신 hello.html이 호출되는 이유?<br />
+A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
+
+<h2 id="회원-등록">회원 등록</h2>
+<p>1) 웹 등록 화면에서 데이터를 전달 받을 폼 객체를 만들어야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberForm.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberForm</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+2) 회원 등록용 폼 컨트롤러 제작</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
+    
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">createForm</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"members/createMemberForm"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+3) 회원 컨트롤러에서 회원을 실제 등록하는 기능을 구현</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">create</span><span class="o">(</span><span class="nc">MemberForm</span> <span class="n">form</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>   <span class="c1">// 멤버를 생성하고</span>
+    
+    <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">form</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span> <span class="c1">// 폼으로부터 이름을 가져와 member의 이름을 설정하고</span>
+    <span class="n">memberService</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// memberService를 통해 생성한 member를 저장한다.</span>
+    
+    <span class="k">return</span> <span class="s">"redirect:/"</span><span class="o">;</span>    <span class="c1">// 회원 가입 완료 후 다시 home 화면으로 돌아가도록 만든다.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="회원-조회">회원 조회</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/members"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">list</span><span class="o">(</span><span class="nc">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">findMembers</span><span class="o">();</span>
+    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"members"</span><span class="o">,</span> <span class="n">members</span><span class="o">);</span>
+    <span class="k">return</span> <span class="s">"members/memberList"</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Android</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Spring-Tutorial</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/spring-tutorial/Section01/" class="pagination--pager" title="[스프링 입문] Section 01 - 프로젝트 환경설정
+      <a href="/spring-tutorial/Section04/" class="pagination--pager" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계
 ">이전</a>
     
     
-      <a href="/android/Chapter04/" class="pagination--pager" title="[안드로이드 기초] Chapter 04 - 기본 위젯 익히기
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -679,10 +734,6 @@
 
 
 
-
-  
-
-  
 
   
   	
@@ -694,10 +745,10 @@
 
   <nav class="pagination_prev_next">
     
-      <a href="#" class="pagination_prev_next--pager disabled-first-child">첫 번째 글입니다</a>
+      <a href="/spring-tutorial/Section04/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[스프링 입문] Section 04 - 스프링 빈과 의존관계</a>
     
     
-      <a href="/android/Chapter04/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[안드로이드 기초] Chapter 04 - 기본 위젯 익히기</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -730,11 +781,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C+%EA%B8%B0%EC%B4%88%5D+Chapter+01+-+%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98+%EA%B0%9C%EC%9A%94%EC%99%80+%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%20http%3A%2F%2Flocalhost%3A4000%2Fandroid%2FChapter01%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%8A%A4%ED%94%84%EB%A7%81+%EC%9E%85%EB%AC%B8%5D+Section+05+-+%ED%9A%8C%EC%9B%90+%EA%B4%80%EB%A6%AC+%EC%98%88%EC%A0%9C%28%EC%9B%B9+MVC+%EA%B0%9C%EB%B0%9C%29%20http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection05%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fandroid%2FChapter01%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection05%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fandroid%2FChapter01%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection05%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -748,34 +799,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/spring-tutorial/Section05/">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.05
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
-                
-                    
-                    
-                    <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1005,6 +1028,30 @@
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.17
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+                    
+                    
+                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/team_forv/Team_ForV02/">[Team_ForV] 프로젝트 소개</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.16
               <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
         

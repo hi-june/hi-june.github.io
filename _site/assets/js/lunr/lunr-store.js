@@ -94,4 +94,10 @@ var store = [{
         "tags": ["java","spring"],
         "url": "/spring-tutorial/Section04/",
         "teaser": null
+      },{
+        "title": "[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)",
+        "excerpt":"File Tree 참고하기 홈 화면 홈 컨트롤러를 추가해준다. // HomeController.java package hello.hellospring.controller; import org.springframework.stereotype.Controller; import org.springframework.web.bind.annotation.GetMapping; @Controller public class HomeController { @GetMapping(\"/\") public String home() { return \"home\"; } } Q) ‘/’ 요청 시, index.html 대신 hello.html이 호출되는 이유? A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다. 회원 등록 1) 웹...","categories": ["Spring-Tutorial"],
+        "tags": ["java","spring"],
+        "url": "/spring-tutorial/Section05/",
+        "teaser": null
       }]

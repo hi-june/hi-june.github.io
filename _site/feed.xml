@@ -1,4 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-05T22:24:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 입문] Section 04 - 스프링 빈과 의존관계</title><link href="http://localhost:4000/spring-tutorial/Section04/" rel="alternate" type="text/html" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계" /><published>2022-09-04T00:00:00+09:00</published><updated>2022-09-04T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section04</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section04/"><![CDATA[<h2 id="들어가며">들어가며…</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-06T00:04:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</title><link href="http://localhost:4000/spring-tutorial/Section05/" rel="alternate" type="text/html" title="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-06T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section05</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section05/"><![CDATA[<h2 id="file-tree-참고하기">File Tree 참고하기</h2>
+<p><img src="/assets/images/Spring-Tutorial/5-1.png" alt="Image" width="65%" height="65%" /></p>
+
+<h2 id="홈-화면">홈 화면</h2>
+<p>홈 컨트롤러를 추가해준다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeController.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeController</span> <span class="o">{</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"home"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Q) ‘/’ 요청 시, index.html 대신 hello.html이 호출되는 이유?<br />
+A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
+
+<h2 id="회원-등록">회원 등록</h2>
+<p>1) 웹 등록 화면에서 데이터를 전달 받을 폼 객체를 만들어야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberForm.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberForm</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+2) 회원 등록용 폼 컨트롤러 제작</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
+    
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">createForm</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"members/createMemberForm"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+3) 회원 컨트롤러에서 회원을 실제 등록하는 기능을 구현</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">create</span><span class="o">(</span><span class="nc">MemberForm</span> <span class="n">form</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>   <span class="c1">// 멤버를 생성하고</span>
+    
+    <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">form</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span> <span class="c1">// 폼으로부터 이름을 가져와 member의 이름을 설정하고</span>
+    <span class="n">memberService</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// memberService를 통해 생성한 member를 저장한다.</span>
+    
+    <span class="k">return</span> <span class="s">"redirect:/"</span><span class="o">;</span>    <span class="c1">// 회원 가입 완료 후 다시 home 화면으로 돌아가도록 만든다.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="회원-조회">회원 조회</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/members"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">list</span><span class="o">(</span><span class="nc">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">findMembers</span><span class="o">();</span>
+    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"members"</span><span class="o">,</span> <span class="n">members</span><span class="o">);</span>
+    <span class="k">return</span> <span class="s">"members/memberList"</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 04 - 스프링 빈과 의존관계</title><link href="http://localhost:4000/spring-tutorial/Section04/" rel="alternate" type="text/html" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계" /><published>2022-09-04T00:00:00+09:00</published><updated>2022-09-04T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section04</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section04/"><![CDATA[<h2 id="들어가며">들어가며…</h2>
 <p>화면을 붙이고 싶음 -&gt; 컨트롤러와 뷰 템플릿 필요<br />
 ‘멤버 컨트롤러’가 ‘멤버 서비스’를 통해서 회원가입 하고, 데이터를 조회할 수 있어야 함<br />
 ‘멤버 컨트롤러’와 ‘멤버 서비스’ -&gt; 서로 의존관계가 있다.(멤버 컨트롤러가 멤버 서비스를 의존한다.)</p>
@@ -1413,80 +1497,7 @@ DRF는 <code class="language-plaintext highlighter-rouge">apiview</code>, <code 
 2) <a href="https://wikidocs.net/book/4223">https://wikidocs.net/book/4223</a> [점프 투 장고]<br />
 3) <a href="https://ssungkang.tistory.com/entry/Django-APIView-Mixins-generics-APIView-ViewSet%EC%9D%84-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90">https://ssungkang.tistory.com/entry/Django-APIView-Mixins-generics-APIView-ViewSet%EC%9D%84-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90</a><br />
 [APIView, Mixins, generics APIView, ViewSet을 알아보자]<br />
-4) <a href="https://velog.io/@devmin/Django-MySQL-Connect">https://velog.io/@devmin/Django-MySQL-Connect</a> [Django와 MySQL 연결하기]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="python" /><category term="django" /><category term="mysql" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] Python Web Framework</title><link href="http://localhost:4000/team_forv/Team_ForV04/" rel="alternate" type="text/html" title="[Team_ForV] Python Web Framework" /><published>2022-08-17T00:00:00+09:00</published><updated>2022-08-17T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV04</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV04/"><![CDATA[<h2 id="아키텍처를-보며">아키텍처를 보며..</h2>
-<p><img src="/assets/images/Team_ForV/1-a.png" alt="image" width="120%" height="120%" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">python</code>으로 웹 application을 만들 때<br />
--&gt; 기본적으로 socket을 제공하니까 개 노가다 하면 만들 수야 있겠지만 의미도 없고..<br />
--&gt; 따라서, <code class="language-plaintext highlighter-rouge">python</code>을 이용하여 <code class="language-plaintext highlighter-rouge">WSGI</code> 라는 인터페이스를 만들어 사용하고 있다.<br /></p>
-
-<h2 id="wsgi가-뭔데">WSGI가 뭔데?</h2>
-<p><img src="/assets/images/Team_ForV/1-b.png" alt="image" width="50%" height="50%" />
-<img src="/assets/images/Team_ForV/1-c.png" alt="image" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">WSGI</code>는 ‘Web Server GateWay Interface’의 약자로 web server로 들어오는 request를 python으로 쓰여진 web application으로 forwarding 해주는 interface를 말한다.<br />
-예시) <code class="language-plaintext highlighter-rouge">gunicorn</code>, <code class="language-plaintext highlighter-rouge">uwsgi</code> 등등이 있음</p>
-
-<dl>
-  <dt>Q) 근데, flask, django 사용했을 때 gunicorn 같은 거 없이도 web server 잘 돌아가던데?<br /></dt>
-  <dd>사실은 프레임워크 안에 자체적으로 WSGI가 내장되어 있어서 잘 돌아갔던 것..</dd>
-</dl>
-
-<p>web application을 만들기 위해선 <code class="language-plaintext highlighter-rouge">flask</code>나 <code class="language-plaintext highlighter-rouge">django</code>가 제공해주는 <code class="language-plaintext highlighter-rouge">template</code>나 <code class="language-plaintext highlighter-rouge">view</code>를 가지고 <code class="language-plaintext highlighter-rouge">python</code>으로 웹 서버를 만드는 것인데..(결국 <code class="language-plaintext highlighter-rouge">flask</code>나 <code class="language-plaintext highlighter-rouge">django</code>는 프레임워크에 불과하다는 소리!)<br />
--&gt; 실제로 deploy까지 하게 되면 <code class="language-plaintext highlighter-rouge">WSGI</code>라는 인터페이스가 있고, 그런 인터페이스의 제공을 위해 <code class="language-plaintext highlighter-rouge">gunicorn</code> 등을 이용하는 것이다.<br />
--&gt; 다만, python web server는 보안 및 퍼포먼스의 문제가 있어 전문적 web server를 <code class="language-plaintext highlighter-rouge">proxy server</code>로 두는데..<br /></p>
-
-<h2 id="proxy-server는-무엇이냐">Proxy Server는 무엇이냐</h2>
-<p><img src="/assets/images/Team_ForV/1-d.png" alt="image" width="50%" height="50%" />
-<img src="/assets/images/Team_ForV/1-e.jpeg" alt="image" width="40%" height="50%" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">Proxy</code>: 서버와 클라이언트 사이에서 대리로 통신을 수행해주는 것<br />
-즉, Client가 자신을 거쳐 다른 네트워크에 접속할 수 있도록 중간에서 대리해주는 서버를 말한다.<br />
-사용자가 많거나, performance, security를 고려하여 전문적 server를 두는 것이다.<br /></p>
-
-<h2 id="아키텍처를-보며-다시-정리해보자">아키텍처를 보며 다시 정리해보자!</h2>
-<p><img src="/assets/images/Team_ForV/1-a.png" alt="image" width="120%" height="120%" /></p>
-
-<ol>
-  <li>웹 브라우저의 동작방식<br />
-사용자가 서비스를 이용하려면 웹 브라우저에 URL을 입력하는데, 이 때 웹 브라우저가 URL을 사용해서 서버에 요청하는 페이지는 크게 2가지 종류가 있다.
-    <ul>
-      <li>정적 페이지 요청<br />
-   예를 들어 <code class="language-plaintext highlighter-rouge">http://3.37.58.70:5000/static/hello.css</code>라는 URL 접속 요청이 들어오면, 서비스는 <code class="language-plaintext highlighter-rouge">static/hello.css</code>라는 파일을 찾아서 웹 브라우저로 보내주는 것이다. .js, .jpg, .png 등등의 파일은 변하지 않는 성질 때문에 ‘정적 파일’이라고 하며, 웹 브라우저에서 이런 정적 파일을 요청하는 행위를 ‘정적 페이지 요청’이라 한다.</li>
-      <li>동적 페이지 요청<br />
-   서버의 데이터베이스에 어떤 내용이 있는지에 따라 수시로 변하는 파일들이 있다. 웹 브라우저의 이러한 요청을 ‘동적 페이지 요청’이라고 한다. 이러한 동적 요청은 정적 요청과는 달리 조금 복잡한 과정을 거쳐 응답한다.</li>
-    </ul>
-  </li>
-  <li>
-    <p>동적 페이지 요청의 처리를 위해 웹 서버와 WSGI 서버가 필요하다!<br />
-웹 서버에 동적 페이지 요청이 들어오면 파이썬 프로그램을 호출해야 한다<br />
--&gt; 대부분의 웹 서버는 어떻게 파이썬 프로그램을 호출해야 하는지 모르기 때문에 파이썬 프로그램을 호출하지 못한다.<br />
--&gt; 이런 경우에 파이썬 프로그램을 호출하는 WSGI 서버가 필요한 것이다.<br /></p>
-
-    <p>즉, 동적 페이지 요청의 과정은<br />
-웹 서버가 WSGI 서버 호출 -&gt; WSGI 서버가 파이썬 프로그램을 호출<br /></p>
-  </li>
-  <li>
-    <p>WSGI 서버의 동작 원리를 구체적으로 보자<br />
-<code class="language-plaintext highlighter-rouge">웹 서버</code>로 들어온 동적 페이지 요청 -&gt; <code class="language-plaintext highlighter-rouge">WSGI 서버</code>를 호출 -&gt; <code class="language-plaintext highlighter-rouge">WSGI 어플리케이션</code> 호출 -&gt; 동적 요청 처리<br /></p>
-
-    <p>즉, 동적 페이지 요청은 결국 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>이 처리하는 것이고, 이런 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>에는 <code class="language-plaintext highlighter-rouge">django</code>, <code class="language-plaintext highlighter-rouge">flask</code>, <code class="language-plaintext highlighter-rouge">fast api</code> 등이 있는 것이다!<br /></p>
-
-    <p><img src="/assets/images/Team_ForV/1-g.png" alt="image" width="50%" height="50%" /></p>
-
-    <p>++ <code class="language-plaintext highlighter-rouge">WSGI 서버</code>는 <code class="language-plaintext highlighter-rouge">웹 서버</code>와 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code> 중간에 위치해서 <code class="language-plaintext highlighter-rouge">WSGI 미들웨어</code>, <code class="language-plaintext highlighter-rouge">WSGI 컨테이너</code> 라고도 한다.</p>
-  </li>
-</ol>
-
-<h2 id="다음-글-소개">다음 글 소개</h2>
-<p>python을 이용한 백엔드 framework의 work flow에 대해 살펴보았다. <br />
-다음에는 본격적으로 이 프로젝트에 쓰인 두 가지 서버에 대하여 정리해보는 시간을 갖도록 하자. <br />
-먼저 <code class="language-plaintext highlighter-rouge">django</code>로 쓰인 api server에 대해 살펴보자.</p>
-
-<h2 id="reference">Reference</h2>
-<p>1) <a href="https://liveyourit.tistory.com/251">https://liveyourit.tistory.com/251</a> [프록시 서버란?]<br />
-2) <a href="https://wikidocs.net/81076">https://wikidocs.net/81076</a> [점프 투 플라스크]<br />
-3) <a href="https://www.youtube.com/watch?v=5rjhJRyu8s8&amp;t=0s">https://www.youtube.com/watch?v=5rjhJRyu8s8&amp;t=0s</a> [django, flask 배포 스택 구성]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="python" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] 아키텍처 및 기술스택 소개</title><link href="http://localhost:4000/team_forv/Team_ForV03/" rel="alternate" type="text/html" title="[Team_ForV] 아키텍처 및 기술스택 소개" /><published>2022-08-17T00:00:00+09:00</published><updated>2022-08-17T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV03</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV03/"><![CDATA[<h2 id="아키텍처-소개">아키텍처 소개</h2>
+4) <a href="https://velog.io/@devmin/Django-MySQL-Connect">https://velog.io/@devmin/Django-MySQL-Connect</a> [Django와 MySQL 연결하기]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="python" /><category term="django" /><category term="mysql" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] 아키텍처 및 기술스택 소개</title><link href="http://localhost:4000/team_forv/Team_ForV03/" rel="alternate" type="text/html" title="[Team_ForV] 아키텍처 및 기술스택 소개" /><published>2022-08-17T00:00:00+09:00</published><updated>2022-08-17T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV03</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV03/"><![CDATA[<h2 id="아키텍처-소개">아키텍처 소개</h2>
 <p><img width="921" alt="스크린샷 2022-08-03 오후 8 56 10" src="https://user-images.githubusercontent.com/70627982/182602386-c5919ba2-ac66-43a0-86c2-ed7f12c6d3f2.png" /><br /></p>
 
 <ul>
@@ -1566,72 +1577,77 @@ DRF는 <code class="language-plaintext highlighter-rouge">apiview</code>, <code 
 <p>단순히 Frontend와 Backend를 넘어 Proxy Server, WSGI, Bucket, Docker, AWS … 등등 많은 기술들이 등장했다. <br />
 앞으로의 글에서는 앞서 언급한 기술들에 대해 하나씩 정리하고자 한다.</p>
 
-<p>먼저, <code class="language-plaintext highlighter-rouge">python</code> 기반의 Backend framework에서의 work flow를 살펴보자!</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="Info" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] 프로젝트 소개</title><link href="http://localhost:4000/team_forv/Team_ForV02/" rel="alternate" type="text/html" title="[Team_ForV] 프로젝트 소개" /><published>2022-08-16T00:00:00+09:00</published><updated>2022-08-17T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV02</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV02/"><![CDATA[<h2 id="들어가기에-앞서">들어가기에 앞서..</h2>
-<p>여름방학을 맞아 학교 사람들과 같이 프로젝트를 진행해보았다.<br />
-AI 기술을 활용한 web 서비스를 end to end로 개발해보는 경험을 했다.<br />
-프로젝트가 끝나고 기억이 흐려지기 전에 프로젝트를 진행하며 겪었던 시행착오들과 공부했던 내용을 차곡차곡 정리해보고자 한다.</p>
+<p>먼저, <code class="language-plaintext highlighter-rouge">python</code> 기반의 Backend framework에서의 work flow를 살펴보자!</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="Info" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] Python Web Framework</title><link href="http://localhost:4000/team_forv/Team_ForV04/" rel="alternate" type="text/html" title="[Team_ForV] Python Web Framework" /><published>2022-08-17T00:00:00+09:00</published><updated>2022-08-17T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV04</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV04/"><![CDATA[<h2 id="아키텍처를-보며">아키텍처를 보며..</h2>
+<p><img src="/assets/images/Team_ForV/1-a.png" alt="image" width="120%" height="120%" /></p>
 
-<h2 id="프로젝트-소개">프로젝트 소개</h2>
-<p>프로젝트를 시작하기에 앞서 여러 AI 관련 프로젝트들을 참고하였고, 그 중 눈에 들어왔던 기술은..</p>
+<p><code class="language-plaintext highlighter-rouge">python</code>으로 웹 application을 만들 때<br />
+-&gt; 기본적으로 socket을 제공하니까 개 노가다 하면 만들 수야 있겠지만 의미도 없고..<br />
+-&gt; 따라서, <code class="language-plaintext highlighter-rouge">python</code>을 이용하여 <code class="language-plaintext highlighter-rouge">WSGI</code> 라는 인터페이스를 만들어 사용하고 있다.<br /></p>
 
-<p><img src="/assets/images/Team_ForV/2-1.png" alt="image" width="80%" height="80%" class="align-center" /><br />
-네이버에서 진행하는 개발자 컨퍼런스 DEVIEW의 ‘연예인의 목소리로 책 읽어주기’발표에서 선보인 ‘사람의 목소리를 학습시키는 기술’이었다.</p>
+<h2 id="wsgi가-뭔데">WSGI가 뭔데?</h2>
+<p><img src="/assets/images/Team_ForV/1-b.png" alt="image" width="50%" height="50%" />
+<img src="/assets/images/Team_ForV/1-c.png" alt="image" /></p>
 
-<p>사람의 목소리를 학습시켜 그 목소리로 오디오북을 만들어준다는 내용이었고, 이 발표를 보고 한 아이디어를 떠올렸다.</p>
+<p><code class="language-plaintext highlighter-rouge">WSGI</code>는 ‘Web Server GateWay Interface’의 약자로 web server로 들어오는 request를 python으로 쓰여진 web application으로 forwarding 해주는 interface를 말한다.<br />
+예시) <code class="language-plaintext highlighter-rouge">gunicorn</code>, <code class="language-plaintext highlighter-rouge">uwsgi</code> 등등이 있음</p>
 
-<p><img src="/assets/images/Team_ForV/2-2.png" alt="image" width="80%" height="80%" class="align-center" /><br />
-우리나라에서 엔터테인먼트 사업이 한하다는 걸 얘기하는 건 어쩌면 뻔하게 들릴 수도 있을만큼, k-pop의 인기는 굳이 따로 설명하지 않아도 전 세계적으로 인정받고 있는 대중문화의 일종이다.</p>
+<dl>
+  <dt>Q) 근데, flask, django 사용했을 때 gunicorn 같은 거 없이도 web server 잘 돌아가던데?<br /></dt>
+  <dd>사실은 프레임워크 안에 자체적으로 WSGI가 내장되어 있어서 잘 돌아갔던 것..</dd>
+</dl>
 
-<p>이런 흐름에 맞춰서 기획사들도 소비자들을 확보하기 위해 다양한 노력을 기울이고 있는데,</p>
+<p>web application을 만들기 위해선 <code class="language-plaintext highlighter-rouge">flask</code>나 <code class="language-plaintext highlighter-rouge">django</code>가 제공해주는 <code class="language-plaintext highlighter-rouge">template</code>나 <code class="language-plaintext highlighter-rouge">view</code>를 가지고 <code class="language-plaintext highlighter-rouge">python</code>으로 웹 서버를 만드는 것인데..(결국 <code class="language-plaintext highlighter-rouge">flask</code>나 <code class="language-plaintext highlighter-rouge">django</code>는 프레임워크에 불과하다는 소리!)<br />
+-&gt; 실제로 deploy까지 하게 되면 <code class="language-plaintext highlighter-rouge">WSGI</code>라는 인터페이스가 있고, 그런 인터페이스의 제공을 위해 <code class="language-plaintext highlighter-rouge">gunicorn</code> 등을 이용하는 것이다.<br />
+-&gt; 다만, python web server는 보안 및 퍼포먼스의 문제가 있어 전문적 web server를 <code class="language-plaintext highlighter-rouge">proxy server</code>로 두는데..<br /></p>
 
-<p>z세대가 핵심 소비자인 브랜드라면, 다른 데선 할 수 없는 특이한 체험을 마케팅에 접목하면 좋다’라던지,<br />
-이미 몇몇 회사에서는 소속 연예인들의 음성 데이터를 활용하는 방안들도 검토 중이라는 걸 알 수 있었다.<br /></p>
+<h2 id="proxy-server는-무엇이냐">Proxy Server는 무엇이냐</h2>
+<p><img src="/assets/images/Team_ForV/1-d.png" alt="image" width="50%" height="50%" />
+<img src="/assets/images/Team_ForV/1-e.jpeg" alt="image" width="40%" height="50%" /></p>
 
-<p><img src="/assets/images/Team_ForV/2-3.png" alt="image" width="80%" height="80%" class="align-center" /><br />
-직접 목소리를 학습시켜 TTS를 만드는 서비스를 새로운 엔터테인먼트 사업의 한 홍보수단으로 활용해본다면 어떨까하는 생각이 들어서 이 프로젝트를 시작하게 되었다.</p>
+<p><code class="language-plaintext highlighter-rouge">Proxy</code>: 서버와 클라이언트 사이에서 대리로 통신을 수행해주는 것<br />
+즉, Client가 자신을 거쳐 다른 네트워크에 접속할 수 있도록 중간에서 대리해주는 서버를 말한다.<br />
+사용자가 많거나, performance, security를 고려하여 전문적 server를 두는 것이다.<br /></p>
 
-<h2 id="프로젝트-목적">프로젝트 목적</h2>
-<p>‘팀원들의 목소리로 TTS 서비스를 제공하는 프로젝트’를 아티스트 홍보 페이지의 한 예시로 제시한다.</p>
+<h2 id="아키텍처를-보며-다시-정리해보자">아키텍처를 보며 다시 정리해보자!</h2>
+<p><img src="/assets/images/Team_ForV/1-a.png" alt="image" width="120%" height="120%" /></p>
 
-<h2 id="세부-구성">세부 구성</h2>
-<p>프론트엔드 담당해주신 분들이 디자인을 예쁘게 해주셨다.<br />
-별도 설명이 없어도 사용자가 서비스를 쉽게 이용할 수 있도록 최대한 직관적이고, 심플하게 디자인했다.<br />
-또, 사용자의 환경에 따라 같은 화면을 보여주기 위해 모든 페이지는 반응형웹으로 디자인했다.</p>
-
-<ul>
-  <li>
-    <h3 id="main-page">Main page</h3>
-    <p><img src="/assets/images/Team_ForV/2-4.png" alt="image" width="80%" height="80%" /></p>
+<ol>
+  <li>웹 브라우저의 동작방식<br />
+사용자가 서비스를 이용하려면 웹 브라우저에 URL을 입력하는데, 이 때 웹 브라우저가 URL을 사용해서 서버에 요청하는 페이지는 크게 2가지 종류가 있다.
+    <ul>
+      <li>정적 페이지 요청<br />
+   예를 들어 <code class="language-plaintext highlighter-rouge">http://3.37.58.70:5000/static/hello.css</code>라는 URL 접속 요청이 들어오면, 서비스는 <code class="language-plaintext highlighter-rouge">static/hello.css</code>라는 파일을 찾아서 웹 브라우저로 보내주는 것이다. .js, .jpg, .png 등등의 파일은 변하지 않는 성질 때문에 ‘정적 파일’이라고 하며, 웹 브라우저에서 이런 정적 파일을 요청하는 행위를 ‘정적 페이지 요청’이라 한다.</li>
+      <li>동적 페이지 요청<br />
+   서버의 데이터베이스에 어떤 내용이 있는지에 따라 수시로 변하는 파일들이 있다. 웹 브라우저의 이러한 요청을 ‘동적 페이지 요청’이라고 한다. 이러한 동적 요청은 정적 요청과는 달리 조금 복잡한 과정을 거쳐 응답한다.</li>
+    </ul>
   </li>
   <li>
-    <h3 id="detail-page">Detail page</h3>
-    <p><img src="/assets/images/Team_ForV/2-5.png" alt="image" width="80%" height="80%" /></p>
+    <p>동적 페이지 요청의 처리를 위해 웹 서버와 WSGI 서버가 필요하다!<br />
+웹 서버에 동적 페이지 요청이 들어오면 파이썬 프로그램을 호출해야 한다<br />
+-&gt; 대부분의 웹 서버는 어떻게 파이썬 프로그램을 호출해야 하는지 모르기 때문에 파이썬 프로그램을 호출하지 못한다.<br />
+-&gt; 이런 경우에 파이썬 프로그램을 호출하는 WSGI 서버가 필요한 것이다.<br /></p>
+
+    <p>즉, 동적 페이지 요청의 과정은<br />
+웹 서버가 WSGI 서버 호출 -&gt; WSGI 서버가 파이썬 프로그램을 호출<br /></p>
   </li>
   <li>
-    <h3 id="make-tts-page">Make-TTS page</h3>
-    <p><img src="/assets/images/Team_ForV/2-6.png" alt="image" width="80%" height="80%" /></p>
+    <p>WSGI 서버의 동작 원리를 구체적으로 보자<br />
+<code class="language-plaintext highlighter-rouge">웹 서버</code>로 들어온 동적 페이지 요청 -&gt; <code class="language-plaintext highlighter-rouge">WSGI 서버</code>를 호출 -&gt; <code class="language-plaintext highlighter-rouge">WSGI 어플리케이션</code> 호출 -&gt; 동적 요청 처리<br /></p>
+
+    <p>즉, 동적 페이지 요청은 결국 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>이 처리하는 것이고, 이런 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>에는 <code class="language-plaintext highlighter-rouge">django</code>, <code class="language-plaintext highlighter-rouge">flask</code>, <code class="language-plaintext highlighter-rouge">fast api</code> 등이 있는 것이다!<br /></p>
+
+    <p><img src="/assets/images/Team_ForV/1-g.png" alt="image" width="50%" height="50%" /></p>
+
+    <p>++ <code class="language-plaintext highlighter-rouge">WSGI 서버</code>는 <code class="language-plaintext highlighter-rouge">웹 서버</code>와 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code> 중간에 위치해서 <code class="language-plaintext highlighter-rouge">WSGI 미들웨어</code>, <code class="language-plaintext highlighter-rouge">WSGI 컨테이너</code> 라고도 한다.</p>
   </li>
-  <li>
-    <h3 id="responsive-web">Responsive web</h3>
-    <p><img width="48%" height="48%" src="https://user-images.githubusercontent.com/98803599/183294274-d0c7a378-536c-4fe6-8522-1e82d89f9294.gif" />
-  <img width="48%" height="48%" src="https://user-images.githubusercontent.com/98803599/183294585-a59fa2c3-b9c6-463c-b211-0042fd356c9a.gif" /></p>
-  </li>
-</ul>
+</ol>
 
-<h2 id="demo">Demo</h2>
+<h2 id="다음-글-소개">다음 글 소개</h2>
+<p>python을 이용한 백엔드 framework의 work flow에 대해 살펴보았다. <br />
+다음에는 본격적으로 이 프로젝트에 쓰인 두 가지 서버에 대하여 정리해보는 시간을 갖도록 하자. <br />
+먼저 <code class="language-plaintext highlighter-rouge">django</code>로 쓰인 api server에 대해 살펴보자.</p>
 
-<!-- Courtesy of embedresponsively.com //-->
-<div class="responsive-video-container">
-
-  <iframe src="https://www.youtube-nocookie.com/embed/HNyv6iGliqA" frameborder="0" allowfullscreen=""></iframe>
-
-</div>
-
-<h2 id="앞으로의-포스팅-예고">앞으로의 포스팅 예고!</h2>
-<p>가볍게 프로젝트의 아키텍처를 보며 어떤 기술들을 왜 적용했는지, 그리고 그 특징들이 무엇인지 살펴보고<br />
-내가 맡은 백엔드와 AI 파트 위주로 보면서 그동안 겪었던 시행착오들과 코드들을 정리해보고자 한다!</p>
-
-<h2 id="appendix--reference">Appendix &amp; Reference</h2>
-<p>1) <a href="https://sce-tts.github.io/#/v2/index">https://sce-tts.github.io/#/v2/index</a> [내 목소리로 TTS 만들기 프로젝트]<br />
-2) <a href="https://deview.kr/2017/schedule/182">https://deview.kr/2017/schedule/182</a> [2017년 ‘책 읽어주는 딥러닝’ - 데브시스터즈 / 김태훈님]<br />
-3) <a href="https://deview.kr/2018/schedule/247">https://deview.kr/2018/schedule/247</a> [2018년 ‘누구나 만드는 내 목소리 합성기’ - 네이버 / 이봉준님]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="Info" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry></feed>
+<h2 id="reference">Reference</h2>
+<p>1) <a href="https://liveyourit.tistory.com/251">https://liveyourit.tistory.com/251</a> [프록시 서버란?]<br />
+2) <a href="https://wikidocs.net/81076">https://wikidocs.net/81076</a> [점프 투 플라스크]<br />
+3) <a href="https://www.youtube.com/watch?v=5rjhJRyu8s8&amp;t=0s">https://www.youtube.com/watch?v=5rjhJRyu8s8&amp;t=0s</a> [django, flask 배포 스택 구성]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="python" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry></feed>
