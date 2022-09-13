@@ -106,4 +106,10 @@ var store = [{
         "tags": ["java","spring","h2"],
         "url": "/spring-tutorial/Section06/",
         "teaser": null
+      },{
+        "title": "[스프링 입문] Section 07 - AOP",
+        "excerpt":"AOP란? AOP는 Aspect Oriented Programming의 약자로 ‘관점 지향 프로그래밍’이라고 불린다. 관점 지향은 어떤 로직을 기준으로 핵심적인 관점, 부가적인 관점으로 나누어서 보고 그 관점을 기준으로 각각 모듈화하겠다는 것이다. AOP에서 각 관점을 기준으로 로직을 모듈화한다는 것은 코드들을 부분적으로 나누어서 모듈화하겠다는 의미다. 이때, 소스 코드상에서 다른 부분에 계속 반복해서 쓰는 코드들을 발견할 수 있는 데...","categories": ["Spring-Tutorial"],
+        "tags": ["java","spring"],
+        "url": "/spring-tutorial/Section07/",
+        "teaser": null
       }]
