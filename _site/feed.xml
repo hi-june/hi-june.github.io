@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-06T00:04:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</title><link href="http://localhost:4000/spring-tutorial/Section05/" rel="alternate" type="text/html" title="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-06T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section05</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section05/"><![CDATA[<h2 id="file-tree-참고하기">File Tree 참고하기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-13T20:14:25+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</title><link href="http://localhost:4000/spring-tutorial/Section05/" rel="alternate" type="text/html" title="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-06T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section05</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section05/"><![CDATA[<h2 id="file-tree-참고하기">File Tree 참고하기</h2>
 <p><img src="/assets/images/Spring-Tutorial/5-1.png" alt="Image" width="65%" height="65%" /></p>
 
 <h2 id="홈-화면">홈 화면</h2>
@@ -82,7 +82,538 @@ A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
     <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"members"</span><span class="o">,</span> <span class="n">members</span><span class="o">);</span>
     <span class="k">return</span> <span class="s">"members/memberList"</span><span class="o">;</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 04 - 스프링 빈과 의존관계</title><link href="http://localhost:4000/spring-tutorial/Section04/" rel="alternate" type="text/html" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계" /><published>2022-09-04T00:00:00+09:00</published><updated>2022-09-04T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section04</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section04/"><![CDATA[<h2 id="들어가며">들어가며…</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 06 - 스프링 DB 접근 기술</title><link href="http://localhost:4000/spring-tutorial/Section06/" rel="alternate" type="text/html" title="[스프링 입문] Section 06 - 스프링 DB 접근 기술" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-13T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section06</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section06/"><![CDATA[<h2 id="spring-db-접근-기술의-발전">spring DB 접근 기술의 발전</h2>
+<p><img src="/assets/images/Spring-Tutorial/6-1.png" alt="Image" width="75%" height="75%" /><br />
+<br />
+application과 DB의 연결을 sql을 통해 한다.<br />
+자바 진영에서 DB에 sql을 통해 접근 하기 위한 기술들을 간략히 알아보자!</p>
+
+<h3 id="--순수-jdbc-기술">- <u>순수 Jdbc 기술</u></h3>
+<p>말 그대로 <code class="language-plaintext highlighter-rouge">JDBC API</code>로 직접 코딩하는 것을 말한다. 직접 필요한 자원들을 가지고 connection을 얻고, db에 sql을 쏘고, 사용한 자원을 반환하는 등 필요한 과정을 하나하나 직접 만드는 기술이다.</p>
+
+<h3 id="--jdbc-template">- <u>JDBC Template</u></h3>
+<p>순수 <code class="language-plaintext highlighter-rouge">JDBC</code> 기술에서 <code class="language-plaintext highlighter-rouge">spring</code>이 편의를 제공해준 것으로, 반복되는 코드를 줄이고, application에서 DB로 sql을 편리하게 날려준다. 다만, 아직까지는 sql을 개발자가 직접 짜야한다.</p>
+
+<h3 id="--jpa">- <u>JPA</u></h3>
+<p>sql조차도 개발자들이 직접 짜는게 아니라 sql을 <code class="language-plaintext highlighter-rouge">JPA</code>라는 기술이 DB에 직접 등록, 수정, 삭제, 조회 등의 query를 날려준다. 객체를 바로 DB에 query없이 저장이 가능하다.</p>
+
+<h3 id="--spring-data-jpa">- <u>Spring Data JPA</u></h3>
+<p><code class="language-plaintext highlighter-rouge">spring</code>에 맞춰 더 사용하기 편리하도록 감싼 기술이다.</p>
+
+<h2 id="h2-데이터베이스-설치">H2 데이터베이스 설치</h2>
+<p>먼저 h2 데이터베이스를 설치하고 member 테이블을 만들자.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- ddl.sql</span>
+
+<span class="k">drop</span> <span class="k">table</span> <span class="n">if</span> <span class="k">exists</span> <span class="n">member</span> <span class="k">CASCADE</span><span class="p">;</span>
+    <span class="k">create</span> <span class="k">table</span> <span class="n">member</span>
+    <span class="p">(</span>
+        <span class="n">id</span>   <span class="nb">bigint</span> <span class="k">generated</span> <span class="k">by</span> <span class="k">default</span> <span class="k">as</span> <span class="k">identity</span><span class="p">,</span>   <span class="c1">-- id 필드를 추가 안 했을 시 자동으로 추가해줌</span>
+        <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+        <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="spring--db-사전-설정">spring &amp; DB 사전 설정</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// build.gradle</span>
+<span class="n">dependencies</span><span class="o">{</span>
+    <span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">jdbc</span><span class="err">'</span>  <span class="c1">// // java는 DB랑 붙으려면 jdbc 드라이버가 꼭 있어야 함</span>
+    <span class="n">runtimeOnly</span> <span class="err">'</span><span class="n">com</span><span class="o">.</span><span class="na">h2database</span><span class="o">:</span><span class="n">h2</span><span class="err">'</span> <span class="c1">// DB랑 붙을 때 DB가 제공하는 클라이언트가 필요해서 넣어줌</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># application.properties</span><span class="w">
+</span><span class="c1"># 스프링 부트를 이용한 접속 정보 등록</span><span class="w">
+</span><span class="n">spring.datasource.url</span><span class="o">=</span><span class="n">jdbc</span><span class="o">:</span><span class="n">h2</span><span class="o">:</span><span class="n">tcp</span><span class="o">://</span><span class="n">localhost</span><span class="o">/~/</span><span class="n">Study</span><span class="o">/</span><span class="n">spring</span><span class="o">-</span><span class="n">tutorial</span><span class="o">/</span><span class="n">test</span><span class="w">
+</span><span class="n">spring.datasource.driver</span><span class="o">-</span><span class="n">class</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="n">org.h2.Driver</span><span class="w">
+</span><span class="n">spring.datasource.username</span><span class="o">=</span><span class="n">sa</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="springconfig와-ocp">springConfig와 OCP</h2>
+<h3 id="--ocp란">- <u>OCP란?</u></h3>
+<p><code class="language-plaintext highlighter-rouge">OCP</code>, 개방-폐쇄 원칙(OCP, Open-Closed Principle)이란, 확장에는 열려있고, 수정, 변경에는 닫혀있다는 내용!<br />
+스프링의 <code class="language-plaintext highlighter-rouge">DI</code> (Dependencies Injection)을 사용하면 기존 코드를 전혀 손대지 않고, 설정만으로 구현 클래스를 변경할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringConfig</span> <span class="o">{</span>
+
+    <span class="cm">/*
+    DataSource는 데이터베이스 커넥션을 획득할 때 사용하는 객체이다.
+    스프링 부트는 데이터베이스 커넥션 정보를 바탕으로 DataSource를 생성하고 스프링 빈으로 만들어둔다. 그래서 DI를 받을 수 있다.
+     */</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">SpringConfig</span><span class="o">(</span><span class="nc">DataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">dataSource</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">MemberService</span> <span class="nf">memberService</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">MemberService</span><span class="o">(</span><span class="n">memberRepository</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">MemberRepository</span> <span class="nf">memberRepository</span><span class="o">()</span> <span class="o">{</span>    <span class="c1">// MemberRepository의 코드 변경 없이 SpringConfig의 수정만으로 Repository의 종류를 바꿀 수 있다!</span>
+        <span class="c1">//return new MemoryMemberRepository();</span>
+        <span class="c1">//return new JdbcMemberRepository(dataSource);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">JdbcTemplateMemberRepository</span><span class="o">(</span><span class="n">dataSource</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="순수-jdbc">순수 Jdbc</h2>
+<p>JDBC API로 직접 코딩하는 것은 옛날 이야기라고 한다. 참고만 하고 넘어가자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// JdbcMemberRepository.java</span>
+
+<span class="kn">package</span> <span class="nn">hello.hellospring.repository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">hello.hellospring.domain.Member</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.datasource.DataSourceUtils</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JdbcMemberRepository</span> <span class="kd">implements</span> <span class="nc">MemberRepository</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>    <span class="c1">// DB에 붙으려면 DataSource가 필요</span>
+
+    <span class="kd">public</span> <span class="nf">JdbcMemberRepository</span><span class="o">(</span><span class="nc">DataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>    <span class="c1">// 스프링이 DB 접속 정보를 통해 DataSource를 만들어 놓으면 spring을 통해 DataSource를 주입받으면 됨</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">dataSource</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Member</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s">"insert into member(name) values(?)"</span><span class="o">;</span>
+        <span class="nc">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">PreparedStatement</span> <span class="n">pstmt</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">ResultSet</span> <span class="n">rs</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">conn</span> <span class="o">=</span> <span class="n">getConnection</span><span class="o">();</span> <span class="c1">// connection 가져오고</span>
+            <span class="n">pstmt</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">sql</span><span class="o">,</span>
+                    <span class="nc">Statement</span><span class="o">.</span><span class="na">RETURN_GENERATED_KEYS</span><span class="o">);</span>   <span class="c1">// connection에 sql 쏘고</span>
+            <span class="n">pstmt</span><span class="o">.</span><span class="na">setString</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">member</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+            <span class="n">pstmt</span><span class="o">.</span><span class="na">executeUpdate</span><span class="o">();</span>  <span class="c1">// DB에 쿼리가 날아감</span>
+            <span class="n">rs</span> <span class="o">=</span> <span class="n">pstmt</span><span class="o">.</span><span class="na">getGeneratedKeys</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">member</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nf">SQLException</span><span class="o">(</span><span class="s">"id 조회 실패"</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="n">member</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">close</span><span class="o">(</span><span class="n">conn</span><span class="o">,</span> <span class="n">pstmt</span><span class="o">,</span> <span class="n">rs</span><span class="o">);</span> <span class="c1">// 작업이 끝나고 사용한 자원들 release</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s">"select * from member where id = ?"</span><span class="o">;</span>
+        <span class="nc">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">PreparedStatement</span> <span class="n">pstmt</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">ResultSet</span> <span class="n">rs</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">conn</span> <span class="o">=</span> <span class="n">getConnection</span><span class="o">();</span>
+            <span class="n">pstmt</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">sql</span><span class="o">);</span>
+            <span class="n">pstmt</span><span class="o">.</span><span class="na">setLong</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+            <span class="n">rs</span> <span class="o">=</span> <span class="n">pstmt</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">{</span>
+                <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>
+                <span class="n">member</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="s">"id"</span><span class="o">));</span>
+                <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"name"</span><span class="o">));</span>
+                <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">close</span><span class="o">(</span><span class="n">conn</span><span class="o">,</span> <span class="n">pstmt</span><span class="o">,</span> <span class="n">rs</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s">"select * from member"</span><span class="o">;</span>
+        <span class="nc">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">PreparedStatement</span> <span class="n">pstmt</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">ResultSet</span> <span class="n">rs</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">conn</span> <span class="o">=</span> <span class="n">getConnection</span><span class="o">();</span>
+            <span class="n">pstmt</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">sql</span><span class="o">);</span>
+            <span class="n">rs</span> <span class="o">=</span> <span class="n">pstmt</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">();</span>
+            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">{</span>
+                <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>
+                <span class="n">member</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="s">"id"</span><span class="o">));</span>
+                <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"name"</span><span class="o">));</span>
+                <span class="n">members</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="n">members</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">close</span><span class="o">(</span><span class="n">conn</span><span class="o">,</span> <span class="n">pstmt</span><span class="o">,</span> <span class="n">rs</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findByName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s">"select * from member where name = ?"</span><span class="o">;</span>
+        <span class="nc">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">PreparedStatement</span> <span class="n">pstmt</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">ResultSet</span> <span class="n">rs</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">conn</span> <span class="o">=</span> <span class="n">getConnection</span><span class="o">();</span>
+            <span class="n">pstmt</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">sql</span><span class="o">);</span>
+            <span class="n">pstmt</span><span class="o">.</span><span class="na">setString</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+            <span class="n">rs</span> <span class="o">=</span> <span class="n">pstmt</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">{</span>
+                <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>
+                <span class="n">member</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="s">"id"</span><span class="o">));</span>
+                <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"name"</span><span class="o">));</span>
+                <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">close</span><span class="o">(</span><span class="n">conn</span><span class="o">,</span> <span class="n">pstmt</span><span class="o">,</span> <span class="n">rs</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="nc">Connection</span> <span class="nf">getConnection</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">DataSourceUtils</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(</span><span class="n">dataSource</span><span class="o">);</span>   <span class="c1">// DataSource로부터 connection을 얻고, 닫아야 함</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">close</span><span class="o">(</span><span class="nc">Connection</span> <span class="n">conn</span><span class="o">,</span> <span class="nc">PreparedStatement</span> <span class="n">pstmt</span><span class="o">,</span> <span class="nc">ResultSet</span> <span class="n">rs</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">rs</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">rs</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">SQLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">pstmt</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">pstmt</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">SQLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">conn</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">close</span><span class="o">(</span><span class="n">conn</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">SQLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">close</span><span class="o">(</span><span class="nc">Connection</span> <span class="n">conn</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span> <span class="o">{</span>
+        <span class="nc">DataSourceUtils</span><span class="o">.</span><span class="na">releaseConnection</span><span class="o">(</span><span class="n">conn</span><span class="o">,</span> <span class="n">dataSource</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="스프링-jdbc-template">스프링 JDBC Template</h2>
+<p>JDBC API의 반복 코드를 대부분 제거해준다. 다만 아직 SQL은 직접 작성해야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// JdbcTemplateMemberRepository</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.repository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">hello.hellospring.domain.Member</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.JdbcTemplate</span><span class="o">;</span>  <span class="c1">// JdbcTemplate이나 MyBatis 같은 라이브러리는 JDBC API에서 본 반복 코드를 대부분 제거해준다. 다만, 여전히 sql은 직접 작성해야한다.</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.RowMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.namedparam.MapSqlParameterSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.simple.SimpleJdbcInsert</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JdbcTemplateMemberRepository</span> <span class="kd">implements</span> <span class="nc">MemberRepository</span><span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">JdbcTemplate</span> <span class="n">jdbcTemplate</span><span class="o">;</span>
+
+    <span class="c1">// @Autowired   // 생성자가 하나일 경우 Autowired 생략 가능</span>
+    <span class="kd">public</span> <span class="nf">JdbcTemplateMemberRepository</span><span class="o">(</span><span class="nc">DataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">jdbcTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JdbcTemplate</span><span class="o">(</span><span class="n">dataSource</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Member</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">SimpleJdbcInsert</span> <span class="n">jdbcInsert</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleJdbcInsert</span><span class="o">(</span><span class="n">jdbcTemplate</span><span class="o">);</span>
+        <span class="n">jdbcInsert</span><span class="o">.</span><span class="na">withTableName</span><span class="o">(</span><span class="s">"member"</span><span class="o">).</span><span class="na">usingGeneratedKeyColumns</span><span class="o">(</span><span class="s">"id"</span><span class="o">);</span>
+
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="n">parameters</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="n">member</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+
+        <span class="nc">Number</span> <span class="n">key</span> <span class="o">=</span> <span class="n">jdbcInsert</span><span class="o">.</span><span class="na">executeAndReturnKey</span><span class="o">(</span><span class="k">new</span> <span class="nc">MapSqlParameterSource</span><span class="o">(</span><span class="n">parameters</span><span class="o">));</span>
+        <span class="n">member</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">key</span><span class="o">.</span><span class="na">longValue</span><span class="o">());</span>
+
+        <span class="k">return</span> <span class="n">member</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">jdbcTemplate</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="s">"select * from member where id = ?"</span><span class="o">,</span> <span class="n">memberRowMapper</span><span class="o">(),</span> <span class="n">id</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">findAny</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findByName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">jdbcTemplate</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="s">"select * from member where name = ?"</span><span class="o">,</span> <span class="n">memberRowMapper</span><span class="o">(),</span> <span class="n">name</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">findAny</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">jdbcTemplate</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="s">"select * from member"</span><span class="o">,</span> <span class="n">memberRowMapper</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="nc">RowMapper</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">memberRowMapper</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">rs</span><span class="o">,</span> <span class="n">rowNum</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>
+            <span class="n">member</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="s">"id"</span><span class="o">));</span> <span class="c1">// query문에서 id랑</span>
+            <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"name"</span><span class="o">));</span> <span class="c1">// name을 뽑아냄</span>
+            <span class="k">return</span> <span class="n">member</span><span class="o">;</span>
+        <span class="o">};</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="jpa">JPA</h2>
+<p>JPA는 표준 인터페이스이다. hibernate, eclipse 등이 구현체로 있다.(여러 업체들이 구현한다고 보면 된다.)<br />
+JPA를 사용하면 ‘SQL과 데이터 중심의 설계’에서 ‘객체 중심의 설계’로 패러다임을 전환할 수 있다.</p>
+
+<h3 id="--buildgradle-파일에-jpa-h2-데이터베이스-관련-라이브러리-추가">- <u>build.gradle 파일에 JPA, h2 데이터베이스 관련 라이브러리 추가</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// build.gradle</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+	<span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">thymeleaf</span><span class="err">'</span>
+	<span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">web</span><span class="err">'</span>
+	<span class="c1">// implementation 'org.springframework.boot:spring-boot-starter-jdbc'	// java는 DB랑 붙으려면 jdbc 드라이버가 꼭 있어야 함</span>
+	<span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">jpa</span><span class="err">'</span>	<span class="c1">// JPA 사용을 위한 구문 추가. 내부에 jdbc 관련 라이브러리를 포함하기 때문에 윗 줄은 제거해도 됨</span>
+
+	<span class="n">testImplementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">test</span><span class="err">'</span>
+
+	<span class="n">runtimeOnly</span> <span class="err">'</span><span class="n">com</span><span class="o">.</span><span class="na">h2database</span><span class="o">:</span><span class="n">h2</span><span class="err">'</span>	<span class="c1">// DB랑 붙을 때 DB가 제공하는 클라이언트가 필요해서 넣어줌</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--스프링-부트에-jpa-설정-추가">- <u>스프링 부트에 JPA 설정 추가</u></h3>
+<div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># application.properties</span><span class="w">
+
+</span><span class="c1"># 스프링 부트를 이용한 접속 정보 등록</span><span class="w">
+</span><span class="n">spring.datasource.url</span><span class="o">=</span><span class="n">jdbc</span><span class="o">:</span><span class="n">h2</span><span class="o">:</span><span class="n">tcp</span><span class="o">://</span><span class="n">localhost</span><span class="o">/~/</span><span class="n">Study</span><span class="o">/</span><span class="n">spring</span><span class="o">-</span><span class="n">tutorial</span><span class="o">/</span><span class="n">test</span><span class="w">
+</span><span class="n">spring.datasource.driver</span><span class="o">-</span><span class="n">class</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="n">org.h2.Driver</span><span class="w">
+</span><span class="n">spring.datasource.username</span><span class="o">=</span><span class="n">sa</span><span class="w">
+
+</span><span class="c1"># JPA 관련 설정 추가</span><span class="w">
+</span><span class="c1"># jpa가 날리는 sql을 볼 수 있음</span><span class="w">
+</span><span class="n">spring.jpa.show</span><span class="o">-</span><span class="n">sql</span><span class="o">=</span><span class="n">true</span><span class="w">
+</span><span class="c1"># jpa를 쓰면 객체를 보고 테이블을 자동으로 생성해줌. 하지만 예제에서는 이미 만들어진 테이블을 사용할 것이기 때문에 none으로 설정함(create를 사용하면 엔티티 정보를 바탕으로 테이블도 직접 생성해준다.)</span><span class="w">
+</span><span class="n">spring.jpa.hibernate.ddl</span><span class="o">-</span><span class="n">auto</span><span class="o">=</span><span class="n">none</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="--jpa-엔티티-매핑">- <u>JPA 엔티티 매핑</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Member.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.domain</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+
+<span class="nd">@Entity</span> <span class="c1">// JPA가 관리하는 엔티티라고 표시함</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span> <span class="c1">// db에 추가하면 id를 자동으로 만들어주는 전략(strategy)을 Identity라고 함</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">;</span>    <span class="c1">// 사용자 지정이 아닌 시스템이 지정해주는 id</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nc">Long</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="--jpa-회원-리포지토리">- <u>JPA 회원 리포지토리</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// JpaMemberRepository.java</span>
+
+<span class="kn">package</span> <span class="nn">hello.hellospring.repository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">hello.hellospring.domain.Member</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JpaMemberRepository</span> <span class="kd">implements</span> <span class="nc">MemberRepository</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">EntityManager</span> <span class="n">em</span><span class="o">;</span>
+    <span class="cm">/**
+    JPA는 Entity Manager를 이용하여 모든 동작을 함.
+    data-jpa로부터 spring boot가 현재 database랑 연결을 하여 자동으로 EntityManager를 생성해주니까 그냥 주입받아서 쓰면 됨
+    */</span>
+
+    <span class="kd">public</span> <span class="nf">JpaMemberRepository</span><span class="o">(</span><span class="nc">EntityManager</span> <span class="n">em</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">em</span> <span class="o">=</span> <span class="n">em</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Member</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">member</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span>  <span class="n">em</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findByName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>   <span class="c1">// jpql이라는 객체지향쿼리언어를 사용(테이블 대상 쿼리문이 아닌 객체를 대상으로 하는 쿼리문이다.)</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">em</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">"select m from Member m where m.name = :name"</span><span class="o">,</span> <span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="n">name</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">findAny</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">em</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">"select m from Member m"</span><span class="o">,</span> <span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">getResultList</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="-서비스-계층에-트랜잭션-추가">-<u>서비스 계층에 트랜잭션 추가</u></h3>
+<p>스프링은 해당 클래스의 메서드를 실행할 때 트랜잭션을 시작하고,<br />
+메서드가 정상 종료되면 트랜색션을 커밋한다.<br />
+만약 런타임 예외가 발생하면 롤백한다.</p>
+
+<blockquote>
+  <p>JPA를 통한 모든 데이터 변경은 트랜잭션 안에서 실행해야 한다.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberService.java</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.transaction.annotation.Transactional</span><span class="o">;</span>
+
+<span class="nd">@Transactional</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberService</span> <span class="o">{}</span>
+</code></pre></div></div>
+
+<h3 id="-jpa를-사용하도록-스프링-설정-변경">-<u>JPA를 사용하도록 스프링 설정 변경</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SpringConfig.java</span>
+
+<span class="kn">package</span> <span class="nn">hello.hellospring</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">hello.hellospring.repository.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">hello.hellospring.service.MemberService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringConfig</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">EntityManager</span> <span class="n">em</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">SpringConfig</span><span class="o">(</span><span class="nc">DataSource</span> <span class="n">dataSource</span><span class="o">,</span> <span class="nc">EntityManager</span> <span class="n">em</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">dataSource</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">em</span> <span class="o">=</span> <span class="n">em</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">MemberService</span> <span class="nf">memberService</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">MemberService</span><span class="o">(</span><span class="n">memberRepository</span><span class="o">());</span>
+    <span class="o">}</span>
+
+   <span class="nd">@Bean</span>
+   <span class="kd">public</span> <span class="nc">MemberRepository</span> <span class="nf">memberRepository</span><span class="o">()</span> <span class="o">{</span>    <span class="c1">// MemberRepository의 코드 변경 없이 SpringConfig의 수정만으로 Repository의 종류를 바꿀 수 있다!</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">JpaMemberRepository</span><span class="o">(</span><span class="n">em</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="스프링-데이터-jpa">스프링 데이터 JPA</h2>
+<blockquote>
+  <p>스프링 데이터 JPA는 JPA를 편리하게 사용하도록 도와주는 기술이다.</p>
+</blockquote>
+
+<p>스프링 데이터 JPA를 이용하면,<br />
+리포지토리에 구현 클래스 없이 인터페이스 만으로 개발을 완료할 수 있고, 기본 CRUD 기능도 제공해준다.</p>
+
+<h3 id="--스프링-데이터-jpa-회원-리포지토리">- <u>스프링 데이터 JPA 회원 리포지토리</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SpringDataJpaMemberRepository.java</span>
+
+<span class="kn">package</span> <span class="nn">hello.hellospring.repository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">hello.hellospring.domain.Member</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
+
+<span class="c1">// spring data jpa가 jpaRepository를 갖고 있으면, 구현체를 자동으로 만들어주고 spring bean에 자동으로 등록해줌</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">SpringDataJpaMemberRepository</span> <span class="kd">extends</span> <span class="nc">JpaRepository</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;,</span> <span class="nc">MemberRepository</span> <span class="o">{</span>
+    <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findByName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--스프링-설정-변경">- <u>스프링 설정 변경</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">hello.hellospring</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">hello.hellospring.repository.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">hello.hellospring.service.MemberService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringConfig</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberRepository</span> <span class="n">memberRepository</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">SpringConfig</span><span class="o">(</span><span class="nc">MemberRepository</span> <span class="n">memberRepository</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">memberRepository</span> <span class="o">=</span> <span class="n">memberRepository</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">MemberService</span> <span class="nf">memberService</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">MemberService</span><span class="o">(</span><span class="n">memberRepository</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><category term="h2" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 04 - 스프링 빈과 의존관계</title><link href="http://localhost:4000/spring-tutorial/Section04/" rel="alternate" type="text/html" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계" /><published>2022-09-04T00:00:00+09:00</published><updated>2022-09-04T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section04</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section04/"><![CDATA[<h2 id="들어가며">들어가며…</h2>
 <p>화면을 붙이고 싶음 -&gt; 컨트롤러와 뷰 템플릿 필요<br />
 ‘멤버 컨트롤러’가 ‘멤버 서비스’를 통해서 회원가입 하고, 데이터를 조회할 수 있어야 함<br />
 ‘멤버 컨트롤러’와 ‘멤버 서비스’ -&gt; 서로 의존관계가 있다.(멤버 컨트롤러가 멤버 서비스를 의존한다.)</p>
@@ -1577,77 +2108,4 @@ DRF는 <code class="language-plaintext highlighter-rouge">apiview</code>, <code 
 <p>단순히 Frontend와 Backend를 넘어 Proxy Server, WSGI, Bucket, Docker, AWS … 등등 많은 기술들이 등장했다. <br />
 앞으로의 글에서는 앞서 언급한 기술들에 대해 하나씩 정리하고자 한다.</p>
 
-<p>먼저, <code class="language-plaintext highlighter-rouge">python</code> 기반의 Backend framework에서의 work flow를 살펴보자!</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="Info" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] Python Web Framework</title><link href="http://localhost:4000/team_forv/Team_ForV04/" rel="alternate" type="text/html" title="[Team_ForV] Python Web Framework" /><published>2022-08-17T00:00:00+09:00</published><updated>2022-08-17T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV04</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV04/"><![CDATA[<h2 id="아키텍처를-보며">아키텍처를 보며..</h2>
-<p><img src="/assets/images/Team_ForV/1-a.png" alt="image" width="120%" height="120%" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">python</code>으로 웹 application을 만들 때<br />
--&gt; 기본적으로 socket을 제공하니까 개 노가다 하면 만들 수야 있겠지만 의미도 없고..<br />
--&gt; 따라서, <code class="language-plaintext highlighter-rouge">python</code>을 이용하여 <code class="language-plaintext highlighter-rouge">WSGI</code> 라는 인터페이스를 만들어 사용하고 있다.<br /></p>
-
-<h2 id="wsgi가-뭔데">WSGI가 뭔데?</h2>
-<p><img src="/assets/images/Team_ForV/1-b.png" alt="image" width="50%" height="50%" />
-<img src="/assets/images/Team_ForV/1-c.png" alt="image" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">WSGI</code>는 ‘Web Server GateWay Interface’의 약자로 web server로 들어오는 request를 python으로 쓰여진 web application으로 forwarding 해주는 interface를 말한다.<br />
-예시) <code class="language-plaintext highlighter-rouge">gunicorn</code>, <code class="language-plaintext highlighter-rouge">uwsgi</code> 등등이 있음</p>
-
-<dl>
-  <dt>Q) 근데, flask, django 사용했을 때 gunicorn 같은 거 없이도 web server 잘 돌아가던데?<br /></dt>
-  <dd>사실은 프레임워크 안에 자체적으로 WSGI가 내장되어 있어서 잘 돌아갔던 것..</dd>
-</dl>
-
-<p>web application을 만들기 위해선 <code class="language-plaintext highlighter-rouge">flask</code>나 <code class="language-plaintext highlighter-rouge">django</code>가 제공해주는 <code class="language-plaintext highlighter-rouge">template</code>나 <code class="language-plaintext highlighter-rouge">view</code>를 가지고 <code class="language-plaintext highlighter-rouge">python</code>으로 웹 서버를 만드는 것인데..(결국 <code class="language-plaintext highlighter-rouge">flask</code>나 <code class="language-plaintext highlighter-rouge">django</code>는 프레임워크에 불과하다는 소리!)<br />
--&gt; 실제로 deploy까지 하게 되면 <code class="language-plaintext highlighter-rouge">WSGI</code>라는 인터페이스가 있고, 그런 인터페이스의 제공을 위해 <code class="language-plaintext highlighter-rouge">gunicorn</code> 등을 이용하는 것이다.<br />
--&gt; 다만, python web server는 보안 및 퍼포먼스의 문제가 있어 전문적 web server를 <code class="language-plaintext highlighter-rouge">proxy server</code>로 두는데..<br /></p>
-
-<h2 id="proxy-server는-무엇이냐">Proxy Server는 무엇이냐</h2>
-<p><img src="/assets/images/Team_ForV/1-d.png" alt="image" width="50%" height="50%" />
-<img src="/assets/images/Team_ForV/1-e.jpeg" alt="image" width="40%" height="50%" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">Proxy</code>: 서버와 클라이언트 사이에서 대리로 통신을 수행해주는 것<br />
-즉, Client가 자신을 거쳐 다른 네트워크에 접속할 수 있도록 중간에서 대리해주는 서버를 말한다.<br />
-사용자가 많거나, performance, security를 고려하여 전문적 server를 두는 것이다.<br /></p>
-
-<h2 id="아키텍처를-보며-다시-정리해보자">아키텍처를 보며 다시 정리해보자!</h2>
-<p><img src="/assets/images/Team_ForV/1-a.png" alt="image" width="120%" height="120%" /></p>
-
-<ol>
-  <li>웹 브라우저의 동작방식<br />
-사용자가 서비스를 이용하려면 웹 브라우저에 URL을 입력하는데, 이 때 웹 브라우저가 URL을 사용해서 서버에 요청하는 페이지는 크게 2가지 종류가 있다.
-    <ul>
-      <li>정적 페이지 요청<br />
-   예를 들어 <code class="language-plaintext highlighter-rouge">http://3.37.58.70:5000/static/hello.css</code>라는 URL 접속 요청이 들어오면, 서비스는 <code class="language-plaintext highlighter-rouge">static/hello.css</code>라는 파일을 찾아서 웹 브라우저로 보내주는 것이다. .js, .jpg, .png 등등의 파일은 변하지 않는 성질 때문에 ‘정적 파일’이라고 하며, 웹 브라우저에서 이런 정적 파일을 요청하는 행위를 ‘정적 페이지 요청’이라 한다.</li>
-      <li>동적 페이지 요청<br />
-   서버의 데이터베이스에 어떤 내용이 있는지에 따라 수시로 변하는 파일들이 있다. 웹 브라우저의 이러한 요청을 ‘동적 페이지 요청’이라고 한다. 이러한 동적 요청은 정적 요청과는 달리 조금 복잡한 과정을 거쳐 응답한다.</li>
-    </ul>
-  </li>
-  <li>
-    <p>동적 페이지 요청의 처리를 위해 웹 서버와 WSGI 서버가 필요하다!<br />
-웹 서버에 동적 페이지 요청이 들어오면 파이썬 프로그램을 호출해야 한다<br />
--&gt; 대부분의 웹 서버는 어떻게 파이썬 프로그램을 호출해야 하는지 모르기 때문에 파이썬 프로그램을 호출하지 못한다.<br />
--&gt; 이런 경우에 파이썬 프로그램을 호출하는 WSGI 서버가 필요한 것이다.<br /></p>
-
-    <p>즉, 동적 페이지 요청의 과정은<br />
-웹 서버가 WSGI 서버 호출 -&gt; WSGI 서버가 파이썬 프로그램을 호출<br /></p>
-  </li>
-  <li>
-    <p>WSGI 서버의 동작 원리를 구체적으로 보자<br />
-<code class="language-plaintext highlighter-rouge">웹 서버</code>로 들어온 동적 페이지 요청 -&gt; <code class="language-plaintext highlighter-rouge">WSGI 서버</code>를 호출 -&gt; <code class="language-plaintext highlighter-rouge">WSGI 어플리케이션</code> 호출 -&gt; 동적 요청 처리<br /></p>
-
-    <p>즉, 동적 페이지 요청은 결국 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>이 처리하는 것이고, 이런 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code>에는 <code class="language-plaintext highlighter-rouge">django</code>, <code class="language-plaintext highlighter-rouge">flask</code>, <code class="language-plaintext highlighter-rouge">fast api</code> 등이 있는 것이다!<br /></p>
-
-    <p><img src="/assets/images/Team_ForV/1-g.png" alt="image" width="50%" height="50%" /></p>
-
-    <p>++ <code class="language-plaintext highlighter-rouge">WSGI 서버</code>는 <code class="language-plaintext highlighter-rouge">웹 서버</code>와 <code class="language-plaintext highlighter-rouge">WSGI 애플리케이션</code> 중간에 위치해서 <code class="language-plaintext highlighter-rouge">WSGI 미들웨어</code>, <code class="language-plaintext highlighter-rouge">WSGI 컨테이너</code> 라고도 한다.</p>
-  </li>
-</ol>
-
-<h2 id="다음-글-소개">다음 글 소개</h2>
-<p>python을 이용한 백엔드 framework의 work flow에 대해 살펴보았다. <br />
-다음에는 본격적으로 이 프로젝트에 쓰인 두 가지 서버에 대하여 정리해보는 시간을 갖도록 하자. <br />
-먼저 <code class="language-plaintext highlighter-rouge">django</code>로 쓰인 api server에 대해 살펴보자.</p>
-
-<h2 id="reference">Reference</h2>
-<p>1) <a href="https://liveyourit.tistory.com/251">https://liveyourit.tistory.com/251</a> [프록시 서버란?]<br />
-2) <a href="https://wikidocs.net/81076">https://wikidocs.net/81076</a> [점프 투 플라스크]<br />
-3) <a href="https://www.youtube.com/watch?v=5rjhJRyu8s8&amp;t=0s">https://www.youtube.com/watch?v=5rjhJRyu8s8&amp;t=0s</a> [django, flask 배포 스택 구성]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="python" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry></feed>
+<p>먼저, <code class="language-plaintext highlighter-rouge">python</code> 기반의 Backend framework에서의 work flow를 살펴보자!</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="Info" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry></feed>

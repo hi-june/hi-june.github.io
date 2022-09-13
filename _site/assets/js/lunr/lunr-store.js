@@ -100,4 +100,10 @@ var store = [{
         "tags": ["java","spring"],
         "url": "/spring-tutorial/Section05/",
         "teaser": null
+      },{
+        "title": "[스프링 입문] Section 06 - 스프링 DB 접근 기술",
+        "excerpt":"spring DB 접근 기술의 발전 application과 DB의 연결을 sql을 통해 한다. 자바 진영에서 DB에 sql을 통해 접근 하기 위한 기술들을 간략히 알아보자! - 순수 Jdbc 기술 말 그대로 JDBC API로 직접 코딩하는 것을 말한다. 직접 필요한 자원들을 가지고 connection을 얻고, db에 sql을 쏘고, 사용한 자원을 반환하는 등 필요한 과정을 하나하나...","categories": ["Spring-Tutorial"],
+        "tags": ["java","spring","h2"],
+        "url": "/spring-tutorial/Section06/",
+        "teaser": null
       }]
