@@ -112,4 +112,10 @@ var store = [{
         "tags": ["java","spring"],
         "url": "/spring-tutorial/Section07/",
         "teaser": null
+      },{
+        "title": "[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정",
+        "excerpt":"프로젝트 생성   라이브러리 살펴보기   View 환경설정   H2 데이터베이스 설치   JPA와 DB 설정, 동작확인  ","categories": ["SpringBoot-JPA"],
+        "tags": ["java","spring boot"],
+        "url": "/springboot-jpa/Section01/",
+        "teaser": null
       }]

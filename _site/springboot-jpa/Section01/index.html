@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[스프링 입문] Section 02 - 스프링 웹 개발 기초 -  June &amp; Directory</title>
-<meta name="description" content="Spring Introduction ">
+<!-- begin _includes/seo.html --><title>[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정 -  June &amp; Directory</title>
+<meta name="description" content="Spring Boot web application ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[스프링 입문] Section 02 - 스프링 웹 개발 기초">
-<meta property="og:url" content="http://localhost:4000/spring-tutorial/Section02/">
+<meta property="og:title" content="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정">
+<meta property="og:url" content="http://localhost:4000/springboot-jpa/Section01/">
 
 
-  <meta property="og:description" content="Spring Introduction ">
+  <meta property="og:description" content="Spring Boot web application ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-04-07T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-09-14T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-09-03T00:00:00+09:00">
+  <meta property="article:modified_time" content="2022-09-14T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/spring-tutorial/Section02/">
+<link rel="canonical" href="http://localhost:4000/springboot-jpa/Section01/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#spring-tutorial" itemprop="item"><span itemprop="name">Spring tutorial</span></a>
+          <a href="/categories/#springboot-jpa" itemprop="item"><span itemprop="name">Springboot jpa</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[스프링 입문] Section 02 - 스프링 웹 개발 기초</li>
+        <li class="current">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</li>
       
     
   </ol>
@@ -590,18 +590,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[스프링 입문] Section 02 - 스프링 웹 개발 기초">
-    <meta itemprop="description" content="Spring Introduction">
-    <meta itemprop="datePublished" content="2022-04-07T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-09-03T00:00:00+09:00">
+    <meta itemprop="headline" content="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정">
+    <meta itemprop="description" content="Spring Boot web application">
+    <meta itemprop="datePublished" content="2022-09-14T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-09-14T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[스프링 입문] Section 02 - 스프링 웹 개발 기초
+          <h1 id="page-title" class="page__title" itemprop="headline">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-04-07T00:00:00+09:00">2022.04.07</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-09-03">2022.09.03</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-09-14T00:00:00+09:00">2022.09.14</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-09-14">2022.09.14</time></p>
           
           
             
@@ -617,7 +617,7 @@
     
       
       
-      <a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
+      <a href="/categories/#springboot-jpa" class="page__taxonomy-item-category" rel="tag">SpringBoot-JPA</a>
     
     </span>
   </p>
@@ -634,7 +634,7 @@
     
       
       
-      <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a><span class="sep"> </span>
+      <a href="/tags/#spring-boot" class="page__taxonomy-item-tag" rel="tag">spring boot</a><span class="sep"> </span>
     
       
       
@@ -653,83 +653,41 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#web을-개발하는-3가지-방법">Web을 개발하는 3가지 방법</a></li>
-  <li><a href="#1-정적-컨텐츠">1. 정적 컨텐츠</a></li>
-  <li><a href="#2-mvc와-템플릿-엔진">2. MVC와 템플릿 엔진</a></li>
-  <li><a href="#3-api">3. API</a></li>
+  <li><a href="#프로젝트-생성">프로젝트 생성</a></li>
+  <li><a href="#라이브러리-살펴보기">라이브러리 살펴보기</a></li>
+  <li><a href="#view-환경설정">View 환경설정</a></li>
+  <li><a href="#h2-데이터베이스-설치">H2 데이터베이스 설치</a></li>
+  <li><a href="#jpa와-db-설정-동작확인">JPA와 DB 설정, 동작확인</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="web을-개발하는-3가지-방법">Web을 개발하는 3가지 방법</h2>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">정적 컨텐츠</code>: 파일을 그냥 웹 브라우저에 내려주는 것</li>
-  <li><code class="language-plaintext highlighter-rouge">MVC와 템플릿 엔진</code>: PHP, JSP같이 html 파일을 서버에서 프로그래밍해서 동적으로 바꾼 후 내려주는 것</li>
-  <li><code class="language-plaintext highlighter-rouge">API</code>: 데이터 자체(객체, string 등등)를 내려주는 방식</li>
-</ul>
+        <h2 id="프로젝트-생성">프로젝트 생성</h2>
 
-<h2 id="1-정적-컨텐츠">1. 정적 컨텐츠</h2>
-<blockquote>
-  <p>By default, Spring Boot serves static content from a directory called <code class="language-plaintext highlighter-rouge">/static</code> (or <code class="language-plaintext highlighter-rouge">/public</code> or <code class="language-plaintext highlighter-rouge">/resources</code> or <code class="language-plaintext highlighter-rouge">/META-INF/resources</code>) in the classpath or from the root of the ServletContext</p>
-</blockquote>
+<h2 id="라이브러리-살펴보기">라이브러리 살펴보기</h2>
 
-<p><img src="/assets/images/Spring-Tutorial/2-1.png" alt="Image" /></p>
+<h2 id="view-환경설정">View 환경설정</h2>
 
-<p>1st. 웹 브라우저가 요청을 서버에 넘겨줌<br />
-2nd. controller 쪽에서 관련 컨트롤러가 있는지 찾아봄<br />
-3rd. 관련 컨트롤러가 없기 떄문에 resources에서 파일을 찾아봄<br />
-4th. 별도 변환 과정 없이 그냥 반환해 줌</p>
+<h2 id="h2-데이터베이스-설치">H2 데이터베이스 설치</h2>
 
-<h2 id="2-mvc와-템플릿-엔진">2. MVC와 템플릿 엔진</h2>
-<p>MVC: <code class="language-plaintext highlighter-rouge">Model</code>, <code class="language-plaintext highlighter-rouge">View</code>, <code class="language-plaintext highlighter-rouge">Controller</code>의 앞 자만 따서 부른다.<br />
-<code class="language-plaintext highlighter-rouge">View</code>는 화면과 관련된 일만 하도록, <code class="language-plaintext highlighter-rouge">Controller</code>는 비지니스 로직과 관련된 일만 하도록 <strong><em><span style="color:gold">‘분리’</span></em></strong> 한다는 것이 핵심이다.</p>
-
-<p><img src="/assets/images/Spring-Tutorial/2-2.png" alt="Image" /></p>
-
-<p>1st. 웹 브라우저에서 요청이 들어오면<br />
-2nd. 해당 <code class="language-plaintext highlighter-rouge">Controller</code>가 mapping 되어있는 메소드를 찾아서 실행 후<br />
-3rd. 반환된 값을 통해 <code class="language-plaintext highlighter-rouge">viewResolver</code>가 해당하는 <code class="language-plaintext highlighter-rouge">view</code>를 찾아주고 템플릿 엔진에 연결시켜줌<br />
-4th. 템플릿 엔진은 해당 파일을 렌더링 후 웹 브라우저에 반환해준다.</p>
-
-<h2 id="3-api">3. API</h2>
-<p><img src="/assets/images/Spring-Tutorial/2-3.png" alt="Image" /></p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">@ResponseBody</code>를 사용하면
-    <ul>
-      <li>HTTP의 BODY에 data를 직접 내려준다.</li>
-      <li><code class="language-plaintext highlighter-rouge">viewResolver</code>대신 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 동작하는데(spring에 셋팅되어있음)
-        <ul>
-          <li>기본 문자 처리의 경우: <code class="language-plaintext highlighter-rouge">StringHttpMessageConverter</code></li>
-          <li>기본 객체 처리의 경우: <code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code>(객체를 jason으로 바꿔주는 라이브러리들 중 하나)</li>
-          <li>기타 등등의 경우에 맞는 여러 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 기본으로 등록되어있음. body부에 오는 데이터의 종류에 따라 어떤 <code class="language-plaintext highlighter-rouge">Converter</code>가 동작할 지 결정됨</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<blockquote>
-  <p>참고: ‘클라이언트의 HTTP Accept 해더’와 ‘서버의 컨트롤러 반환 타입 정보’ 둘을 조합해서 <code class="language-plaintext highlighter-rouge">HttpMessageConverter</code>가 선택된다.</p>
-</blockquote>
+<h2 id="jpa와-db-설정-동작확인">JPA와 DB 설정, 동작확인</h2>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Spring-Tutorial</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">SpringBoot-JPA</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/android/Chapter04/" class="pagination--pager" title="[안드로이드 기초] Chapter 04 - 기본 위젯 익히기
+      <a href="/spring-tutorial/Section07/" class="pagination--pager" title="[스프링 입문] Section 07 - AOP
 ">이전</a>
     
     
-      <a href="/android/Chapter05/" class="pagination--pager" title="[안드로이드 기초] Chapter 05 - 레이아웃 익히기
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -739,16 +697,6 @@
 
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
   	
   	
   	
@@ -756,14 +704,8 @@
   	
 
 
-  <nav class="pagination_prev_next">
-    
-      <a href="/spring-tutorial/Section01/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[스프링 입문] Section 01 - 프로젝트 환경설정</a>
-    
-    
-      <a href="/spring-tutorial/Section03/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[스프링 입문] Section 03 - 회원 관리 예제(백엔드 개발)</a>
-    
-  </nav>
+  <a href="#" class="pagination_prev_next--pager disabled-first-child">첫 번째 글입니다</a>
+  <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
 
 
 <!--
@@ -794,11 +736,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%8A%A4%ED%94%84%EB%A7%81+%EC%9E%85%EB%AC%B8%5D+Section+02+-+%EC%8A%A4%ED%94%84%EB%A7%81+%EC%9B%B9+%EA%B0%9C%EB%B0%9C+%EA%B8%B0%EC%B4%88%20http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection02%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%8A%A4%ED%94%84%EB%A7%81+%EB%B6%80%ED%8A%B8%EC%99%80+JPA+%ED%99%9C%EC%9A%A9+1%5D+Section+01+-+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95%20http%3A%2F%2Flocalhost%3A4000%2Fspringboot-jpa%2FSection01%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection02%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fspringboot-jpa%2FSection01%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection02%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fspringboot-jpa%2FSection01%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -812,34 +754,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/springboot-jpa/Section01/">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.14
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#springboot-jpa" class="page__taxonomy-item-category" rel="tag">SpringBoot-JPA</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
-                
-                    
-                    
-                    <a href="/tags/#spring-boot" class="page__taxonomy-item-tag" rel="tag">spring boot</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1085,6 +999,38 @@
                     
                     
                     <a href="/tags/#rabbitmq" class="page__taxonomy-item-tag" rel="tag">rabbitMQ</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/team_forv/Team_ForV05/">[Team_ForV] Django API Server</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.18
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+                    
+                    
+                    <a href="/tags/#django" class="page__taxonomy-item-tag" rel="tag">django</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#mysql" class="page__taxonomy-item-tag" rel="tag">mysql</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">python</a>
                 
             </span>
         </span>

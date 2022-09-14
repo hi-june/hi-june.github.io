@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-14T00:40:37+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 입문] Section 07 - AOP</title><link href="http://localhost:4000/spring-tutorial/Section07/" rel="alternate" type="text/html" title="[스프링 입문] Section 07 - AOP" /><published>2022-09-13T00:00:00+09:00</published><updated>2022-09-14T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section07</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section07/"><![CDATA[<h2 id="aop란">AOP란?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-14T23:20:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/springboot-jpa/Section01/" rel="alternate" type="text/html" title="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정" /><published>2022-09-14T00:00:00+09:00</published><updated>2022-09-14T00:00:00+09:00</updated><id>http://localhost:4000/springboot-jpa/Section01</id><content type="html" xml:base="http://localhost:4000/springboot-jpa/Section01/"><![CDATA[<h2 id="프로젝트-생성">프로젝트 생성</h2>
+
+<h2 id="라이브러리-살펴보기">라이브러리 살펴보기</h2>
+
+<h2 id="view-환경설정">View 환경설정</h2>
+
+<h2 id="h2-데이터베이스-설치">H2 데이터베이스 설치</h2>
+
+<h2 id="jpa와-db-설정-동작확인">JPA와 DB 설정, 동작확인</h2>]]></content><author><name>hi~ June!!</name></author><category term="SpringBoot-JPA" /><category term="java" /><category term="spring boot" /><summary type="html"><![CDATA[Spring Boot web application]]></summary></entry><entry><title type="html">[스프링 입문] Section 07 - AOP</title><link href="http://localhost:4000/spring-tutorial/Section07/" rel="alternate" type="text/html" title="[스프링 입문] Section 07 - AOP" /><published>2022-09-13T00:00:00+09:00</published><updated>2022-09-14T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section07</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section07/"><![CDATA[<h2 id="aop란">AOP란?</h2>
 <p>AOP는 Aspect Oriented Programming의 약자로 ‘관점 지향 프로그래밍’이라고 불린다.<br />
 관점 지향은 어떤 로직을 기준으로 핵심적인 관점, 부가적인 관점으로 나누어서 보고 그 관점을 기준으로 각각 모듈화하겠다는 것이다.</p>
 
@@ -107,91 +115,7 @@
 <h2 id="reference">Reference</h2>
 <p>1) <a href="https://www.inflearn.com/questions/48156">https://www.inflearn.com/questions/48156</a><br />
 [AOP(TimeTraceAop)를 @Component 로 선언 vs SpringConfig에 @Bean으로 등록]<br />
-2) <a href="https://engkimbs.tistory.com/746">https://engkimbs.tistory.com/746</a> [[Spring] 스프링 AOP (Spring AOP) 총정리 : 개념, 프록시 기반 AOP, @AOP]</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</title><link href="http://localhost:4000/spring-tutorial/Section05/" rel="alternate" type="text/html" title="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-06T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section05</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section05/"><![CDATA[<h2 id="file-tree-참고하기">File Tree 참고하기</h2>
-<p><img src="/assets/images/Spring-Tutorial/5-1.png" alt="Image" width="65%" height="65%" /></p>
-
-<h2 id="홈-화면">홈 화면</h2>
-<p>홈 컨트롤러를 추가해준다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeController.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
-
-<span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeController</span> <span class="o">{</span>
-    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"home"</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Q) ‘/’ 요청 시, index.html 대신 hello.html이 호출되는 이유?<br />
-A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
-
-<h2 id="회원-등록">회원 등록</h2>
-<p>1) 웹 등록 화면에서 데이터를 전달 받을 폼 객체를 만들어야 한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberForm.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberForm</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span> 
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br />
-2) 회원 등록용 폼 컨트롤러 제작</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
-    
-    <span class="nd">@Autowired</span>
-    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">createForm</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"members/createMemberForm"</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br />
-3) 회원 컨트롤러에서 회원을 실제 등록하는 기능을 구현</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="nc">String</span> <span class="nf">create</span><span class="o">(</span><span class="nc">MemberForm</span> <span class="n">form</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>   <span class="c1">// 멤버를 생성하고</span>
-    
-    <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">form</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span> <span class="c1">// 폼으로부터 이름을 가져와 member의 이름을 설정하고</span>
-    <span class="n">memberService</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// memberService를 통해 생성한 member를 저장한다.</span>
-    
-    <span class="k">return</span> <span class="s">"redirect:/"</span><span class="o">;</span>    <span class="c1">// 회원 가입 완료 후 다시 home 화면으로 돌아가도록 만든다.</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="회원-조회">회원 조회</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/members"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="nc">String</span> <span class="nf">list</span><span class="o">(</span><span class="nc">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">findMembers</span><span class="o">();</span>
-    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"members"</span><span class="o">,</span> <span class="n">members</span><span class="o">);</span>
-    <span class="k">return</span> <span class="s">"members/memberList"</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 06 - 스프링 DB 접근 기술</title><link href="http://localhost:4000/spring-tutorial/Section06/" rel="alternate" type="text/html" title="[스프링 입문] Section 06 - 스프링 DB 접근 기술" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-13T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section06</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section06/"><![CDATA[<h2 id="spring-db-접근-기술의-발전">spring DB 접근 기술의 발전</h2>
+2) <a href="https://engkimbs.tistory.com/746">https://engkimbs.tistory.com/746</a> [[Spring] 스프링 AOP (Spring AOP) 총정리 : 개념, 프록시 기반 AOP, @AOP]</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 06 - 스프링 DB 접근 기술</title><link href="http://localhost:4000/spring-tutorial/Section06/" rel="alternate" type="text/html" title="[스프링 입문] Section 06 - 스프링 DB 접근 기술" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-13T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section06</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section06/"><![CDATA[<h2 id="spring-db-접근-기술의-발전">spring DB 접근 기술의 발전</h2>
 <p><img src="/assets/images/Spring-Tutorial/6-1.png" alt="Image" width="75%" height="75%" /><br />
 <br />
 application과 DB의 연결을 sql을 통해 한다.<br />
@@ -722,7 +646,91 @@ JPA를 사용하면 ‘SQL과 데이터 중심의 설계’에서 ‘객체 중�
         <span class="k">return</span> <span class="k">new</span> <span class="nf">MemberService</span><span class="o">(</span><span class="n">memberRepository</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><category term="h2" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 04 - 스프링 빈과 의존관계</title><link href="http://localhost:4000/spring-tutorial/Section04/" rel="alternate" type="text/html" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계" /><published>2022-09-04T00:00:00+09:00</published><updated>2022-09-04T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section04</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section04/"><![CDATA[<h2 id="들어가며">들어가며…</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><category term="h2" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</title><link href="http://localhost:4000/spring-tutorial/Section05/" rel="alternate" type="text/html" title="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-06T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section05</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section05/"><![CDATA[<h2 id="file-tree-참고하기">File Tree 참고하기</h2>
+<p><img src="/assets/images/Spring-Tutorial/5-1.png" alt="Image" width="65%" height="65%" /></p>
+
+<h2 id="홈-화면">홈 화면</h2>
+<p>홈 컨트롤러를 추가해준다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeController.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeController</span> <span class="o">{</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"home"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Q) ‘/’ 요청 시, index.html 대신 hello.html이 호출되는 이유?<br />
+A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
+
+<h2 id="회원-등록">회원 등록</h2>
+<p>1) 웹 등록 화면에서 데이터를 전달 받을 폼 객체를 만들어야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberForm.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberForm</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+2) 회원 등록용 폼 컨트롤러 제작</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
+    
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">createForm</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"members/createMemberForm"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+3) 회원 컨트롤러에서 회원을 실제 등록하는 기능을 구현</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">create</span><span class="o">(</span><span class="nc">MemberForm</span> <span class="n">form</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>   <span class="c1">// 멤버를 생성하고</span>
+    
+    <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">form</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span> <span class="c1">// 폼으로부터 이름을 가져와 member의 이름을 설정하고</span>
+    <span class="n">memberService</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// memberService를 통해 생성한 member를 저장한다.</span>
+    
+    <span class="k">return</span> <span class="s">"redirect:/"</span><span class="o">;</span>    <span class="c1">// 회원 가입 완료 후 다시 home 화면으로 돌아가도록 만든다.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="회원-조회">회원 조회</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/members"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">list</span><span class="o">(</span><span class="nc">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">findMembers</span><span class="o">();</span>
+    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"members"</span><span class="o">,</span> <span class="n">members</span><span class="o">);</span>
+    <span class="k">return</span> <span class="s">"members/memberList"</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 04 - 스프링 빈과 의존관계</title><link href="http://localhost:4000/spring-tutorial/Section04/" rel="alternate" type="text/html" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계" /><published>2022-09-04T00:00:00+09:00</published><updated>2022-09-04T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section04</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section04/"><![CDATA[<h2 id="들어가며">들어가며…</h2>
 <p>화면을 붙이고 싶음 -&gt; 컨트롤러와 뷰 템플릿 필요<br />
 ‘멤버 컨트롤러’가 ‘멤버 서비스’를 통해서 회원가입 하고, 데이터를 조회할 수 있어야 함<br />
 ‘멤버 컨트롤러’와 ‘멤버 서비스’ -&gt; 서로 의존관계가 있다.(멤버 컨트롤러가 멤버 서비스를 의존한다.)</p>
@@ -1970,171 +1978,4 @@ ai 관련 라이브러리들을 서로 의존성이 강하기 때문에 버전�
 <p>1) <a href="https://leffept.tistory.com/202">https://leffept.tistory.com/202</a> [Flask 란?]<br />
 2) <a href="https://heodolf.tistory.com/63">https://heodolf.tistory.com/63</a> [Celery 무작정 시작하기 (2) - Task]<br />
 3) <a href="https://buildabetterworld.tistory.com/144?category=874656">https://buildabetterworld.tistory.com/144?category=874656</a><br />
-[Celery Side-Project(Ant Platform) - 3. Flask에서 Celery로 비동기작업 수행하기(프로젝트 구조+Celery동작)]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="python" /><category term="flask" /><category term="rabbitMQ" /><category term="celery" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] Django API Server</title><link href="http://localhost:4000/team_forv/Team_ForV05/" rel="alternate" type="text/html" title="[Team_ForV] Django API Server" /><published>2022-08-18T00:00:00+09:00</published><updated>2022-08-19T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV05</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV05/"><![CDATA[<h2 id="django-api-server의-역할">Django API Server의 역할</h2>
-<p><img src="/assets/images/Team_ForV/5-1.png" alt="image" width="90%" height="90%" class="align-center" /><br />
-<code class="language-plaintext highlighter-rouge">Django API Server</code>의 경우 총 3가지의 역할을 하고 있다.</p>
-<ol>
-  <li>서버가 올라갈 시 <code class="language-plaintext highlighter-rouge">google-cloud-storage</code>로부터 필요한 ai모델파일들을 서버로 불러온다.</li>
-  <li>사용자 정보 페이지 요청 시 db를 조회하여 필요한 정보(멤버들의 TMI 정보, 사진 정보 등등)들을 클라이언트에 제공해준다.</li>
-  <li>클라이언트로부터 오는 text 요청(특정 목소리로 읽어주었으면 하는 문장)을 db에 저장해둔다.</li>
-</ol>
-
-<p>이처럼, <code class="language-plaintext highlighter-rouge">django</code> 서버는 <code class="language-plaintext highlighter-rouge">mysql</code> db와 연관된 작업을 많이 수행하도록 구성하였는데, 이는 <code class="language-plaintext highlighter-rouge">django</code>의 뛰어난 자체 <code class="language-plaintext highlighter-rouge">ORM</code> 때문이라고 볼 수 있다.</p>
-
-<h2 id="orm이란">ORM이란?</h2>
-<p><code class="language-plaintext highlighter-rouge">ORM</code>은 Object-Relation Mapping의 준말로, 객체(Object)와 관계형 데이터베이스(Relational)을 연결(Mapping)해주는 것을 말한다. <br />
-이를 통해 개발자는 데이터베이스의 테이블에 <code class="language-plaintext highlighter-rouge">CRUD</code>(Create, Read, Update, Delete)를 할 때, SQL 쿼리를 사용하지 않고도, 가능하게 된다. <br />
-<code class="language-plaintext highlighter-rouge">django</code>는 이 <code class="language-plaintext highlighter-rouge">ORM</code>을 내장하고 있어, 데이터베이스에 간편하게 접근할 수 있다.</p>
-
-<p><img src="/assets/images/Team_ForV/5-2.png" alt="image" width="80%" height="80%" /><br />
-위의 테이블들은 이 프로젝트에 쓰인 테이블이다.(로그인 기능을 안 넣었더니 확실히 초라하다..ㅎㅎ)</p>
-
-<p>그렇다면, 이 프로젝트에서 어떤식으로 사용했는지 알아보자.</p>
-
-<h2 id="model-serializer-view">Model, Serializer, View</h2>
-<p><img src="/assets/images/Team_ForV/5-3.png" alt="image" width="40%" height="40%" /><br />
-django REST framework(DRF)로 RESTful한 API를 쉽게 만들 수 있다. <br />
-<br /></p>
-
-<p>1st. 먼저 model.py를 작성한다.<br />
-직접 CREATE TABLE 쿼리문을 통해 만드는 것이 아닌, ORM을 통해 class 인스턴스와 db 테이블을 매핑시킨다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-
-<span class="k">class</span> <span class="nc">Member</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span> <span class="c1"># 팀원들에 대한 정보
-</span>    <span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">AutoField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  <span class="c1"># primary key
-</span>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>   <span class="c1"># 이름
-</span>    <span class="n">birth</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1"># 생년월일
-</span>    <span class="n">tmi</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>  <span class="c1"># 팀원들의 TMI 정보들
-</span>    <span class="n">position</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">)</span> <span class="c1"># 팀원 각자의 역할
-</span>    <span class="n">github_link</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>  <span class="c1"># 팀원 본인의 깃허브 링크(sns 계정의 일종)
-</span>    <span class="n">image_link</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>   <span class="c1"># 팀원 본인의 프로필 사진(gcs에 저장해두고 url을 저장)
-</span>    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">)</span> <span class="c1"># 해당 레코드 생성시 현재 시간 자동저장
-</span>    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># 해당 레코드 갱신시 현재 시간 자동저장
-</span>    
-<span class="k">class</span> <span class="nc">ModelLink</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>  <span class="c1"># 음성 합성에 필요한 멤버 개개인의 모델 파일 정보(glow-tts, hifi-gan)
-</span>    <span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">Member</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">db_column</span><span class="o">=</span><span class="s">"id"</span><span class="p">)</span>
-    <span class="n">glow_config</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">glow_pth</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">glow_scale_stats</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">hifi_config</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">hifi_pth</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">hifi_scale_stats</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">)</span> <span class="c1"># 해당 레코드 생성시 현재 시간 자동저장
-</span>    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># 해당 레코드 갱신시 현재 시간 자동저장
-</span>
-<span class="k">class</span> <span class="nc">Text</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>   <span class="c1"># 사용자들의 문장요구를 db에 저장해두어 추후에 활용하기 위함
-</span>    <span class="n">member_id</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Member</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">db_column</span><span class="o">=</span><span class="s">"member_id"</span><span class="p">)</span>
-    <span class="n">uuid</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">)</span> <span class="c1"># 로그인 대신 uuid를 사용
-</span>    <span class="n">text</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">)</span> <span class="c1"># 사용자가 요청한 문장
-</span>    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>   <span class="c1"># 레코드 갱신 시점이 아닌 uuid 생성 시점을 기준으로 삼기 때문에 react에서 값을 가져와 저장함
-</span>    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># 해당 레코드 갱신시 현재 시간 자동저장
-</span></code></pre></div></div>
-
-<p><br />
-2nd. serializer.py를 작성한다.<br />
-Serializer는 DRF가 제공하는 클래스인데, DB 인스턴스를 JSON 데이터로 생성한다. <br />
-이렇게 JSON 포맷으로 직렬화된 문자열은 views에서 클라이언트로 넘겨주게 된다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Member</span><span class="p">,</span> <span class="n">ModelLink</span><span class="p">,</span> <span class="n">Text</span>
-
-<span class="k">class</span> <span class="nc">MemberSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">Member</span>
-        <span class="n">fields</span> <span class="o">=</span> <span class="s">'__all__'</span>
-        
-<span class="k">class</span> <span class="nc">ModelSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">ModelLink</span>
-        <span class="n">fields</span> <span class="o">=</span> <span class="s">'__all__'</span>
-
-<span class="k">class</span> <span class="nc">TextSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">Text</span>
-        <span class="n">fields</span> <span class="o">=</span> <span class="s">'__all__'</span>
-</code></pre></div></div>
-
-<p><br />
-3rd. views.py를 작성한다.<br />
-django에서는 view를 통해서 HTTP 요청을 처리한다. <br />
-FBV(함수기반뷰), CBV(클래스기반뷰)를 통해서도 API를 만들 수 있지만, <br />
-DRF는 <code class="language-plaintext highlighter-rouge">apiview</code>, <code class="language-plaintext highlighter-rouge">mixins</code>, <code class="language-plaintext highlighter-rouge">viewset</code> 등을 제공한다.</p>
-
-<p>각 request method마다 직접 serializer 처리를 해주어야 한다거나, <br />
-공통된 queryset과 serializer_class가 반복되는 등의 문제를 해결하기 위해 <br />
-<code class="language-plaintext highlighter-rouge">viewset</code>을 사용하여 구현했다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">.serializers</span> <span class="kn">import</span> <span class="n">MemberSerializer</span><span class="p">,</span> <span class="n">ModelSerializer</span><span class="p">,</span> <span class="n">TextSerializer</span>
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Member</span><span class="p">,</span> <span class="n">ModelLink</span><span class="p">,</span> <span class="n">Text</span>
-<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
-
-<span class="c1"># ViewSet : Post, Get, Put, Delete 기본기능 내장
-</span><span class="k">class</span> <span class="nc">MemberViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="p">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
-    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Member</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">all</span><span class="p">()</span>  
-    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">MemberSerializer</span>  
-
-<span class="k">class</span> <span class="nc">ModelLinkViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="p">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
-    <span class="n">queryset</span> <span class="o">=</span> <span class="n">ModelLink</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">all</span><span class="p">()</span>  
-    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">ModelSerializer</span>
-
-<span class="k">class</span> <span class="nc">TextViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="p">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
-    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">all</span><span class="p">()</span>  
-    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">TextSerializer</span>
-</code></pre></div></div>
-
-<p><br />
-4th. url.py를 작성한다.<br />
-이렇게 작성한 <code class="language-plaintext highlighter-rouge">viewset</code>을 가지고 url 링크에 매핑해주면, 클라이언트에서 다양한 요청이 들어올 시 처리할 수 있다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
-<span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">routers</span>
-<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">permissions</span>
-
-<span class="n">router</span> <span class="o">=</span> <span class="n">routers</span><span class="p">.</span><span class="n">DefaultRouter</span><span class="p">()</span>
-<span class="n">router</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s">'api/members'</span><span class="p">,</span> <span class="n">MemberViewSet</span><span class="p">)</span>
-<span class="n">router</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s">'api/modellinks'</span><span class="p">,</span> <span class="n">ModelLinkViewSet</span><span class="p">)</span>
-<span class="n">router</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s">'api/texts'</span><span class="p">,</span> <span class="n">TextViewSet</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>자, 이렇게 <code class="language-plaintext highlighter-rouge">DRF</code>와 <code class="language-plaintext highlighter-rouge">ORM</code>을 통해 db 테이블의 구성과 api 세팅을 마쳤다면 django와 mysql과 연동하여 실제로 사용이 가능하도록 만들면 된다.</p>
-
-<h2 id="django와-mysql-연동하기">django와 mysql 연동하기</h2>
-<p>django는 기본적으로 <code class="language-plaintext highlighter-rouge">sqlite3</code>를 사용한다. 하지만 이 프로젝트에서는 <code class="language-plaintext highlighter-rouge">mysql</code>를 사용할 것이므로, <code class="language-plaintext highlighter-rouge">django</code>와 <code class="language-plaintext highlighter-rouge">mysql</code>을 연동해주어야 한다. 방법은 간단하다!</p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">mysqlclient</code>나 <code class="language-plaintext highlighter-rouge">pymysql</code>같은 라이브러리를 pip을 통해 설치하고</li>
-  <li>my_settings.py에 다음과 같은 설정을 작성해주고,
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MY_DATABASES</span> <span class="o">=</span> <span class="p">{</span>
- <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span> 
- 	<span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.mysql'</span><span class="p">,</span> <span class="c1"># 사용할 엔진 설정
-</span>     <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'tts'</span><span class="p">,</span>  <span class="c1"># 연동할 mysql의 데이터베이스 이름
-</span>     <span class="s">'USER'</span><span class="p">:</span> <span class="s">'root'</span><span class="p">,</span>     <span class="c1"># db 접속 계정명
-</span>     <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'1234'</span><span class="p">,</span>     <span class="c1"># 해당 db 접속 계정 비밀번호
-</span>     <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'ttsmysql'</span><span class="p">,</span>     <span class="c1"># 실제 db 주소
-</span>     <span class="s">'PORT'</span><span class="p">:</span> <span class="s">'3306'</span><span class="p">,</span>     <span class="c1"># 포트 번호
-</span>  <span class="p">}</span> 
-<span class="p">}</span>
-</code></pre></div>    </div>
-  </li>
-  <li>settings.py에 해당 설정을 import하여 적용시키면 된다.
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">from</span> <span class="nn">.my_settings</span> <span class="kn">import</span> <span class="n">MY_DATABASES</span>
-
- <span class="n">DATABASES</span> <span class="o">=</span> <span class="n">MY_DATABASES</span>
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<h2 id="다음-글-소개">다음 글 소개</h2>
-<p>지금까지 <code class="language-plaintext highlighter-rouge">django</code> api server에 대하여 정리해보았다. <br />
-다음 포스팅에서는 <code class="language-plaintext highlighter-rouge">flask</code>로 만든 model 서버에 대해 정리해보도록 하자.</p>
-
-<h2 id="reference">Reference</h2>
-<p>1) <a href="https://ssungkang.tistory.com/entry/Django-django-rest-framework-%EB%A5%BC-%EC%9C%84%ED%95%9C-JSON-%EC%A7%81%EB%A0%AC%ED%99%94?category=320582">https://ssungkang.tistory.com/entry/Django-django-rest-framework-%EB%A5%BC-%EC%9C%84%ED%95%9C-JSON-%EC%A7%81%EB%A0%AC%ED%99%94?category=320582</a><br />
-[django rest framework 를 위한 JSON 직렬화]<br />
-2) <a href="https://wikidocs.net/book/4223">https://wikidocs.net/book/4223</a> [점프 투 장고]<br />
-3) <a href="https://ssungkang.tistory.com/entry/Django-APIView-Mixins-generics-APIView-ViewSet%EC%9D%84-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90">https://ssungkang.tistory.com/entry/Django-APIView-Mixins-generics-APIView-ViewSet%EC%9D%84-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90</a><br />
-[APIView, Mixins, generics APIView, ViewSet을 알아보자]<br />
-4) <a href="https://velog.io/@devmin/Django-MySQL-Connect">https://velog.io/@devmin/Django-MySQL-Connect</a> [Django와 MySQL 연결하기]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="python" /><category term="django" /><category term="mysql" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry></feed>
+[Celery Side-Project(Ant Platform) - 3. Flask에서 Celery로 비동기작업 수행하기(프로젝트 구조+Celery동작)]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="python" /><category term="flask" /><category term="rabbitMQ" /><category term="celery" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry></feed>
