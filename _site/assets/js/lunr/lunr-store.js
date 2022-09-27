@@ -114,7 +114,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정",
-        "excerpt":"프로젝트 생성   라이브러리 살펴보기   View 환경설정   H2 데이터베이스 설치   JPA와 DB 설정, 동작확인  ","categories": ["SpringBoot-JPA"],
+        "excerpt":"개발 순서 안내  일반적인 개발의 순서와 같은 방식으로 진행한다.      개발 환경 세팅   요구사항 분석   도메인 모델 설계   엔티티 설계   테이블 설계   JPA로 엔티티와 테이블을 ORM 메핑   애플리케이션 아키텍처 구성   핵심 비즈니스 로직 개발   프로젝트 생성   라이브러리 살펴보기   View 환경설정   H2 데이터베이스 설치   JPA와 DB 설정, 동작확인  ","categories": ["SpringBoot-JPA"],
         "tags": ["java","spring boot"],
         "url": "/springboot-jpa/Section01/",
         "teaser": null
