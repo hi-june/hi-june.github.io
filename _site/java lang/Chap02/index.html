@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발) -  June &amp; Directory</title>
-<meta name="description" content="Spring Introduction ">
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형 -  June &amp; Directory</title>
+<meta name="description" content="Java 문법 정리! ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)">
-<meta property="og:url" content="http://localhost:4000/spring-tutorial/Section05/">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap02/">
 
 
-  <meta property="og:description" content="Spring Introduction ">
+  <meta property="og:description" content="Java 문법 정리! ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-09-05T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-09-29T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-09-06T00:00:00+09:00">
+  <meta property="article:modified_time" content="2022-09-29T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/spring-tutorial/Section05/">
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap02/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#spring-tutorial" itemprop="item"><span itemprop="name">Spring tutorial</span></a>
+          <a href="/categories/#java-lang" itemprop="item"><span itemprop="name">Java lang</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</li>
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형</li>
       
     
   </ol>
@@ -626,18 +626,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)">
-    <meta itemprop="description" content="Spring Introduction">
-    <meta itemprop="datePublished" content="2022-09-05T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-09-06T00:00:00+09:00">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형">
+    <meta itemprop="description" content="Java 문법 정리!">
+    <meta itemprop="datePublished" content="2022-09-29T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-09-29T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-09-05T00:00:00+09:00">2022.09.05</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-09-06">2022.09.06</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-09-29T00:00:00+09:00">2022.09.29</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-09-29">2022.09.29</time></p>
           
           
             
@@ -653,7 +653,7 @@
     
       
       
-      <a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
+      <a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
     
     </span>
   </p>
@@ -667,10 +667,6 @@
   <p class="page__taxonomy">
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a><span class="sep"> </span>
     
       
       
@@ -689,99 +685,227 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#file-tree-참고하기">File Tree 참고하기</a></li>
-  <li><a href="#홈-화면">홈 화면</a></li>
-  <li><a href="#회원-등록">회원 등록</a></li>
-  <li><a href="#회원-조회">회원 조회</a></li>
+  <li><a href="#02-1-변수의-이해와-활용">02-1. 변수의 이해와 활용</a>
+    <ul>
+      <li><a href="#--메모리-공간의-활용을-위해-필요한-변수">- 메모리 공간의 활용을 위해 필요한 변수</a></li>
+      <li><a href="#--변수variable는-메모리-공간에-붙여진-이름">- 변수(Variable)는 메모리 공간에 붙여진 이름</a></li>
+      <li><a href="#--자료형의-종류와-구분">- 자료형의 종류와 구분</a></li>
+      <li><a href="#--변수의-이름을-짓는-방법">- 변수의 이름을 짓는 방법</a></li>
+    </ul>
+  </li>
+  <li><a href="#02-2-정수의-표현-방식-이해하기">02-2. 정수의 표현 방식 이해하기</a>
+    <ul>
+      <li><a href="#--컴퓨터가-정수를-표현하는-방식">- 컴퓨터가 정수를 표현하는 방식</a></li>
+      <li><a href="#--음의-정수를-표현하는-방식이-이게-맞아">- 음의 정수를 표현하는 방식이 이게 맞아?</a></li>
+      <li><a href="#--2의-보수를-구하는-방법">- 2의 보수를 구하는 방법</a></li>
+    </ul>
+  </li>
+  <li><a href="#02-3-실수의-표현-방식-이해하기">02-3. 실수의 표현 방식 이해하기</a>
+    <ul>
+      <li><a href="#--실수의-표현-방식은-고민거리였습니다">- 실수의 표현 방식은 고민거리였습니다.</a></li>
+      <li><a href="#--그래서-정밀도를-낮추고-근사치의-값을-찾아서-표현하기로-결정하였습니다">- 그래서 정밀도를 낮추고 근사치의 값을 찾아서 표현하기로 결정하였습니다.</a></li>
+    </ul>
+  </li>
+  <li><a href="#02-4-자바의-기본-자료형">02-4. 자바의 기본 자료형</a>
+    <ul>
+      <li><a href="#--정수-자료형-byte-short-int-long">- 정수 자료형: byte, short, int, long</a></li>
+      <li><a href="#--short형-변수를-선언할까요-int형-변수를-선언할까요">- short형 변수를 선언할까요? int형 변수를 선언할까요?</a></li>
+      <li><a href="#--실수-자료형-float-double">- 실수 자료형: float, double</a></li>
+      <li><a href="#--문자-자료형-char">- 문자 자료형: char</a></li>
+      <li><a href="#--논리-자료형-boolean">- 논리 자료형: boolean</a></li>
+    </ul>
+  </li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="file-tree-참고하기">File Tree 참고하기</h2>
-<p><img src="/assets/images/Spring-Tutorial/5-1.png" alt="Image" width="65%" height="65%" /></p>
+        <h2 id="02-1-변수의-이해와-활용">02-1. 변수의 이해와 활용</h2>
+<h3 id="--메모리-공간의-활용을-위해-필요한-변수">- <u>메모리 공간의 활용을 위해 필요한 변수</u></h3>
+<blockquote>
+  <p>데이터의 저장과 참조를 위해 ‘할당된 메모리 공간’에 붙인 이름을 ‘변수’라 한다.</p>
+</blockquote>
 
-<h2 id="홈-화면">홈 화면</h2>
-<p>홈 컨트롤러를 추가해준다.</p>
+<p>그렇다면 메모리 공간을 어떻게 할당받아야 할까?<br />
+할당받은 메모리 공간은 어떻게 사용할까? 즉, 어떻게 접근해야 할까?</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeController.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+<p>두 질문에 대한 답은 ‘변수’ 하나로 정리된다.</p>
 
-<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+<h3 id="--변수variable는-메모리-공간에-붙여진-이름">- <u>변수(Variable)는 메모리 공간에 붙여진 이름</u></h3>
+<p>그렇다면 메모리 공간을 어떻게 할당받아야 할까? -&gt; 코드상에서 변수라는 것을 선언하면 된다.<br />
+할당받은 메모리 공간은 어떻게 사용할까? 즉, 어떻게 접근해야 할까? -&gt; 변수의 이름을 통해서 메모리 공간에 접근할 수 있다.</p>
 
-<span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeController</span> <span class="o">{</span>
-    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"home"</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">UseVariable</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="kt">int</span> <span class="n">num1</span><span class="o">;</span>
+        <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>  <span class="c1">// 변수 선언 == 메모리 공간 할당받음</span>
+
+        <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">num3</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span> <span class="c1">// 변수의 이름으로 메모리 공간에 접근</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">+</span> <span class="s">" + "</span><span class="o">+</span> <span class="n">num2</span> <span class="o">+</span><span class="s">" = "</span> <span class="o">+</span> <span class="n">num3</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>Q) ‘/’ 요청 시, index.html 대신 hello.html이 호출되는 이유?<br />
-A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
+<h3 id="--자료형의-종류와-구분">- <u>자료형의 종류와 구분</u></h3>
+<p>키워드: 자바 문법을 구성하는 식별자<br />
+자료형: 변수에 저장할 데이터의 유형을 알리기 위한 키워드</p>
 
-<h2 id="회원-등록">회원 등록</h2>
-<p>1) 웹 등록 화면에서 데이터를 전달 받을 폼 객체를 만들어야 한다.</p>
+<p><img src="/assets/images/java-lang/2-1.png" alt="image" width="80%" height="80%" /><br />
+위의 표에서 정리한 자료형을 가리켜 ‘기본 자료형(Primitive Data Type)’이라고 한다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberForm.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+<h3 id="--변수의-이름을-짓는-방법">- <u>변수의 이름을 짓는 방법</u></h3>
+<p>변수의 이름을 짓는데에는 몇몇 제약 사항들이 존재한다.</p>
+<ol>
+  <li>변수의 이름은 숫자로 시작할 수 없다.</li>
+  <li>$과 _ 이외의 다른 특수문자는 변수의 이름에 사용할 수 없다.</li>
+  <li>키워드는 변수의 이름으로 사용할 수 없다.</li>
+</ol>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberForm</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+<h2 id="02-2-정수의-표현-방식-이해하기">02-2. 정수의 표현 방식 이해하기</h2>
+<h3 id="--컴퓨터가-정수를-표현하는-방식">- <u>컴퓨터가 정수를 표현하는 방식</u></h3>
+<p>먼저, 몇 바이트로 정수를 표현할 것인가 를 결정해야한다.<br />
+다음의 예시는 1바이트를 기준으로 정수의 표현 방식을 설명한다.</p>
+
+<p><img src="/assets/images/java-lang/2-2.png" alt="image" width="40%" height="40%" /><br />
+가장 왼쪽에 위치한 비트는 부호를 나타낸다.<br />
+이렇게 부호를 결정짓는 가장 왼쪽에 위치한 비트를 가리켜 <code class="language-plaintext highlighter-rouge">MSB(Most Significant Bit)</code>라 한다.<br />
+이 비트가 0이면 양수를, 1이면 음수를 의미한다.<br />
+나머지 일곱 비트는 데이터의 양적인 크기를 의미한다.</p>
+
+<h3 id="--음의-정수를-표현하는-방식이-이게-맞아">- <u>음의 정수를 표현하는 방식이 이게 맞아?</u></h3>
+<p>그렇다면, 단순히 MSB 비트를 1로 바꾸면 음수를 만들 수 있는 것 아닌가? 한 번 확인해보자.<br />
+<img src="/assets/images/java-lang/2-3.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<p>연산을 해보니 0이 나오질 않는다. 그렇다면 음수의 표현은 어떻게 할까?</p>
+<blockquote>
+  <p>양의 정수의 이진수 표현에 2의 보수를 취한 결과를 음의 정수로 표현한다.</p>
+</blockquote>
+
+<h3 id="--2의-보수를-구하는-방법">- <u>2의 보수를 구하는 방법</u></h3>
+<p><img src="/assets/images/java-lang/2-4.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<ol>
+  <li>1의 보수를 구하고(각 비트 별로 1은 0으로, 0은 1로 변경하여 얻는다.),</li>
+  <li>1을 더한다.</li>
+</ol>
+
+<p><img src="/assets/images/java-lang/2-5.png" alt="image" width="40%" height="40%" /><br />
+컴퓨터는 n바이트 덧셈 연산을 할 경우 그 결과도 n바이트로 만들어낸다.<br />
+따라서 올림 수(Carry) 보정을 하지 않으면 덧셈 과정에서 발생하는 올림 수는 그냥 버려진다.</p>
+
+<h2 id="02-3-실수의-표현-방식-이해하기">02-3. 실수의 표현 방식 이해하기</h2>
+<h3 id="--실수의-표현-방식은-고민거리였습니다">- <u>실수의 표현 방식은 고민거리였습니다.</u></h3>
+<blockquote>
+  <p>1과 2 사이에 존재하는 실수의 개수는 몇 개인가?</p>
+</blockquote>
+
+<p>이처럼 소수점 이하 자릿수까지 표현해야 하는 실수를 컴퓨터로 표현하는 데는 한계가 있다.</p>
+
+<h3 id="--그래서-정밀도를-낮추고-근사치의-값을-찾아서-표현하기로-결정하였습니다">- <u>그래서 정밀도를 낮추고 근사치의 값을 찾아서 표현하기로 결정하였습니다.</u></h3>
+<p>오차를 혀용하지 않으면서 그 광대한 실수를 표현하는 것은 불가능하다.<br />
+따라서 다음과 같은 결론에 도달하게 된다.</p>
+<blockquote>
+  <p>정밀도를 낮추고 대신에 표현할 수 있는 값의 범위를 넓히자.</p>
+</blockquote>
+
+<p><img src="/assets/images/java-lang/2-6.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h2 id="02-4-자바의-기본-자료형">02-4. 자바의 기본 자료형</h2>
+<h3 id="--정수-자료형-byte-short-int-long">- <u>정수 자료형: byte, short, int, long</u></h3>
+<p>이 자료형으로 할당된 메모리 공간에는 ‘정수’의 표현 방식을 기준으로 값을 저장 및 참조하게 된다.<br />
+네 자료형이 같는 차이점은 <u>정수의 표현에 사용되는 메모리 공간의 크기에 있다.</u></p>
+
+<h3 id="--short형-변수를-선언할까요-int형-변수를-선언할까요">- <u>short형 변수를 선언할까요? int형 변수를 선언할까요?</u></h3>
+<blockquote>
+  <p>효율적인 메모리의 관리를 위해 적은 바이트로 선언할 수 있다면 short형 변수를 선언하는 것이 좋지 않을까..?</p>
+</blockquote>
+
+<p>다음 코드를 보면 컴파일 오류가 발생하는 것을 알 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OperatePromotion</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">short</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
+        <span class="kt">short</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">22</span><span class="o">;</span>
+        
+        <span class="kt">short</span> <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span> <span class="c1">// 컴파일 오류 발생</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
     <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span> 
 <span class="o">}</span>
 </code></pre></div></div>
-<p><br />
-2) 회원 등록용 폼 컨트롤러 제작</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
-    
-    <span class="nd">@Autowired</span>
-    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">createForm</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"members/createMemberForm"</span><span class="o">;</span>
+<blockquote>
+  <p>자바는 정수형 연산을 int형으로 진행한다.</p>
+</blockquote>
+
+<p>연산 수행 시 byte형 변수나 short형 변수에 저장된 값을 먼저 int형 값으로 변경해 버린다.<br />
+result는 short형 변수인데, 연산이 진행된 결과는 int형이므로 에러가 난다.</p>
+
+<p>정리하면, 연산을 동반하는 상황에서는 변수를 byte, short로 선언해도 생각만큼 메모리가 절약되지 않고<br />
+오히려 데이터의 변환 과정만 추가될 뿐이니, 이때는 int로 선언하자.
+(참고) long형에서 int형으로의 변환은 일어나지 않는다. 8바이트를 4바이트로 변환하면 데이터 손실이 발행하기 때문이다.</p>
+
+<p>Q) 그렇다면 byte나 short형은 불필요한가?<br />
+A) 아니다.<br />
+프로그램상에서 표현하는 데이터 중에는 잦은 연산이 필요한 데이터도 있지만 그렇지 않은 경우도 있다.<br />
+예를 들면 게임의 지형, 캐릭터 등을 그리기 위한 그래픽 정보나 음원 정보 등이 있다.<br />
+이러한 경우에는 int형보다 작은 byte형 또는 short형으로 데이터를 저장하는 것이 의미가 있다.</p>
+
+<h3 id="--실수-자료형-float-double">- <u>실수 자료형: float, double</u></h3>
+<p>이들은 모두 정밀도를 포기하고 표현의 범위를 넓힌 자료형 들이기 때문에 float와 double의 선택 기준은 ‘값의 표현 범위’에 있지 않다.<br />
+그렇다면 float과 double의 선택 기준은 어디에 있을까?</p>
+
+<blockquote>
+  <p>답은 정밀도이다. 실수의 표현에 사용되는 바이트 수가 크면 오차의 크기는 작아진다.</p>
+</blockquote>
+
+<p>실제로 float은 6자리의 정밀도를 갖고, double은 15자리의 정밀도를 갖는다.<br />
+다시 말해 float는 소수점 이하 6자리까지는 오차가 발생하지 않고 double은 소수점 이하 15자리까지 오차가 발생하지 않는다.</p>
+
+<p>(참고)<br />
+double형 데이터 하나만 놓고 보면 소수점 이하 15자리까지는 오차가 발생하지 않는다.<br />
+하지만 그 이하부터는 오차가 발생하기 때문에, 오차가 존재하는 double형 데이터 둘 이상을 더하다 보면, 소수점 이하 셋째 자리에서 오차가 발견될 수도 있다.<br />
+따라서 실수의 계산은 기본적으로 오차가 존재한다고 가정해야 한다.</p>
+
+<h3 id="--문자-자료형-char">- <u>문자 자료형: char</u></h3>
+<p>수를 인식하고 표현하는 장치인 하드웨어에서 문자를 어떻게 표현해야할까?</p>
+<blockquote>
+  <p>문자 하나하나에 숫자를 부여하는 방식으로 표현한다.</p>
+</blockquote>
+
+<p>이러한 ‘문자의 표현에 대한 약속’을 가리켜 ‘문자 셋(Character Set)’이라 하고,<br />
+전 세계적으로 사용할 수 있는 문자 셋을 설계하게 되었는데, 이를 가리켜 ‘유니코드(Unicode)’라 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CharTypeUnicode</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">char</span> <span class="n">ch1</span> <span class="o">=</span> <span class="sc">'헐'</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch2</span> <span class="o">=</span> <span class="sc">'확'</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch3</span> <span class="o">=</span> <span class="mi">54736</span><span class="o">;</span>   <span class="c1">// 문자 '헐'의 유니코드 값</span>
+        <span class="kt">char</span> <span class="n">ch4</span> <span class="o">=</span> <span class="mi">54869</span><span class="o">;</span>   <span class="c1">// 문자 '확'의 유니코드 값</span>
+        <span class="kt">char</span> <span class="n">ch5</span> <span class="o">=</span> <span class="mh">0xD5D0</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch6</span> <span class="o">=</span> <span class="mh">0xD655</span><span class="o">;</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch1</span> <span class="o">+</span> <span class="s">" "</span><span class="o">+</span><span class="n">ch2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch3</span> <span class="o">+</span> <span class="s">" "</span><span class="o">+</span><span class="n">ch4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch5</span> <span class="o">+</span> <span class="s">" "</span><span class="o">+</span><span class="n">ch6</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<p><br />
-3) 회원 컨트롤러에서 회원을 실제 등록하는 기능을 구현</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="nc">String</span> <span class="nf">create</span><span class="o">(</span><span class="nc">MemberForm</span> <span class="n">form</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>   <span class="c1">// 멤버를 생성하고</span>
-    
-    <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">form</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span> <span class="c1">// 폼으로부터 이름을 가져와 member의 이름을 설정하고</span>
-    <span class="n">memberService</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// memberService를 통해 생성한 member를 저장한다.</span>
-    
-    <span class="k">return</span> <span class="s">"redirect:/"</span><span class="o">;</span>    <span class="c1">// 회원 가입 완료 후 다시 home 화면으로 돌아가도록 만든다.</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<p>자바의 char는 문자의 저장을 위한 자료형이다. 자바는 유니코드를 기반으로 문자를 처리한다.<br />
+정리하자면</p>
+<ol>
+  <li>자바 프로그램 내에서 문자는 작은따옴표로 묶어서 표현한다.</li>
+  <li>문자를 char형 변수에 저장할 때 실제 저장되는 것은 해당 문자의 유니코드 값이다.</li>
+</ol>
 
-<h2 id="회원-조회">회원 조회</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/members"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="nc">String</span> <span class="nf">list</span><span class="o">(</span><span class="nc">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">findMembers</span><span class="o">();</span>
-    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"members"</span><span class="o">,</span> <span class="n">members</span><span class="o">);</span>
-    <span class="k">return</span> <span class="s">"members/memberList"</span><span class="o">;</span>
-<span class="o">}</span>
+<h3 id="--논리-자료형-boolean">- <u>논리 자료형: boolean</u></h3>
+<p>자바에는 ‘참’과 ‘거짓’의 표현을 목적으로 하는 ‘논리 자료형’이라는 것이 존재한다.<br />
+이 두 상태의 표현을 위해 다음 두 개의 키워드를 정의하고 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="n">isBlue</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>  <span class="c1">// '참'을 의미하는 값</span>
+<span class="kt">boolean</span> <span class="n">isRed</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>  <span class="c1">// '거짓'을 의미하는 값</span>
 </code></pre></div></div>
 
         
@@ -789,17 +913,16 @@ A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Spring-Tutorial</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Java lang</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/spring-tutorial/Section04/" class="pagination--pager" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계
+      <a href="/java%20lang/Chap01/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java
 ">이전</a>
     
     
-      <a href="/spring-tutorial/Section06/" class="pagination--pager" title="[스프링 입문] Section 06 - 스프링 DB 접근 기술
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -807,10 +930,6 @@ A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
 
 
 
-
-  
-
-  
 
   
   	
@@ -822,10 +941,10 @@ A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
 
   <nav class="pagination_prev_next">
     
-      <a href="/spring-tutorial/Section04/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[스프링 입문] Section 04 - 스프링 빈과 의존관계</a>
+      <a href="/java%20lang/Chap01/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let's Start Java</a>
     
     
-      <a href="/spring-tutorial/Section06/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[스프링 입문] Section 06 - 스프링 DB 접근 기술</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -858,11 +977,11 @@ A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%8A%A4%ED%94%84%EB%A7%81+%EC%9E%85%EB%AC%B8%5D+Section+05+-+%ED%9A%8C%EC%9B%90+%EA%B4%80%EB%A6%AC+%EC%98%88%EC%A0%9C%28%EC%9B%B9+MVC+%EA%B0%9C%EB%B0%9C%29%20http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection05%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+02+-+%EB%B3%80%EC%88%98%EC%99%80+%EC%9E%90%EB%A3%8C%ED%98%95%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap02%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection05%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap02%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection05%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap02%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -876,30 +995,6 @@ A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/java%20lang/Chap02/">[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.29
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -998,6 +1093,34 @@ A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
                     
                     <a href="/tags/#h2" class="page__taxonomy-item-tag" rel="tag">h2</a><span class="sep"> </span>
                 
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/spring-tutorial/Section05/">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
                     
                     
                     <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>

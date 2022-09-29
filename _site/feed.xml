@@ -1,11 +1,197 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-29T14:58:37+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java</title><link href="http://localhost:4000/java%20lang/Chap01/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap01</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap01/"><![CDATA[<h2 id="01-1-자바의-세계로-오신-여러분을-환영합니다">01-1. 자바의 세계로 오신 여러분을 환영합니다.</h2>
-<h3 id="--jdk">- JDK</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-29T19:45:50+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형</title><link href="http://localhost:4000/java%20lang/Chap02/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap02</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap02/"><![CDATA[<h2 id="02-1-변수의-이해와-활용">02-1. 변수의 이해와 활용</h2>
+<h3 id="--메모리-공간의-활용을-위해-필요한-변수">- <u>메모리 공간의 활용을 위해 필요한 변수</u></h3>
+<blockquote>
+  <p>데이터의 저장과 참조를 위해 ‘할당된 메모리 공간’에 붙인 이름을 ‘변수’라 한다.</p>
+</blockquote>
+
+<p>그렇다면 메모리 공간을 어떻게 할당받아야 할까?<br />
+할당받은 메모리 공간은 어떻게 사용할까? 즉, 어떻게 접근해야 할까?</p>
+
+<p>두 질문에 대한 답은 ‘변수’ 하나로 정리된다.</p>
+
+<h3 id="--변수variable는-메모리-공간에-붙여진-이름">- <u>변수(Variable)는 메모리 공간에 붙여진 이름</u></h3>
+<p>그렇다면 메모리 공간을 어떻게 할당받아야 할까? -&gt; 코드상에서 변수라는 것을 선언하면 된다.<br />
+할당받은 메모리 공간은 어떻게 사용할까? 즉, 어떻게 접근해야 할까? -&gt; 변수의 이름을 통해서 메모리 공간에 접근할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">UseVariable</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="kt">int</span> <span class="n">num1</span><span class="o">;</span>
+        <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>  <span class="c1">// 변수 선언 == 메모리 공간 할당받음</span>
+
+        <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">num3</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span> <span class="c1">// 변수의 이름으로 메모리 공간에 접근</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">+</span> <span class="s">" + "</span><span class="o">+</span> <span class="n">num2</span> <span class="o">+</span><span class="s">" = "</span> <span class="o">+</span> <span class="n">num3</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--자료형의-종류와-구분">- <u>자료형의 종류와 구분</u></h3>
+<p>키워드: 자바 문법을 구성하는 식별자<br />
+자료형: 변수에 저장할 데이터의 유형을 알리기 위한 키워드</p>
+
+<p><img src="/assets/images/java-lang/2-1.png" alt="image" width="80%" height="80%" /><br />
+위의 표에서 정리한 자료형을 가리켜 ‘기본 자료형(Primitive Data Type)’이라고 한다.</p>
+
+<h3 id="--변수의-이름을-짓는-방법">- <u>변수의 이름을 짓는 방법</u></h3>
+<p>변수의 이름을 짓는데에는 몇몇 제약 사항들이 존재한다.</p>
+<ol>
+  <li>변수의 이름은 숫자로 시작할 수 없다.</li>
+  <li>$과 _ 이외의 다른 특수문자는 변수의 이름에 사용할 수 없다.</li>
+  <li>키워드는 변수의 이름으로 사용할 수 없다.</li>
+</ol>
+
+<h2 id="02-2-정수의-표현-방식-이해하기">02-2. 정수의 표현 방식 이해하기</h2>
+<h3 id="--컴퓨터가-정수를-표현하는-방식">- <u>컴퓨터가 정수를 표현하는 방식</u></h3>
+<p>먼저, 몇 바이트로 정수를 표현할 것인가 를 결정해야한다.<br />
+다음의 예시는 1바이트를 기준으로 정수의 표현 방식을 설명한다.</p>
+
+<p><img src="/assets/images/java-lang/2-2.png" alt="image" width="40%" height="40%" /><br />
+가장 왼쪽에 위치한 비트는 부호를 나타낸다.<br />
+이렇게 부호를 결정짓는 가장 왼쪽에 위치한 비트를 가리켜 <code class="language-plaintext highlighter-rouge">MSB(Most Significant Bit)</code>라 한다.<br />
+이 비트가 0이면 양수를, 1이면 음수를 의미한다.<br />
+나머지 일곱 비트는 데이터의 양적인 크기를 의미한다.</p>
+
+<h3 id="--음의-정수를-표현하는-방식이-이게-맞아">- <u>음의 정수를 표현하는 방식이 이게 맞아?</u></h3>
+<p>그렇다면, 단순히 MSB 비트를 1로 바꾸면 음수를 만들 수 있는 것 아닌가? 한 번 확인해보자.<br />
+<img src="/assets/images/java-lang/2-3.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<p>연산을 해보니 0이 나오질 않는다. 그렇다면 음수의 표현은 어떻게 할까?</p>
+<blockquote>
+  <p>양의 정수의 이진수 표현에 2의 보수를 취한 결과를 음의 정수로 표현한다.</p>
+</blockquote>
+
+<h3 id="--2의-보수를-구하는-방법">- <u>2의 보수를 구하는 방법</u></h3>
+<p><img src="/assets/images/java-lang/2-4.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<ol>
+  <li>1의 보수를 구하고(각 비트 별로 1은 0으로, 0은 1로 변경하여 얻는다.),</li>
+  <li>1을 더한다.</li>
+</ol>
+
+<p><img src="/assets/images/java-lang/2-5.png" alt="image" width="40%" height="40%" /><br />
+컴퓨터는 n바이트 덧셈 연산을 할 경우 그 결과도 n바이트로 만들어낸다.<br />
+따라서 올림 수(Carry) 보정을 하지 않으면 덧셈 과정에서 발생하는 올림 수는 그냥 버려진다.</p>
+
+<h2 id="02-3-실수의-표현-방식-이해하기">02-3. 실수의 표현 방식 이해하기</h2>
+<h3 id="--실수의-표현-방식은-고민거리였습니다">- <u>실수의 표현 방식은 고민거리였습니다.</u></h3>
+<blockquote>
+  <p>1과 2 사이에 존재하는 실수의 개수는 몇 개인가?</p>
+</blockquote>
+
+<p>이처럼 소수점 이하 자릿수까지 표현해야 하는 실수를 컴퓨터로 표현하는 데는 한계가 있다.</p>
+
+<h3 id="--그래서-정밀도를-낮추고-근사치의-값을-찾아서-표현하기로-결정하였습니다">- <u>그래서 정밀도를 낮추고 근사치의 값을 찾아서 표현하기로 결정하였습니다.</u></h3>
+<p>오차를 혀용하지 않으면서 그 광대한 실수를 표현하는 것은 불가능하다.<br />
+따라서 다음과 같은 결론에 도달하게 된다.</p>
+<blockquote>
+  <p>정밀도를 낮추고 대신에 표현할 수 있는 값의 범위를 넓히자.</p>
+</blockquote>
+
+<p><img src="/assets/images/java-lang/2-6.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h2 id="02-4-자바의-기본-자료형">02-4. 자바의 기본 자료형</h2>
+<h3 id="--정수-자료형-byte-short-int-long">- <u>정수 자료형: byte, short, int, long</u></h3>
+<p>이 자료형으로 할당된 메모리 공간에는 ‘정수’의 표현 방식을 기준으로 값을 저장 및 참조하게 된다.<br />
+네 자료형이 같는 차이점은 <u>정수의 표현에 사용되는 메모리 공간의 크기에 있다.</u></p>
+
+<h3 id="--short형-변수를-선언할까요-int형-변수를-선언할까요">- <u>short형 변수를 선언할까요? int형 변수를 선언할까요?</u></h3>
+<blockquote>
+  <p>효율적인 메모리의 관리를 위해 적은 바이트로 선언할 수 있다면 short형 변수를 선언하는 것이 좋지 않을까..?</p>
+</blockquote>
+
+<p>다음 코드를 보면 컴파일 오류가 발생하는 것을 알 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OperatePromotion</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">short</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
+        <span class="kt">short</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">22</span><span class="o">;</span>
+        
+        <span class="kt">short</span> <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span> <span class="c1">// 컴파일 오류 발생</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>자바는 정수형 연산을 int형으로 진행한다.</p>
+</blockquote>
+
+<p>연산 수행 시 byte형 변수나 short형 변수에 저장된 값을 먼저 int형 값으로 변경해 버린다.<br />
+result는 short형 변수인데, 연산이 진행된 결과는 int형이므로 에러가 난다.</p>
+
+<p>정리하면, 연산을 동반하는 상황에서는 변수를 byte, short로 선언해도 생각만큼 메모리가 절약되지 않고<br />
+오히려 데이터의 변환 과정만 추가될 뿐이니, 이때는 int로 선언하자.
+(참고) long형에서 int형으로의 변환은 일어나지 않는다. 8바이트를 4바이트로 변환하면 데이터 손실이 발행하기 때문이다.</p>
+
+<p>Q) 그렇다면 byte나 short형은 불필요한가?<br />
+A) 아니다.<br />
+프로그램상에서 표현하는 데이터 중에는 잦은 연산이 필요한 데이터도 있지만 그렇지 않은 경우도 있다.<br />
+예를 들면 게임의 지형, 캐릭터 등을 그리기 위한 그래픽 정보나 음원 정보 등이 있다.<br />
+이러한 경우에는 int형보다 작은 byte형 또는 short형으로 데이터를 저장하는 것이 의미가 있다.</p>
+
+<h3 id="--실수-자료형-float-double">- <u>실수 자료형: float, double</u></h3>
+<p>이들은 모두 정밀도를 포기하고 표현의 범위를 넓힌 자료형 들이기 때문에 float와 double의 선택 기준은 ‘값의 표현 범위’에 있지 않다.<br />
+그렇다면 float과 double의 선택 기준은 어디에 있을까?</p>
+
+<blockquote>
+  <p>답은 정밀도이다. 실수의 표현에 사용되는 바이트 수가 크면 오차의 크기는 작아진다.</p>
+</blockquote>
+
+<p>실제로 float은 6자리의 정밀도를 갖고, double은 15자리의 정밀도를 갖는다.<br />
+다시 말해 float는 소수점 이하 6자리까지는 오차가 발생하지 않고 double은 소수점 이하 15자리까지 오차가 발생하지 않는다.</p>
+
+<p>(참고)<br />
+double형 데이터 하나만 놓고 보면 소수점 이하 15자리까지는 오차가 발생하지 않는다.<br />
+하지만 그 이하부터는 오차가 발생하기 때문에, 오차가 존재하는 double형 데이터 둘 이상을 더하다 보면, 소수점 이하 셋째 자리에서 오차가 발견될 수도 있다.<br />
+따라서 실수의 계산은 기본적으로 오차가 존재한다고 가정해야 한다.</p>
+
+<h3 id="--문자-자료형-char">- <u>문자 자료형: char</u></h3>
+<p>수를 인식하고 표현하는 장치인 하드웨어에서 문자를 어떻게 표현해야할까?</p>
+<blockquote>
+  <p>문자 하나하나에 숫자를 부여하는 방식으로 표현한다.</p>
+</blockquote>
+
+<p>이러한 ‘문자의 표현에 대한 약속’을 가리켜 ‘문자 셋(Character Set)’이라 하고,<br />
+전 세계적으로 사용할 수 있는 문자 셋을 설계하게 되었는데, 이를 가리켜 ‘유니코드(Unicode)’라 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CharTypeUnicode</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">char</span> <span class="n">ch1</span> <span class="o">=</span> <span class="sc">'헐'</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch2</span> <span class="o">=</span> <span class="sc">'확'</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch3</span> <span class="o">=</span> <span class="mi">54736</span><span class="o">;</span>   <span class="c1">// 문자 '헐'의 유니코드 값</span>
+        <span class="kt">char</span> <span class="n">ch4</span> <span class="o">=</span> <span class="mi">54869</span><span class="o">;</span>   <span class="c1">// 문자 '확'의 유니코드 값</span>
+        <span class="kt">char</span> <span class="n">ch5</span> <span class="o">=</span> <span class="mh">0xD5D0</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch6</span> <span class="o">=</span> <span class="mh">0xD655</span><span class="o">;</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch1</span> <span class="o">+</span> <span class="s">" "</span><span class="o">+</span><span class="n">ch2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch3</span> <span class="o">+</span> <span class="s">" "</span><span class="o">+</span><span class="n">ch4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch5</span> <span class="o">+</span> <span class="s">" "</span><span class="o">+</span><span class="n">ch6</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>자바의 char는 문자의 저장을 위한 자료형이다. 자바는 유니코드를 기반으로 문자를 처리한다.<br />
+정리하자면</p>
+<ol>
+  <li>자바 프로그램 내에서 문자는 작은따옴표로 묶어서 표현한다.</li>
+  <li>문자를 char형 변수에 저장할 때 실제 저장되는 것은 해당 문자의 유니코드 값이다.</li>
+</ol>
+
+<h3 id="--논리-자료형-boolean">- <u>논리 자료형: boolean</u></h3>
+<p>자바에는 ‘참’과 ‘거짓’의 표현을 목적으로 하는 ‘논리 자료형’이라는 것이 존재한다.<br />
+이 두 상태의 표현을 위해 다음 두 개의 키워드를 정의하고 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="n">isBlue</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>  <span class="c1">// '참'을 의미하는 값</span>
+<span class="kt">boolean</span> <span class="n">isRed</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>  <span class="c1">// '거짓'을 의미하는 값</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java</title><link href="http://localhost:4000/java%20lang/Chap01/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap01</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap01/"><![CDATA[<h2 id="01-1-자바의-세계로-오신-여러분을-환영합니다">01-1. 자바의 세계로 오신 여러분을 환영합니다.</h2>
+<h3 id="--jdk">- <u>JDK</u></h3>
 <p>자바로 프로그램을 만들기 위해서는 그에 따른 기본 도구가 필요하다.<br />
 이 도구를 가리켜 <code class="language-plaintext highlighter-rouge">JDK(Java Development Kit)</code>라고 한다.<br />
 쉽게 말하면 자바 프로그램 개발을 위한 도구들의 모임 정도로 보면 될 것 같다.<br />
 <a href="https://www.oracle.com">https://www.oracle.com</a>로 가서 받도록 하자!</p>
 
-<h3 id="--환경변수">- 환경변수</h3>
+<h3 id="--환경변수">- <u>환경변수</u></h3>
 <p>명령 프롬프트의 어느 경로에서든 실행 가능하도록 환경변수 Path에 등록해준다.<br />
 환경변수 Path는 운영체제가 명령 프롬프트에서 입력된 실행파일을 찾는 경로의 정보가 된다.<br />
 따라서 명령 프롬프트에서 디렉토리 경로에 상관없이 실행되기를 원하는 실행파일이 있다면<br />
@@ -17,7 +203,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
 </code></pre></div></div>
 
 <h2 id="01-2-자바-프로그램과-실행의-원리에-대한-이해">01-2. 자바 프로그램과 실행의 원리에 대한 이해</h2>
-<h3 id="--자바-프로그램의-실행-구조와-자바-가상머신">- 자바 프로그램의 실행 구조와 자바 가상머신</h3>
+<h3 id="--자바-프로그램의-실행-구조와-자바-가상머신">- <u>자바 프로그램의 실행 구조와 자바 가상머신</u></h3>
 <ul>
   <li><b>일반적인 프로그램의 실행 구조</b><br />
 <img src="/assets/images/java-lang/1-1.png" alt="image" width="40%" height="40%" /><br />
@@ -44,7 +230,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
   <u>자바 프로그램을 운영체제에 상관없이 실행시킬 수 있다.</u></li>
 </ul>
 
-<h3 id="--자바-컴파일러와-자바-바이트코드">- 자바 컴파일러와 자바 바이트코드</h3>
+<h3 id="--자바-컴파일러와-자바-바이트코드">- <u>자바 컴파일러와 자바 바이트코드</u></h3>
 <blockquote>
   <p>자바 컴파일러는 자바 가상머신이 이해할 수 있는 코드를 생성해닌다.</p>
 </blockquote>
@@ -55,7 +241,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
 자바 런처(java.exe): 자바 가상머신을 구동하고 그 위에 자바 프로그램이 실행되도록 돕는 프로그램이다.</p>
 
 <h2 id="01-3-첫-번째-자바-프로그램의-관찰과-응용">01-3. 첫 번째 자바 프로그램의 관찰과 응용</h2>
-<h3 id="--프로그램의-골격과-구성">- 프로그램의 골격과 구성</h3>
+<h3 id="--프로그램의-골격과-구성">- <u>프로그램의 골격과 구성</u></h3>
 <p><img src="/assets/images/java-lang/1-5.png" alt="image" width="60%" height="60%" /><br /></p>
 
 <blockquote>
@@ -67,18 +253,18 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
 </blockquote>
 
 <h2 id="01-4-들여쓰기와-컴파일의-대상에서-제외되는-주석">01-4. 들여쓰기와 컴파일의 대상에서 제외되는 주석!</h2>
-<h3 id="--블록-단위-주석">- 블록 단위 주석</h3>
+<h3 id="--블록-단위-주석">- <u>블록 단위 주석</u></h3>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
 안녕하세요?
 블록 단위 주석입니다.
 */</span>
 </code></pre></div></div>
 
-<h3 id="--행-단위-주석">- 행 단위 주석</h3>
+<h3 id="--행-단위-주석">- <u>행 단위 주석</u></h3>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 안녕하세요? 행 단위 주석입니다.</span>
 </code></pre></div></div>
 
-<h3 id="--들여쓰기indent">- 들여쓰기(Indent)</h3>
+<h3 id="--들여쓰기indent">- <u>들여쓰기(Indent)</u></h3>
 <p>영역 또는 의미의 구분을 위해서 일정 간격 왼쪽에서 띄운 후에 문장을 입력하는 것을 말한다.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SystemOutPrintln</span><span class="o">{</span>
     <span class="c1">// 4칸 정도 오른쪽으로 들여쓰기 되었다.</span>
@@ -89,7 +275,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="--중괄호를-열고-닫는-방식에-대하여">- 중괄호를 열고 닫는 방식에 대하여</h3>
+<h3 id="--중괄호를-열고-닫는-방식에-대하여">- <u>중괄호를 열고 닫는 방식에 대하여</u></h3>
 <p>일반적인 중괄호 처리 방식은 다음과 같이<br />
 클래스의 이름 오른편에, 그리고 메소드의 이름 오른편에 여는 중괄호를 위치시킨다.</p>
 
@@ -98,7 +284,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"hi~ June!"</span><span class="o">)</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><category term="language" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/springboot-jpa/Section01/" rel="alternate" type="text/html" title="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정" /><published>2022-09-14T00:00:00+09:00</published><updated>2022-09-27T00:00:00+09:00</updated><id>http://localhost:4000/springboot-jpa/Section01</id><content type="html" xml:base="http://localhost:4000/springboot-jpa/Section01/"><![CDATA[<h2 id="개발-순서-안내">개발 순서 안내</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/springboot-jpa/Section01/" rel="alternate" type="text/html" title="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정" /><published>2022-09-14T00:00:00+09:00</published><updated>2022-09-27T00:00:00+09:00</updated><id>http://localhost:4000/springboot-jpa/Section01</id><content type="html" xml:base="http://localhost:4000/springboot-jpa/Section01/"><![CDATA[<h2 id="개발-순서-안내">개발 순서 안내</h2>
 <p>일반적인 개발의 순서와 같은 방식으로 진행한다.</p>
 
 <ol>
@@ -1807,214 +1993,4 @@ Glow-TTS와 Hifi-Gan에 대해서 이해하기 위해서는 먼저 Gan 모델에
 5) <a href="https://tech.kakaoenterprise.com/94">https://tech.kakaoenterprise.com/94</a> [카카오엔터프라이즈 기술블로그 Tech&amp;(테크앤):티스토리]<br />
 6) <a href="https://tech.kakaoenterprise.com/96">https://tech.kakaoenterprise.com/96</a> [카카오엔터프라이즈 기술블로그 Tech&amp;(테크앤):티스토리]
 7) <a href="https://medium.com/@sunwoopark/slow-paper-glow-generative-flow-with-invertible-1x1-convolutions-837710116939">https://medium.com/@sunwoopark/slow-paper-glow-generative-flow-with-invertible-1x1-convolutions-837710116939</a><br />
-[Glow: Generative Flow with Invertible 1x1 Convolutions]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="AI" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] Docker Setting</title><link href="http://localhost:4000/team_forv/Team_ForV07/" rel="alternate" type="text/html" title="[Team_ForV] Docker Setting" /><published>2022-08-25T00:00:00+09:00</published><updated>2022-08-26T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV07</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV07/"><![CDATA[<h2 id="문제상황-발생">문제상황 발생!</h2>
-<p><img src="/assets/images/Team_ForV/7-1.png" alt="image" width="90%" height="90%" class="align-center" /><br />
-음성파일 합성을 위해선 TTS 라는 라이브러리와 g2pk라는 라이브러리가 필요하다.</p>
-
-<p>g2pk는 영어가 입력되었을 시 보이는 것처럼 한국어 발음에 맞춰서 변환해주고,<br />
--&gt; 최종적으로 변환된 문장을 TTS라이브러리를 통해 음성으로 만들어준다.</p>
-
-<p>그래, 여기까지는 그렇다 치는데 이 라이브러리들을 사용하는데에 2가지 문제가 있었다.</p>
-
-<ol>
-  <li>위 라이브러리들은 3.6 ~ 3.7 사이의 파이썬 버전을 요구했다. 하지만 API Server가 이미 먼저 만들어진 상태였고, API Server는 최신 버전의 파이썬을 사용중이었기 때문에 버전이 맞지 않았다.</li>
-  <li>결정적으로 g2pk 라이브러리를 사용하기 위해 설치되는 서브 모듈 중 ‘mecab’이라는 라이브러리가 당최 가상환경에서 설치되지를 않았다(아마 M1 환경에서 제대로 설치가 되지 않는 것 같다). 구글링해보니 이미 악명 높은 라이브러리인 것 같더라..</li>
-</ol>
-
-<h2 id="docker를-이용하여-문제를-해결해보자">Docker를 이용하여 문제를 해결해보자!!</h2>
-<p><img src="/assets/images/Team_ForV/7-2.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<p>Docker는 ‘컨테이너 기반의 오픈소스 가상화 플랫폼’이다.</p>
-
-<p>여기에서 말하는 ‘컨테이너’는 다양한 프로그램, 실행환경을 컨테이너로 추상화하고 동일한 인터페이스를 제공하여 프로그램의 배포 및 관리를 단순하게 해준다.<br />
-백엔드 프로그램, 데이터베이스 서버, 메시지 큐등 어떤 프로그램도 컨테이너로 추상화할 수 있고 AWS, Azure, Google cloud등 어디에서든 실행할 수 있다.</p>
-
-<p>Docker의 컨테이너 개념을 이용해서 필요한 각각의 실행환경들을 컨테이너로 분리하여 Docker 위에서 돌아가도록 구성하게 되었다.<br />
-이렇게 구성할 경우, model server와 api server의 실행환경이 다르더라도 하나의 서버에 여러개의 컨테이너를 실행하면서 서로 영향을 미치지 않고 독립적으로 실행되어 마치 가벼운 Virtual Machine을 사용하는 느낌을 줄 수 있다.</p>
-
-<h2 id="docker-composeyml--dockerfile">docker-compose.yml &amp; DockerFile</h2>
-<h3 id="--docker-composeyml">- docker-compose.yml</h3>
-<p>frontend(react), api server(django), model server(flask), mysql, rabbitMQ, celery<br />
-이렇게 총 6개의 컨테이너를 구성했다.</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># docker-compose.yml</span>
-<span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3"</span>
-
-<span class="na">services</span><span class="pi">:</span>
-  <span class="na">frontend</span><span class="pi">:</span>
-    <span class="na">build</span><span class="pi">:</span>
-      <span class="na">context</span><span class="pi">:</span> <span class="s">./frontend</span>
-    <span class="na">command</span><span class="pi">:</span> <span class="pi">[</span> <span class="s2">"</span><span class="s">npm"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">start"</span> <span class="pi">]</span> 
-    <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
-    <span class="na">ports</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">3000:3000</span>
-    <span class="na">networks</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">tts</span>
-    <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">./frontend/:/frontend</span>
-      <span class="pi">-</span> <span class="s">./frontend/node_modules/:/frontend/node_modules</span>
-    <span class="na">environment</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">CI=true</span>
-      <span class="pi">-</span> <span class="s">CHOKIDAR_USEPOLLING=true</span>
-      <span class="pi">-</span> <span class="s">REACT_APP_BACKEND_URL=http://localhost:5000</span>
-    <span class="na">tty</span><span class="pi">:</span> <span class="no">true</span>
-  
-  <span class="na">apiserver</span><span class="pi">:</span>
-    <span class="na">build</span><span class="pi">:</span>
-      <span class="na">context</span><span class="pi">:</span> <span class="s">./backend/apiserver</span>
-      <span class="na">args</span><span class="pi">:</span>
-        <span class="na">DJANGO_ALLOWED_HOSTS</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*"</span>
-        <span class="na">DJANGO_SECRET_KEY</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*"</span>
-        <span class="na">DJANGO_CORS_ORIGIN_WHITELIST</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*"</span>
-    <span class="na">command</span><span class="pi">:</span> <span class="s">sh -c "/wait &amp;&amp; python ./apiserver/manage.py makemigrations &amp;&amp; python ./apiserver/manage.py makemigrations mainApp &amp;&amp; python ./apiserver/manage.py migrate &amp;&amp; python ./apiserver/db_init.py &amp;&amp; python ./apiserver/model_init.py &amp;&amp; python ./apiserver/manage.py runserver 0.0.0.0:8000"</span>
-    <span class="na">restart</span><span class="pi">:</span> <span class="s">on-failure</span>
-    <span class="na">ports</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">8000:8000</span>
-    <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">./backend:/backend</span>
-    <span class="na">networks</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">tts</span>
-    <span class="na">depends_on</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">ttsmysql</span>
-
-  <span class="na">ttsmysql</span><span class="pi">:</span>
-    <span class="na">image</span><span class="pi">:</span> <span class="s">mysql</span>
-    <span class="na">command</span><span class="pi">:</span> <span class="s">--lower_case_table_names=1</span>
-    <span class="na">container_name</span><span class="pi">:</span> <span class="s">ttsmysql</span>
-    <span class="na">ports</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s2">"</span><span class="s">3306:3306"</span>
-    <span class="na">environment</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">MYSQL_DATABASE=tts</span>
-      <span class="pi">-</span> <span class="s">MYSQL_USER = root</span>
-      <span class="pi">-</span> <span class="s">MYSQL_ROOT_PASSWORD=1234</span>
-      <span class="pi">-</span> <span class="s">TZ=Asia/Seoul</span>
-    <span class="na">networks</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">tts</span>
-
-  <span class="na">modelserver</span><span class="pi">:</span>
-    <span class="na">platform</span><span class="pi">:</span> <span class="s">linux/amd64</span>
-    <span class="na">build</span><span class="pi">:</span> <span class="s">./backend/modelserver</span>
-    <span class="na">ports</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">5000:5000</span>
-    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
-    <span class="na">networks</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">tts</span>
-    <span class="na">environment</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">FLASK_APP=app</span>
-      <span class="pi">-</span> <span class="s">FLASK_ENV=development</span>
-    <span class="na">command</span><span class="pi">:</span> <span class="s">flask run --host=0.0.0.0</span>
-    <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">./backend:/backend</span>
-
-  <span class="na">rabbit</span><span class="pi">:</span>
-      <span class="na">hostname</span><span class="pi">:</span> <span class="s">tts_host</span>
-      <span class="na">image</span><span class="pi">:</span> <span class="s">rabbitmq:3-management</span>
-      <span class="na">command</span><span class="pi">:</span> <span class="s">rabbitmq-server</span>
-      <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
-      <span class="na">environment</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">RABBITMQ_DEFAULT_USER=tts</span>
-        <span class="pi">-</span> <span class="s">RABBITMQ_DEFAULT_PASS=tts123</span>
-        <span class="pi">-</span> <span class="s">RABBITMQ_DEFAULT_VHOST=tts_host</span>
-      <span class="na">ports</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">5672:5672</span>  
-        <span class="pi">-</span> <span class="s">15672:15672</span>
-      <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">./backend:/var/lib/rabbitmq</span>
-      <span class="na">networks</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">tts</span>
-      <span class="na">depends_on</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">modelserver</span>
-
-  <span class="na">celery</span><span class="pi">:</span>
-    <span class="na">platform</span><span class="pi">:</span> <span class="s">linux/amd64</span>
-    <span class="na">build</span><span class="pi">:</span> <span class="s">./backend/modelserver</span>
-    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
-    <span class="na">depends_on</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s2">"</span><span class="s">apiserver"</span>
-      <span class="pi">-</span> <span class="s2">"</span><span class="s">rabbit"</span>
-      <span class="pi">-</span> <span class="s2">"</span><span class="s">modelserver"</span>
-    <span class="na">networks</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">tts</span>
-    <span class="na">command</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">celery"</span><span class="pi">,</span><span class="s2">"</span><span class="s">-A"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">celery_app"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">worker"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">--loglevel=info"</span><span class="pi">]</span>
-    <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">./backend:/backend</span>
-
-<span class="na">networks</span><span class="pi">:</span>
-  <span class="na">tts</span><span class="pi">:</span>
-    <span class="na">driver</span><span class="pi">:</span> <span class="s">bridge</span>
-</code></pre></div></div>
-
-<h3 id="--dockerfile">- Dockerfile</h3>
-<p><img src="/assets/images/Team_ForV/7-3.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<p>Dockerfile을 이해하기 위해선 docker 이미지라는 개념을 먼저 알아야한다.</p>
-
-<p>도커 이미지란, 서비스 운영에 필요한 서버 프로그램, 소스 코드, 컴파일된 실행 파일을 묶은 형태로써 기존에 있는 이미지에 추가적인 구성을 더해 또 다른 이미지를 만들 수 있다.<br />
-도커 허브와 같은 컨테이너 레지스트리에서 pull 받아서 사용하거나, dockerfile을 직접 작성해 이미지를 만들어서 push할 수 있다.</p>
-
-<p>다 살펴보진 않고, 문제의 핵심부분인 model server에 쓰인 Dockerfile만 보자.</p>
-<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Dockerfile</span>
-<span class="k">FROM</span><span class="s"> python:3.6.15</span>
-
-<span class="c"># Python</span>
-<span class="k">RUN </span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\
-</span>  apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nt">--no-install-recommends</span> apt-utils <span class="o">&amp;&amp;</span> <span class="se">\
-</span>  apt-get <span class="nt">-y</span> <span class="nb">install </span>software-properties-common <span class="o">&amp;&amp;</span> <span class="se">\
-</span>  apt-get update <span class="nt">--fix-missing</span> <span class="o">&amp;&amp;</span> <span class="se">\
-</span>  apt-get <span class="nt">-y</span> <span class="nb">install</span> <span class="nt">--fix-missing</span> python3-pip <span class="o">&amp;&amp;</span> <span class="se">\
-</span>  python3 <span class="nt">-m</span> pip <span class="nb">install </span>pip <span class="nt">--upgrade</span>
-
-<span class="k">RUN </span>apt-get update <span class="nt">-y</span> <span class="o">&amp;&amp;</span> <span class="se">\
-</span>  apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nt">--no-install-recommends</span> build-essential gcc <span class="se">\
-</span>  libsndfile1
-
-<span class="c"># mecab start</span>
-<span class="k">RUN </span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\
-</span>  apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nt">--no-install-recommends</span> tzdata g++ git curl
-<span class="k">RUN </span>apt-get <span class="nb">install </span>python3-setuptools
-<span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> default-jdk default-jre
-<span class="c"># mecab end</span>
-
-<span class="k">WORKDIR</span><span class="s"> /backend/modelserver</span>
-
-<span class="k">COPY</span><span class="s"> requirements.txt .</span>
-<span class="k">COPY</span><span class="s"> requirements_TTS.txt .</span>
-
-<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
-<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">-r</span> requirements_TTS.txt
-
-<span class="k">RUN </span>pip <span class="nb">install </span>celery
-<span class="k">RUN </span>pip <span class="nb">install </span>google-cloud-storage
-
-<span class="k">RUN </span>pip <span class="nb">install </span><span class="nv">nltk</span><span class="o">==</span>3.6.7
-<span class="k">RUN </span>pip <span class="nb">install </span><span class="nv">konlpy</span><span class="o">==</span>0.6.0
-<span class="k">RUN </span>pip <span class="nb">install </span>mecab-ko<span class="o">==</span>1.0.0
-<span class="k">RUN </span>pip <span class="nb">install </span>mecab-python<span class="o">==</span>1.0.0
-<span class="k">RUN </span>pip <span class="nb">install </span>python-mecab-ko<span class="o">==</span>1.0.14
-<span class="k">RUN </span>pip <span class="nb">install </span><span class="nv">g2pk</span><span class="o">==</span>0.9.4
-
-<span class="c"># mecab start</span>
-<span class="c"># RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2</span>
-<span class="c"># RUN update-alternatives --config python3</span>
-<span class="k">RUN </span><span class="nb">cd</span> <span class="nb">.</span> <span class="o">&amp;&amp;</span> <span class="se">\
-</span>  curl <span class="nt">-s</span> https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh | bash <span class="nt">-s</span>
-<span class="c"># mecab end</span>
-
-<span class="k">RUN </span><span class="nb">export </span><span class="nv">LC_ALL</span><span class="o">=</span>C.UTF-8
-<span class="k">ENV</span><span class="s"> LANG=C.UTF-8</span>
-<span class="k">ENV</span><span class="s"> LANGUAGE=C.UTF-8</span>
-
-<span class="k">COPY</span><span class="s"> . .</span>
-<span class="k">USER</span><span class="s"> root</span>
-</code></pre></div></div>
-
-<h2 id="다음-글-소개">다음 글 소개</h2>
-<p>도커의 개념과 프로젝트에 사용한 도커 세팅에 대해 간단히 알아보았다.<br />
-다음 글에서는 ‘음성 학습’과 ‘음성 합성’에 필요한 AI 학습 모델과 라이브러리들에 대해 좀 더 자세히 알아보도록 하자.</p>
-
-<h2 id="reference">Reference</h2>
-<p>1) <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html">https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html</a><br />
-[초보를 위한 도커 안내서 - 도커란 무엇인가?]<br />
-2) <a href="https://somjang.tistory.com/entry/Docker-ubuntu1604-%EA%B8%B0%EB%B0%98%EC%97%90%EC%84%9C-mecab-ko-%ED%99%9C%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95">https://somjang.tistory.com/entry/Docker-ubuntu1604-%EA%B8%B0%EB%B0%98%EC%97%90%EC%84%9C-mecab-ko-%ED%99%9C%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95</a><br />
-[ubuntu16.04 기반에서 mecab-ko 활용하는 방법]<br />
-3) <a href="https://github.com/litsynp/flask-g2pk">https://github.com/litsynp/flask-g2pk</a> [flask-g2pk]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="docker" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry></feed>
+[Glow: Generative Flow with Invertible 1x1 Convolutions]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="AI" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry></feed>

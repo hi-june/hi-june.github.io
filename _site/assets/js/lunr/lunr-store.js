@@ -121,7 +121,13 @@ var store = [{
       },{
         "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let's Start Java",
         "excerpt":"01-1. 자바의 세계로 오신 여러분을 환영합니다. - JDK 자바로 프로그램을 만들기 위해서는 그에 따른 기본 도구가 필요하다. 이 도구를 가리켜 JDK(Java Development Kit)라고 한다. 쉽게 말하면 자바 프로그램 개발을 위한 도구들의 모임 정도로 보면 될 것 같다. https://www.oracle.com로 가서 받도록 하자! - 환경변수 명령 프롬프트의 어느 경로에서든 실행 가능하도록 환경변수...","categories": ["Java lang"],
-        "tags": ["java","language"],
+        "tags": ["java"],
         "url": "/java%20lang/Chap01/",
+        "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형",
+        "excerpt":"02-1. 변수의 이해와 활용 - 메모리 공간의 활용을 위해 필요한 변수 데이터의 저장과 참조를 위해 ‘할당된 메모리 공간’에 붙인 이름을 ‘변수’라 한다. 그렇다면 메모리 공간을 어떻게 할당받아야 할까? 할당받은 메모리 공간은 어떻게 사용할까? 즉, 어떻게 접근해야 할까? 두 질문에 대한 답은 ‘변수’ 하나로 정리된다. - 변수(Variable)는 메모리 공간에 붙여진 이름...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap02/",
         "teaser": null
       }]
