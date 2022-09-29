@@ -114,8 +114,14 @@ var store = [{
         "teaser": null
       },{
         "title": "[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정",
-        "excerpt":"개발 순서 안내  일반적인 개발의 순서와 같은 방식으로 진행한다.      개발 환경 세팅   요구사항 분석   도메인 모델 설계   엔티티 설계   테이블 설계   JPA로 엔티티와 테이블을 ORM 메핑   애플리케이션 아키텍처 구성   핵심 비즈니스 로직 개발   프로젝트 생성   라이브러리 살펴보기   View 환경설정   H2 데이터베이스 설치   JPA와 DB 설정, 동작확인  ","categories": ["SpringBoot-JPA"],
+        "excerpt":"개발 순서 안내 일반적인 개발의 순서와 같은 방식으로 진행한다. 개발 환경 세팅 요구사항 분석 도메인 모델 설계 엔티티 설계 테이블 설계 JPA로 엔티티와 테이블을 ORM 메핑 애플리케이션 아키텍처 구성 핵심 비즈니스 로직 개발 프로젝트 생성 스프링 부트 스타터를 이용하여 초기 세팅을 한다. -&gt; https://start.spring.io/ 사용 기능: web, thymeleaf, jpa, h2,...","categories": ["SpringBoot-JPA"],
         "tags": ["java","spring boot"],
         "url": "/springboot-jpa/Section01/",
+        "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let's Start Java",
+        "excerpt":"01-1. 자바의 세계로 오신 여러분을 환영합니다. - JDK 자바로 프로그램을 만들기 위해서는 그에 따른 기본 도구가 필요하다. 이 도구를 가리켜 JDK(Java Development Kit)라고 한다. 쉽게 말하면 자바 프로그램 개발을 위한 도구들의 모임 정도로 보면 될 것 같다. https://www.oracle.com로 가서 받도록 하자! - 환경변수 명령 프롬프트의 어느 경로에서든 실행 가능하도록 환경변수...","categories": ["Java lang"],
+        "tags": ["java","language"],
+        "url": "/java%20lang/Chap01/",
         "teaser": null
       }]

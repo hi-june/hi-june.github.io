@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-27T15:03:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/springboot-jpa/Section01/" rel="alternate" type="text/html" title="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정" /><published>2022-09-14T00:00:00+09:00</published><updated>2022-09-14T00:00:00+09:00</updated><id>http://localhost:4000/springboot-jpa/Section01</id><content type="html" xml:base="http://localhost:4000/springboot-jpa/Section01/"><![CDATA[<h2 id="개발-순서-안내">개발 순서 안내</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-29T14:58:37+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java</title><link href="http://localhost:4000/java%20lang/Chap01/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap01</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap01/"><![CDATA[<h2 id="01-1-자바의-세계로-오신-여러분을-환영합니다">01-1. 자바의 세계로 오신 여러분을 환영합니다.</h2>
+<h3 id="--jdk">- JDK</h3>
+<p>자바로 프로그램을 만들기 위해서는 그에 따른 기본 도구가 필요하다.<br />
+이 도구를 가리켜 <code class="language-plaintext highlighter-rouge">JDK(Java Development Kit)</code>라고 한다.<br />
+쉽게 말하면 자바 프로그램 개발을 위한 도구들의 모임 정도로 보면 될 것 같다.<br />
+<a href="https://www.oracle.com">https://www.oracle.com</a>로 가서 받도록 하자!</p>
+
+<h3 id="--환경변수">- 환경변수</h3>
+<p>명령 프롬프트의 어느 경로에서든 실행 가능하도록 환경변수 Path에 등록해준다.<br />
+환경변수 Path는 운영체제가 명령 프롬프트에서 입력된 실행파일을 찾는 경로의 정보가 된다.<br />
+따라서 명령 프롬프트에서 디렉토리 경로에 상관없이 실행되기를 원하는 실행파일이 있다면<br />
+<u>이 실행파일이 저장되어 있는 경로 정보를 환경변수 Path에 등록해야 한다.</u></p>
+
+<p>본인은 Mac OS를 사용중이기 때문에 zprofile에 Java SDK 경로를 추가해줬다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># java SDK path
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
+</code></pre></div></div>
+
+<h2 id="01-2-자바-프로그램과-실행의-원리에-대한-이해">01-2. 자바 프로그램과 실행의 원리에 대한 이해</h2>
+<h3 id="--자바-프로그램의-실행-구조와-자바-가상머신">- 자바 프로그램의 실행 구조와 자바 가상머신</h3>
+<ul>
+  <li><b>일반적인 프로그램의 실행 구조</b><br />
+<img src="/assets/images/java-lang/1-1.png" alt="image" width="40%" height="40%" /><br />
+    <ol>
+      <li>하드웨어를 기반으로</li>
+      <li>운영체제가 동작하고,</li>
+      <li>그 위에서 프로그램이 실행되는 구조이다.</li>
+    </ol>
+
+    <p>즉, 하드웨어 위에서 실행되는 운영체제가 프로그램을 실행시키는 구조이다.</p>
+  </li>
+  <li><b>자바 프로그램의 실행 구조</b><br />
+<img src="/assets/images/java-lang/1-2.png" alt="image" width="40%" height="40%" /><br />
+    <ol>
+      <li>운영체제는 자바 가상머신을 실행시키고,</li>
+      <li>자바 가상머신이 자바 프로그램을 실행시키는 구조로 동작한다.<br />
+  <br /></li>
+    </ol>
+  </li>
+  <li><b>자바 가상머신(JVM)이란?</b><br />
+  운영체제 위에서 동작하는 일종의 소프트웨어이다.<br />
+  <img src="/assets/images/java-lang/1-3.png" alt="image" width="50%" height="50%" /><br />
+  이처럼 운영체제가 직접 실행시키는 구조가 아닌 자바 가상머신에 의해 실행되는 구조를 선택할 경우,<br />
+  <u>자바 프로그램을 운영체제에 상관없이 실행시킬 수 있다.</u></li>
+</ul>
+
+<h3 id="--자바-컴파일러와-자바-바이트코드">- 자바 컴파일러와 자바 바이트코드</h3>
+<blockquote>
+  <p>자바 컴파일러는 자바 가상머신이 이해할 수 있는 코드를 생성해닌다.</p>
+</blockquote>
+
+<p><img src="/assets/images/java-lang/1-4.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<p>자바 컴파일러(javac.exe): 소스파일에 저장된 소스코드를 자바 가상머신이 이해할 수 있는 ‘자바 바이트코드’로 변환하는 프로그램<br />
+자바 런처(java.exe): 자바 가상머신을 구동하고 그 위에 자바 프로그램이 실행되도록 돕는 프로그램이다.</p>
+
+<h2 id="01-3-첫-번째-자바-프로그램의-관찰과-응용">01-3. 첫 번째 자바 프로그램의 관찰과 응용</h2>
+<h3 id="--프로그램의-골격과-구성">- 프로그램의 골격과 구성</h3>
+<p><img src="/assets/images/java-lang/1-5.png" alt="image" width="60%" height="60%" /><br /></p>
+
+<blockquote>
+  <p>자바는 중괄호를 이용해서 클래스와 메소드의 영역을 구분한다.<br /></p>
+</blockquote>
+
+<blockquote>
+  <p>문장의 끝에는 반드시 세미콜론을 붙여서 문장의 끝을 표시한다.</p>
+</blockquote>
+
+<h2 id="01-4-들여쓰기와-컴파일의-대상에서-제외되는-주석">01-4. 들여쓰기와 컴파일의 대상에서 제외되는 주석!</h2>
+<h3 id="--블록-단위-주석">- 블록 단위 주석</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+안녕하세요?
+블록 단위 주석입니다.
+*/</span>
+</code></pre></div></div>
+
+<h3 id="--행-단위-주석">- 행 단위 주석</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 안녕하세요? 행 단위 주석입니다.</span>
+</code></pre></div></div>
+
+<h3 id="--들여쓰기indent">- 들여쓰기(Indent)</h3>
+<p>영역 또는 의미의 구분을 위해서 일정 간격 왼쪽에서 띄운 후에 문장을 입력하는 것을 말한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SystemOutPrintln</span><span class="o">{</span>
+    <span class="c1">// 4칸 정도 오른쪽으로 들여쓰기 되었다.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="c1">// main 메소드 내에서 4칸 정도 오른쪽으로 들여쓰기 되었다.</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"hi~ June!"</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--중괄호를-열고-닫는-방식에-대하여">- 중괄호를 열고 닫는 방식에 대하여</h3>
+<p>일반적인 중괄호 처리 방식은 다음과 같이<br />
+클래스의 이름 오른편에, 그리고 메소드의 이름 오른편에 여는 중괄호를 위치시킨다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SystemOutPrintln</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"hi~ June!"</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><category term="language" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/springboot-jpa/Section01/" rel="alternate" type="text/html" title="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정" /><published>2022-09-14T00:00:00+09:00</published><updated>2022-09-27T00:00:00+09:00</updated><id>http://localhost:4000/springboot-jpa/Section01</id><content type="html" xml:base="http://localhost:4000/springboot-jpa/Section01/"><![CDATA[<h2 id="개발-순서-안내">개발 순서 안내</h2>
 <p>일반적인 개발의 순서와 같은 방식으로 진행한다.</p>
 
 <ol>
@@ -13,14 +113,127 @@
 </ol>
 
 <h2 id="프로젝트-생성">프로젝트 생성</h2>
+<p>스프링 부트 스타터를 이용하여 초기 세팅을 한다. -&gt; <a href="https://start.spring.io/">https://start.spring.io/</a></p>
 
-<h2 id="라이브러리-살펴보기">라이브러리 살펴보기</h2>
+<p>사용 기능: web, thymeleaf, jpa, h2, lombok(반복 코드를 줄여주는 라이브러리), validation</p>
 
-<h2 id="view-환경설정">View 환경설정</h2>
+<h2 id="jpa와-db-설정">JPA와 DB 설정</h2>
+<p>yml 파일을 이용하여 설정을 해준다.</p>
 
-<h2 id="h2-데이터베이스-설치">H2 데이터베이스 설치</h2>
+<div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># main/resources/application.yml</span><span class="w">
 
-<h2 id="jpa와-db-설정-동작확인">JPA와 DB 설정, 동작확인</h2>]]></content><author><name>hi~ June!!</name></author><category term="SpringBoot-JPA" /><category term="java" /><category term="spring boot" /><summary type="html"><![CDATA[Spring Boot web application]]></summary></entry><entry><title type="html">[스프링 입문] Section 07 - AOP</title><link href="http://localhost:4000/spring-tutorial/Section07/" rel="alternate" type="text/html" title="[스프링 입문] Section 07 - AOP" /><published>2022-09-13T00:00:00+09:00</published><updated>2022-09-14T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section07</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section07/"><![CDATA[<h2 id="aop란">AOP란?</h2>
+</span><span class="n">spring</span><span class="o">:</span><span class="w">
+  </span><span class="n">datasource</span><span class="o">:</span><span class="w">
+    </span><span class="n">url</span><span class="o">:</span><span class="w">  </span><span class="n">jdbc</span><span class="o">:</span><span class="n">h2</span><span class="o">:</span><span class="n">tcp</span><span class="o">://</span><span class="n">localhost</span><span class="o">/~/</span><span class="n">Study</span><span class="o">/</span><span class="n">springboot</span><span class="o">-</span><span class="n">jpa</span><span class="o">/</span><span class="n">jpashop</span><span class="w">
+    </span><span class="n">username</span><span class="o">:</span><span class="w"> </span><span class="n">sa</span><span class="w">
+    </span><span class="n">password</span><span class="o">:</span><span class="w">
+    </span><span class="n">driver</span><span class="o">-</span><span class="n">class</span><span class="o">-</span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">org.h2.Driver</span><span class="w">
+
+  </span><span class="n">jpa</span><span class="o">:</span><span class="w">
+    </span><span class="n">hibernate</span><span class="o">:</span><span class="w">
+      </span><span class="n">ddl</span><span class="o">-</span><span class="n">auto</span><span class="o">:</span><span class="w"> </span><span class="n">create</span><span class="w">  </span><span class="c1"># 애플리케이션 실행 시점에 테이블을 drop하고, 다시 생성한다.</span><span class="w">
+    </span><span class="n">properties</span><span class="o">:</span><span class="w"> </span><span class="c1"># hibernate와 관련된 특정한 properties를 쓸 수 있음</span><span class="w">
+      </span><span class="n">hibernate</span><span class="o">:</span><span class="w">
+        </span><span class="n">format_sql</span><span class="o">:</span><span class="w"> </span><span class="n">true</span><span class="w">
+        </span><span class="c1">#show_sql: true</span><span class="w">
+
+</span><span class="n">logging.level</span><span class="o">:</span><span class="w">
+  </span><span class="n">org.hibernate.SQL</span><span class="o">:</span><span class="w"> </span><span class="n">debug</span><span class="w">
+  </span><span class="n">org.hibernate.type</span><span class="o">:</span><span class="w"> </span><span class="n">trace</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="실제-동작-확인">실제 동작 확인</h2>
+<p>간단한 회원 엔티티와 리포지토리를 만들고, 테스트 코드를 통해 동작을 확인해보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Member.java</span>
+
+<span class="kn">package</span> <span class="nn">jpabook.jpashop</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Getter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Setter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Getter</span> <span class="nd">@Setter</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+
+    <span class="nd">@Id</span> <span class="nd">@GeneratedValue</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">username</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberRepository.java</span>
+
+<span class="kn">package</span> <span class="nn">jpabook.jpashop</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.PersistenceContext</span><span class="o">;</span>
+
+<span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberRepository</span> <span class="o">{</span>
+
+    <span class="nd">@PersistenceContext</span> <span class="c1">// spring-boot가 이 어노테이션이 있으면 entity manager를 주입해준다.</span>
+    <span class="nc">EntityManager</span> <span class="n">em</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nc">Long</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// command성이기 때문에 return값을 따로 안 만든다.</span>
+        <span class="k">return</span> <span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>  <span class="c1">// 왜 member를 반환하지 않나: command랑 query를 분리해라..</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Member</span> <span class="nf">find</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">em</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberRepositoryTest.java</span>
+
+<span class="kn">package</span> <span class="nn">jpabook.jpashop</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.assertj.core.api.Assertions</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.test.context.SpringBootTest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.annotation.Rollback</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.junit4.SpringRunner</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.transaction.annotation.Transactional</span><span class="o">;</span>
+
+
+<span class="nd">@RunWith</span><span class="o">(</span><span class="nc">SpringRunner</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>    <span class="c1">// JUnit에게 spring과 관련된 것으로 테스트를 할 것이라고 알려줌</span>
+<span class="nd">@SpringBootTest</span> <span class="c1">// spring-boot로 테스트 할 거니까 추가</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberRepositoryTest</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span> <span class="nc">MemberRepository</span> <span class="n">memberRepository</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@Transactional</span>  <span class="c1">// EntityManager를 통한 모든 데이터 변경은 항상 Transaction 안에서 이루어져야 함!</span>
+    <span class="c1">// @Rollback(false)    // 기본적으로 test의 반복적 수행을 위해 한 번 수행 이후 roll back 되지만 눈으로 확인하고 싶다면 이 옵션을 사용하면 됨!</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testMember</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// given</span>
+        <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>   <span class="c1">// member를 생성하고</span>
+        <span class="n">member</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span><span class="s">"memberA"</span><span class="o">);</span>  <span class="c1">// 이름 설정 후</span>
+
+        <span class="c1">// when</span>
+        <span class="nc">Long</span> <span class="n">savedId</span> <span class="o">=</span> <span class="n">memberRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>   <span class="c1">// save한 뒤</span>
+        <span class="nc">Member</span> <span class="n">findMember</span> <span class="o">=</span> <span class="n">memberRepository</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">savedId</span><span class="o">);</span> <span class="c1">// id를 기반으로 찾아봤을 때</span>
+
+        <span class="c1">// then</span>
+        <span class="nc">Assertions</span><span class="o">.</span><span class="na">assertThat</span><span class="o">(</span><span class="n">findMember</span><span class="o">.</span><span class="na">getId</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">());</span>    <span class="c1">// member의 id 기반 확인</span>
+        <span class="nc">Assertions</span><span class="o">.</span><span class="na">assertThat</span><span class="o">(</span><span class="n">findMember</span><span class="o">.</span><span class="na">getUsername</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getUsername</span><span class="o">());</span>    <span class="c1">// member의 username 기반 확인</span>
+
+        <span class="c1">// 같은 transaction 안에서 저장하고 조회하면 영속성 context가 똑같음. 같은 영속성 context 안에서는 id 값이 같으면 같은 엔티티로 인식</span>
+        <span class="nc">Assertions</span><span class="o">.</span><span class="na">assertThat</span><span class="o">(</span><span class="n">findMember</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"findMember == member: "</span><span class="o">+(</span><span class="n">findMember</span> <span class="o">==</span> <span class="n">member</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="SpringBoot-JPA" /><category term="java" /><category term="spring boot" /><summary type="html"><![CDATA[Spring Boot web application]]></summary></entry><entry><title type="html">[스프링 입문] Section 07 - AOP</title><link href="http://localhost:4000/spring-tutorial/Section07/" rel="alternate" type="text/html" title="[스프링 입문] Section 07 - AOP" /><published>2022-09-13T00:00:00+09:00</published><updated>2022-09-14T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section07</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section07/"><![CDATA[<h2 id="aop란">AOP란?</h2>
 <p>AOP는 Aspect Oriented Programming의 약자로 ‘관점 지향 프로그래밍’이라고 불린다.<br />
 관점 지향은 어떤 로직을 기준으로 핵심적인 관점, 부가적인 관점으로 나누어서 보고 그 관점을 기준으로 각각 모듈화하겠다는 것이다.</p>
 
@@ -129,7 +342,91 @@
 <h2 id="reference">Reference</h2>
 <p>1) <a href="https://www.inflearn.com/questions/48156">https://www.inflearn.com/questions/48156</a><br />
 [AOP(TimeTraceAop)를 @Component 로 선언 vs SpringConfig에 @Bean으로 등록]<br />
-2) <a href="https://engkimbs.tistory.com/746">https://engkimbs.tistory.com/746</a> [[Spring] 스프링 AOP (Spring AOP) 총정리 : 개념, 프록시 기반 AOP, @AOP]</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 06 - 스프링 DB 접근 기술</title><link href="http://localhost:4000/spring-tutorial/Section06/" rel="alternate" type="text/html" title="[스프링 입문] Section 06 - 스프링 DB 접근 기술" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-13T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section06</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section06/"><![CDATA[<h2 id="spring-db-접근-기술의-발전">spring DB 접근 기술의 발전</h2>
+2) <a href="https://engkimbs.tistory.com/746">https://engkimbs.tistory.com/746</a> [[Spring] 스프링 AOP (Spring AOP) 총정리 : 개념, 프록시 기반 AOP, @AOP]</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</title><link href="http://localhost:4000/spring-tutorial/Section05/" rel="alternate" type="text/html" title="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-06T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section05</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section05/"><![CDATA[<h2 id="file-tree-참고하기">File Tree 참고하기</h2>
+<p><img src="/assets/images/Spring-Tutorial/5-1.png" alt="Image" width="65%" height="65%" /></p>
+
+<h2 id="홈-화면">홈 화면</h2>
+<p>홈 컨트롤러를 추가해준다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeController.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeController</span> <span class="o">{</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"home"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Q) ‘/’ 요청 시, index.html 대신 hello.html이 호출되는 이유?<br />
+A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
+
+<h2 id="회원-등록">회원 등록</h2>
+<p>1) 웹 등록 화면에서 데이터를 전달 받을 폼 객체를 만들어야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberForm.java</span>
+<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberForm</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+2) 회원 등록용 폼 컨트롤러 제작</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
+    
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">createForm</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"members/createMemberForm"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+3) 회원 컨트롤러에서 회원을 실제 등록하는 기능을 구현</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">create</span><span class="o">(</span><span class="nc">MemberForm</span> <span class="n">form</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>   <span class="c1">// 멤버를 생성하고</span>
+    
+    <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">form</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span> <span class="c1">// 폼으로부터 이름을 가져와 member의 이름을 설정하고</span>
+    <span class="n">memberService</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// memberService를 통해 생성한 member를 저장한다.</span>
+    
+    <span class="k">return</span> <span class="s">"redirect:/"</span><span class="o">;</span>    <span class="c1">// 회원 가입 완료 후 다시 home 화면으로 돌아가도록 만든다.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="회원-조회">회원 조회</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
+<span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/members"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">list</span><span class="o">(</span><span class="nc">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">findMembers</span><span class="o">();</span>
+    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"members"</span><span class="o">,</span> <span class="n">members</span><span class="o">);</span>
+    <span class="k">return</span> <span class="s">"members/memberList"</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 06 - 스프링 DB 접근 기술</title><link href="http://localhost:4000/spring-tutorial/Section06/" rel="alternate" type="text/html" title="[스프링 입문] Section 06 - 스프링 DB 접근 기술" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-13T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section06</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section06/"><![CDATA[<h2 id="spring-db-접근-기술의-발전">spring DB 접근 기술의 발전</h2>
 <p><img src="/assets/images/Spring-Tutorial/6-1.png" alt="Image" width="75%" height="75%" /><br />
 <br />
 application과 DB의 연결을 sql을 통해 한다.<br />
@@ -660,91 +957,7 @@ JPA를 사용하면 ‘SQL과 데이터 중심의 설계’에서 ‘객체 중�
         <span class="k">return</span> <span class="k">new</span> <span class="nf">MemberService</span><span class="o">(</span><span class="n">memberRepository</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><category term="h2" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</title><link href="http://localhost:4000/spring-tutorial/Section05/" rel="alternate" type="text/html" title="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-06T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section05</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section05/"><![CDATA[<h2 id="file-tree-참고하기">File Tree 참고하기</h2>
-<p><img src="/assets/images/Spring-Tutorial/5-1.png" alt="Image" width="65%" height="65%" /></p>
-
-<h2 id="홈-화면">홈 화면</h2>
-<p>홈 컨트롤러를 추가해준다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeController.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
-
-<span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeController</span> <span class="o">{</span>
-    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"home"</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Q) ‘/’ 요청 시, index.html 대신 hello.html이 호출되는 이유?<br />
-A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
-
-<h2 id="회원-등록">회원 등록</h2>
-<p>1) 웹 등록 화면에서 데이터를 전달 받을 폼 객체를 만들어야 한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberForm.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberForm</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span> 
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br />
-2) 회원 등록용 폼 컨트롤러 제작</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
-    
-    <span class="nd">@Autowired</span>
-    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">createForm</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"members/createMemberForm"</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br />
-3) 회원 컨트롤러에서 회원을 실제 등록하는 기능을 구현</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="nc">String</span> <span class="nf">create</span><span class="o">(</span><span class="nc">MemberForm</span> <span class="n">form</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>   <span class="c1">// 멤버를 생성하고</span>
-    
-    <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">form</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span> <span class="c1">// 폼으로부터 이름을 가져와 member의 이름을 설정하고</span>
-    <span class="n">memberService</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// memberService를 통해 생성한 member를 저장한다.</span>
-    
-    <span class="k">return</span> <span class="s">"redirect:/"</span><span class="o">;</span>    <span class="c1">// 회원 가입 완료 후 다시 home 화면으로 돌아가도록 만든다.</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="회원-조회">회원 조회</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/members"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="nc">String</span> <span class="nf">list</span><span class="o">(</span><span class="nc">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">findMembers</span><span class="o">();</span>
-    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"members"</span><span class="o">,</span> <span class="n">members</span><span class="o">);</span>
-    <span class="k">return</span> <span class="s">"members/memberList"</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 04 - 스프링 빈과 의존관계</title><link href="http://localhost:4000/spring-tutorial/Section04/" rel="alternate" type="text/html" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계" /><published>2022-09-04T00:00:00+09:00</published><updated>2022-09-04T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section04</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section04/"><![CDATA[<h2 id="들어가며">들어가며…</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><category term="h2" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 04 - 스프링 빈과 의존관계</title><link href="http://localhost:4000/spring-tutorial/Section04/" rel="alternate" type="text/html" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계" /><published>2022-09-04T00:00:00+09:00</published><updated>2022-09-04T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section04</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section04/"><![CDATA[<h2 id="들어가며">들어가며…</h2>
 <p>화면을 붙이고 싶음 -&gt; 컨트롤러와 뷰 템플릿 필요<br />
 ‘멤버 컨트롤러’가 ‘멤버 서비스’를 통해서 회원가입 하고, 데이터를 조회할 수 있어야 함<br />
 ‘멤버 컨트롤러’와 ‘멤버 서비스’ -&gt; 서로 의존관계가 있다.(멤버 컨트롤러가 멤버 서비스를 의존한다.)</p>
@@ -1804,192 +2017,4 @@ Glow-TTS와 Hifi-Gan에 대해서 이해하기 위해서는 먼저 Gan 모델에
 [초보를 위한 도커 안내서 - 도커란 무엇인가?]<br />
 2) <a href="https://somjang.tistory.com/entry/Docker-ubuntu1604-%EA%B8%B0%EB%B0%98%EC%97%90%EC%84%9C-mecab-ko-%ED%99%9C%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95">https://somjang.tistory.com/entry/Docker-ubuntu1604-%EA%B8%B0%EB%B0%98%EC%97%90%EC%84%9C-mecab-ko-%ED%99%9C%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95</a><br />
 [ubuntu16.04 기반에서 mecab-ko 활용하는 방법]<br />
-3) <a href="https://github.com/litsynp/flask-g2pk">https://github.com/litsynp/flask-g2pk</a> [flask-g2pk]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="docker" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry><entry><title type="html">[Team_ForV] Flask Model Server</title><link href="http://localhost:4000/team_forv/Team_ForV06/" rel="alternate" type="text/html" title="[Team_ForV] Flask Model Server" /><published>2022-08-22T00:00:00+09:00</published><updated>2022-08-22T00:00:00+09:00</updated><id>http://localhost:4000/team_forv/Team_ForV06</id><content type="html" xml:base="http://localhost:4000/team_forv/Team_ForV06/"><![CDATA[<h2 id="flask-model-server의-역할">Flask Model Server의 역할</h2>
-<p><img src="/assets/images/Team_ForV/6-1.png" alt="image" width="90%" height="90%" class="align-center" /><br />
-<code class="language-plaintext highlighter-rouge">Flask Model Server</code>는 단 한 가지 역할만 수행한다.
-클라이언트로부터 음성 합성 요청을 받으면<br />
--&gt; <code class="language-plaintext highlighter-rouge">flask</code> 서버가 <code class="language-plaintext highlighter-rouge">celery</code>에게 task를 할당하고<br />
--&gt; <code class="language-plaintext highlighter-rouge">celery worker</code>가 task를 수행한다.<br />
--&gt; 여기서 task는 ‘입력받은 text를 지정된 멤버의 음성으로 wav 파일을 만들어 gcs에 업로드하는 것’이다.<br />
--&gt; task를 끝내면 <code class="language-plaintext highlighter-rouge">celery worker</code>가 <code class="language-plaintext highlighter-rouge">flask</code>에게 작업이 완료됨을 알려주고, <code class="language-plaintext highlighter-rouge">flask</code>는 클라이언트에게 알려준다.<br />
--&gt; 클라이언트는 <code class="language-plaintext highlighter-rouge">google cloud storage</code>에 업로드된 wav파일의 url을 통해서 생성된 음성파일을 재생한다.</p>
-
-<p>이처럼, <code class="language-plaintext highlighter-rouge">flask</code> 서버는 ‘TTS 음성 합성과 연관된 작업’만을 수행하도록 구성하였는데,<br />
-<code class="language-plaintext highlighter-rouge">flask</code> 프레임워크의 특징을 보면서 model server로 <code class="language-plaintext highlighter-rouge">flask</code>를 선택한 이유를 살펴보자!</p>
-
-<h2 id="flask에-대하여">Flask에 대하여..</h2>
-<p><img src="/assets/images/Team_ForV/6-2.png" alt="image" width="40%" height="40%" /><br />
-flask는 마이크로 웹 프레임워크다.
-즉 간결하게 유지하고 확장할 수 있음을 의미한다.</p>
-
-<p>간결하다는 것은? -&gt; 짧은 코드만으로도 완벽히 동작하는 웹 프로그램을 만들 수 있다.<br />
-확장성 있는 설계? -&gt; 플라스크에는 다양한 확장 모듈을 통해 입맛대로 만들 수 있다.</p>
-
-<p>서버를 분리한 이유가 <strong>음성합성만을 하는 서버</strong>가 필요했기 때문이고, 이를 위해선<br />
-<strong>간단한 코드 구성만으로도 빠르게 뜨는 웹 프로그램</strong>이 필요했다. 따라서 model 서버로는 <code class="language-plaintext highlighter-rouge">flask</code>가 적절하겠다고 판단했다.</p>
-
-<h2 id="rabbitmq--celery를-사용한-비동기처리">rabbitMQ &amp; celery를 사용한 비동기처리</h2>
-<p><code class="language-plaintext highlighter-rouge">python</code> 서버는 사용자의 요청이 수행되는 동안 또다른 요청이 들어올 시에 앞선 요청이 수행될 때까지 대기하고 있게 된다. 이는 다중 사용자가 서비스를 이용하기에 매우 안 좋은 환경이다.</p>
-
-<p>따라서, <code class="language-plaintext highlighter-rouge">rabbitMQ</code>와 <code class="language-plaintext highlighter-rouge">celery</code>를 이용하여 비동기처리를 하도록 만들었다.</p>
-
-<p>파일들을 하나씩 뜯어보며 살펴보자.</p>
-
-<h3 id="--celery-app">- celery app</h3>
-<p>celery app을 생성하고 세부 항목들을 설정한다.</p>
-<ol>
-  <li>Celery App의 이름.</li>
-  <li>broker: 처리할 Task를 보관하는 Broker(중계자)</li>
-  <li>backend: 처리된 결과를 보관하는 Broker를 설정, 이를 생략하면 Task의 실행 결과를 받을 수 없음.</li>
-  <li>include: Worker가 처리할 Task를 지정.</li>
-</ol>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># celery_app.py: Celery App을 생성하는 파일
-</span><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
-
-<span class="n">app</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="s">'celery'</span><span class="p">,</span>
-             <span class="n">broker</span><span class="o">=</span><span class="s">'amqp://tts:tts123@rabbit/tts_host'</span><span class="p">,</span>
-             <span class="n">backend</span><span class="o">=</span><span class="s">'rpc://'</span><span class="p">,</span>
-             <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s">'voice'</span><span class="p">],</span>
-<span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="--task">- task</h3>
-<p>총 세 부분으로 구성되어있다.</p>
-<ol>
-  <li>음성 합성을 위해 각 멤버들에 대한 변수들을 설정하여 models 리스트에 저장해둔다.</li>
-  <li>celery app에 등록되어있는 task가 호출되면 전달된 인자들을 기반으로 wav 파일을 만들고,</li>
-  <li>서버에 저장하는 것이 아닌 google-cloude-storage에 저장한 후 True를 반환한다.</li>
-</ol>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># voice.py: Worker의 Task가 담겨있는 파일
-</span><span class="kn">from</span> <span class="nn">celery_app</span> <span class="kn">import</span> <span class="n">app</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">google.cloud</span> <span class="kn">import</span> <span class="n">storage</span>
-
-<span class="kn">from</span> <span class="nn">tts_modules</span> <span class="kn">import</span> <span class="n">normalize_text</span>
-<span class="kn">from</span> <span class="nn">TTS.TTS.utils.synthesizer</span> <span class="kn">import</span> <span class="n">Synthesizer</span>
-
-<span class="c1">############################################################################################################
-</span><span class="n">models</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># models =&gt; [[id1_syn, id1_symbol], [id2_syn, id2_symbol], [id3_syn, id3_symbol], ...]
-</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
-    <span class="n">member</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'member </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s"> synthesizer start!!'</span><span class="p">)</span>
-    <span class="c1"># set synthesizer
-</span>    <span class="n">synthesizer</span> <span class="o">=</span> <span class="n">Synthesizer</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s">"./voice_model/glow-tts/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">g_checkpoint_30000.pth.tar"</span><span class="p">,</span>
-        <span class="sa">f</span><span class="s">"./voice_model/glow-tts/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">g_config.json"</span><span class="p">,</span>
-        <span class="bp">None</span><span class="p">,</span>
-        <span class="sa">f</span><span class="s">"./voice_model/hifigan-v2/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">h_checkpoint_305000.pth.tar"</span><span class="p">,</span>
-        <span class="sa">f</span><span class="s">"./voice_model/hifigan-v2/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">h_config.json"</span><span class="p">,</span>
-        <span class="bp">None</span><span class="p">,</span>
-        <span class="bp">None</span><span class="p">,</span>
-        <span class="bp">False</span><span class="p">,)</span>
-    <span class="n">symbol</span> <span class="o">=</span> <span class="n">synthesizer</span><span class="p">.</span><span class="n">tts_config</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">characters</span>  <span class="c1"># normalize_text가 호출될 때 필요한 변수
-</span>    
-    <span class="n">member</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">synthesizer</span><span class="p">)</span>
-    <span class="n">member</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">symbol</span><span class="p">)</span>
-    <span class="n">models</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'member </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s"> synthesizer end!!'</span><span class="p">)</span>
-
-<span class="c1">############################################################################################################
-</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">"GOOGLE_APPLICATION_CREDENTIALS"</span><span class="p">]</span><span class="o">=</span><span class="s">"./micro-handler.json"</span> <span class="c1"># wav gcp bucket 업로드를 위한 key path
-</span>
-<span class="n">bucket_name</span> <span class="o">=</span> <span class="s">'forv_bucket'</span>    <span class="c1"># 서비스 계정 생성한 bucket 이름 입력
-</span><span class="n">storage_client</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="n">Client</span><span class="p">()</span>
-<span class="n">bucket</span> <span class="o">=</span> <span class="n">storage_client</span><span class="p">.</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
-
-<span class="c1"># source_file_name = ''    # GCP에 업로드할 파일 절대경로
-# destination_blob_name = ''    # 업로드할 파일을 GCP에 저장할 때의 이름
-# blob = bucket.blob(destination_blob_name)
-# blob.upload_from_filename(source_file_name)
-</span>
-<span class="c1">############################################################################################################
-</span><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"gan_wav"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">gan_wav</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">member_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">created_at</span><span class="p">):</span>
-    <span class="n">wav_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'wav_files/</span><span class="si">{</span><span class="n">member_id</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s">_</span><span class="si">{</span><span class="n">created_at</span><span class="si">}</span><span class="s">_voice.wav'</span>
-    <span class="n">wav_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'./temp/</span><span class="si">{</span><span class="n">member_id</span><span class="si">}</span><span class="s">_</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s">_</span><span class="si">{</span><span class="n">created_at</span><span class="si">}</span><span class="s">_voice.wav'</span>
-    
-    <span class="c1"># 미리 만들어둔 객체를 참조
-</span>    <span class="n">synth</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">member_id</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">sym</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">member_id</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-
-    <span class="c1"># g2pk 라이브러리를 이용한 입력된 텍스트 변환
-</span>    <span class="n">n_text</span> <span class="o">=</span> <span class="n">normalize_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">sym</span><span class="p">)</span>
-    
-    <span class="n">wav</span> <span class="o">=</span> <span class="n">synth</span><span class="p">.</span><span class="n">tts</span><span class="p">(</span><span class="n">n_text</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
-    <span class="n">synth</span><span class="p">.</span><span class="n">save_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">wav_path</span><span class="p">)</span>   <span class="c1"># change wav to .wav file
-</span>    
-    <span class="n">blob</span> <span class="o">=</span> <span class="n">bucket</span><span class="p">.</span><span class="n">blob</span><span class="p">(</span><span class="n">wav_file</span><span class="p">)</span>
-    <span class="n">blob</span><span class="p">.</span><span class="n">upload_from_filename</span><span class="p">(</span><span class="n">wav_path</span><span class="p">)</span> <span class="c1"># upload wav file to gcp bucket
-</span>
-    <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">wav_path</span><span class="p">):</span>
-        <span class="n">os</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">wav_path</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="bp">True</span>
-</code></pre></div></div>
-
-<h3 id="--flask-app">- flask app</h3>
-<p>특정 http 요청이 들어왔을 때 celery worker에게 작업을 수행하도록 만든다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app.py: Task를 실행시킬 파일
-</span><span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>
-<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
-
-<span class="kn">from</span> <span class="nn">voice</span> <span class="kn">import</span> <span class="n">gan_wav</span>   <span class="c1"># import celery task
-</span>
-
-<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
-<span class="n">cors</span> <span class="o">=</span> <span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="sa">r</span><span class="s">"/*"</span><span class="p">:</span> <span class="p">{</span><span class="s">"origins"</span><span class="p">:</span> <span class="s">"*"</span><span class="p">}})</span>   <span class="c1"># react와 연결을 위한 cors 설정
-</span>
-
-<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s">'result'</span><span class="p">:</span> <span class="s">'hello world!'</span><span class="p">}</span>
-
-<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/api/texts'</span><span class="p">,</span> <span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">get_text</span><span class="p">():</span>
-    <span class="s">'''
-    {
-    "uuid": "022db29c-d0e2-11e5-bb4c-60f81dca7676",
-    "member_id": 1,
-    "text": "안녕하세요!",
-    "created_at": "2022-08-22"
-    }
-    '''</span>
-    <span class="k">if</span> <span class="n">request</span><span class="p">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">'POST'</span><span class="p">:</span>
-        <span class="n">params</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">get_json</span><span class="p">()</span>
-        
-        <span class="n">uuid</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">'uuid'</span><span class="p">]</span>
-        <span class="n">member_id</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">'member_id'</span><span class="p">]</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">'text'</span><span class="p">]</span>
-        <span class="n">created_at</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">'created_at'</span><span class="p">]</span>
-        
-        <span class="n">gan_wav</span> <span class="o">=</span> <span class="n">gan_wav</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">member_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">created_at</span><span class="p">)</span> <span class="c1"># celery task에 인자 전달
-</span>
-        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span> <span class="c1"># celery worker가 task를 완료하기를 기다림
-</span>            <span class="k">if</span> <span class="n">gan_wav</span><span class="p">.</span><span class="n">ready</span><span class="p">()</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
-                <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-                <span class="k">continue</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="p">{</span><span class="s">'uuid'</span><span class="p">:</span> <span class="n">uuid</span><span class="p">,</span> <span class="s">'member_id'</span><span class="p">:</span> <span class="n">member_id</span><span class="p">,</span> <span class="s">'created_at'</span><span class="p">:</span> <span class="n">created_at</span><span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="다음-글-소개">다음 글 소개</h2>
-<p>음성 합성에 필요한 핵심적인 부분은 tts와 g2pk라는 라이브러리이다.<br />
-이 라이브러리를 사용할 때 가장 곤란했던 점이 <strong>‘라이브러리들끼리의 의존성’</strong> 문제였다.<br />
-ai 관련 라이브러리들을 서로 의존성이 강하기 때문에 버전이 하나만 틀어져도 실행이 안 되는 경우가 많았고, 
-이로 인해 <code class="language-plaintext highlighter-rouge">django</code>서버와 <code class="language-plaintext highlighter-rouge">flask</code>서버의 python 버전을 다르게 구성을 해야했다.</p>
-
-<p>결론부터 말하자면 이 문제를 해결하기위해 <code class="language-plaintext highlighter-rouge">Docker</code>를 도입했다.<br />
-다음 게시글에서는 이 프로젝트에 쓰인 ai 관련 라이브러리들과 <code class="language-plaintext highlighter-rouge">Docker</code> 세팅에 대해 알아보자.</p>
-
-<h2 id="reference">Reference</h2>
-<p>1) <a href="https://leffept.tistory.com/202">https://leffept.tistory.com/202</a> [Flask 란?]<br />
-2) <a href="https://heodolf.tistory.com/63">https://heodolf.tistory.com/63</a> [Celery 무작정 시작하기 (2) - Task]<br />
-3) <a href="https://buildabetterworld.tistory.com/144?category=874656">https://buildabetterworld.tistory.com/144?category=874656</a><br />
-[Celery Side-Project(Ant Platform) - 3. Flask에서 Celery로 비동기작업 수행하기(프로젝트 구조+Celery동작)]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="python" /><category term="flask" /><category term="rabbitMQ" /><category term="celery" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry></feed>
+3) <a href="https://github.com/litsynp/flask-g2pk">https://github.com/litsynp/flask-g2pk</a> [flask-g2pk]</p>]]></content><author><name>hi~ June!!</name></author><category term="Team_ForV" /><category term="docker" /><summary type="html"><![CDATA[Team_ForV의 프로젝트]]></summary></entry></feed>

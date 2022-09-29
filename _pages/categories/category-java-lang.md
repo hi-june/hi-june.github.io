@@ -1,7 +1,7 @@
 ---
 title: "자바 개념"
 layout: archive
-permalink: categories/java-concept
+permalink: categories/java-lang
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories['Java concept'] %}
+{% assign posts = site.categories['Java lang'] %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

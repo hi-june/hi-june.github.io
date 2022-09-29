@@ -28,8 +28,8 @@
         <span class="nav__sub-title">Java</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Java Concept" %}
-                        <li><a href="/categories/java-concept" class="">Java 개념 ({{category[1].size}})</a></li>
+                    {% if category[0] == "Java lang" %}
+                        <li><a href="/categories/java-lang" class="">Java 기본문법 정리 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
