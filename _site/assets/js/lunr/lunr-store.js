@@ -130,4 +130,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap02/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환",
+        "excerpt":"03-1. 상수(Constants) - 자바의 일반적인 상수 상수는 ‘값이 변하지 않는 수’를 말한다. 자바에서는 ‘한 번 그 값이 정해지면 이후로는 변경이 불가능한 변수’도 상수라 한다. 상수는 두 가지 특징을 지니게된다. 값을 딱 한 번만 할당할 수 있다. 한 번 할당된 값은 변경이 불가능하다. public class Constant { public static void main(String[]...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap03/",
+        "teaser": null
       }]
