@@ -1,4 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-01T19:27:02+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</title><link href="http://localhost:4000/java%20lang/Chap05/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤" /><published>2022-10-01T00:00:00+09:00</published><updated>2022-10-01T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap05</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap05/"><![CDATA[<h2 id="05-1-if-그리고-else">05-1. if 그리고 else</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-01T21:17:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의</title><link href="http://localhost:4000/java%20lang/Chap06/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의" /><published>2022-10-01T00:00:00+09:00</published><updated>2022-10-01T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap06</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap06/"><![CDATA[<h2 id="06-1-메소드에-대한-이해와-메소드의-정의">06-1. 메소드에 대한 이해와 메소드의 정의</h2>
+<h3 id="--메소드의-동작">- <u>메소드의 동작</u></h3>
+<p><img src="/assets/images/java-lang/6-1.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodDef</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 시작"</span><span class="o">);</span>
+        <span class="n">hiEveryone</span><span class="o">(</span><span class="mi">26</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 끝"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hiEveryone</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"좋은 아침입니다."</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"제 나이는 "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">"입니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--값을-반환하는-메소드">- <u>값을 반환하는 메소드</u></h3>
+<p><img src="/assets/images/java-lang/6-2.png" alt="image" width="70%" height="70%" /><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodReturns</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">result</span><span class="o">;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">adder</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">square</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">adder</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">addResult</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">addResult</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">square</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="06-2-변수의-스코프">06-2. 변수의 스코프</h2>
+<blockquote>
+  <p>지역변수(Local Variable)는 선언된 지역을 벗어나면 메모리 공간에서 소멸된다.</p>
+</blockquote>
+
+<p><img src="/assets/images/java-lang/6-3.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h2 id="06-3-메소드의-재귀-호출">06-3. 메소드의 재귀 호출</h2>
+<p><img src="/assets/images/java-lang/6-4.png" alt="image" width="70%" height="70%" /><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReculFactorial</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"12 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">12</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><img src="/assets/images/java-lang/6-5.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<p><br /></p>
+
+<p>(주의) 종료 조건을 꼭 설정해야한다. 안 하면 재귀문을 탈출할 수 없다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InfRecul</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">showHi</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showHi</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hi~ "</span><span class="o">);</span>
+
+        <span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="k">return</span><span class="o">;</span>
+
+        <span class="n">showHi</span><span class="o">(</span><span class="n">cnt</span><span class="o">--);</span>  <span class="c1">// cnt의 값이 전달된 다음에 cnt의 값이 감소한다. 따라서 재귀문을 탈출할 수 없다.</span>
+        <span class="c1">// showHi(--cnt);   // 이렇게 써줘야 함</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</title><link href="http://localhost:4000/java%20lang/Chap05/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤" /><published>2022-10-01T00:00:00+09:00</published><updated>2022-10-01T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap05</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap05/"><![CDATA[<h2 id="05-1-if-그리고-else">05-1. if 그리고 else</h2>
 <p>기본 골격 정도만 보고 넘어가자..</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="o">(</span><span class="kc">true</span> <span class="n">or</span> <span class="kc">false</span><span class="o">){</span>
     <span class="c1">// 조건 true 시 실행되는 영역</span>
@@ -121,118 +203,86 @@ if(조건){
 
 <h2 id="05-5-반복문의-중첩">05-5. 반복문의 중첩</h2>
 <p>반복문의 종류가 세 가지이니, 다음과 같이 총 아홉 가지 형태로 반복문의 중첩이 가능하다.<br />
-<img src="/assets/images/java-lang/5-3.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환</title><link href="http://localhost:4000/java%20lang/Chap03/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap03</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap03/"><![CDATA[<h2 id="03-1-상수constants">03-1. 상수(Constants)</h2>
-<h3 id="--자바의-일반적인-상수">- <u>자바의 일반적인 상수</u></h3>
-<p>상수는 ‘값이 변하지 않는 수’를 말한다.<br />
-자바에서는 ‘한 번 그 값이 정해지면 이후로는 변경이 불가능한 변수’도 상수라 한다.<br />
-상수는 두 가지 특징을 지니게된다.</p>
+<img src="/assets/images/java-lang/5-3.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)</title><link href="http://localhost:4000/java%20lang/Chap04/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap04</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap04/"><![CDATA[<h2 id="04-1-자바에서-제공하는-이항-연산자들">04-1. 자바에서 제공하는 이항 연산자들</h2>
+<h3 id="--대입-연산자와-산술-연산자-------">- <u>대입 연산자와 산술 연산자: =, +, -, *, /, %</u></h3>
+<p><img src="/assets/images/java-lang/4-1.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<ol>
-  <li>값을 딱 한 번만 할당할 수 있다.</li>
-  <li>한 번 할당된 값은 변경이 불가능하다.</li>
-</ol>
+<h3 id="--복합compound-대입-연산자">- <u>복합(Compound) 대입 연산자</u></h3>
+<p><img src="/assets/images/java-lang/4-2.png" alt="image" width="40%" height="40%" /><br /></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Constant</span> <span class="o">{</span>
+<h3 id="--관계-연산자------">- <u>관계 연산자: &lt;, &gt;, &lt;=, &gt;=, ==, !=</u></h3>
+<p><img src="/assets/images/java-lang/4-3-1.png" alt="image" width="70%" height="70%" /><br />
+<img src="/assets/images/java-lang/4-3-2.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h3 id="--논리-연산자---">- <u>논리 연산자: $$, ||, !</u></h3>
+<p><img src="/assets/images/java-lang/4-4.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h3 id="--논리-연산자-사용-시-주의할-점-sce">- <u>논리 연산자 사용 시 주의할 점: SCE</u></h3>
+<p>연산의 특성 중 Short-Circuit Evaluation이라는 것이 있다.</p>
+<blockquote>
+  <p>연산의 효율 및 속도를 높이기 위해서 불필요한 연산을 생략하는 행위</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SCE</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="no">MAX_SIZE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="kt">char</span> <span class="no">CONST_CHAR</span> <span class="o">=</span> <span class="sc">'상'</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="no">CONST_ASSIGNED</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">boolean</span> <span class="n">result</span><span class="o">;</span>
 
-        <span class="no">CONST_ASSIGNED</span> <span class="o">=</span> <span class="mi">12</span><span class="o">;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="o">((</span><span class="n">num1</span> <span class="o">+=</span> <span class="mi">10</span><span class="o">)&lt;</span><span class="mi">0</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">((</span><span class="n">num2</span> <span class="o">+=</span> <span class="mi">10</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">);</span>    <span class="c1">// 앞 조건문에서 false를 반환하고, and 연산이 수행되기 때문에 뒷 연산이 생략된다.</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"result = "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1 = "</span> <span class="o">+</span> <span class="n">num1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num2 = "</span> <span class="o">+</span> <span class="n">num2</span> <span class="o">+</span> <span class="sc">'\n'</span><span class="o">);</span>
 
-        <span class="c1">// CONST_CHAR = '하' // 컴파일 에러: 상수는 중간에 변경 불가</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수1 : "</span> <span class="o">+</span> <span class="no">MAX_SIZE</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수2 : "</span> <span class="o">+</span> <span class="no">CONST_CHAR</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수3 : "</span> <span class="o">+</span> <span class="no">CONST_ASSIGNED</span><span class="o">);</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="o">((</span><span class="n">num1</span> <span class="o">+=</span> <span class="mi">10</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">||</span> <span class="o">((</span><span class="n">num2</span> <span class="o">+=</span> <span class="mi">10</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">);</span>  <span class="c1">// 앞 조건문에서 true를 반환하고, or 연산이 수행되기 때문에 뒷 연산이 생략된다.</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"result = "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1 = "</span> <span class="o">+</span> <span class="n">num1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num2 = "</span> <span class="o">+</span> <span class="n">num2</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<p>관례상 상수의 이름은 다음 두 가지 사항을 지켜서 짓는다.</p>
-<ol>
-  <li>상수의 이름은 모두 대문자로 짓는다.</li>
-  <li>이름 둘 이상의 단어로 이뤄질 경우 단어 사이에 언더바를 넣는다.</li>
-</ol>
 
-<h3 id="--리터럴literals에-대한-이해">- <u>리터럴(Literals)에 대한 이해</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">157</span><span class="o">;</span> <span class="c1">// 숫자 157은 리터럴 상수</span>
-<span class="kt">long</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3147483647</span><span class="o">;</span> <span class="c1">// 컴파일 오류 발생: integer number too large</span>
+<p><img src="/assets/images/java-lang/4-5.png" alt="image" width="40%" height="40%" /><br />
+이러한 연산을 가리켜 SCE(Short-Circuit Evaluation)이라 한다.</p>
+
+<h2 id="04-2-자바에서-제공하는-단항-연산자들">04-2. 자바에서 제공하는 단항 연산자들</h2>
+<h3 id="--부호-연산자">- <u>부호 연산자</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">short</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+<span class="kt">short</span> <span class="n">num2</span> <span class="o">=</span> <span class="o">(</span><span class="kt">short</span><span class="o">)(+</span><span class="n">num1</span><span class="o">);</span>  <span class="c1">// 형 변환 하지 않으면 오류 발생</span>
+<span class="kt">short</span> <span class="n">num3</span> <span class="o">=</span> <span class="o">(</span><span class="kt">short</span><span class="o">)(-</span><span class="n">num1</span><span class="o">);</span>  <span class="c1">// 형 변환 하지 않으면 오류 발생</span>
 </code></pre></div></div>
+<p>자바는 기본적으로 정수형 연산을 int형으로 진행하고 그 결과도 int형으로 반환한다.<br />
+단항 연산도 마찬가지이기 때문에 형 변환을 해주어야한다.</p>
 
-<p>숫자를 접했을 때 이를 ‘무엇으로 인식할지에 대한 일종의 약속’이 필요하고,<br />
-이 약속에 근거하여 표현된 숫자를 가리켜 ‘리터럴’ 또는 ‘리터럴 상수’라 한다.</p>
+<h3 id="--증가-및-감소-연산자-prefix--prefix-----postfix--postfix---">- <u>증가 및 감소 연산자: Prefix ++, Prefix -- &amp; Postfix ++, Postfix --</u></h3>
+<p><img src="/assets/images/java-lang/4-6.png" alt="image" width="70%" height="70%" /><br />
+<img src="/assets/images/java-lang/4-7.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<p>long형 변수는 그 표현범위를 생각해보면 충분히 담을 수 있는데도 변수 num2에서 에러를 뱉는다.<br />
-즉, 왼편에 있는 변수의 자료형에 상관없이 정수는 int형으로 표현하기로 약속되어 있다.</p>
-
-<h3 id="--정수형-상수의-표현-방법">- <u>정수형 상수의 표현 방법</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntegerLiterals</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PrePostfixOp</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        
-        <span class="kt">byte</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>  <span class="c1">// byte와 short형 정수의 표현 방법을 별도로 제공하지 않기 때문에 다음과 같은 초기화를 허용한다.</span>
-        <span class="kt">short</span> <span class="n">num3</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        
-        <span class="kt">long</span> <span class="n">num4</span> <span class="o">=</span> <span class="mi">3417483647L</span><span class="o">;</span>    <span class="c1">// 반면 long형 정수의 표현 방법은 별도로 제공한다. 숫자 끝에 문자 L또는 l을 붙여야한다.</span>
-
+        <span class="c1">// pre는 증가 후 출력</span>
+        <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(++</span><span class="n">num1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(++</span><span class="n">num1</span><span class="o">);</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// post는 출력 후 증가</span>
+        <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">++);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">++);</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num4</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
+<p><img src="/assets/images/java-lang/4-8.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<h3 id="--정수형-상수-관련-추가로-가능한-것들">- <u>정수형 상수 관련 추가로 가능한 것들</u></h3>
-<p>자바에서는 단위가 큰 수의 표현 및 인식에 도움을 주기 위해 다음과 같이 중간에 언더바를 넣는 것도 허용하고 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100_000_000</span><span class="o">;</span>
-</code></pre></div></div>
+<h2 id="04-3-비트를-대상으로-하는-연산자들">04-3. 비트를 대상으로 하는 연산자들</h2>
+<h3 id="--비트-연산자----">- <u>비트 연산자: &amp;, |, ^, ~</u></h3>
+<p><img src="/assets/images/java-lang/4-9.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<h3 id="--실수형-상수">- <u>실수형 상수</u></h3>
-<p>실수형 상수는 double형으로 인식된다.<br />
-명시하고 싶다면 double형의 경우 끝에 D나 d를 붙이고, float형은 F나 f를 붙인다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mf">3.0004999</span><span class="no">D</span> <span class="o">+</span> <span class="mf">2.0004999d</span><span class="o">)</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mf">3.0004999</span><span class="no">F</span> <span class="o">+</span> <span class="mf">2.0004999f</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="--이스케이프-시퀀스escape-sequences">- <u>이스케이프 시퀀스(escape sequences)</u></h3>
-<p><img src="/assets/images/java-lang/3-1.png" alt="image" width="40%" height="40%" /><br /></p>
-
-<h2 id="03-2-형-변환">03-2. 형 변환</h2>
-<h3 id="--자료형의-변환이-의미하는-것은">- <u>자료형의 변환이 의미하는 것은?</u></h3>
-<p>데이터의 표현 방법에 따라서 연산 방법이 달라진다.<br />
-때문에 다음과 같은 문장이 있다면, 컴파일러는 두 변수 num1과 num2의 자료형이 동일할 것을 기대한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
-<span class="kt">long</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3123235234L</span><span class="o">;</span>
-
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">);</span>    <span class="c1">// num1, num2의 자료형이 다름</span>
-</code></pre></div></div>
-
-<p>데이터의 손실 없이 연산하려면 자료형의 크기가 작은 쪽에서 큰 쪽으로 형 변화가 일어나야한다.</p>
-<ol>
-  <li>변수 num1에 저장된 값을 long형으로 변환하여 메모리에 임시 저장한다.</li>
-  <li>이어서 이 변환된 값과 num2에 저장된 값을 대상으로 덧셈을 진행한다.</li>
-</ol>
-
-<h3 id="--자동-형-변환implicit-conversion">- <u>자동 형 변환(Implicit Conversion)</u></h3>
-<p>프로그래머가 명시한 형 변환이 아닌 필요한 상황에서 자동으로 형 변환이 일어나는 경우를 자동 형 변환이라고 한다.</p>
-
-<p>규칙 1) 자료형의 크기가 큰 방향으로 형 변환이 일어난다.<br />
-규칙 2) 자료형의 크기에 상관없이 정수 자료형보다 실수 자료형이 우선한다.(정수형에 비해 실수형이 값의 표현 범위가 넓기 때문)</p>
-
-<p><img src="/assets/images/java-lang/3-2.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<h3 id="--명시적-형-변환explicit-conversion">- <u>명시적 형 변환(Explicit Conversion)</u></h3>
-<p>자동 형 변환이 진행되지 않는 상황에서도 필요하다면 ‘명시적 형 변환’을 통해 형 변환이 이뤄지도록 문장을 구성할 수 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">long</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">3000000000007L</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">num1</span><span class="o">;</span>
-</code></pre></div></div>
-
-<p>크기가 큰 정수 자료형에서 작은 크기의 정수 자료형으로 형 변환을 진행하는 경우에는 상위 바이트가 잘려 나간다.<br />
-즉, num1의 상위 4바이트를 제외한 나머지 4바이트만 num2에 저장된다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형</title><link href="http://localhost:4000/java%20lang/Chap02/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap02</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap02/"><![CDATA[<h2 id="02-1-변수의-이해와-활용">02-1. 변수의 이해와 활용</h2>
+<h3 id="--비트-쉬프트-연산자---">- <u>비트 쉬프트 연산자: &lt;&lt;, &gt;&gt;, &gt;&gt;&gt;</u></h3>
+<p><img src="/assets/images/java-lang/4-10.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형</title><link href="http://localhost:4000/java%20lang/Chap02/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap02</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap02/"><![CDATA[<h2 id="02-1-변수의-이해와-활용">02-1. 변수의 이해와 활용</h2>
 <h3 id="--메모리-공간의-활용을-위해-필요한-변수">- <u>메모리 공간의 활용을 위해 필요한 변수</u></h3>
 <blockquote>
   <p>데이터의 저장과 참조를 위해 ‘할당된 메모리 공간’에 붙인 이름을 ‘변수’라 한다.</p>
@@ -518,86 +568,118 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"hi~ June!"</span><span class="o">)</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)</title><link href="http://localhost:4000/java%20lang/Chap04/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap04</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap04/"><![CDATA[<h2 id="04-1-자바에서-제공하는-이항-연산자들">04-1. 자바에서 제공하는 이항 연산자들</h2>
-<h3 id="--대입-연산자와-산술-연산자-------">- <u>대입 연산자와 산술 연산자: =, +, -, *, /, %</u></h3>
-<p><img src="/assets/images/java-lang/4-1.png" alt="image" width="70%" height="70%" /><br /></p>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환</title><link href="http://localhost:4000/java%20lang/Chap03/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap03</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap03/"><![CDATA[<h2 id="03-1-상수constants">03-1. 상수(Constants)</h2>
+<h3 id="--자바의-일반적인-상수">- <u>자바의 일반적인 상수</u></h3>
+<p>상수는 ‘값이 변하지 않는 수’를 말한다.<br />
+자바에서는 ‘한 번 그 값이 정해지면 이후로는 변경이 불가능한 변수’도 상수라 한다.<br />
+상수는 두 가지 특징을 지니게된다.</p>
 
-<h3 id="--복합compound-대입-연산자">- <u>복합(Compound) 대입 연산자</u></h3>
-<p><img src="/assets/images/java-lang/4-2.png" alt="image" width="40%" height="40%" /><br /></p>
+<ol>
+  <li>값을 딱 한 번만 할당할 수 있다.</li>
+  <li>한 번 할당된 값은 변경이 불가능하다.</li>
+</ol>
 
-<h3 id="--관계-연산자------">- <u>관계 연산자: &lt;, &gt;, &lt;=, &gt;=, ==, !=</u></h3>
-<p><img src="/assets/images/java-lang/4-3-1.png" alt="image" width="70%" height="70%" /><br />
-<img src="/assets/images/java-lang/4-3-2.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<h3 id="--논리-연산자---">- <u>논리 연산자: $$, ||, !</u></h3>
-<p><img src="/assets/images/java-lang/4-4.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<h3 id="--논리-연산자-사용-시-주의할-점-sce">- <u>논리 연산자 사용 시 주의할 점: SCE</u></h3>
-<p>연산의 특성 중 Short-Circuit Evaluation이라는 것이 있다.</p>
-<blockquote>
-  <p>연산의 효율 및 속도를 높이기 위해서 불필요한 연산을 생략하는 행위</p>
-</blockquote>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SCE</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Constant</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">boolean</span> <span class="n">result</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="no">MAX_SIZE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="kt">char</span> <span class="no">CONST_CHAR</span> <span class="o">=</span> <span class="sc">'상'</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="no">CONST_ASSIGNED</span><span class="o">;</span>
 
-        <span class="n">result</span> <span class="o">=</span> <span class="o">((</span><span class="n">num1</span> <span class="o">+=</span> <span class="mi">10</span><span class="o">)&lt;</span><span class="mi">0</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">((</span><span class="n">num2</span> <span class="o">+=</span> <span class="mi">10</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">);</span>    <span class="c1">// 앞 조건문에서 false를 반환하고, and 연산이 수행되기 때문에 뒷 연산이 생략된다.</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"result = "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1 = "</span> <span class="o">+</span> <span class="n">num1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num2 = "</span> <span class="o">+</span> <span class="n">num2</span> <span class="o">+</span> <span class="sc">'\n'</span><span class="o">);</span>
+        <span class="no">CONST_ASSIGNED</span> <span class="o">=</span> <span class="mi">12</span><span class="o">;</span>
 
-        <span class="n">result</span> <span class="o">=</span> <span class="o">((</span><span class="n">num1</span> <span class="o">+=</span> <span class="mi">10</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">||</span> <span class="o">((</span><span class="n">num2</span> <span class="o">+=</span> <span class="mi">10</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">);</span>  <span class="c1">// 앞 조건문에서 true를 반환하고, or 연산이 수행되기 때문에 뒷 연산이 생략된다.</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"result = "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1 = "</span> <span class="o">+</span> <span class="n">num1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num2 = "</span> <span class="o">+</span> <span class="n">num2</span><span class="o">);</span>
+        <span class="c1">// CONST_CHAR = '하' // 컴파일 에러: 상수는 중간에 변경 불가</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수1 : "</span> <span class="o">+</span> <span class="no">MAX_SIZE</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수2 : "</span> <span class="o">+</span> <span class="no">CONST_CHAR</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수3 : "</span> <span class="o">+</span> <span class="no">CONST_ASSIGNED</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
+<p>관례상 상수의 이름은 다음 두 가지 사항을 지켜서 짓는다.</p>
+<ol>
+  <li>상수의 이름은 모두 대문자로 짓는다.</li>
+  <li>이름 둘 이상의 단어로 이뤄질 경우 단어 사이에 언더바를 넣는다.</li>
+</ol>
 
-<p><img src="/assets/images/java-lang/4-5.png" alt="image" width="40%" height="40%" /><br />
-이러한 연산을 가리켜 SCE(Short-Circuit Evaluation)이라 한다.</p>
-
-<h2 id="04-2-자바에서-제공하는-단항-연산자들">04-2. 자바에서 제공하는 단항 연산자들</h2>
-<h3 id="--부호-연산자">- <u>부호 연산자</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">short</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
-<span class="kt">short</span> <span class="n">num2</span> <span class="o">=</span> <span class="o">(</span><span class="kt">short</span><span class="o">)(+</span><span class="n">num1</span><span class="o">);</span>  <span class="c1">// 형 변환 하지 않으면 오류 발생</span>
-<span class="kt">short</span> <span class="n">num3</span> <span class="o">=</span> <span class="o">(</span><span class="kt">short</span><span class="o">)(-</span><span class="n">num1</span><span class="o">);</span>  <span class="c1">// 형 변환 하지 않으면 오류 발생</span>
+<h3 id="--리터럴literals에-대한-이해">- <u>리터럴(Literals)에 대한 이해</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">157</span><span class="o">;</span> <span class="c1">// 숫자 157은 리터럴 상수</span>
+<span class="kt">long</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3147483647</span><span class="o">;</span> <span class="c1">// 컴파일 오류 발생: integer number too large</span>
 </code></pre></div></div>
-<p>자바는 기본적으로 정수형 연산을 int형으로 진행하고 그 결과도 int형으로 반환한다.<br />
-단항 연산도 마찬가지이기 때문에 형 변환을 해주어야한다.</p>
 
-<h3 id="--증가-및-감소-연산자-prefix--prefix-----postfix--postfix---">- <u>증가 및 감소 연산자: Prefix ++, Prefix -- &amp; Postfix ++, Postfix --</u></h3>
-<p><img src="/assets/images/java-lang/4-6.png" alt="image" width="70%" height="70%" /><br />
-<img src="/assets/images/java-lang/4-7.png" alt="image" width="70%" height="70%" /><br /></p>
+<p>숫자를 접했을 때 이를 ‘무엇으로 인식할지에 대한 일종의 약속’이 필요하고,<br />
+이 약속에 근거하여 표현된 숫자를 가리켜 ‘리터럴’ 또는 ‘리터럴 상수’라 한다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PrePostfixOp</span> <span class="o">{</span>
+<p>long형 변수는 그 표현범위를 생각해보면 충분히 담을 수 있는데도 변수 num2에서 에러를 뱉는다.<br />
+즉, 왼편에 있는 변수의 자료형에 상관없이 정수는 int형으로 표현하기로 약속되어 있다.</p>
+
+<h3 id="--정수형-상수의-표현-방법">- <u>정수형 상수의 표현 방법</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntegerLiterals</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// pre는 증가 후 출력</span>
-        <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(++</span><span class="n">num1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(++</span><span class="n">num1</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        
+        <span class="kt">byte</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>  <span class="c1">// byte와 short형 정수의 표현 방법을 별도로 제공하지 않기 때문에 다음과 같은 초기화를 허용한다.</span>
+        <span class="kt">short</span> <span class="n">num3</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        
+        <span class="kt">long</span> <span class="n">num4</span> <span class="o">=</span> <span class="mi">3417483647L</span><span class="o">;</span>    <span class="c1">// 반면 long형 정수의 표현 방법은 별도로 제공한다. 숫자 끝에 문자 L또는 l을 붙여야한다.</span>
+
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// post는 출력 후 증가</span>
-        <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">++);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">++);</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num4</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<p><img src="/assets/images/java-lang/4-8.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<h2 id="04-3-비트를-대상으로-하는-연산자들">04-3. 비트를 대상으로 하는 연산자들</h2>
-<h3 id="--비트-연산자----">- <u>비트 연산자: &amp;, |, ^, ~</u></h3>
-<p><img src="/assets/images/java-lang/4-9.png" alt="image" width="70%" height="70%" /><br /></p>
+<h3 id="--정수형-상수-관련-추가로-가능한-것들">- <u>정수형 상수 관련 추가로 가능한 것들</u></h3>
+<p>자바에서는 단위가 큰 수의 표현 및 인식에 도움을 주기 위해 다음과 같이 중간에 언더바를 넣는 것도 허용하고 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100_000_000</span><span class="o">;</span>
+</code></pre></div></div>
 
-<h3 id="--비트-쉬프트-연산자---">- <u>비트 쉬프트 연산자: &lt;&lt;, &gt;&gt;, &gt;&gt;&gt;</u></h3>
-<p><img src="/assets/images/java-lang/4-10.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/springboot-jpa/Section01/" rel="alternate" type="text/html" title="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정" /><published>2022-09-14T00:00:00+09:00</published><updated>2022-09-27T00:00:00+09:00</updated><id>http://localhost:4000/springboot-jpa/Section01</id><content type="html" xml:base="http://localhost:4000/springboot-jpa/Section01/"><![CDATA[<h2 id="개발-순서-안내">개발 순서 안내</h2>
+<h3 id="--실수형-상수">- <u>실수형 상수</u></h3>
+<p>실수형 상수는 double형으로 인식된다.<br />
+명시하고 싶다면 double형의 경우 끝에 D나 d를 붙이고, float형은 F나 f를 붙인다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mf">3.0004999</span><span class="no">D</span> <span class="o">+</span> <span class="mf">2.0004999d</span><span class="o">)</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mf">3.0004999</span><span class="no">F</span> <span class="o">+</span> <span class="mf">2.0004999f</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="--이스케이프-시퀀스escape-sequences">- <u>이스케이프 시퀀스(escape sequences)</u></h3>
+<p><img src="/assets/images/java-lang/3-1.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<h2 id="03-2-형-변환">03-2. 형 변환</h2>
+<h3 id="--자료형의-변환이-의미하는-것은">- <u>자료형의 변환이 의미하는 것은?</u></h3>
+<p>데이터의 표현 방법에 따라서 연산 방법이 달라진다.<br />
+때문에 다음과 같은 문장이 있다면, 컴파일러는 두 변수 num1과 num2의 자료형이 동일할 것을 기대한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
+<span class="kt">long</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3123235234L</span><span class="o">;</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">);</span>    <span class="c1">// num1, num2의 자료형이 다름</span>
+</code></pre></div></div>
+
+<p>데이터의 손실 없이 연산하려면 자료형의 크기가 작은 쪽에서 큰 쪽으로 형 변화가 일어나야한다.</p>
+<ol>
+  <li>변수 num1에 저장된 값을 long형으로 변환하여 메모리에 임시 저장한다.</li>
+  <li>이어서 이 변환된 값과 num2에 저장된 값을 대상으로 덧셈을 진행한다.</li>
+</ol>
+
+<h3 id="--자동-형-변환implicit-conversion">- <u>자동 형 변환(Implicit Conversion)</u></h3>
+<p>프로그래머가 명시한 형 변환이 아닌 필요한 상황에서 자동으로 형 변환이 일어나는 경우를 자동 형 변환이라고 한다.</p>
+
+<p>규칙 1) 자료형의 크기가 큰 방향으로 형 변환이 일어난다.<br />
+규칙 2) 자료형의 크기에 상관없이 정수 자료형보다 실수 자료형이 우선한다.(정수형에 비해 실수형이 값의 표현 범위가 넓기 때문)</p>
+
+<p><img src="/assets/images/java-lang/3-2.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h3 id="--명시적-형-변환explicit-conversion">- <u>명시적 형 변환(Explicit Conversion)</u></h3>
+<p>자동 형 변환이 진행되지 않는 상황에서도 필요하다면 ‘명시적 형 변환’을 통해 형 변환이 이뤄지도록 문장을 구성할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">long</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">3000000000007L</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">num1</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>크기가 큰 정수 자료형에서 작은 크기의 정수 자료형으로 형 변환을 진행하는 경우에는 상위 바이트가 잘려 나간다.<br />
+즉, num1의 상위 4바이트를 제외한 나머지 4바이트만 num2에 저장된다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</title><link href="http://localhost:4000/springboot-jpa/Section01/" rel="alternate" type="text/html" title="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정" /><published>2022-09-14T00:00:00+09:00</published><updated>2022-09-27T00:00:00+09:00</updated><id>http://localhost:4000/springboot-jpa/Section01</id><content type="html" xml:base="http://localhost:4000/springboot-jpa/Section01/"><![CDATA[<h2 id="개발-순서-안내">개발 순서 안내</h2>
 <p>일반적인 개발의 순서와 같은 방식으로 진행한다.</p>
 
 <ol>
@@ -1456,286 +1538,4 @@ A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
     <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"members"</span><span class="o">,</span> <span class="n">members</span><span class="o">);</span>
     <span class="k">return</span> <span class="s">"members/memberList"</span><span class="o">;</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 04 - 스프링 빈과 의존관계</title><link href="http://localhost:4000/spring-tutorial/Section04/" rel="alternate" type="text/html" title="[스프링 입문] Section 04 - 스프링 빈과 의존관계" /><published>2022-09-04T00:00:00+09:00</published><updated>2022-09-04T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section04</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section04/"><![CDATA[<h2 id="들어가며">들어가며…</h2>
-<p>화면을 붙이고 싶음 -&gt; 컨트롤러와 뷰 템플릿 필요<br />
-‘멤버 컨트롤러’가 ‘멤버 서비스’를 통해서 회원가입 하고, 데이터를 조회할 수 있어야 함<br />
-‘멤버 컨트롤러’와 ‘멤버 서비스’ -&gt; 서로 의존관계가 있다.(멤버 컨트롤러가 멤버 서비스를 의존한다.)</p>
-
-<h2 id="spring의-주요-개념-ioc--di">spring의 주요 개념 IOC &amp; DI</h2>
-<p>앞으로 등장할 스프링 컨테이너와 스프링 빈을 이해하기 위해선 Spring의 가장 큰 특징인 <code class="language-plaintext highlighter-rouge">IOC</code>와 <code class="language-plaintext highlighter-rouge">DI</code>에 대해서 알아야 한다.</p>
-
-<h3 id="--제어의-역전-ioc-inversion-of-control">- <u>제어의 역전 (`IOC`, Inversion Of Control)</u></h3>
-<p>일반적인 자바 프로그램에서는 각 객체들이 ‘프로그램의 흐름을 결정’하고 ‘각 객체를 직접 생성하고 조작하는 작업(객체를 직접 생성하여 메소드 호출)’을 했다.</p>
-<blockquote>
-  <p>즉, 모든 작업을 사용자가 제어하는 구조!</p>
-</blockquote>
-
-<p>예를 들어 A 객체에서 B 객체에 있는 메소드를 사용하고 싶으면, B 객체를 직접 A 객체 내에서 생성하고 메소드를 호출한다.</p>
-
-<p>하지만 <code class="language-plaintext highlighter-rouge">IOC</code>가 적용된 경우, 객체의 생성을 ‘특별한 관리 위임 주체’에게 맡긴다.<br />
-이 경우 사용자는 객체를 직접 생성하지 않고, 객체의 생명주기를 컨트롤하는 주체는 다른 주체가 된다.</p>
-<blockquote>
-  <p>즉, 사용자의 제어권을 다른 주체에게 넘기는 것을 <code class="language-plaintext highlighter-rouge">IOC</code>(제어의 역전) 라고 한다.</p>
-</blockquote>
-
-<p>요약하면 Spring의 <code class="language-plaintext highlighter-rouge">Ioc</code>란<br />
-클래스 내부의 객체 생성 -&gt; 의존성 객체의 메소드 호출이 아닌,<br />
-‘스프링에게 제어를 위임’하여 스프링이 만든 객체를 주입 -&gt; 의존성 객체의 메소드 호출 구조이다.</p>
-
-<p>스프링에서는 모든 의존성 객체를 스프링이 실행될때 만들어주고 필요한 곳에 주입해준다.</p>
-
-<h3 id="--의존성-주입-di-dependency-injection">- <u>의존성 주입 (`DI`, Dependency Injection)</u></h3>
-<p>어떤 객체(B)를 사용하는 주체(A)가 객체(B)를 직접 생성하는게 아니라</p>
-<blockquote>
-  <p>객체를 외부(Spring)에서 생성해서 사용하려는 주체 객체(A)에 주입시켜주는 방식이다.</p>
-</blockquote>
-
-<p>사용하는 주체(A)가 사용하려는 객체(B)를 직접 생성하는 경우 의존성(변경사항이 있는 경우 서로에게 영향을 많이 준다)이 높아진다.</p>
-<blockquote>
-  <p>하지만, 외부(Spring)에서 직접 생성하여 관리하는 경우에는 A와 B의 의존성이 줄어든다.</p>
-</blockquote>
-
-<p>자세한 건 뒤 쪽 코드를 보며 살펴보자.</p>
-
-<h2 id="스프링-컨테이너와-스프링-빈">스프링 컨테이너와 스프링 빈</h2>
-<h3 id="--스프링-컨테이너">- <u>스프링 컨테이너</u></h3>
-<p>‘스프링 컨테이너’는 ‘스프링 빈’의 생명 주기를 관리하며, 생성된 스프링 빈들에게 추가적인 기능을 제공하는 역할을 한다. <code class="language-plaintext highlighter-rouge">IoC</code>와 <code class="language-plaintext highlighter-rouge">DI</code>의 원리가 스프링 컨테이너에 적용된다.</p>
-
-<p>개발자는 new 연산자, 인터페이스 호출, 팩토리 호출 방식으로 객체를 생성하고 소멸하지만, 스프링 컨테이너를 사용하면 해당 역할을 대신해 준다. 즉, 제어 흐름을 외부에서 관리하게 된다. 또한, 객체들 간의 의존 관계를 스프링 컨테이너가 런타임 과정에서 알아서 만들어 준다.</p>
-
-<h3 id="--스프링-빈">- <u>스프링 빈</u></h3>
-<p>Spring에서는 직접 new를 이용하여 생성한 객체가 아니라, Spring에 의하여 관리당하는 자바 객체를 사용한다. 이렇게 Spring에 의하여 생성되고 관리되는 자바 객체를 Bean이라고 한다.</p>
-
-<h2 id="스프링-빈을-등록하는-방법">스프링 빈을 등록하는 방법</h2>
-<p><img src="/assets/images/Spring-Tutorial/4-1.png" alt="Image" /><br /><br />
-스프링은 스프링이 뜰 때, 스프링 컨테이너에 객체를 생성해서 넣어두고 관리한다.</p>
-<blockquote>
-  <p>이것을 <u>스프링 컨테이너에서 스프링 빈이 관리된다.</u>고 한다.</p>
-</blockquote>
-
-<h3 id="--컴포넌트-스캔과-자동-의존관계-설정">- <u>컴포넌트 스캔과 자동 의존관계 설정</u></h3>
-<p><code class="language-plaintext highlighter-rouge">@Component</code> 애노테이션이 있으면 스프링 빈으로 자동 등록된다.</p>
-
-<p>1) <code class="language-plaintext highlighter-rouge">@Controller</code><br />
-2) <code class="language-plaintext highlighter-rouge">@Service</code><br />
-3) <code class="language-plaintext highlighter-rouge">@Repository</code></p>
-
-<p>위의 세 가지 애노테이션 모두 <code class="language-plaintext highlighter-rouge">@Component</code>을 포함하기 때문에 스프링 빈으로 자동 등록된다.<br />
-생성자에 <code class="language-plaintext highlighter-rouge">@Autowired</code>를 사용하면 객체 생성 시점에서 스프링 컨테이너에서 해당 스프링 빈을 찾아서 주입한다.</p>
-
-<blockquote>
-  <p>주로 정형화된 컨트롤러, 서비스, 리포리토리 같은 코드는 컴포넌트 스캔을 사용한다.</p>
-</blockquote>
-
-<p>코드를 살펴보자!</p>
-
-<p>1) MemberController</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">hello.hellospring.service.MemberService</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
-
-<span class="nd">@Controller</span> <span class="c1">// Controller라는 어노테이션이 있으면, 스프링이 스프링 컨테이너(스프링 뜰 때 생김)에 객체를 생성해서 넣어두고 관리 == 스프링 컨테이너에서 스프링 빈이 관리된다</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
-    <span class="cm">/*
-    컨트롤러가 MemberService를 가져다 써야하는데..
-
-    private final MemberService memberService = new MemberService();
-    스프링이 관리를 하게 되면, 다 스프링 컨테이너에 등록을 하고, 스프링 컨테이너로부터 받아서 쓰도록 바꾸어야 함
-    이런 식으로 new 해서 인스턴스를 직접 생성해서 쓴다면, 다른 여러 컨트롤러가 MemberService를 가져다 쓰는 등의 상황에서 각각 다른 인스턴스를 사용하는 것이 되기 때문에
-    하나만 생성해놓고 공유해서 쓰는 것이 좋다.
-     */</span>
-
-    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
-
-    <span class="nd">@Autowired</span>
-    <span class="cm">/*
-    1. 스프링이 뜸
-    2. 스프링 컨테이너 생김
-    3. 생성자 호출
-    4. 스프링이 스프링 컨테이너에 있는 memberService를 컨트롤러에 자동으로 연결해줌(Autowired)
-     */</span>
-    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// 오류 뜨는 이유: 서비스에 어노테이션이 등록되어 있지 않다.</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br />
-2) MemberService</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberService.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.service</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">hello.hellospring.domain.Member</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">hello.hellospring.repository.MemberRepository</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">hello.hellospring.repository.MemoryMemberRepository</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
-
-<span class="nd">@Service</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberService</span> <span class="o">{</span>
-    <span class="c1">// private final MemberRepository memberRepository = new MemoryMemberRepository(); // 기존 방식: MemberService가 MemoryMemberRepository를 직접 생성하게 함</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberRepository</span> <span class="n">memberRepository</span><span class="o">;</span>
-
-    <span class="nd">@Autowired</span>
-    <span class="kd">public</span> <span class="nf">MemberService</span><span class="o">(</span><span class="nc">MemberRepository</span> <span class="n">memberRepository</span><span class="o">)</span> <span class="o">{</span>   <span class="c1">// MemberService 코드를 DI 가능하게 변경한다.</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">memberRepository</span> <span class="o">=</span> <span class="n">memberRepository</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * 회원가입
-     */</span>
-    <span class="kd">public</span> <span class="nc">Long</span> <span class="nf">join</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">validateDuplicateMember</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>    <span class="c1">// 중복 회원 검증</span>
-        <span class="n">memberRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">validateDuplicateMember</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">memberRepository</span><span class="o">.</span><span class="na">findByName</span><span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getName</span><span class="o">())</span>   <span class="c1">// 회원 리포지토리에서 멤버 이름으로 찾아서</span>
-                <span class="o">.</span><span class="na">ifPresent</span><span class="o">(</span><span class="n">m</span> <span class="o">-&gt;</span> <span class="o">{</span>   <span class="c1">// 만약 존재한다면</span>
-                    <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="s">"이미 존재하는 회원입니다."</span><span class="o">);</span>  <span class="c1">// 이미 존재한다고 예외를 던지게끔 설계</span>
-                <span class="o">});</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * 전체 회원 조회
-     */</span>
-    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findMembers</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">memberRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findOne</span><span class="o">(</span><span class="nc">Long</span> <span class="n">memberId</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">memberRepository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">memberId</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br />
-3) MemoryMemberRepository</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemoryMemberRepository.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.repository</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">hello.hellospring.domain.Member</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-
-<span class="nd">@Repository</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemoryMemberRepository</span> <span class="kd">implements</span> <span class="nc">MemberRepository</span><span class="o">{</span>
-
-    <span class="c1">// 실무에서는 동시성 문제가 있을 수 있어서 이렇게 공유되는 변수일 때는...</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Long</span><span class="o">,</span> <span class="nc">Member</span><span class="o">&gt;</span> <span class="n">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>   <span class="c1">// ConcurrentHashMap을 사용함</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">sequence</span> <span class="o">=</span> <span class="mi">0L</span><span class="o">;</span>  <span class="c1">// AtomicLong을 사용함</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">Member</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">member</span><span class="o">.</span><span class="na">setId</span><span class="o">(++</span><span class="n">sequence</span><span class="o">);</span>   <span class="c1">// sequence로 id 설정</span>
-        <span class="n">store</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">(),</span> <span class="n">member</span><span class="o">);</span>  <span class="c1">// store라는 map 객체에 &lt;id, member&gt;인 객체 추가</span>
-        <span class="k">return</span> <span class="n">member</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">id</span><span class="o">));</span>  <span class="c1">// 해당 id를 가진 객체가 없는데 조회를 할 경우, null 처리를 위해 ofNullable로 감싸줌</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findByName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="na">values</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>  <span class="c1">// 3. 반환</span>
-                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">member</span> <span class="o">-&gt;</span> <span class="n">member</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">))</span>    <span class="c1">// 1. member.getName() 과 name이 같은지 확인하여</span>
-                <span class="o">.</span><span class="na">findAny</span><span class="o">();</span> <span class="c1">// 2. 같은 걸 하나라도 찾으면</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// store는 map인데, 반환은 리스트로 되어 있음 -&gt; java에서 실무할 땐 루프 돌리기도 쉽고 해서 리스트를 많이 쓴다고 함</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">store</span><span class="o">.</span><span class="na">values</span><span class="o">());</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearStore</span><span class="o">(){</span>
-        <span class="n">store</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--자바-코드로-직접-스프링-빈-등록하기">- <u>자바 코드로 직접 스프링 빈 등록하기</u></h3>
-<p>SpringConfig 파일을 만들어 자바 코드로 직접 스프링 빈을 등록할 수 있다.</p>
-
-<blockquote>
-  <p>상황에 따라 구현 클래스를 변경해야 하면 설정을 통해 스프링 빈으로 등록한다.</p>
-</blockquote>
-
-<p>예를 들자면, MemoryMemberRepository 를 DB와 연결하는 repository로 바꾸는 등의 상황이 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">hello.hellospring</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">hello.hellospring.repository.MemberRepository</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">hello.hellospring.repository.MemoryMemberRepository</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">hello.hellospring.service.MemberService</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
-
-<span class="nd">@Configuration</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringConfig</span> <span class="o">{</span>
-
-    <span class="nd">@Bean</span>
-    <span class="kd">public</span> <span class="nc">MemberService</span> <span class="nf">memberService</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nf">MemberService</span><span class="o">(</span><span class="n">memberRepository</span><span class="o">());</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Bean</span>
-    <span class="kd">public</span> <span class="nc">MemberRepository</span> <span class="nf">memberRepository</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nf">MemoryMemberRepository</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="di-3가지-방법">DI 3가지 방법</h2>
-<p>1) 필드 주입<br />
-추천하지 않음. 뭔가 중간에 바꿀 수 있는 방법이 아예 없음.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
-    <span class="nd">@Autowired</span> <span class="kd">private</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>2) setter 주입<br />
-누군가가 MemberController를 호출했을 때 public으로 열려있어야 함.<br />
-setMemberService를 한 번 세팅을 하면 중간에 바꿀 이유가 없는데도 불구하고 public하게 노출되어야 한다는 단점이 있음.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
-
-    <span class="nd">@Autowired</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMemberService</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>3) 생성자 주입<br />
-생성자를 통해 memberService가 memberController에 주입되고 있다.<br />
-이처럼 생성자를 통해서 방법을 생성자 주입이라고 한다.<br />
-의존관계가 실행중에 동적으로 변하는 경우는 거의 없으므로 생성자 주입을 권장한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
-
-    <span class="nd">@Autowired</span>
-    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="reference">Reference</h2>
-<p>1) <a href="https://steady-coding.tistory.com/594">https://steady-coding.tistory.com/594</a> [Spring Bean 총 정리]<br />
-2) <a href="https://melonicedlatte.com/2021/07/11/232800.html">https://melonicedlatte.com/2021/07/11/232800.html</a> [스프링 빈(Spring Bean)이란? 개념 정리]</p>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry></feed>

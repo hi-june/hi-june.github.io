@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[스프링 입문] Section 07 - AOP -  June &amp; Directory</title>
-<meta name="description" content="Spring Introduction ">
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의 -  June &amp; Directory</title>
+<meta name="description" content="Java 문법 정리! ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[스프링 입문] Section 07 - AOP">
-<meta property="og:url" content="http://localhost:4000/spring-tutorial/Section07/">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap06/">
 
 
-  <meta property="og:description" content="Spring Introduction ">
+  <meta property="og:description" content="Java 문법 정리! ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-09-13T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-10-01T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-09-14T00:00:00+09:00">
+  <meta property="article:modified_time" content="2022-10-01T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/spring-tutorial/Section07/">
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap06/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#spring-tutorial" itemprop="item"><span itemprop="name">Spring tutorial</span></a>
+          <a href="/categories/#java-lang" itemprop="item"><span itemprop="name">Java lang</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[스프링 입문] Section 07 - AOP</li>
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의</li>
       
     
   </ol>
@@ -626,18 +626,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[스프링 입문] Section 07 - AOP">
-    <meta itemprop="description" content="Spring Introduction">
-    <meta itemprop="datePublished" content="2022-09-13T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-09-14T00:00:00+09:00">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의">
+    <meta itemprop="description" content="Java 문법 정리!">
+    <meta itemprop="datePublished" content="2022-10-01T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-10-01T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[스프링 입문] Section 07 - AOP
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-09-13T00:00:00+09:00">2022.09.13</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-09-14">2022.09.14</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-10-01T00:00:00+09:00">2022.10.01</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-01">2022.10.01</time></p>
           
           
             
@@ -653,7 +653,7 @@
     
       
       
-      <a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
+      <a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
     
     </span>
   </p>
@@ -667,10 +667,6 @@
   <p class="page__taxonomy">
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a><span class="sep"> </span>
     
       
       
@@ -689,152 +685,118 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#aop란">AOP란?</a></li>
-  <li><a href="#aop가-필요한-상황">AOP가 필요한 상황</a>
+  <li><a href="#06-1-메소드에-대한-이해와-메소드의-정의">06-1. 메소드에 대한 이해와 메소드의 정의</a>
     <ul>
-      <li><a href="#--그냥-해보자">- 그냥 해보자..</a></li>
-      <li><a href="#--aop를-적용-해보자">- AOP를 적용 해보자..!</a></li>
+      <li><a href="#--메소드의-동작">- 메소드의 동작</a></li>
+      <li><a href="#--값을-반환하는-메소드">- 값을 반환하는 메소드</a></li>
     </ul>
   </li>
-  <li><a href="#스프링의-aop-동작-방식">스프링의 AOP 동작 방식</a>
-    <ul>
-      <li><a href="#--aop-적용-전">- AOP 적용 전</a></li>
-      <li><a href="#--aop-적용-후">- AOP 적용 후</a></li>
-    </ul>
-  </li>
-  <li><a href="#reference">Reference</a></li>
+  <li><a href="#06-2-변수의-스코프">06-2. 변수의 스코프</a></li>
+  <li><a href="#06-3-메소드의-재귀-호출">06-3. 메소드의 재귀 호출</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="aop란">AOP란?</h2>
-<p>AOP는 Aspect Oriented Programming의 약자로 ‘관점 지향 프로그래밍’이라고 불린다.<br />
-관점 지향은 어떤 로직을 기준으로 핵심적인 관점, 부가적인 관점으로 나누어서 보고 그 관점을 기준으로 각각 모듈화하겠다는 것이다.</p>
+        <h2 id="06-1-메소드에-대한-이해와-메소드의-정의">06-1. 메소드에 대한 이해와 메소드의 정의</h2>
+<h3 id="--메소드의-동작">- <u>메소드의 동작</u></h3>
+<p><img src="/assets/images/java-lang/6-1.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<p>AOP에서 각 관점을 기준으로 로직을 모듈화한다는 것은 코드들을 부분적으로 나누어서 모듈화하겠다는 의미다.<br />
-이때, 소스 코드상에서 다른 부분에 계속 반복해서 쓰는 코드들을 발견할 수 있는 데 이것을 흩어진 관심사 (Crosscutting Concerns)라 부른다. </p>
-
-<p>위와 같이 흩어진 관심사를 Aspect로 모듈화하고 핵심적인 비즈니스 로직에서 분리하여 재사용하겠다는 것이 AOP의 취지다.</p>
-
-<h2 id="aop가-필요한-상황">AOP가 필요한 상황</h2>
-<p>‘모든 메소드의 호출 시간을 측정하고 싶다!’는 상황을 가정해보자.<br />
-<u>시간 측정 로직</u>은 ‘핵심 관심 사항’과 ‘공통 관심 사항’ 중 <u>공통 관심 사항</u>에 해당할 것이다.</p>
-
-<h3 id="--그냥-해보자">- <u>그냥 해보자..</u></h3>
-<p><img src="/assets/images/Spring-Tutorial/7-1.png" alt="Image" width="80%" height="80%" /></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">hello.hellospring.service</span><span class="o">;</span>
-
-<span class="nd">@Transactional</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberService</span> <span class="o">{</span>
-    
-    <span class="cm">/**
-    * 회원가입
-    */</span>
-    <span class="kd">public</span> <span class="nc">Long</span> <span class="nf">join</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
-
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">validateDuplicateMember</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">//중복 회원 검증</span>
-            <span class="n">memberRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
-            <span class="k">return</span> <span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-            <span class="kt">long</span> <span class="n">finish</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
-            <span class="kt">long</span> <span class="n">timeMs</span> <span class="o">=</span> <span class="n">finish</span> <span class="o">-</span> <span class="n">start</span><span class="o">;</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"join "</span> <span class="o">+</span> <span class="n">timeMs</span> <span class="o">+</span> <span class="s">"ms"</span><span class="o">);</span>
-        <span class="o">}</span> 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodDef</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 시작"</span><span class="o">);</span>
+        <span class="n">hiEveryone</span><span class="o">(</span><span class="mi">26</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 끝"</span><span class="o">);</span>
     <span class="o">}</span>
 
-    <span class="cm">/**
-    *전체 회원 조회
-    */</span>
-    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="nf">findMembers</span><span class="o">()</span> <span class="o">{</span>
-        <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">memberRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-            <span class="kt">long</span> <span class="n">finish</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
-            <span class="kt">long</span> <span class="n">timeMs</span> <span class="o">=</span> <span class="n">finish</span> <span class="o">-</span> <span class="n">start</span><span class="o">;</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"findMembers "</span> <span class="o">+</span> <span class="n">timeMs</span> <span class="o">+</span> <span class="s">"ms"</span><span class="o">);</span>
-        <span class="o">}</span> 
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hiEveryone</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"좋은 아침입니다."</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"제 나이는 "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">"입니다."</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>자, 이렇게 되면 문제가 무엇이냐?<br />
-일단, 기능 별로 하나 하나씩 직접 코드를 넣어준다는 것은 말이 안 된다.<br />
-또, 시간을 측정하는 기능은 핵심 관심 사항이 아닌 공통 관심 사항이다.<br />
-따라서, 이렇게 시간 측정 로직과 핵심 비즈니스 로식이 섞이게 되면 추후 유지보수가 힘들어진다.</p>
+<h3 id="--값을-반환하는-메소드">- <u>값을 반환하는 메소드</u></h3>
+<p><img src="/assets/images/java-lang/6-2.png" alt="image" width="70%" height="70%" /><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodReturns</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">result</span><span class="o">;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">adder</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">square</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+    <span class="o">}</span>
 
-<h3 id="--aop를-적용-해보자">- <u>AOP를 적용 해보자..!</u></h3>
-<p><img src="/assets/images/Spring-Tutorial/7-2.png" alt="Image" width="80%" height="80%" /><br />
-<br />앞선 문제 상황을 공통 관심 사항과 핵심 관심 사항을 분리하여 해결해보자!</p>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">adder</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">addResult</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">addResult</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">hello.hellospring.aop</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.aspectj.lang.ProceedingJoinPoint</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.aspectj.lang.annotation.Around</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.aspectj.lang.annotation.Aspect</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
-
-<span class="nd">@Component</span>
-<span class="nd">@Aspect</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TimeTraceAop</span> <span class="o">{</span>
-    
-    <span class="nd">@Around</span><span class="o">(</span><span class="s">"execution(* hello.hellospring..*(..))"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">execute</span><span class="o">(</span><span class="nc">ProceedingJoinPoint</span> <span class="n">joinPoint</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Throwable</span> <span class="o">{</span>
-        <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
-        
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"START: "</span> <span class="o">+</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-        
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">proceed</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-            <span class="kt">long</span> <span class="n">finish</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
-            <span class="kt">long</span> <span class="n">timeMs</span> <span class="o">=</span> <span class="n">finish</span> <span class="o">-</span> <span class="n">start</span><span class="o">;</span>
-
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"END: "</span> <span class="o">+</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">toString</span><span class="o">()+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">timeMs</span> <span class="o">+</span> <span class="s">"ms"</span><span class="o">);</span>
-        <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">square</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>시간을 측정하는 로직을 별도의 공통 로직으로 만들었다.<br />
-이렇게 구성할 경우,</p>
+<h2 id="06-2-변수의-스코프">06-2. 변수의 스코프</h2>
+<blockquote>
+  <p>지역변수(Local Variable)는 선언된 지역을 벗어나면 메모리 공간에서 소멸된다.</p>
+</blockquote>
 
-<p>핵심 관심사항을 깔끔하게 유지할 수 있고,<br />
-변경이 필요할 경우 이 로직만 변경하면 되며,<br />
-원하는 적용 대상을 선택할 수도 있게 되었다!</p>
+<p><img src="/assets/images/java-lang/6-3.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<h2 id="스프링의-aop-동작-방식">스프링의 AOP 동작 방식</h2>
-<h3 id="--aop-적용-전">- <u>AOP 적용 전</u></h3>
-<p><img src="/assets/images/Spring-Tutorial/7-3.png" alt="Image" width="75%" height="75%" /></p>
+<h2 id="06-3-메소드의-재귀-호출">06-3. 메소드의 재귀 호출</h2>
+<p><img src="/assets/images/java-lang/6-4.png" alt="image" width="70%" height="70%" /><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReculFactorial</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"12 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">12</span><span class="o">));</span>
+    <span class="o">}</span>
 
-<h3 id="--aop-적용-후">- <u>AOP 적용 후</u></h3>
-<p><img src="/assets/images/Spring-Tutorial/7-4.png" alt="Image" width="75%" height="75%" /></p>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><img src="/assets/images/java-lang/6-5.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<h2 id="reference">Reference</h2>
-<p>1) <a href="https://www.inflearn.com/questions/48156">https://www.inflearn.com/questions/48156</a><br />
-[AOP(TimeTraceAop)를 @Component 로 선언 vs SpringConfig에 @Bean으로 등록]<br />
-2) <a href="https://engkimbs.tistory.com/746">https://engkimbs.tistory.com/746</a> [[Spring] 스프링 AOP (Spring AOP) 총정리 : 개념, 프록시 기반 AOP, @AOP]</p>
+<p><br /></p>
+
+<p>(주의) 종료 조건을 꼭 설정해야한다. 안 하면 재귀문을 탈출할 수 없다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InfRecul</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">showHi</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showHi</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hi~ "</span><span class="o">);</span>
+
+        <span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="k">return</span><span class="o">;</span>
+
+        <span class="n">showHi</span><span class="o">(</span><span class="n">cnt</span><span class="o">--);</span>  <span class="c1">// cnt의 값이 전달된 다음에 cnt의 값이 감소한다. 따라서 재귀문을 탈출할 수 없다.</span>
+        <span class="c1">// showHi(--cnt);   // 이렇게 써줘야 함</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Spring-Tutorial</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Java lang</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/spring-tutorial/Section06/" class="pagination--pager" title="[스프링 입문] Section 06 - 스프링 DB 접근 기술
+      <a href="/java%20lang/Chap05/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤
 ">이전</a>
     
     
-      <a href="/springboot-jpa/Section01/" class="pagination--pager" title="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -853,7 +815,7 @@
 
   <nav class="pagination_prev_next">
     
-      <a href="/spring-tutorial/Section06/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[스프링 입문] Section 06 - 스프링 DB 접근 기술</a>
+      <a href="/java%20lang/Chap05/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</a>
     
     
       <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
@@ -889,11 +851,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%8A%A4%ED%94%84%EB%A7%81+%EC%9E%85%EB%AC%B8%5D+Section+07+-+AOP%20http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection07%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+06+-+%EB%A9%94%EC%86%8C%EB%93%9C%EC%97%90+%EB%8C%80%ED%95%9C+%EC%9D%B4%ED%95%B4%EC%99%80+%EB%A9%94%EC%86%8C%EB%93%9C%EC%9D%98+%EC%A0%95%EC%9D%98%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap06%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection07%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap06%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fspring-tutorial%2FSection07%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap06%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -907,30 +869,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/java%20lang/Chap06/">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.01
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1072,6 +1010,34 @@
                     
                     
                     <a href="/tags/#spring-boot" class="page__taxonomy-item-tag" rel="tag">spring boot</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/spring-tutorial/Section07/">[스프링 입문] Section 07 - AOP</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.13
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a>
                 
             </span>
         </span>

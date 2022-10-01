@@ -148,4 +148,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap05/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의",
+        "excerpt":"06-1. 메소드에 대한 이해와 메소드의 정의 - 메소드의 동작 public class MethodDef { public static void main(String[] args) { System.out.println(\"프로그램의 시작\"); hiEveryone(26); System.out.println(\"프로그램의 끝\"); } public static void hiEveryone(int age) { System.out.println(\"좋은 아침입니다.\"); System.out.println(\"제 나이는 \" + age + \"입니다.\"); } } - 값을 반환하는 메소드 public class MethodReturns {...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap06/",
+        "teaser": null
       }]
