@@ -136,4 +136,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap03/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)",
+        "excerpt":"04-1. 자바에서 제공하는 이항 연산자들 - 대입 연산자와 산술 연산자: =, +, -, *, /, % - 복합(Compound) 대입 연산자 - 관계 연산자: &lt;, &gt;, &lt;=, &gt;=, ==, != - 논리 연산자: $$, ||, ! - 논리 연산자 사용 시 주의할 점: SCE 연산의 특성 중 Short-Circuit Evaluation이라는 것이 있다....","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap04/",
+        "teaser": null
       }]
