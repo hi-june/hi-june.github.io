@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Team_ForV] 아키텍처 및 기술스택 소개 -  June &amp; Directory</title>
-<meta name="description" content="Team_ForV의 프로젝트 ">
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤 -  June &amp; Directory</title>
+<meta name="description" content="Java 문법 정리! ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[Team_ForV] 아키텍처 및 기술스택 소개">
-<meta property="og:url" content="http://localhost:4000/team_forv/Team_ForV03/">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap05/">
 
 
-  <meta property="og:description" content="Team_ForV의 프로젝트 ">
+  <meta property="og:description" content="Java 문법 정리! ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-08-17T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-10-01T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-08-17T00:00:00+09:00">
+  <meta property="article:modified_time" content="2022-10-01T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/team_forv/Team_ForV03/">
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap05/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#team_forv" itemprop="item"><span itemprop="name">Team_forv</span></a>
+          <a href="/categories/#java-lang" itemprop="item"><span itemprop="name">Java lang</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[Team_ForV] 아키텍처 및 기술스택 소개</li>
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</li>
       
     
   </ol>
@@ -626,18 +626,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Team_ForV] 아키텍처 및 기술스택 소개">
-    <meta itemprop="description" content="Team_ForV의 프로젝트">
-    <meta itemprop="datePublished" content="2022-08-17T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-08-17T00:00:00+09:00">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤">
+    <meta itemprop="description" content="Java 문법 정리!">
+    <meta itemprop="datePublished" content="2022-10-01T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-10-01T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Team_ForV] 아키텍처 및 기술스택 소개
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-08-17T00:00:00+09:00">2022.08.17</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-08-17">2022.08.17</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-10-01T00:00:00+09:00">2022.10.01</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-01">2022.10.01</time></p>
           
           
             
@@ -653,7 +653,7 @@
     
       
       
-      <a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+      <a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
     
     </span>
   </p>
@@ -670,7 +670,7 @@
     
       
       
-      <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+      <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
     
     </span>
   </p>
@@ -685,118 +685,166 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#아키텍처-소개">아키텍처 소개</a></li>
-  <li><a href="#프로젝트의-흐름">프로젝트의 흐름</a></li>
-  <li><a href="#서버의-분리와-비동기처리">서버의 분리와 비동기처리</a>
+  <li><a href="#05-1-if-그리고-else">05-1. if 그리고 else</a></li>
+  <li><a href="#05-2-switch와-break">05-2. switch와 break</a></li>
+  <li><a href="#05-3-for-while-그리고-dowhile">05-3. for, while 그리고 do~while</a>
     <ul>
-      <li><a href="#서버의-분리">서버의 분리</a></li>
-      <li><a href="#message-queue와-worker를-이용한-비동기처리">Message Queue와 Worker를 이용한 비동기처리</a></li>
+      <li><a href="#--반복문-1-while문">- 반복문 1: while문</a></li>
+      <li><a href="#--반복문-2-do--while문">- 반복문 2: do ~ while문</a></li>
+      <li><a href="#--반복문-3-for문">- 반복문 3: for문</a></li>
     </ul>
   </li>
-  <li><a href="#다음-글-소개">다음 글 소개</a></li>
+  <li><a href="#05-4-break--continue">05-4. break &amp; continue</a>
+    <ul>
+      <li><a href="#--무한-루프">- 무한 루프</a></li>
+    </ul>
+  </li>
+  <li><a href="#05-5-반복문의-중첩">05-5. 반복문의 중첩</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="아키텍처-소개">아키텍처 소개</h2>
-<p><img width="921" alt="스크린샷 2022-08-03 오후 8 56 10" src="https://user-images.githubusercontent.com/70627982/182602386-c5919ba2-ac66-43a0-86c2-ed7f12c6d3f2.png" /><br /></p>
+        <h2 id="05-1-if-그리고-else">05-1. if 그리고 else</h2>
+<p>기본 골격 정도만 보고 넘어가자..</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="o">(</span><span class="kc">true</span> <span class="n">or</span> <span class="kc">false</span><span class="o">){</span>
+    <span class="c1">// 조건 true 시 실행되는 영역</span>
+<span class="o">}</span> <span class="k">else</span><span class="o">{</span>
+    <span class="c1">// 조건 false 시 실행되는 영역</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+(참고) if ~ else문과 유사한 성격의 조건 연산자가 있다.<br />
+<img src="/assets/images/java-lang/5-1.png" alt="image" width="70%" height="70%" /><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">big</span> <span class="o">=</span> <span class="o">(</span><span class="n">num1</span> <span class="o">&gt;</span> <span class="n">num2</span><span class="o">)</span> <span class="o">?</span> <span class="n">num1</span> <span class="o">:</span> <span class="n">num2</span><span class="o">;</span>
+</code></pre></div></div>
 
-<ul>
-  <li>
-    <p><b>Front-End</b><br />
-<img src="https://img.shields.io/badge/react-02569B?style=for-the-badge&amp;logo=react&amp;logoColor=white" /> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&amp;logo=javascript&amp;logoColor=black" /></p>
-  </li>
-  <li>
-    <p><b>Back-End</b><br />
-<img src="https://img.shields.io/badge/django-007396?style=for-the-badge&amp;logo=django&amp;logoColor=white" /> <img src="https://img.shields.io/badge/flask-6DB33F?style=for-the-badge&amp;logo=flask&amp;logoColor=white" /> <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" /> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&amp;logo=mysql&amp;logoColor=white" /> <img src="https://img.shields.io/badge/celery-000000?style=for-the-badge&amp;logo=celery&amp;logoColor=white" /> <img src="https://img.shields.io/badge/rabbitmq-FF6F00?style=for-the-badge&amp;logo=rabbitmq&amp;logoColor=white" /> <img src="https://img.shields.io/badge/gunicorn-499848?style=for-the-badge&amp;logo=gunicorn&amp;logoColor=black" /></p>
-  </li>
-  <li>
-    <p><b>DevOps</b>  <br />
-<img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&amp;logo=docker&amp;logoColor=white" /> <img src="https://img.shields.io/badge/NGINX-009639?style=for-the-badge&amp;logo=nginx&amp;logoColor=black" /> <!-- <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> --></p>
-  </li>
-  <li>
-    <p><b>AI (Tools, Env)</b>  <br />
-<img src="https://img.shields.io/badge/colab-F9AB00?style=for-the-badge&amp;logo=googlecolab&amp;logoColor=white" /> <img src="https://img.shields.io/badge/pytorch-F7931E?style=for-the-badge&amp;logo=pytorch&amp;logoColor=white" /></p>
-  </li>
-  <li>
-    <p><b>UI/UX, MockUp Design </b>  <br />
-<img src="https://img.shields.io/badge/figma-34A7C1?style=for-the-badge&amp;logo=figma&amp;logoColor=white" /> <img src="https://img.shields.io/badge/zeplin-31A8FF?style=for-the-badge&amp;logo=zeplin&amp;logoColor=white" /></p>
-  </li>
-  <li>
-    <p><b>Team Collaboration Tool</b>  <br />
-<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white" /> <img src="https://img.shields.io/badge/notion-0052CC?style=for-the-badge&amp;logo=notion&amp;logoColor=white" /> <img src="https://img.shields.io/badge/slack-D24939?style=for-the-badge&amp;logo=slack&amp;logoColor=white" /> <img src="https://img.shields.io/badge/zoom-2496ED?style=for-the-badge&amp;logo=zoom&amp;logoColor=white" /></p>
-  </li>
-</ul>
+<h2 id="05-2-switch와-break">05-2. switch와 break</h2>
+<p>if ~ else문을 대체할 수 있는 용도로도 사용된다.<br />
+특히 중간에 else if가 많이 들어가는 상황에서는 switch문이 더 좋은 선택이 될 수 있다.</p>
 
-<h2 id="프로젝트의-흐름">프로젝트의 흐름</h2>
-<p>이 프로젝트의 기본 흐름은 이러하다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span><span class="o">(</span><span class="n">n</span><span class="o">){</span>
+<span class="c1">// case와 default는 label이기 때문에 들여쓰기 하지 않는 것이 일반적</span>
+<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+    <span class="c1">// n이 1이면 여기부터 실행</span>
+<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+    <span class="c1">// n이 2이면 여기서부터 실행</span>
+<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+    <span class="c1">// n이 3이면 여기서부터 실행</span>
+<span class="k">default</span><span class="o">:</span>
+    <span class="c1">// 해당하는 case 없으면 여기서부터 실행</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>break 문을 활용해서 switch문을 탈출할 수 있다.<br />
+또, 이를 이용해서 둘 이상의 label을 이어서 둘 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span><span class="o">(</span><span class="n">n</span><span class="o">){</span>
+<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"case 1,2,3"</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+<span class="k">default</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"default"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="05-3-for-while-그리고-dowhile">05-3. for, while 그리고 do~while</h2>
+<h3 id="--반복문-1-while문">- <u>반복문 1: while문</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span><span class="o">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">){</span> <span class="c1">// 반복 조건</span>
+    <span class="c1">// 반복 영역</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"I like Java"</span> <span class="o">+</span> <span class="n">num</span><span class="o">);</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>while문의 소괄호에는 반복의 조건을 명시한다.<br />
+그리고 그 조건이 true를 반환하는 동안에는 횟수에 상관없이 while문의 중괄호가 반복 실행되는데, 다음의 패턴으로 반복이 된다.</p>
 <ol>
-  <li><code class="language-plaintext highlighter-rouge">react</code>(클라이언트)로부터 사용자의 요청이 들어오면,</li>
-  <li><code class="language-plaintext highlighter-rouge">nginx</code>(proxy 서버)가 클라이언트와 서버 사이에서 대리로 통신을 수행해준다.</li>
-  <li><code class="language-plaintext highlighter-rouge">django</code>나 <code class="language-plaintext highlighter-rouge">flask</code>는 python으로 쓰여진 web application이기 때문에 <code class="language-plaintext highlighter-rouge">gunicorn</code>과 같은 wsgi 서버를 통해 forwarding해주게 되고,</li>
-  <li>사용자의 요청에 따라
-    <ul>
-      <li>단순한 페이지 조회 요청이 들어오면 <code class="language-plaintext highlighter-rouge">django</code> api 서버로 연결되어 필요한 정보들을 <code class="language-plaintext highlighter-rouge">mysql</code> 데이터베이스에서 조회해 보여주고,</li>
-      <li>음성 합성 요청이 들어오게 되면 <code class="language-plaintext highlighter-rouge">flask</code> model 서버가 필요한 모델 파일들로 음성 파일을 합성하여 <code class="language-plaintext highlighter-rouge">google cloud storage</code>로 올린다.</li>
-    </ul>
-  </li>
-  <li>앞선 백엔드단의 작업이 완료되면, client는 원하는 멤버의 프로필 정보를 확인하거나, 원하는 문장을 원하는 멤버의 목소리로 들어볼 수 있게 된다.</li>
-  <li>마지막으로, 개발환경의 통합과 신속한 배포를 위해 <code class="language-plaintext highlighter-rouge">docker</code>로 컨테이너화하여 개발을 진행하였다.</li>
+  <li>먼저! 조건 검사</li>
+  <li>그리고 결과가 true이면 중괄호 영역 실행</li>
 </ol>
 
-<p>이 일련의 과정들을 수행함에 있어서, 사용자의 요청이 많은 상황에 대비하여 몇몇 ‘장치’들을 추가했는데…</p>
+<h3 id="--반복문-2-do--while문">- <u>반복문 2: do ~ while문</u></h3>
+<blockquote>
+  <p>조건에 따른 반복이 필요하다. 그런데 반드시 한 번은 실행을 해야 한다.</p>
+</blockquote>
 
-<h2 id="서버의-분리와-비동기처리">서버의 분리와 비동기처리</h2>
-<ul>
-  <li>
-    <h3 id="서버의-분리">서버의 분리</h3>
-    <p><img src="/assets/images/Team_ForV/3-1.png" alt="image" width="50%" height="50%" /><br /></p>
-  </li>
-</ul>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-<p>아키텍처에서 볼 수 있듯이, 기능별로 서버를 분리했다. <br />
-이렇게 서버를 분리하여 운영할 시 model 서버가 다운되도 api 서버는 동작하듯이, 한 기능을 못 쓰게 되더라도 전체 서비스가 죽는 것은 방지할 수 있다.<br /></p>
+<span class="k">do</span><span class="o">{</span>
+    <span class="c1">// 반복 영역</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"I like Java "</span> <span class="o">+</span> <span class="n">num</span><span class="o">);</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">while</span><span class="o">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">);</span>   <span class="c1">// 반복 조건</span>
+</code></pre></div></div>
+<p>while문과의 차이는 반복 조건을 검사하는 시점에 있다.<br />
+while문은 ‘선 검사’방식이고, do ~ while문은 ‘후 검사’방식이다.</p>
+<ol>
+  <li>먼저! 중괄호 영역 실행</li>
+  <li>그리고 조건 검사 후 결과가 true이면 반복 결정</li>
+</ol>
 
-<p><code class="language-plaintext highlighter-rouge">django</code>는 자체 ORM을 내장하여 다양한 데이터베이스에 유연하게 액세스할 수 있다. <br />
-따라서, 데이터베이스와 연결되는 모든 작업들은 <code class="language-plaintext highlighter-rouge">django</code>가 api server로써 동작하도록 만들었고, <br />
-<code class="language-plaintext highlighter-rouge">flask</code>는 비교적 가벼워서 음성 합성 작업만 전담하는 model sever로 선택했다.</p>
+<h3 id="--반복문-3-for문">- <u>반복문 3: for문</u></h3>
+<p>while문과의 차이점은 ‘반복의 횟수가 정해져 있는 상황’에서 쓰인다는 것이다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">num</span><span class="o">++){</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"..."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ol>
+  <li>int num -&gt; 반복의 횟수를 세기 위한 변수</li>
+  <li>num &lt; 5 -&gt; 반복의 조건</li>
+  <li>num++ -&gt; 반복의 조건을 무너뜨리기 위한 연산</li>
+</ol>
 
-<ul>
-  <li>
-    <h3 id="message-queue와-worker를-이용한-비동기처리">Message Queue와 Worker를 이용한 비동기처리</h3>
-    <p><img src="/assets/images/Team_ForV/3-2.png" alt="image" width="50%" height="50%" /><br /></p>
-  </li>
-</ul>
+<h2 id="05-4-break--continue">05-4. break &amp; continue</h2>
+<p><img src="/assets/images/java-lang/5-2.png" alt="image" width="50%" height="50%" /><br /><br />
+break는 반복문을 탈출하고, continue는 조건 검사로 이동시킨다.</p>
 
-<p><code class="language-plaintext highlighter-rouge">python</code> 서버는 사용자의 요청이 수행되는 동안 또다른 요청이 들어올 시에 앞선 요청이 수행될 때까지 대기하고 있게 된다. 이는 다중 사용자가 서비스를 이용하기에 매우 안 좋은 환경이다.</p>
+<h3 id="--무한-루프">- <u>무한 루프</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 
+무한 루프를 만드는 여러 방법
+중간에 
+if(조건){
+    break;
+}
+등으로 활용할 수 있다.
+*/</span>
 
-<p>따라서, <code class="language-plaintext highlighter-rouge">rabbitMQ</code>와 <code class="language-plaintext highlighter-rouge">celery</code>를 이용하여 비동기처리를 하도록 만들었다. <br />
-사용자의 요청을 task화하여 <code class="language-plaintext highlighter-rouge">celery</code>에게 전달하고, <br />
-<code class="language-plaintext highlighter-rouge">celery</code> worker가 그 작업을 비동기적으로 수행하게끔하여, 서버가 여러가지 일을 수행할 수 있도록하였다!</p>
+<span class="c1">// 1.</span>
+<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+    
+<span class="o">}</span>
 
-<h2 id="다음-글-소개">다음 글 소개</h2>
-<p>단순히 Frontend와 Backend를 넘어 Proxy Server, WSGI, Bucket, Docker, AWS … 등등 많은 기술들이 등장했다. <br />
-앞으로의 글에서는 앞서 언급한 기술들에 대해 하나씩 정리하고자 한다.</p>
+<span class="c1">// 2.</span>
+<span class="k">do</span><span class="o">{</span>
 
-<p>먼저, <code class="language-plaintext highlighter-rouge">python</code> 기반의 Backend framework에서의 work flow를 살펴보자!</p>
+<span class="o">}</span> <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+
+<span class="c1">// 3. </span>
+<span class="k">for</span><span class="o">(;;){</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="05-5-반복문의-중첩">05-5. 반복문의 중첩</h2>
+<p>반복문의 종류가 세 가지이니, 다음과 같이 총 아홉 가지 형태로 반복문의 중첩이 가능하다.<br />
+<img src="/assets/images/java-lang/5-3.png" alt="image" width="70%" height="70%" /><br /></p>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Team_ForV</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Java lang</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/team_forv/Team_ForV02/" class="pagination--pager" title="[Team_ForV] 프로젝트 소개
+      <a href="/java%20lang/Chap04/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)
 ">이전</a>
     
     
-      <a href="/team_forv/Team_ForV04/" class="pagination--pager" title="[Team_ForV] Python Web Framework
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -804,18 +852,6 @@
 
 
 
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
   	
@@ -827,10 +863,10 @@
 
   <nav class="pagination_prev_next">
     
-      <a href="/team_forv/Team_ForV02/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[Team_ForV] 프로젝트 소개</a>
+      <a href="/java%20lang/Chap04/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)</a>
     
     
-      <a href="/team_forv/Team_ForV04/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[Team_ForV] Python Web Framework</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -863,11 +899,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BTeam_ForV%5D+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98+%EB%B0%8F+%EA%B8%B0%EC%88%A0%EC%8A%A4%ED%83%9D+%EC%86%8C%EA%B0%9C%20http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV03%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+05+-+%EC%8B%A4%ED%96%89+%ED%9D%90%EB%A6%84%EC%9D%98+%EC%BB%A8%ED%8A%B8%EB%A1%A4%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap05%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV03%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap05%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV03%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap05%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -881,30 +917,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/java%20lang/Chap05/">[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.01
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1126,6 +1138,34 @@
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.04
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/spring-tutorial/Section03/">[스프링 입문] Section 03 - 회원 관리 예제(백엔드 개발)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.03
               <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
         

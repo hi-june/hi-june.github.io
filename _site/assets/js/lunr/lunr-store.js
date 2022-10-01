@@ -142,4 +142,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap04/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤",
+        "excerpt":"05-1. if 그리고 else 기본 골격 정도만 보고 넘어가자.. if(true or false){ // 조건 true 시 실행되는 영역 } else{ // 조건 false 시 실행되는 영역 } (참고) if ~ else문과 유사한 성격의 조건 연산자가 있다. big = (num1 &gt; num2) ? num1 : num2; 05-2. switch와 break if ~...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap05/",
+        "teaser": null
       }]
