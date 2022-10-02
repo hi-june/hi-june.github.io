@@ -154,4 +154,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap06/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스",
+        "excerpt":"07-1. 클래스의 정의와 인스턴스의 생성 - 클래스(Class) = 데이터(Data) + 메소드(Method) 클래스: 서로 연관되어 있는 데이터와 메소드를 묶어주는 것 모든 프로그램은 다음 두 가지로 이뤄진다. 데이터: 프로그램상에서 유지하고 관리해야 할 데이터 기능: 데이터를 처리하고 조작하는 기능 class BankAccount{ int balance = 0; // 예금 잔액 public int deposit(int amount){ //...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap07/",
+        "teaser": null
       }]

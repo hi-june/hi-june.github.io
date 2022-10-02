@@ -1,86 +1,225 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-01T21:17:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의</title><link href="http://localhost:4000/java%20lang/Chap06/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의" /><published>2022-10-01T00:00:00+09:00</published><updated>2022-10-01T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap06</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap06/"><![CDATA[<h2 id="06-1-메소드에-대한-이해와-메소드의-정의">06-1. 메소드에 대한 이해와 메소드의 정의</h2>
-<h3 id="--메소드의-동작">- <u>메소드의 동작</u></h3>
-<p><img src="/assets/images/java-lang/6-1.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodDef</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 시작"</span><span class="o">);</span>
-        <span class="n">hiEveryone</span><span class="o">(</span><span class="mi">26</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 끝"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hiEveryone</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"좋은 아침입니다."</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"제 나이는 "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">"입니다."</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--값을-반환하는-메소드">- <u>값을 반환하는 메소드</u></h3>
-<p><img src="/assets/images/java-lang/6-2.png" alt="image" width="70%" height="70%" /><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodReturns</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">result</span><span class="o">;</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">adder</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">square</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">adder</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">addResult</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">;</span>
-        <span class="k">return</span> <span class="n">addResult</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">square</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="06-2-변수의-스코프">06-2. 변수의 스코프</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-03T00:25:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스</title><link href="http://localhost:4000/java%20lang/Chap07/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스" /><published>2022-10-02T00:00:00+09:00</published><updated>2022-10-02T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap07</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap07/"><![CDATA[<h2 id="07-1-클래스의-정의와-인스턴스의-생성">07-1. 클래스의 정의와 인스턴스의 생성</h2>
+<h3 id="--클래스class--데이터data--메소드method">- <u>클래스(Class) = 데이터(Data) + 메소드(Method)</u></h3>
 <blockquote>
-  <p>지역변수(Local Variable)는 선언된 지역을 벗어나면 메모리 공간에서 소멸된다.</p>
+  <p>클래스: 서로 연관되어 있는 데이터와 메소드를 묶어주는 것</p>
 </blockquote>
 
-<p><img src="/assets/images/java-lang/6-3.png" alt="image" width="70%" height="70%" /><br /></p>
+<p>모든 프로그램은 다음 두 가지로 이뤄진다.</p>
+<ol>
+  <li>데이터: 프로그램상에서 유지하고 관리해야 할 데이터</li>
+  <li>기능: 데이터를 처리하고 조작하는 기능</li>
+</ol>
 
-<h2 id="06-3-메소드의-재귀-호출">06-3. 메소드의 재귀 호출</h2>
-<p><img src="/assets/images/java-lang/6-4.png" alt="image" width="70%" height="70%" /><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReculFactorial</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"12 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">12</span><span class="o">));</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BankAccount</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// 예금 잔액</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">deposit</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">){</span> <span class="c1">// balance와 연관 있는 메소드</span>
+        <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
-            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="k">else</span>
-            <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">withdraw</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">){</span>    <span class="c1">// balance와 연관 있는 메소드</span>
+        <span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">checkMuyBalance</span><span class="o">(){</span>   <span class="c1">// balance와 연관 있는 메소드</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"잔액: "</span> <span class="o">+</span> <span class="n">balance</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<p><img src="/assets/images/java-lang/6-5.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<p><br /></p>
+<h3 id="--클래스의-구성과-인스턴스화">- <u>클래스의 구성과 인스턴스화</u></h3>
+<p><img src="/assets/images/java-lang/7-1.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<p>(주의) 종료 조건을 꼭 설정해야한다. 안 하면 재귀문을 탈출할 수 없다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InfRecul</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">showHi</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<p>클래스 내에 위치한 변수와 메소드를 가리켜 각각 다음과 같이 부른다.<br />
+<b>인스턴스 변수(멤버 변수, 필드)</b>: 클래스 내에 선언된 변수<br />
+<b>인스턴스 메소드</b>: 클래스 내에 정의된 메소드</p>
+
+<blockquote>
+  <p>인스턴스 변수는 같은 클래스 내에 위치한 메소드 내에서 접근이 가능하다.</p>
+</blockquote>
+
+<h3 id="--클래스-정의의-본질">- <u>클래스 정의의 본질</u></h3>
+<blockquote>
+  <p>클래스의 정의는 틀(Mold)을 구성하는 것과 같다.</p>
+</blockquote>
+
+<p><img src="/assets/images/java-lang/7-2.png" alt="image" width="70%" height="70%" /><br /><br />
+붕어빵은 클래스를 설명할 때 단골로 등장하는 소재이다.<br />
+붕어빵 틀은 먹을 수 있는 대상은 아니다. 하지만 이 틀이 있으므로 빵을 찍어낼 수 있다.<br />
+<b>마찬가지로 클래스 또한 정의되었다고 해서 그 안에 위치한 변수나 메소드를 사용할 수 있는 것은 아니다.</b><br />
+틀을 이용해서 ‘인스턴스’(메모리에 올라갈 수 있는 것)라는 것을 찍어 내야 사용이 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">BankAccount</span> <span class="n">myAcnt1</span><span class="o">;</span>    <span class="c1">// 참조변수 myAcnt1 선언</span>
+<span class="nc">BankAccount</span> <span class="n">myAcnt2</span><span class="o">;</span>    <span class="c1">// 참조변수 myAcnt2 선언</span>
+
+<span class="c1">// 참조변수 myAcnt1이 새로 생성되는 인스턴스를 가리킴</span>
+<span class="n">myAcnt1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BankAccount</span><span class="o">();</span>
+
+<span class="c1">// 참조변수 myAcnt2이 새로 생성되는 인스턴스를 가리킴</span>
+<span class="n">myAcnt2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BankAccount</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>키워드 new를 통해서 인스턴스를 생성하면 생성된 인스턴스의 주솟값이 반환된다.<br />
+즉 참조변수에는 생성된 인스턴스의 주솟값이 저장되는 셈이다.
+이것의 보다 일반적인 표현으로는</p>
+<blockquote>
+  <p>참조변수는 인스턴스를 참조한다.<br />
+참조변수는 인스턴스를 가리킨다.</p>
+</blockquote>
+
+<p><br />
+(참고)<br />
+java에서는 ‘주소’라는 말을 안 쓴다.<br />
+인스턴스의 주소값을 직접 열어서 확인하는 법을 java에서 제공하지 않는다.</p>
+
+<h3 id="--참조변수reference-variable의-특성">- <u>참조변수(Reference Variable)의 특성</u></h3>
+<p>1) 변수는 저장된 값을 바꿀 수 있다. 따라서, 참조변수도 다음과 같이 참조하는 인스턴스를 바꿀 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">BankAccount</span> <span class="n">yoon</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BankAccount</span><span class="o">();</span>
+
+<span class="n">yoon</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BankAccount</span><span class="o">();</span>   <span class="c1">// yoon이 새 인스턴스를 참조한다.</span>
+</code></pre></div></div>
+
+<p>2) 하나의 인스턴스를 둘 이상의 참조변수가 동시에 참조하는 것도 가능하다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">BankAccount</span> <span class="n">ref1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BankAccount</span><span class="o">();</span>
+<span class="nc">BankAccount</span> <span class="n">ref2</span> <span class="o">=</span> <span class="n">ref1</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h3 id="--참조변수reference-variable의-매개변수-선언">- <u>참조변수(Reference Variable)의 매개변수 선언</u></h3>
+<p>메소드를 호출할 때 값을 전달할 수 있고, 이 값은 매개변수에 저장된다.<br />
+마찬가지로 메소드를 호출하면서 인스턴스의 참조 값을 전달하는 것도 가능하다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BankAccount</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">deposit</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showHi</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hi~ "</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">withdraw</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="o">;</span>
+    <span class="o">}</span>
 
-        <span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
-            <span class="k">return</span><span class="o">;</span>
-
-        <span class="n">showHi</span><span class="o">(</span><span class="n">cnt</span><span class="o">--);</span>  <span class="c1">// cnt의 값이 전달된 다음에 cnt의 값이 감소한다. 따라서 재귀문을 탈출할 수 없다.</span>
-        <span class="c1">// showHi(--cnt);   // 이렇게 써줘야 함</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">checkMyBalance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"잔액: "</span> <span class="o">+</span> <span class="n">balance</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</title><link href="http://localhost:4000/java%20lang/Chap05/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤" /><published>2022-10-01T00:00:00+09:00</published><updated>2022-10-01T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap05</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap05/"><![CDATA[<h2 id="05-1-if-그리고-else">05-1. if 그리고 else</h2>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PassingRef</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">BankAccount</span> <span class="n">ref</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BankAccount</span><span class="o">();</span>
+        <span class="n">ref</span><span class="o">.</span><span class="na">deposit</span><span class="o">(</span><span class="mi">3000</span><span class="o">);</span>
+        <span class="n">ref</span><span class="o">.</span><span class="na">withdraw</span><span class="o">(</span><span class="mi">300</span><span class="o">);</span>
+        <span class="n">check</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span> <span class="c1">// '참조 값'의 전달</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">check</span><span class="o">(</span><span class="nc">BankAccount</span> <span class="n">account</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 이 메소드는 인자로 인스턴스의 참조 값을 전달받는다.</span>
+        <span class="n">account</span><span class="o">.</span><span class="na">checkMyBalance</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--참조변수에-null-대입">- <u>참조변수에 null 대입</u></h3>
+<p>참조변수가 참조하는(가리키는) 인스턴스와의 관계를 끊고 아무런 인스턴스도 참조하지 않도록 만들 수도 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">BankAccount</span> <span class="n">ref</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BankAccount</span><span class="o">();</span>
+<span class="n">ref</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// ref가 참조하는 인스턴스와의 관계를 끊음</span>
+</code></pre></div></div>
+<p><br /><br />
+(참고)<br />
+확장자가 class인 클래스파일은 ‘정의되는 클래스의 수’만큼 생성된다.<br />
+즉 ‘정의된 클래스의 수’와 ‘생성되는 클래스 파일의 수’는 동일하다.</p>
+
+<h2 id="07-2-생성자constructor">07-2. 생성자(Constructor)</h2>
+<h3 id="--인스턴스를-구분할-수-있는-유일한-정보를-갖게-하자">- <u>인스턴스를 구분할 수 있는 유일한 정보를 갖게 하자.</u></h3>
+<p>각각의 인스턴스를 참조하는 참조변수들을 매번 만들 수는 없기 때문에<br />
+인스턴스 안에 <b>각각의 인스턴스를 구분할 수 있는 정보</b>를 포함하도록(멤버로 갖도록) class를 디자인해야한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BankAccount</span><span class="o">{</span>
+    <span class="cm">/*
+    * 인스턴스를 구분할 수 있는 정보를 class에 추가해준다!
+    */</span>
+    <span class="nc">Stirng</span> <span class="n">accNumber</span><span class="o">;</span>   <span class="c1">// 계좌번호</span>
+    <span class="nc">String</span> <span class="n">ssNumber</span><span class="o">;</span>    <span class="c1">// 주민번호</span>
+    
+    <span class="kt">int</span> <span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">deposit</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">withdraw</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">checkMyBalance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"잔액: "</span> <span class="o">+</span> <span class="n">balance</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--생성자constructor">- <u>생성자(Constructor)</u></h3>
+<p>이 메소드는 다른 메소드들과 성격상 구분이 된다.</p>
+<ol>
+  <li>인스턴스의 초기화를 위한 메소드이다.</li>
+  <li>때문에 인스턴스 생성 시 반드시 한 번 호출해서 초기화를 진행해야 한다.</li>
+</ol>
+
+<p><br />
+생성자가 되기 위해선 몇 가지 조건이 있다.</p>
+<ol>
+  <li>생성자의 이름은 클래스의 이름과 동일해야 한다.</li>
+  <li>생성자는 값을 반환하지 않고 반환형도 표시하지 않는다.</li>
+</ol>
+
+<p>위 조건을 만족하면 자바 컴파일러에 의해서 생성자로 인식되고, 인스턴스 생성 시 자동으로 호출되어 인스턴스를 초기화하게 된다.</p>
+
+<blockquote>
+  <p>인스턴스 생성의 마지막 단계는 생성자 호출이다.<br />
+어떠한 이유로든 생성자 호출이 생략된 인스턴스는 인스턴스가 아니다.</p>
+</blockquote>
+
+<h3 id="--디폴트-생성자default-constructor">- <u>디폴트 생성자(Default Constructor)</u></h3>
+<p>개발자가 생성자를 생략한 상태의 클래스를 정의하면 자바 컴파일러가 ‘디폴트 생성자’라는 것을 클래스 정의에 넣어준다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BankAccount</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">balance</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">BankAccount</span><span class="o">(){</span>   <span class="c1">// 컴파일러에 의해 자동 삽입되는 '디폴트 생성자'</span>
+        <span class="c1">// empty</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>다만! 컴파일러에 의해서 디폴트 생성자가 삽입이 되더라도 생성자는 직접 정의해 주는 것이 좋다.</p>
+
+<h2 id="07-3-자바의-이름-규칙naming-rule">07-3. 자바의 이름 규칙(Naming Rule)</h2>
+<p>자바 프로그램을 작성하면서 일반적으로 적용하는 ‘이름 짓는 규칙’이 있다.</p>
+
+<h3 id="--클래스의-이름-규칙">- <u>클래스의 이름 규칙</u></h3>
+<p>‘Camel Case 모델’을 따른다.</p>
+<ol>
+  <li>클래스 이름의 첫 문자는 대문자로 시작한다.</li>
+  <li>둘 이상의 단어가 묶여서 하나의 이름을 이룰 때, 새로 시작하는 단어는 대문자로 한다.</li>
+</ol>
+
+<h3 id="--메소드와-변수의-이름-규칙">- <u>메소드와 변수의 이름 규칙</u></h3>
+<p>클래스 이름과 구분이 되어야 코드의 가독성을 높일 수 있다.<br />
+따라서, ‘변형된 Camel Case’를 적용하는 것이 일반적이다.</p>
+<ol>
+  <li>메소드와 변수 이름의 첫 문자는 소문자로 시작한다.</li>
+  <li>둘 이상의 단어가 묶여서 하나의 이름을 이룰 때, 새로 시작하는 단어는 대문자로 한다.</li>
+</ol>
+
+<h3 id="--상수의-이름-규칙">- <u>상수의 이름 규칙</u></h3>
+<p>상수의 이름은 변수의 이름과 구분이 되도록 모든 문자를 대문자로 구성하는 것이 관례이다.<br />
+둘 이상의 단어를 연결해야 하는 경우에는 언더바로 단어와 단어 사이를 연결한다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</title><link href="http://localhost:4000/java%20lang/Chap05/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤" /><published>2022-10-01T00:00:00+09:00</published><updated>2022-10-01T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap05</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap05/"><![CDATA[<h2 id="05-1-if-그리고-else">05-1. if 그리고 else</h2>
 <p>기본 골격 정도만 보고 넘어가자..</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="o">(</span><span class="kc">true</span> <span class="n">or</span> <span class="kc">false</span><span class="o">){</span>
     <span class="c1">// 조건 true 시 실행되는 영역</span>
@@ -203,7 +342,89 @@ if(조건){
 
 <h2 id="05-5-반복문의-중첩">05-5. 반복문의 중첩</h2>
 <p>반복문의 종류가 세 가지이니, 다음과 같이 총 아홉 가지 형태로 반복문의 중첩이 가능하다.<br />
-<img src="/assets/images/java-lang/5-3.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)</title><link href="http://localhost:4000/java%20lang/Chap04/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap04</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap04/"><![CDATA[<h2 id="04-1-자바에서-제공하는-이항-연산자들">04-1. 자바에서 제공하는 이항 연산자들</h2>
+<img src="/assets/images/java-lang/5-3.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의</title><link href="http://localhost:4000/java%20lang/Chap06/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의" /><published>2022-10-01T00:00:00+09:00</published><updated>2022-10-01T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap06</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap06/"><![CDATA[<h2 id="06-1-메소드에-대한-이해와-메소드의-정의">06-1. 메소드에 대한 이해와 메소드의 정의</h2>
+<h3 id="--메소드의-동작">- <u>메소드의 동작</u></h3>
+<p><img src="/assets/images/java-lang/6-1.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodDef</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 시작"</span><span class="o">);</span>
+        <span class="n">hiEveryone</span><span class="o">(</span><span class="mi">26</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 끝"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hiEveryone</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"좋은 아침입니다."</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"제 나이는 "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">"입니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--값을-반환하는-메소드">- <u>값을 반환하는 메소드</u></h3>
+<p><img src="/assets/images/java-lang/6-2.png" alt="image" width="70%" height="70%" /><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodReturns</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">result</span><span class="o">;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">adder</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">square</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">adder</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">addResult</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">addResult</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">square</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="06-2-변수의-스코프">06-2. 변수의 스코프</h2>
+<blockquote>
+  <p>지역변수(Local Variable)는 선언된 지역을 벗어나면 메모리 공간에서 소멸된다.</p>
+</blockquote>
+
+<p><img src="/assets/images/java-lang/6-3.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h2 id="06-3-메소드의-재귀-호출">06-3. 메소드의 재귀 호출</h2>
+<p><img src="/assets/images/java-lang/6-4.png" alt="image" width="70%" height="70%" /><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReculFactorial</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"12 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">12</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><img src="/assets/images/java-lang/6-5.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<p><br /></p>
+
+<p>(주의) 종료 조건을 꼭 설정해야한다. 안 하면 재귀문을 탈출할 수 없다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InfRecul</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">showHi</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showHi</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hi~ "</span><span class="o">);</span>
+
+        <span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="k">return</span><span class="o">;</span>
+
+        <span class="n">showHi</span><span class="o">(</span><span class="n">cnt</span><span class="o">--);</span>  <span class="c1">// cnt의 값이 전달된 다음에 cnt의 값이 감소한다. 따라서 재귀문을 탈출할 수 없다.</span>
+        <span class="c1">// showHi(--cnt);   // 이렇게 써줘야 함</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)</title><link href="http://localhost:4000/java%20lang/Chap04/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap04</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap04/"><![CDATA[<h2 id="04-1-자바에서-제공하는-이항-연산자들">04-1. 자바에서 제공하는 이항 연산자들</h2>
 <h3 id="--대입-연산자와-산술-연산자-------">- <u>대입 연산자와 산술 연산자: =, +, -, *, /, %</u></h3>
 <p><img src="/assets/images/java-lang/4-1.png" alt="image" width="70%" height="70%" /><br /></p>
 
@@ -1454,88 +1675,4 @@ JPA를 사용하면 ‘SQL과 데이터 중심의 설계’에서 ‘객체 중�
         <span class="k">return</span> <span class="k">new</span> <span class="nf">MemberService</span><span class="o">(</span><span class="n">memberRepository</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><category term="h2" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry><entry><title type="html">[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)</title><link href="http://localhost:4000/spring-tutorial/Section05/" rel="alternate" type="text/html" title="[스프링 입문] Section 05 - 회원 관리 예제(웹 MVC 개발)" /><published>2022-09-05T00:00:00+09:00</published><updated>2022-09-06T00:00:00+09:00</updated><id>http://localhost:4000/spring-tutorial/Section05</id><content type="html" xml:base="http://localhost:4000/spring-tutorial/Section05/"><![CDATA[<h2 id="file-tree-참고하기">File Tree 참고하기</h2>
-<p><img src="/assets/images/Spring-Tutorial/5-1.png" alt="Image" width="65%" height="65%" /></p>
-
-<h2 id="홈-화면">홈 화면</h2>
-<p>홈 컨트롤러를 추가해준다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeController.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
-
-<span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeController</span> <span class="o">{</span>
-    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"home"</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Q) ‘/’ 요청 시, index.html 대신 hello.html이 호출되는 이유?<br />
-A) 컨트롤러가 정적 파일보다 우선순위가 높기 때문이다.</p>
-
-<h2 id="회원-등록">회원 등록</h2>
-<p>1) 웹 등록 화면에서 데이터를 전달 받을 폼 객체를 만들어야 한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberForm.java</span>
-<span class="kn">package</span> <span class="nn">hello.hellospring.controller</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberForm</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span> 
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br />
-2) 회원 등록용 폼 컨트롤러 제작</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@Controller</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">;</span>
-    
-    <span class="nd">@Autowired</span>
-    <span class="kd">public</span> <span class="nf">MemberController</span><span class="o">(</span><span class="nc">MemberService</span> <span class="n">memberService</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">memberService</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">createForm</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"members/createMemberForm"</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br />
-3) 회원 컨트롤러에서 회원을 실제 등록하는 기능을 구현</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/members/new"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="nc">String</span> <span class="nf">create</span><span class="o">(</span><span class="nc">MemberForm</span> <span class="n">form</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>   <span class="c1">// 멤버를 생성하고</span>
-    
-    <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">form</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span> <span class="c1">// 폼으로부터 이름을 가져와 member의 이름을 설정하고</span>
-    <span class="n">memberService</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// memberService를 통해 생성한 member를 저장한다.</span>
-    
-    <span class="k">return</span> <span class="s">"redirect:/"</span><span class="o">;</span>    <span class="c1">// 회원 가입 완료 후 다시 home 화면으로 돌아가도록 만든다.</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="회원-조회">회원 조회</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberController.java</span>
-<span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/members"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="nc">String</span> <span class="nf">list</span><span class="o">(</span><span class="nc">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">findMembers</span><span class="o">();</span>
-    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"members"</span><span class="o">,</span> <span class="n">members</span><span class="o">);</span>
-    <span class="k">return</span> <span class="s">"members/memberList"</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Spring-Tutorial" /><category term="java" /><category term="spring" /><category term="h2" /><summary type="html"><![CDATA[Spring Introduction]]></summary></entry></feed>
