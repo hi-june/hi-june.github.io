@@ -149,7 +149,7 @@ var store = [{
         "url": "/java%20lang/Chap05/",
         "teaser": null
       },{
-        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 메소드의 정의",
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의",
         "excerpt":"06-1. 메소드에 대한 이해와 메소드의 정의 - 메소드의 동작 public class MethodDef { public static void main(String[] args) { System.out.println(\"프로그램의 시작\"); hiEveryone(26); System.out.println(\"프로그램의 끝\"); } public static void hiEveryone(int age) { System.out.println(\"좋은 아침입니다.\"); System.out.println(\"제 나이는 \" + age + \"입니다.\"); } } - 값을 반환하는 메소드 public class MethodReturns {...","categories": ["Java lang"],
         "tags": ["java"],
         "url": "/java%20lang/Chap06/",
@@ -159,5 +159,11 @@ var store = [{
         "excerpt":"07-1. 클래스의 정의와 인스턴스의 생성 - 클래스(Class) = 데이터(Data) + 메소드(Method) 클래스: 서로 연관되어 있는 데이터와 메소드를 묶어주는 것 모든 프로그램은 다음 두 가지로 이뤄진다. 데이터: 프로그램상에서 유지하고 관리해야 할 데이터 기능: 데이터를 처리하고 조작하는 기능 class BankAccount{ int balance = 0; // 예금 잔액 public int deposit(int amount){ //...","categories": ["Java lang"],
         "tags": ["java"],
         "url": "/java%20lang/Chap07/",
+        "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스",
+        "excerpt":"08-1. 클래스 패스(Class Path) 클래스 패스(Class Path): 자바 가상머신이 클래스 파일을 찾는 경로 - 현재 디렉토리(Current Directory)를 기준으로 한 실행 기본적으로 java 실행파일은 필요한 class 파일을 현재 디렉토리에서 찾는다. 명령 프롬프트 상에서 작업이 진행 중인 디렉토리의 위치에 클래스파일이 없다면 오류를 뱉는다. 따라서 앞선 상황에서 정상적인 실행 결과를 도출하려면 ‘Class Path’를...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap08/",
         "teaser": null
       }]

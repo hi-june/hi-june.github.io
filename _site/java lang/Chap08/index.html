@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환 -  June &amp; Directory</title>
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스 -  June &amp; Directory</title>
 <meta name="description" content="Java 문법 정리! ">
 
 
@@ -19,8 +19,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환">
-<meta property="og:url" content="http://localhost:4000/java%20lang/Chap03/">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap08/">
 
 
   <meta property="og:description" content="Java 문법 정리! ">
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-09-29T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-10-03T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-09-29T00:00:00+09:00">
+  <meta property="article:modified_time" content="2022-10-03T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/java%20lang/Chap03/">
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap08/">
 
 
 
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환</li>
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스</li>
       
     
   </ol>
@@ -626,18 +626,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스">
     <meta itemprop="description" content="Java 문법 정리!">
-    <meta itemprop="datePublished" content="2022-09-29T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-09-29T00:00:00+09:00">
+    <meta itemprop="datePublished" content="2022-10-03T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-10-03T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-09-29T00:00:00+09:00">2022.09.29</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-09-29">2022.09.29</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-10-03T00:00:00+09:00">2022.10.03</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-03">2022.10.03</time></p>
           
           
             
@@ -685,21 +685,19 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#03-1-상수constants">03-1. 상수(Constants)</a>
+  <li><a href="#08-1-클래스-패스class-path">08-1. 클래스 패스(Class Path)</a>
     <ul>
-      <li><a href="#--자바의-일반적인-상수">- 자바의 일반적인 상수</a></li>
-      <li><a href="#--리터럴literals에-대한-이해">- 리터럴(Literals)에 대한 이해</a></li>
-      <li><a href="#--정수형-상수의-표현-방법">- 정수형 상수의 표현 방법</a></li>
-      <li><a href="#--정수형-상수-관련-추가로-가능한-것들">- 정수형 상수 관련 추가로 가능한 것들</a></li>
-      <li><a href="#--실수형-상수">- 실수형 상수</a></li>
-      <li><a href="#--이스케이프-시퀀스escape-sequences">- 이스케이프 시퀀스(escape sequences)</a></li>
+      <li><a href="#--현재-디렉토리current-directory를-기준으로-한-실행">- 현재 디렉토리(Current Directory)를 기준으로 한 실행</a></li>
+      <li><a href="#--클래스-패스의-지정">- 클래스 패스의 지정</a></li>
+      <li><a href="#--클래스-패스를-고정시키는-방법">- 클래스 패스를 고정시키는 방법</a></li>
     </ul>
   </li>
-  <li><a href="#03-2-형-변환">03-2. 형 변환</a>
+  <li><a href="#08-2-패키지package의-이해">08-2. 패키지(Package)의 이해</a>
     <ul>
-      <li><a href="#--자료형의-변환이-의미하는-것은">- 자료형의 변환이 의미하는 것은?</a></li>
-      <li><a href="#--자동-형-변환implicit-conversion">- 자동 형 변환(Implicit Conversion)</a></li>
-      <li><a href="#--명시적-형-변환explicit-conversion">- 명시적 형 변환(Explicit Conversion)</a></li>
+      <li><a href="#--패키지-선언의-의미와-목적">- 패키지 선언의 의미와 목적</a></li>
+      <li><a href="#--패키지-이름을-짓는-관례">- 패키지 이름을 짓는 관례</a></li>
+      <li><a href="#--이름-충돌의-해결을-위한-패키지의-효과">- 이름 충돌의 해결을 위한 패키지의 효과</a></li>
+      <li><a href="#--import-선언">- import 선언</a></li>
     </ul>
   </li>
 </ul>
@@ -707,118 +705,112 @@
             </nav>
           </aside>
         
-        <h2 id="03-1-상수constants">03-1. 상수(Constants)</h2>
-<h3 id="--자바의-일반적인-상수">- <u>자바의 일반적인 상수</u></h3>
-<p>상수는 ‘값이 변하지 않는 수’를 말한다.<br />
-자바에서는 ‘한 번 그 값이 정해지면 이후로는 변경이 불가능한 변수’도 상수라 한다.<br />
-상수는 두 가지 특징을 지니게된다.</p>
+        <h2 id="08-1-클래스-패스class-path">08-1. 클래스 패스(Class Path)</h2>
+<p><img src="/assets/images/java-lang/8-1.png" alt="image" width="80%" height="80%" /><br /></p>
+<blockquote>
+  <p>클래스 패스(Class Path): 자바 가상머신이 클래스 파일을 찾는 경로</p>
+</blockquote>
 
+<h3 id="--현재-디렉토리current-directory를-기준으로-한-실행">- <u>현재 디렉토리(Current Directory)를 기준으로 한 실행</u></h3>
+<p><img src="/assets/images/java-lang/8-2.png" alt="image" width="80%" height="80%" /><br />
+기본적으로 java 실행파일은 필요한 class 파일을 현재 디렉토리에서 찾는다.<br />
+명령 프롬프트 상에서 작업이 진행 중인 디렉토리의 위치에 클래스파일이 없다면 오류를 뱉는다.<br />
+따라서 앞선 상황에서 정상적인 실행 결과를 도출하려면 ‘Class Path’를 지정해야한다.</p>
+
+<h3 id="--클래스-패스의-지정">- <u>클래스 패스의 지정</u></h3>
+<p>다음에서 설명하는 방식은 ‘일시적인’ 방법이다.<br />
+터미널을 열고, 다시 닫기 전까지만 유지되는 것이다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set classpath=.:/Study/MyClass
+</code></pre></div></div>
+
+<p>위의 명령어를 통해 상대경로인 현재 디렉토리(.)와 절대경로인 /Study/Myclass를 지정해주었다.</p>
+<blockquote>
+  <p>현재 디렉토리가 바뀌면 상대 경로가 지정하는 모든 경로가 그에 맞게 수정된다.</p>
+</blockquote>
+
+<p>이러한 장점 때문에 실무에서는 상대 경로를 주로 사용한다.</p>
+
+<h3 id="--클래스-패스를-고정시키는-방법">- <u>클래스 패스를 고정시키는 방법</u></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># .zshrc
+
+export JAVA_HOME=&lt;설치된 폴더 위치&gt;
+export CLASSPATH=&lt;설치된 폴더 위치&gt;/lib:.
+</code></pre></div></div>
+<p>이렇게 환경변수를 이용해 직접 Class Path를 고정시키는 방법도 있다.<br />
+명령 프롬프트를 새로 띄워도 Class Path가 그대로 유지되기 때문에 주의해서 사용해야한다.</p>
+
+<h2 id="08-2-패키지package의-이해">08-2. 패키지(Package)의 이해</h2>
+<blockquote>
+  <p>패키지는 클래스를 묶는 수단이다.</p>
+</blockquote>
+
+<h3 id="--패키지-선언의-의미와-목적">- <u>패키지 선언의 의미와 목적</u></h3>
+<p>패키지 이름의 예시를 보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">net</span>
+</code></pre></div></div>
+<p>일단 패키지 이름이 java로 시작한다. 이는 자바에서 제공하는 클래스임을 뜻한다.<br />
+그리고 net은 network를 줄인 표현으로 네트워크 관련 기능의 클래스임을 짐작하게 한다.<br />
+이렇게, 패키지는 클래스를 구분하고 파악하는데도 도움이 된다.</p>
+
+<h3 id="--패키지-이름을-짓는-관례">- <u>패키지 이름을 짓는 관례</u></h3>
+<p>패키지의 이름을 지을 때에는 다음의 관례를 따른다.</p>
 <ol>
-  <li>값을 딱 한 번만 할당할 수 있다.</li>
-  <li>한 번 할당된 값은 변경이 불가능하다.</li>
+  <li>클래스의 이름과 구분이 되도록 패키지의 이름은 모두 소문자로 구성한다.</li>
+  <li>인터넷 도메인 이름의 역순으로 패키지 이름을 구성한다.</li>
+  <li>패키지 이름의 끝에 클래스를 정의한 주체 또는 팀을 구분하는 이름을 추가한다.</li>
 </ol>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Constant</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="no">MAX_SIZE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="kt">char</span> <span class="no">CONST_CHAR</span> <span class="o">=</span> <span class="sc">'상'</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="no">CONST_ASSIGNED</span><span class="o">;</span>
-
-        <span class="no">CONST_ASSIGNED</span> <span class="o">=</span> <span class="mi">12</span><span class="o">;</span>
-
-        <span class="c1">// CONST_CHAR = '하' // 컴파일 에러: 상수는 중간에 변경 불가</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수1 : "</span> <span class="o">+</span> <span class="no">MAX_SIZE</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수2 : "</span> <span class="o">+</span> <span class="no">CONST_CHAR</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수3 : "</span> <span class="o">+</span> <span class="no">CONST_ASSIGNED</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p>관례상 상수의 이름은 다음 두 가지 사항을 지켜서 짓는다.</p>
-<ol>
-  <li>상수의 이름은 모두 대문자로 짓는다.</li>
-  <li>이름 둘 이상의 단어로 이뤄질 경우 단어 사이에 언더바를 넣는다.</li>
-</ol>
-
-<h3 id="--리터럴literals에-대한-이해">- <u>리터럴(Literals)에 대한 이해</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">157</span><span class="o">;</span> <span class="c1">// 숫자 157은 리터럴 상수</span>
-<span class="kt">long</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3147483647</span><span class="o">;</span> <span class="c1">// 컴파일 오류 발생: integer number too large</span>
+<p>예를 들어<br />
+‘인터넷 도메인이 hi_june.com인 회사’의 ‘개발자 최씨’가 개발한 클래스를 묶을 패키지 이름을 위의 관례에 따라 만들어보자.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>com.hi_june.choi
 </code></pre></div></div>
 
-<p>숫자를 접했을 때 이를 ‘무엇으로 인식할지에 대한 일종의 약속’이 필요하고,<br />
-이 약속에 근거하여 표현된 숫자를 가리켜 ‘리터럴’ 또는 ‘리터럴 상수’라 한다.</p>
+<h3 id="--이름-충돌의-해결을-위한-패키지의-효과">- <u>이름 충돌의 해결을 위한 패키지의 효과</u></h3>
+<p>패키지의 선언은 다음과 같은 두 가지 특성을 만들어낸다.</p>
 
-<p>long형 변수는 그 표현범위를 생각해보면 충분히 담을 수 있는데도 변수 num2에서 에러를 뱉는다.<br />
-즉, 왼편에 있는 변수의 자료형에 상관없이 정수는 int형으로 표현하기로 약속되어 있다.</p>
+<ul>
+  <li>클래스 접근 방법의 구분
+    <ul>
+      <li>서로 다른 패키지의 두 클래스는 인스턴스 생성 시 사용하는 이름이 다르다.</li>
+    </ul>
+  </li>
+  <li>클래스의 공간적인 구분
+    <ul>
+      <li>서로 다른 패키지의 두 클래스 파일은 저장되는 위치가 다르다.</li>
+    </ul>
+  </li>
+</ul>
 
-<h3 id="--정수형-상수의-표현-방법">- <u>정수형 상수의 표현 방법</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntegerLiterals</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        
-        <span class="kt">byte</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>  <span class="c1">// byte와 short형 정수의 표현 방법을 별도로 제공하지 않기 때문에 다음과 같은 초기화를 허용한다.</span>
-        <span class="kt">short</span> <span class="n">num3</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        
-        <span class="kt">long</span> <span class="n">num4</span> <span class="o">=</span> <span class="mi">3417483647L</span><span class="o">;</span>    <span class="c1">// 반면 long형 정수의 표현 방법은 별도로 제공한다. 숫자 끝에 문자 L또는 l을 붙여야한다.</span>
+<p>패키지의 이름이 결정되고 -&gt; 각 클래스를 패키지로 묶으면 -&gt; 클래스의 인스턴스 생성 방법도 달라진다.<br />
+<img src="/assets/images/java-lang/8-3.png" alt="image" width="80%" height="80%" /><br /></p>
 
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num4</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<p>그에 따라 클래스 파일이 저장되는 위치도 다음과 같이 달라진다.<br />
+<img src="/assets/images/java-lang/8-4.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<h3 id="--import-선언">- <u>import 선언</u></h3>
+<p>클래스가 필요할 때마다 호출을</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">com</span><span class="o">.</span><span class="na">wxfx</span><span class="o">.</span><span class="na">smart</span><span class="o">.</span><span class="na">Circle</span> <span class="n">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">wxfx</span><span class="o">.</span><span class="na">smart</span><span class="o">.</span><span class="na">Circle</span><span class="o">(</span><span class="mf">3.5</span><span class="o">);</span>
+</code></pre></div></div>
+<p>이런 식으로 해야한다면 여간 번거로운 일이 아닐 것이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.wxfx.smart.Circle</span><span class="o">;</span>
+
+<span class="nc">Circle</span> <span class="n">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="o">(</span><span class="mf">3.5</span><span class="o">);</span>
+</code></pre></div></div>
+<p>이런식으로 import문을 이용해서 코드를 간소화할 수 있다.</p>
+
+<p><br /><br />
+(참고)<br />
+클래스가 아닌 패키지를 대상으로 다음과 같이 import 선언을 하는 것도 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.wxfx.smart.*</span><span class="o">;</span>
 </code></pre></div></div>
 
-<h3 id="--정수형-상수-관련-추가로-가능한-것들">- <u>정수형 상수 관련 추가로 가능한 것들</u></h3>
-<p>자바에서는 단위가 큰 수의 표현 및 인식에 도움을 주기 위해 다음과 같이 중간에 언더바를 넣는 것도 허용하고 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100_000_000</span><span class="o">;</span>
-</code></pre></div></div>
-
-<h3 id="--실수형-상수">- <u>실수형 상수</u></h3>
-<p>실수형 상수는 double형으로 인식된다.<br />
-명시하고 싶다면 double형의 경우 끝에 D나 d를 붙이고, float형은 F나 f를 붙인다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mf">3.0004999</span><span class="no">D</span> <span class="o">+</span> <span class="mf">2.0004999d</span><span class="o">)</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mf">3.0004999</span><span class="no">F</span> <span class="o">+</span> <span class="mf">2.0004999f</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="--이스케이프-시퀀스escape-sequences">- <u>이스케이프 시퀀스(escape sequences)</u></h3>
-<p><img src="/assets/images/java-lang/3-1.png" alt="image" width="40%" height="40%" /><br /></p>
-
-<h2 id="03-2-형-변환">03-2. 형 변환</h2>
-<h3 id="--자료형의-변환이-의미하는-것은">- <u>자료형의 변환이 의미하는 것은?</u></h3>
-<p>데이터의 표현 방법에 따라서 연산 방법이 달라진다.<br />
-때문에 다음과 같은 문장이 있다면, 컴파일러는 두 변수 num1과 num2의 자료형이 동일할 것을 기대한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
-<span class="kt">long</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3123235234L</span><span class="o">;</span>
-
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">);</span>    <span class="c1">// num1, num2의 자료형이 다름</span>
-</code></pre></div></div>
-
-<p>데이터의 손실 없이 연산하려면 자료형의 크기가 작은 쪽에서 큰 쪽으로 형 변화가 일어나야한다.</p>
-<ol>
-  <li>변수 num1에 저장된 값을 long형으로 변환하여 메모리에 임시 저장한다.</li>
-  <li>이어서 이 변환된 값과 num2에 저장된 값을 대상으로 덧셈을 진행한다.</li>
-</ol>
-
-<h3 id="--자동-형-변환implicit-conversion">- <u>자동 형 변환(Implicit Conversion)</u></h3>
-<p>프로그래머가 명시한 형 변환이 아닌 필요한 상황에서 자동으로 형 변환이 일어나는 경우를 자동 형 변환이라고 한다.</p>
-
-<p>규칙 1) 자료형의 크기가 큰 방향으로 형 변환이 일어난다.<br />
-규칙 2) 자료형의 크기에 상관없이 정수 자료형보다 실수 자료형이 우선한다.(정수형에 비해 실수형이 값의 표현 범위가 넓기 때문)</p>
-
-<p><img src="/assets/images/java-lang/3-2.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<h3 id="--명시적-형-변환explicit-conversion">- <u>명시적 형 변환(Explicit Conversion)</u></h3>
-<p>자동 형 변환이 진행되지 않는 상황에서도 필요하다면 ‘명시적 형 변환’을 통해 형 변환이 이뤄지도록 문장을 구성할 수 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">long</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">3000000000007L</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">num1</span><span class="o">;</span>
-</code></pre></div></div>
-
-<p>크기가 큰 정수 자료형에서 작은 크기의 정수 자료형으로 형 변환을 진행하는 경우에는 상위 바이트가 잘려 나간다.<br />
-즉, num1의 상위 4바이트를 제외한 나머지 4바이트만 num2에 저장된다.</p>
+<p>다만,<br />
+패키지 대상의 import 선언은 이름 충돌이 발생할 수 있고,<br />
+또 의도하지 않은 클래스의 인스턴스를 생성하는 상황으로 이어질 수 있어서<br />
+가급적 사용을 자제하라고 권고하고 있다.</p>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -830,12 +822,11 @@
 
   <nav class="pagination">
     
-      <a href="/java%20lang/Chap02/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형
+      <a href="/java%20lang/Chap07/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스
 ">이전</a>
     
     
-      <a href="/java%20lang/Chap04/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -843,16 +834,6 @@
 
 
 
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
   	
@@ -864,10 +845,10 @@
 
   <nav class="pagination_prev_next">
     
-      <a href="/java%20lang/Chap02/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형</a>
+      <a href="/java%20lang/Chap07/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스</a>
     
     
-      <a href="/java%20lang/Chap04/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -900,11 +881,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+03+-+%EC%83%81%EC%88%98%EC%99%80+%ED%98%95+%EB%B3%80%ED%99%98%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap03%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+08+-+%ED%8C%A8%ED%82%A4%EC%A7%80%EC%99%80+%ED%81%B4%EB%9E%98%EC%8A%A4+%ED%8C%A8%EC%8A%A4%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap08%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap03%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap08%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap03%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap08%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -918,30 +899,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/java%20lang/Chap08/">[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.03
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1020,6 +977,30 @@
         <div>
             <span>
               <a href="/java%20lang/Chap04/">[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.29
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap03/">[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환</a>
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.29
