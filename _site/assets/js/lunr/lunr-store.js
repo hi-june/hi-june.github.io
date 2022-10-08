@@ -166,4 +166,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap08/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화",
+        "excerpt":"09-1. 정보 은닉(Information Hiding) 자바에서 말하는 ‘정보’는 클래스의 ‘인스턴스 변수’를 의미한다. 데이터에 대해 클래스나 인스턴스 ‘외부’에서 접근하는 것을 막겠다는 뜻이다.(내부에서만 허용하겠다.) 데이터는 가리고 ‘메소드’를 통해서만 접근 가능하도록 해야한다. - 정보를 은닉해야 하는 이유 다음 예시를 보고 문제가 무엇인지 파악해보자. class Circle{ double rad = 0; final double PI = 3.14;...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap09/",
+        "teaser": null
       }]

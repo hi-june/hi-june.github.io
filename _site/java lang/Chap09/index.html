@@ -1,0 +1,1543 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화 -  June &amp; Directory</title>
+<meta name="description" content="Java 문법 정리! ">
+
+
+  <meta name="author" content="hi~ June!!">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content=" June & Directory ">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap09/">
+
+
+  <meta property="og:description" content="Java 문법 정리! ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/Profile/jenga.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2022-10-05T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-10-05T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap09/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "June & Directory",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" June & Directory  Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+
+    <!-- 스크롤바 커스터마이징 -->
+    <style> 
+      ::-webkit-scrollbar{width: 16px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb:hover {background: #4cb7ff;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:12px;height:12px;background:transparent; }
+
+      
+    </style>
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           June & Directory 
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/index.html">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">카테고리 Click</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#java-lang" itemprop="item"><span itemprop="name">Java lang</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile/jenga.jpg" alt="hi~ June!!" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">hi~ June!!</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>반갑습니다!! 😆</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:wnsgur735@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">카테고리 Click</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Nanum Gothic Coding';">전체 글 수</style> <span style="font-family:'Nanum Gothic Coding';">29</style> <span style="font-family:'Nanum Gothic Coding';">개</style> 
+      </li>
+      <li>
+
+        <span class="nav__sub-title">Project</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SiDoli" class="">SiDoli (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Team_ForV" class="">Team_ForV (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Java</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java-lang" class="">Java 기본문법 정리 (9)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Spring/Spring Boot</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Spring-Tutorial" class="">Spring-Tutorial (7)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SpringBoot-JPA" class="">Spring Boot & JPA (1)</a></li>
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">DataBase</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        
+        <span class="nav__sub-title">Computer Science</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Mobile</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/Android" class="">Android (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화">
+    <meta itemprop="description" content="Java 문법 정리!">
+    <meta itemprop="datePublished" content="2022-10-05T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-10-05T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화
+</h1>
+          
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-10-05T00:00:00+09:00">2022.10.05</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-05">2022.10.05</time></p>
+          
+          
+            
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+    
+    </span>
+  </p>
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#09-1-정보-은닉information-hiding">09-1. 정보 은닉(Information Hiding)</a>
+    <ul>
+      <li><a href="#--정보를-은닉해야-하는-이유">- 정보를 은닉해야 하는 이유</a></li>
+      <li><a href="#--정보의-은닉을-위한-pravate-선언">- 정보의 은닉을 위한 pravate 선언</a></li>
+    </ul>
+  </li>
+  <li><a href="#09-2-접근-수준-지시자access-level-modifiers">09-2. 접근 수준 지시자(Access-level Modifiers)</a>
+    <ul>
+      <li><a href="#--네-가지-종류의-접근-수준-지시자">- 네 가지 종류의 ‘접근 수준 지시자’</a></li>
+      <li><a href="#--클래스-정의-대상의-public과-default-선언이-갖는-의미">- 클래스 정의 대상의 public과 default 선언이 갖는 의미</a></li>
+      <li><a href="#--인스턴스-멤버-대상의-public-protected-private-default-선언">- 인스턴스 멤버 대상의 public, protected, private, default 선언</a></li>
+      <li><a href="#--인스턴스-멤버의-public과-default-선언이-갖는-의미">- 인스턴스 멤버의 public과 default 선언이 갖는 의미</a></li>
+      <li><a href="#--인스턴스-멤버의-private-선언이-갖는-의미">- 인스턴스 멤버의 private 선언이 갖는 의미</a></li>
+      <li><a href="#--인스턴스-멤버의-protected-선언이-갖는-의미">- 인스턴스 멤버의 protected 선언이 갖는 의미</a></li>
+      <li><a href="#--인스턴스-멤버를-대상으로-하는-접근-수준-지시자에-대한-정리">- 인스턴스 멤버를 대상으로 하는 접근 수준 지시자에 대한 정리</a></li>
+    </ul>
+  </li>
+  <li><a href="#09-3-캡슐화encapsulation">09-3. 캡슐화(Encapsulation)</a>
+    <ul>
+      <li><a href="#--캡슐화의-개념">- 캡슐화의 개념</a></li>
+      <li><a href="#--캡슐화가-이뤄지지-않은-예제">- 캡슐화가 이뤄지지 않은 예제</a></li>
+      <li><a href="#--캡슐화가-잘-이뤄진-예제">- 캡슐화가 잘 이뤄진 예제</a></li>
+      <li><a href="#--포함-관계로-캡슐화-완성하기">- 포함 관계로 캡슐화 완성하기</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="09-1-정보-은닉information-hiding">09-1. 정보 은닉(Information Hiding)</h2>
+<p>자바에서 말하는 ‘정보’는 클래스의 ‘인스턴스 변수’를 의미한다.</p>
+
+<p>데이터에 대해 클래스나 인스턴스 ‘외부’에서 접근하는 것을 막겠다는 뜻이다.(내부에서만 허용하겠다.)<br />
+데이터는 가리고 ‘메소드’를 통해서만 접근 가능하도록 해야한다.</p>
+
+<h3 id="--정보를-은닉해야-하는-이유">- <u>정보를 은닉해야 하는 이유</u></h3>
+<p>다음 예시를 보고 문제가 무엇인지 파악해보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Circle</span><span class="o">{</span>
+  <span class="kt">double</span> <span class="n">rad</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kd">final</span> <span class="kt">double</span> <span class="no">PI</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Circle</span><span class="o">(</span><span class="kt">double</span> <span class="n">r</span><span class="o">){</span>
+    <span class="n">setRad</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>  <span class="c1">// 아래에 정의된 setRad 메소드 호출을 통한 초기화</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setRad</span><span class="o">(</span><span class="kt">double</span> <span class="n">r</span><span class="o">){</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">){</span>  <span class="c1">// 반지름은 0보다 작을 수 없으므로</span>
+      <span class="n">rad</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="k">return</span><span class="o">;</span> <span class="c1">// 이 위치에서 메소드 빠져 나감</span>
+    <span class="o">}</span>
+    <span class="n">rad</span> <span class="o">=</span> <span class="n">r</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getArea</span><span class="o">(){</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">rad</span> <span class="o">*</span> <span class="n">rad</span><span class="o">)</span> <span class="o">*</span> <span class="no">PI</span><span class="o">;</span>  <span class="c1">// 원의 넓이 반환</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">UnsafeCircle</span><span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[]){</span>
+    <span class="nc">Circle</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="o">(</span><span class="mf">1.5</span><span class="o">);</span> <span class="c1">// 위에서 정의한 Circle 클래스의 인스턴스를 생성</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getArea</span><span class="o">());</span>
+
+    <span class="n">c</span><span class="o">.</span><span class="na">setRad</span><span class="o">(</span><span class="mf">2.5</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getArea</span><span class="o">());</span>
+
+    <span class="n">c</span><span class="o">.</span><span class="na">setRad</span><span class="o">(</span><span class="mf">2.5</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getArea</span><span class="o">());</span>
+
+    <span class="n">c</span><span class="o">.</span><span class="na">rad</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.5</span><span class="o">;</span> <span class="c1">// 옳지 않은 접근 방법, 그리고 문제가 되는 부분(멤버에 직접 접근하였다.)</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getArea</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>setRad 메소드를 보면 Circle 클래스를 정의한 ‘개발자의 의도’를 읽을 수 있다.<br />
+-&gt; 반지름의 길이 rad에 0보다 작은 값이 저장되는 일이 발생하지 않도록 하겠다.</p>
+
+<blockquote>
+  <p>이렇듯 인스턴스 변수에 저장되는 값의 종류와 범위는 해당 클래스를 정의한 사람이 가장 정확히 안다.</p>
+</blockquote>
+
+<p>만약 멤버 변수에 직접적인 접근을 허용하면, <u>컴파일 과정에서 드러나지 않는 중대한 실수</u>가 발생할 수 있다.<br />
+따라서, ‘정보 은닉’을 적용한 클래스의 설계가 필요하다.</p>
+
+<h3 id="--정보의-은닉을-위한-pravate-선언">- <u>정보의 은닉을 위한 pravate 선언</u></h3>
+<p>정보 은닉을 적용한 코드를 보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Circle</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">rad</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// member 변수 rad에 대해 private선언을 넣어줌!</span>
+    <span class="kd">final</span> <span class="kt">double</span> <span class="no">PI</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Circle</span><span class="o">(</span><span class="kt">double</span> <span class="n">r</span><span class="o">){</span>
+        <span class="n">setRad</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setRad</span><span class="o">(</span><span class="kt">double</span> <span class="n">rad</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">rad</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">){</span>    <span class="c1">// 0보다 작은 반지름이 전달되었을 시</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">rad</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>   <span class="c1">// 0으로 초기화</span>
+        <span class="o">}</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">rad</span> <span class="o">=</span> <span class="n">rad</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getRad</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">rad</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getArea</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">rad</span> <span class="o">*</span> <span class="n">rad</span><span class="o">)</span> <span class="o">*</span> <span class="no">PI</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">InfoHideCircle</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Circle</span> <span class="n">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="o">(</span><span class="mf">1.5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"반지름: "</span> <span class="o">+</span> <span class="n">circle</span><span class="o">.</span><span class="na">getRad</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"반지름: "</span> <span class="o">+</span> <span class="n">circle</span><span class="o">.</span><span class="na">getArea</span><span class="o">()</span> <span class="o">+</span> <span class="sc">'\n'</span><span class="o">);</span>
+
+        <span class="c1">// circle.rad = 3.4;    // 컴파일 오류 발생!</span>
+        <span class="n">circle</span><span class="o">.</span><span class="na">setRad</span><span class="o">(</span><span class="mf">3.4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"반지름: "</span> <span class="o">+</span> <span class="n">circle</span><span class="o">.</span><span class="na">getRad</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"반지름: "</span> <span class="o">+</span> <span class="n">circle</span><span class="o">.</span><span class="na">getArea</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>다음 처럼 private 선언을 통해 클래스 내에 정의된 메소드 내에서의 접근만 허용해주었다.</p>
+
+<p>setRad와 getRad처럼 ‘값의 설정’과 ‘값의 참조’를 위한 메소드를 <code class="language-plaintext highlighter-rouge">Setter</code>와 <code class="language-plaintext highlighter-rouge">Getter</code>라고 부른다.</p>
+<ul>
+  <li>Getter
+    <ul>
+      <li>인스턴스 변수의 값을 참조하는 용도로 정의된 메소드</li>
+      <li>변수의 이름이 name이라면, 메소드의 이름은 getName으로 짓는 것이 관례이다.</li>
+    </ul>
+  </li>
+  <li>Setter
+    <ul>
+      <li>인스턴스 변수의 값을 설정하는 용도로 정의된 메소드</li>
+      <li>변수의 이름이 name이라면, 메소드의 이름은 setName으로 짓는 것이 관례이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="09-2-접근-수준-지시자access-level-modifiers">09-2. 접근 수준 지시자(Access-level Modifiers)</h2>
+<p><img src="/assets/images/java-lang/9-1.png" alt="image" width="90%" height="90%" class="align-center" /><br /></p>
+<h3 id="--네-가지-종류의-접근-수준-지시자">- <u>네 가지 종류의 '접근 수준 지시자'</u></h3>
+<p>접근 수준 지시자(Access-level Modifiers)는 이름 그대로 접근의 허용 수준을 결정할 때 선언하는 키워드이다.</p>
+
+<blockquote>
+  <p>public, protected, private, default</p>
+</blockquote>
+
+<p>이러한 키워드 선언은 할 수 있는 대상이 정해져있다.</p>
+<ul>
+  <li>클래스 대상 정의 대상: public, default</li>
+  <li>인스턴스 변수와 메소드 대상: public, protected, private, default</li>
+</ul>
+
+<h3 id="--클래스-정의-대상의-public과-default-선언이-갖는-의미">- <u>클래스 정의 대상의 public과 default 선언이 갖는 의미</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AAA</span><span class="o">{</span>
+  
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">ZZZ</span><span class="o">{</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>public
+    <ul>
+      <li>어디서든 인스턴스 생성이 가능하다.</li>
+      <li>클래스 이름과 소스파일 이름이 같아야 한다. public 자체가 외부에서 공개를 할 필요가 있어서 선언한 것이므로 아예 소스파일명과 같게 만든다.</li>
+      <li>하나의 소스파일엔 하나의 public class만 존재해야한다.</li>
+    </ul>
+  </li>
+  <li>default
+    <ul>
+      <li>동일 패키지로 묶인 클래스 내에서만 인스턴스 생성을 허용한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br />
+예시를 보며 이해해보자.<br />
+<img src="/assets/images/java-lang/9-2.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">zoo</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Duck</span><span class="o">{</span> <span class="c1">// default로 선언되었으므로 동일 패키지 내에서만 인스턴스 생성 가능</span>
+    <span class="c1">// 빈 클래스</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="o">{</span>  <span class="c1">// public으로 선언되었으므로 어디서든 인스턴스 생성 가능</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">makeCat</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Duck</span> <span class="n">quack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Duck</span><span class="o">();</span>    <span class="c1">// Duck과 같은 패키지로 묶여있기 때문에 인스턴스 생성 가능</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">animal</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">makeCat</span><span class="o">(){</span>
+        <span class="n">zoo</span><span class="o">.</span><span class="na">Cat</span> <span class="n">yaong</span> <span class="o">=</span> <span class="k">new</span> <span class="n">zoo</span><span class="o">.</span><span class="na">Cat</span><span class="o">();</span>  <span class="c1">// Cat은 public으로 선언되었으므로 어디서든 인스턴스 생성 가능</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">makeDuck</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">zoo</span><span class="o">.</span><span class="na">Duck</span> <span class="n">quack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">zoo</span><span class="o">.</span><span class="na">Duck</span><span class="o">();</span>    <span class="c1">// Duck은 default로 선언되었으므로 이 위치에서 인스턴스 생성 불가</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--인스턴스-멤버-대상의-public-protected-private-default-선언">- <u>인스턴스 멤버 대상의 public, protected, private, default 선언</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">AAA</span><span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="n">num1</span><span class="o">;</span>  <span class="c1">// 인스턴스 변수의 public 선언</span>
+  <span class="kd">protected</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">;</span> <span class="c1">// 인스턴스 변수의 protected 선언</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">num3</span><span class="o">;</span> <span class="c1">// 인스턴스 변수의 private 선언</span>
+  <span class="kt">int</span> <span class="n">num4</span><span class="o">;</span> <span class="c1">// 인스턴스 변수의 default 선언</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">md1</span><span class="o">(){</span> <span class="o">}</span>  <span class="c1">// 인스턴스 메소드의 public 선언</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">md1</span><span class="o">(){</span> <span class="o">}</span> <span class="c1">// 인스턴스 메소드의 protected 선언</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">md1</span><span class="o">(){</span> <span class="o">}</span> <span class="c1">// 인스턴스 메소드의 private 선언</span>
+  <span class="kt">void</span> <span class="nf">md1</span><span class="o">(){</span> <span class="o">}</span> <span class="c1">// 인스턴스 메소드의 deault 선언</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--인스턴스-멤버의-public과-default-선언이-갖는-의미">- <u>인스턴스 멤버의 public과 default 선언이 갖는 의미</u></h3>
+<ul>
+  <li>public: 어디서든 접근이 가능하다.</li>
+  <li>default: 동일 패키지로 묶인 클래스 내에서만 접근이 가능하다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">zoo</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">makeSound</span><span class="o">()</span> <span class="o">{</span>   <span class="c1">// public 메소드, 어디서든 호출 가능</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"yaong(&gt;_&lt;)"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">makeHappy</span><span class="o">()</span> <span class="o">{</span>  <span class="c1">// default 메소드, 동일 패키지로 묶은 클래스 내에서 호출 가능</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"smile(^_^)"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">animal</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">zoo</span><span class="o">.</span><span class="na">Cat</span> <span class="n">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">zoo</span><span class="o">.</span><span class="na">Cat</span><span class="o">();</span>
+        <span class="n">welcome</span><span class="o">(</span><span class="n">cat</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">welcome</span><span class="o">(</span><span class="n">zoo</span><span class="o">.</span><span class="na">Cat</span> <span class="n">cat</span><span class="o">){</span>
+        <span class="n">cat</span><span class="o">.</span><span class="na">makeSound</span><span class="o">();</span>    <span class="c1">// 호출 가능! 컴파일 성공!</span>
+        <span class="c1">// cat.makeHappy(); // 호출 불가! 컴파일 오류!</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--인스턴스-멤버의-private-선언이-갖는-의미">- <u>인스턴스 멤버의 private 선언이 갖는 의미</u></h3>
+<p><img src="/assets/images/java-lang/9-3.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<p>동일 클래스에 정의된 메소드 내에서만 호출이 가능하다.</p>
+
+<h3 id="--인스턴스-멤버의-protected-선언이-갖는-의미">- <u>인스턴스 멤버의 protected 선언이 갖는 의미</u></h3>
+<p>서로 다른 패키지에 위치하는 두 클래스를 보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// AAA.java</span>
+<span class="kn">package</span> <span class="nn">alpha</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AAA</span><span class="o">{</span>
+  <span class="kd">protected</span> <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>  <span class="c1">// 상속 관계에 있는 클래스에서 접근이 가능하다.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ZZZ.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ZZZ</span> <span class="kd">extends</span> <span class="n">alpha</span><span class="o">.</span><span class="na">AAA</span><span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>  <span class="c1">// 상속된 변수 num의 접근!</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>protected로 선언된 멤버는 상속 관계에 있는 다른 클래스에서 접근 가능하다.</p>
+</blockquote>
+
+<h3 id="--인스턴스-멤버를-대상으로-하는-접근-수준-지시자에-대한-정리">- <u>인스턴스 멤버를 대상으로 하는 접근 수준 지시자에 대한 정리</u></h3>
+<p><img src="/assets/images/java-lang/9-4.png" alt="image" width="90%" height="90%" /><br /></p>
+
+<h2 id="09-3-캡슐화encapsulation">09-3. 캡슐화(Encapsulation)</h2>
+<p>캡슐화는 ‘정보 은닉’과 더불어 객체지향 기반의 클래스 설계에 있어 가장 기본이면서 중요한 원칙 중 하나이다.<br />
+클래스 안에 ‘무엇을 넣을까’에 대한 이론을 제시하는 내용이다.</p>
+
+<blockquote>
+  <p>각자의 class가 자기 역할을 잘 하도록 Design하는 것</p>
+</blockquote>
+
+<h3 id="--캡슐화의-개념">- <u>캡슐화의 개념</u></h3>
+<blockquote>
+  <p>하나의 목적을 이루기 위해 관련 있는 모든 것을 하나의 클래스에 담아 두는 것</p>
+</blockquote>
+
+<p>무조건 많이 담아서도, 부족해도 캡슐화가 아니다.</p>
+
+<h3 id="--캡슐화가-이뤄지지-않은-예제">- <u>캡슐화가 이뤄지지 않은 예제</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SinivelCap</span><span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">take</span><span class="o">(){</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"콧물이 싹~ 납니다."</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">SneezeCap</span><span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">take</span><span class="o">(){</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"재치기가 멎습니다."</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">SnuffleCap</span><span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">take</span><span class="o">(){</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"코가 뻥 뚫립니다."</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">ColdPatient</span><span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">takeSinivelCap</span><span class="o">(</span><span class="nc">SinivelCap</span> <span class="n">cap</span><span class="o">){</span>
+    <span class="n">cap</span><span class="o">.</span><span class="na">take</span><span class="o">();</span>    
+  <span class="o">}</span>
+  <span class="kt">void</span> <span class="nf">takeSneezeCap</span><span class="o">(</span><span class="nc">SneezeCap</span> <span class="n">cap</span><span class="o">){</span>
+    <span class="n">cap</span><span class="o">.</span><span class="na">take</span><span class="o">();</span>    
+  <span class="o">}</span>
+  <span class="kt">void</span> <span class="nf">takeSnuffleCap</span><span class="o">(</span><span class="nc">SnuffleCap</span> <span class="n">cap</span><span class="o">){</span>
+    <span class="n">cap</span><span class="o">.</span><span class="na">take</span><span class="o">();</span>    
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BadEncapsulation</span><span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="nc">ColdPatient</span> <span class="n">suf</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ColdPatient</span><span class="o">();</span>
+
+    <span class="n">suf</span><span class="o">.</span><span class="na">takeSinivelCap</span><span class="o">(</span><span class="k">new</span> <span class="nc">SnivelCap</span><span class="o">());</span>  <span class="c1">// 콧물 캡슐 구매 후 복용</span>
+
+    <span class="n">suf</span><span class="o">.</span><span class="na">takeSneezeCap</span><span class="o">(</span><span class="k">new</span> <span class="nc">SneezeCap</span><span class="o">());</span> <span class="c1">// 재채기 캡슐 구매 후 복용</span>
+
+    <span class="n">suf</span><span class="o">.</span><span class="na">takeSnuffleCap</span><span class="o">(</span><span class="k">new</span> <span class="nc">SnuffleCap</span><span class="o">());</span> <span class="c1">// 코막힘 캡슐 구매 후 복용</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>코감기 증상 완화를 위해 SinivelCap, SneezeCap, SnuffleCap 인스턴스 생성해야 한다.</p>
+</blockquote>
+
+<p>코감기 약 복용이라는 한 가지 목적의 달성을 위해 프로그래머가 알아야 할 것도 많고 코드상에서 약 복용 과정 또한 복잡하다.</p>
+
+<h3 id="--캡슐화가-잘-이뤄진-예제">- <u>캡슐화가 잘 이뤄진 예제</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SinusCap</span><span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">sniTake</span><span class="o">(){</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"콧물이 싹~ 납니다."</span><span class="o">);</span>
+  <span class="o">}</span>
+    <span class="kt">void</span> <span class="nf">sneTake</span><span class="o">(){</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"재채기가 멎습니다."</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="kt">void</span> <span class="nf">sniTake</span><span class="o">(){</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"코가 뻥 뚫립니다."</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kt">void</span> <span class="nf">take</span><span class="o">(){</span>
+    <span class="n">sniTake</span><span class="o">();</span>
+    <span class="n">sneTake</span><span class="o">();</span>
+    <span class="n">snuTake</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">ColdPatient</span><span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">takeSinus</span><span class="o">(</span><span class="nc">SinusCap</span> <span class="n">cap</span><span class="o">){</span>
+    <span class="n">cap</span><span class="o">.</span><span class="na">take</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">OneClassEncapsulation</span><span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="nc">ColdPatient</span> <span class="n">suf</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ColdPatient</span><span class="o">();</span>
+    <span class="n">suf</span><span class="o">.</span><span class="na">takeSinus</span><span class="o">(</span><span class="k">new</span> <span class="nc">SinusCap</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>인스턴스의 생성이 한 번으로 줄어들었고, 복용에 관한 정보(복용 순서, 약의 효능 등등)가 클래스에 모두 들어가있다.<br />
+캡슐화는 이처럼 해당 클래스와 관련있는 내용을 하나의 클래스에 모두 담되 부족하게 담아서도 넘치게 담아서도 안된다!</p>
+
+<h3 id="--포함-관계로-캡슐화-완성하기">- <u>포함 관계로 캡슐화 완성하기</u></h3>
+<p>한 클래스가 다른 클래스의 인스턴스를 멤버로 가질 수 있는데, 이런 관계를 가리켜 ‘포함 관계’라 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SinivelCap</span><span class="o">{</span>   <span class="c1">// 콧물 처치용 캡슐</span>
+    <span class="kt">void</span> <span class="nf">take</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"콧물이 싹~ 납니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SneezeCap</span><span class="o">{</span>    <span class="c1">// 재채기 처치용 캡슐</span>
+    <span class="kt">void</span> <span class="nf">take</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"재채기가 멎습니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SnuffleCap</span><span class="o">{</span>   <span class="c1">// 코막힘 처치용 캡슐</span>
+    <span class="kt">void</span> <span class="nf">take</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"코가 뻥 뚫립니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">TotalCap</span><span class="o">{</span> <span class="c1">// 포함 관계가 담긴 캡슐 class</span>
+    <span class="nc">SinivelCap</span> <span class="n">siCap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SinivelCap</span><span class="o">();</span>
+    <span class="nc">SneezeCap</span> <span class="n">szCap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SneezeCap</span><span class="o">();</span>
+    <span class="nc">SnuffleCap</span> <span class="n">sfCap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SnuffleCap</span><span class="o">();</span>
+
+    <span class="kt">void</span> <span class="nf">take</span><span class="o">(){</span>
+        <span class="n">siCap</span><span class="o">.</span><span class="na">take</span><span class="o">();</span> <span class="n">szCap</span><span class="o">.</span><span class="na">take</span><span class="o">();</span> <span class="n">sfCap</span><span class="o">.</span><span class="na">take</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Patient</span><span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">takeSinus</span><span class="o">(</span><span class="nc">TotalCap</span> <span class="n">cap</span><span class="o">){</span>
+        <span class="n">cap</span><span class="o">.</span><span class="na">take</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CompEncapsulation</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Patient</span> <span class="n">patient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Patient</span><span class="o">();</span>
+        <span class="n">patient</span><span class="o">.</span><span class="na">takeSinus</span><span class="o">(</span><span class="k">new</span> <span class="nc">TotalCap</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <!-- '카테고리 내 다른 글 보러가기' -->
+        <p></p>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Java lang</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <!--
+
+  <nav class="pagination">
+    
+      <a href="/java%20lang/Chap08/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+-->
+
+
+
+
+  
+  	
+  	
+  	
+  	
+  	
+
+
+  <nav class="pagination_prev_next">
+    
+      <a href="/java%20lang/Chap08/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스</a>
+    
+    
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
+    
+  </nav>
+
+
+<!--
+
+
+
+-->
+
+
+
+        <p></p>
+
+        <!-- archive 중간 광고 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+            data-ad-client="ca-pub-6111782407607310"
+            data-ad-slot="5458515780"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+      <footer class="page__meta">
+        
+        <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+09+-+%EC%A0%95%EB%B3%B4+%EC%9D%80%EB%8B%89+%EA%B7%B8%EB%A6%AC%EA%B3%A0+%EC%BA%A1%EC%8A%90%ED%99%94%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap09%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap09%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap09%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+  </article>
+
+  
+  
+    <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
+      <h4 class="page__related-title">최근 글 10 개 :)</h4>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap08/">[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap07/">[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.02
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap06/">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.01
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap05/">[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.01
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap04/">[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.29
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap03/">[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.29
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap02/">[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.29
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap01/">[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let's Start Java</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.29
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/springboot-jpa/Section01/">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.14
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#springboot-jpa" class="page__taxonomy-item-category" rel="tag">SpringBoot-JPA</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#spring-boot" class="page__taxonomy-item-tag" rel="tag">spring boot</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/spring-tutorial/Section07/">[스프링 입문] Section 07 - AOP</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.13
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring-tutorial" class="page__taxonomy-item-category" rel="tag">Spring-Tutorial</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#spring" class="page__taxonomy-item-tag" rel="tag">spring</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 June & Directory. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'hi-june/hi-june.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'photon-dark');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </body>
+</html>
