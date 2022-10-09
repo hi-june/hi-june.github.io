@@ -172,4 +172,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap09/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 10 - 클래스 변수와 클래스 메소드",
+        "excerpt":"10-1. static 선언을 붙여서 하는 클래스 변수 인스턴스 변수: 인스턴스가 생성되었을 때, 생성된 인스턴스 안에 존재하는 변수 클래스 변수: 인스턴스의 생성과 상관없이 존재하는 변수 - 선언된 클래스의 모든 인스턴스가 공유하는 클래스 변수(static 변수) static으로 선언된 변수는 변수가 선언된 클래스의 모든 인스턴스가 공유하는 변수이다. 클래스 변수는 ‘어떠한 인스턴스에도 속하지 않는 상태로...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap10/",
+        "teaser": null
       }]
