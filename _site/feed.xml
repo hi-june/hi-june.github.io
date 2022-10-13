@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-13T18:22:48+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 11 - 메소드 오버로딩과 String 클래스</title><link href="http://localhost:4000/java%20lang/Chap11/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 11 - 메소드 오버로딩과 String 클래스" /><published>2022-10-10T00:00:00+09:00</published><updated>2022-10-10T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap11</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap11/"><![CDATA[<h2 id="11-1-메소드-오버로딩method-overloading">11-1. 메소드 오버로딩(Method overloading)</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-14T00:02:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력</title><link href="http://localhost:4000/java%20lang/Chap12/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력" /><published>2022-10-13T00:00:00+09:00</published><updated>2022-10-13T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap12</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap12/"><![CDATA[<h2 id="12-1-콘솔-출력console-output">12-1. 콘솔 출력(Console Output)</h2>
+<h3 id="--systemoutprintln--systmeoutprint">- <u>System.out.println &amp; Systme.out.print</u></h3>
+<blockquote>
+  <p>System.out.println은 참조 값이 전달되면, 이 값의 인스턴스를 대상으로 toString 메소드를 호출한다. 그리고 이때 반환되는 문자열을 출력한다.</p>
+</blockquote>
+
+<h3 id="--systemoutprintf">- <u>System.out.printf</u></h3>
+<p><img src="/assets/images/java-lang/12-2.png" alt="image" width="50%" height="50%" /><br />
+<br />
+<img src="/assets/images/java-lang/12-1.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h2 id="12-2-콘솔-입력console-input">12-2. 콘솔 입력(Console Input)</h2>
+<h3 id="--scanner-클래스">- <u>Scanner 클래스</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Scanner</span><span class="o">(</span><span class="nc">File</span> <span class="n">source</span><span class="o">)</span>
+<span class="nc">Scanner</span><span class="o">(</span><span class="nc">String</span> <span class="n">source</span><span class="o">)</span>
+<span class="nc">Scanner</span><span class="o">(</span><span class="nc">InputStream</span> <span class="n">source</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="--scanner-클래스의-키보드-적용">- <u>Scanner 클래스의 키보드 적용</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="--scanner-클래스의-주요-메소드들">- <u>Scanner 클래스의 주요 메소드들</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">nextInt</span><span class="o">()</span>
+<span class="kt">byte</span> <span class="nf">nextLine</span><span class="o">()</span>
+<span class="nc">String</span> <span class="nf">nextLine</span><span class="o">()</span>
+<span class="kt">double</span> <span class="nf">nextDouble</span><span class="o">()</span>
+<span class="kt">boolean</span> <span class="nf">nextBoolean</span><span class="o">()</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 11 - 메소드 오버로딩과 String 클래스</title><link href="http://localhost:4000/java%20lang/Chap11/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 11 - 메소드 오버로딩과 String 클래스" /><published>2022-10-10T00:00:00+09:00</published><updated>2022-10-10T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap11</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap11/"><![CDATA[<h2 id="11-1-메소드-오버로딩method-overloading">11-1. 메소드 오버로딩(Method overloading)</h2>
 <h3 id="--메소드-오버로딩의-조건">- <u>메소드 오버로딩의 조건</u></h3>
 <p>호출할 메소드를 찾을 때 다음 두 가지 정보를 참조하여 메소드를 찾게 된다.</p>
 <ol>
@@ -1558,215 +1586,190 @@ if(조건){
 <p><img src="/assets/images/java-lang/4-9.png" alt="image" width="70%" height="70%" /><br /></p>
 
 <h3 id="--비트-쉬프트-연산자---">- <u>비트 쉬프트 연산자: &lt;&lt;, &gt;&gt;, &gt;&gt;&gt;</u></h3>
-<p><img src="/assets/images/java-lang/4-10.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환</title><link href="http://localhost:4000/java%20lang/Chap03/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 03 - 상수와 형 변환" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap03</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap03/"><![CDATA[<h2 id="03-1-상수constants">03-1. 상수(Constants)</h2>
-<h3 id="--자바의-일반적인-상수">- <u>자바의 일반적인 상수</u></h3>
-<p>상수는 ‘값이 변하지 않는 수’를 말한다.<br />
-자바에서는 ‘한 번 그 값이 정해지면 이후로는 변경이 불가능한 변수’도 상수라 한다.<br />
-상수는 두 가지 특징을 지니게된다.</p>
-
-<ol>
-  <li>값을 딱 한 번만 할당할 수 있다.</li>
-  <li>한 번 할당된 값은 변경이 불가능하다.</li>
-</ol>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Constant</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="no">MAX_SIZE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="kt">char</span> <span class="no">CONST_CHAR</span> <span class="o">=</span> <span class="sc">'상'</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="no">CONST_ASSIGNED</span><span class="o">;</span>
-
-        <span class="no">CONST_ASSIGNED</span> <span class="o">=</span> <span class="mi">12</span><span class="o">;</span>
-
-        <span class="c1">// CONST_CHAR = '하' // 컴파일 에러: 상수는 중간에 변경 불가</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수1 : "</span> <span class="o">+</span> <span class="no">MAX_SIZE</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수2 : "</span> <span class="o">+</span> <span class="no">CONST_CHAR</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"상수3 : "</span> <span class="o">+</span> <span class="no">CONST_ASSIGNED</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p>관례상 상수의 이름은 다음 두 가지 사항을 지켜서 짓는다.</p>
-<ol>
-  <li>상수의 이름은 모두 대문자로 짓는다.</li>
-  <li>이름 둘 이상의 단어로 이뤄질 경우 단어 사이에 언더바를 넣는다.</li>
-</ol>
-
-<h3 id="--리터럴literals에-대한-이해">- <u>리터럴(Literals)에 대한 이해</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">157</span><span class="o">;</span> <span class="c1">// 숫자 157은 리터럴 상수</span>
-<span class="kt">long</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3147483647</span><span class="o">;</span> <span class="c1">// 컴파일 오류 발생: integer number too large</span>
-</code></pre></div></div>
-
-<p>숫자를 접했을 때 이를 ‘무엇으로 인식할지에 대한 일종의 약속’이 필요하고,<br />
-이 약속에 근거하여 표현된 숫자를 가리켜 ‘리터럴’ 또는 ‘리터럴 상수’라 한다.</p>
-
-<p>long형 변수는 그 표현범위를 생각해보면 충분히 담을 수 있는데도 변수 num2에서 에러를 뱉는다.<br />
-즉, 왼편에 있는 변수의 자료형에 상관없이 정수는 int형으로 표현하기로 약속되어 있다.</p>
-
-<h3 id="--정수형-상수의-표현-방법">- <u>정수형 상수의 표현 방법</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntegerLiterals</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        
-        <span class="kt">byte</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>  <span class="c1">// byte와 short형 정수의 표현 방법을 별도로 제공하지 않기 때문에 다음과 같은 초기화를 허용한다.</span>
-        <span class="kt">short</span> <span class="n">num3</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        
-        <span class="kt">long</span> <span class="n">num4</span> <span class="o">=</span> <span class="mi">3417483647L</span><span class="o">;</span>    <span class="c1">// 반면 long형 정수의 표현 방법은 별도로 제공한다. 숫자 끝에 문자 L또는 l을 붙여야한다.</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num4</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--정수형-상수-관련-추가로-가능한-것들">- <u>정수형 상수 관련 추가로 가능한 것들</u></h3>
-<p>자바에서는 단위가 큰 수의 표현 및 인식에 도움을 주기 위해 다음과 같이 중간에 언더바를 넣는 것도 허용하고 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100_000_000</span><span class="o">;</span>
-</code></pre></div></div>
-
-<h3 id="--실수형-상수">- <u>실수형 상수</u></h3>
-<p>실수형 상수는 double형으로 인식된다.<br />
-명시하고 싶다면 double형의 경우 끝에 D나 d를 붙이고, float형은 F나 f를 붙인다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mf">3.0004999</span><span class="no">D</span> <span class="o">+</span> <span class="mf">2.0004999d</span><span class="o">)</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mf">3.0004999</span><span class="no">F</span> <span class="o">+</span> <span class="mf">2.0004999f</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="--이스케이프-시퀀스escape-sequences">- <u>이스케이프 시퀀스(escape sequences)</u></h3>
-<p><img src="/assets/images/java-lang/3-1.png" alt="image" width="40%" height="40%" /><br /></p>
-
-<h2 id="03-2-형-변환">03-2. 형 변환</h2>
-<h3 id="--자료형의-변환이-의미하는-것은">- <u>자료형의 변환이 의미하는 것은?</u></h3>
-<p>데이터의 표현 방법에 따라서 연산 방법이 달라진다.<br />
-때문에 다음과 같은 문장이 있다면, 컴파일러는 두 변수 num1과 num2의 자료형이 동일할 것을 기대한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
-<span class="kt">long</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3123235234L</span><span class="o">;</span>
-
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">);</span>    <span class="c1">// num1, num2의 자료형이 다름</span>
-</code></pre></div></div>
-
-<p>데이터의 손실 없이 연산하려면 자료형의 크기가 작은 쪽에서 큰 쪽으로 형 변화가 일어나야한다.</p>
-<ol>
-  <li>변수 num1에 저장된 값을 long형으로 변환하여 메모리에 임시 저장한다.</li>
-  <li>이어서 이 변환된 값과 num2에 저장된 값을 대상으로 덧셈을 진행한다.</li>
-</ol>
-
-<h3 id="--자동-형-변환implicit-conversion">- <u>자동 형 변환(Implicit Conversion)</u></h3>
-<p>프로그래머가 명시한 형 변환이 아닌 필요한 상황에서 자동으로 형 변환이 일어나는 경우를 자동 형 변환이라고 한다.</p>
-
-<p>규칙 1) 자료형의 크기가 큰 방향으로 형 변환이 일어난다.<br />
-규칙 2) 자료형의 크기에 상관없이 정수 자료형보다 실수 자료형이 우선한다.(정수형에 비해 실수형이 값의 표현 범위가 넓기 때문)</p>
-
-<p><img src="/assets/images/java-lang/3-2.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<h3 id="--명시적-형-변환explicit-conversion">- <u>명시적 형 변환(Explicit Conversion)</u></h3>
-<p>자동 형 변환이 진행되지 않는 상황에서도 필요하다면 ‘명시적 형 변환’을 통해 형 변환이 이뤄지도록 문장을 구성할 수 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">long</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">3000000000007L</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">num1</span><span class="o">;</span>
-</code></pre></div></div>
-
-<p>크기가 큰 정수 자료형에서 작은 크기의 정수 자료형으로 형 변환을 진행하는 경우에는 상위 바이트가 잘려 나간다.<br />
-즉, num1의 상위 4바이트를 제외한 나머지 4바이트만 num2에 저장된다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java</title><link href="http://localhost:4000/java%20lang/Chap01/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap01</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap01/"><![CDATA[<h2 id="01-1-자바의-세계로-오신-여러분을-환영합니다">01-1. 자바의 세계로 오신 여러분을 환영합니다.</h2>
-<h3 id="--jdk">- <u>JDK</u></h3>
-<p>자바로 프로그램을 만들기 위해서는 그에 따른 기본 도구가 필요하다.<br />
-이 도구를 가리켜 <code class="language-plaintext highlighter-rouge">JDK(Java Development Kit)</code>라고 한다.<br />
-쉽게 말하면 자바 프로그램 개발을 위한 도구들의 모임 정도로 보면 될 것 같다.<br />
-<a href="https://www.oracle.com">https://www.oracle.com</a>로 가서 받도록 하자!</p>
-
-<h3 id="--환경변수">- <u>환경변수</u></h3>
-<p>명령 프롬프트의 어느 경로에서든 실행 가능하도록 환경변수 Path에 등록해준다.<br />
-환경변수 Path는 운영체제가 명령 프롬프트에서 입력된 실행파일을 찾는 경로의 정보가 된다.<br />
-따라서 명령 프롬프트에서 디렉토리 경로에 상관없이 실행되기를 원하는 실행파일이 있다면<br />
-<u>이 실행파일이 저장되어 있는 경로 정보를 환경변수 Path에 등록해야 한다.</u></p>
-
-<p>본인은 Mac OS를 사용중이기 때문에 zprofile에 Java SDK 경로를 추가해줬다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># java SDK path
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
-</code></pre></div></div>
-
-<h2 id="01-2-자바-프로그램과-실행의-원리에-대한-이해">01-2. 자바 프로그램과 실행의 원리에 대한 이해</h2>
-<h3 id="--자바-프로그램의-실행-구조와-자바-가상머신">- <u>자바 프로그램의 실행 구조와 자바 가상머신</u></h3>
-<ul>
-  <li><b>일반적인 프로그램의 실행 구조</b><br />
-<img src="/assets/images/java-lang/1-1.png" alt="image" width="40%" height="40%" /><br />
-    <ol>
-      <li>하드웨어를 기반으로</li>
-      <li>운영체제가 동작하고,</li>
-      <li>그 위에서 프로그램이 실행되는 구조이다.</li>
-    </ol>
-
-    <p>즉, 하드웨어 위에서 실행되는 운영체제가 프로그램을 실행시키는 구조이다.</p>
-  </li>
-  <li><b>자바 프로그램의 실행 구조</b><br />
-<img src="/assets/images/java-lang/1-2.png" alt="image" width="40%" height="40%" /><br />
-    <ol>
-      <li>운영체제는 자바 가상머신을 실행시키고,</li>
-      <li>자바 가상머신이 자바 프로그램을 실행시키는 구조로 동작한다.<br />
-  <br /></li>
-    </ol>
-  </li>
-  <li><b>자바 가상머신(JVM)이란?</b><br />
-  운영체제 위에서 동작하는 일종의 소프트웨어이다.<br />
-  <img src="/assets/images/java-lang/1-3.png" alt="image" width="50%" height="50%" /><br />
-  이처럼 운영체제가 직접 실행시키는 구조가 아닌 자바 가상머신에 의해 실행되는 구조를 선택할 경우,<br />
-  <u>자바 프로그램을 운영체제에 상관없이 실행시킬 수 있다.</u></li>
-</ul>
-
-<h3 id="--자바-컴파일러와-자바-바이트코드">- <u>자바 컴파일러와 자바 바이트코드</u></h3>
+<p><img src="/assets/images/java-lang/4-10.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형</title><link href="http://localhost:4000/java%20lang/Chap02/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 02 - 변수와 자료형" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap02</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap02/"><![CDATA[<h2 id="02-1-변수의-이해와-활용">02-1. 변수의 이해와 활용</h2>
+<h3 id="--메모리-공간의-활용을-위해-필요한-변수">- <u>메모리 공간의 활용을 위해 필요한 변수</u></h3>
 <blockquote>
-  <p>자바 컴파일러는 자바 가상머신이 이해할 수 있는 코드를 생성해닌다.</p>
+  <p>데이터의 저장과 참조를 위해 ‘할당된 메모리 공간’에 붙인 이름을 ‘변수’라 한다.</p>
 </blockquote>
 
-<p><img src="/assets/images/java-lang/1-4.png" alt="image" width="80%" height="80%" /><br /></p>
+<p>그렇다면 메모리 공간을 어떻게 할당받아야 할까?<br />
+할당받은 메모리 공간은 어떻게 사용할까? 즉, 어떻게 접근해야 할까?</p>
 
-<p>자바 컴파일러(javac.exe): 소스파일에 저장된 소스코드를 자바 가상머신이 이해할 수 있는 ‘자바 바이트코드’로 변환하는 프로그램<br />
-자바 런처(java.exe): 자바 가상머신을 구동하고 그 위에 자바 프로그램이 실행되도록 돕는 프로그램이다.</p>
+<p>두 질문에 대한 답은 ‘변수’ 하나로 정리된다.</p>
 
-<h2 id="01-3-첫-번째-자바-프로그램의-관찰과-응용">01-3. 첫 번째 자바 프로그램의 관찰과 응용</h2>
-<h3 id="--프로그램의-골격과-구성">- <u>프로그램의 골격과 구성</u></h3>
-<p><img src="/assets/images/java-lang/1-5.png" alt="image" width="60%" height="60%" /><br /></p>
+<h3 id="--변수variable는-메모리-공간에-붙여진-이름">- <u>변수(Variable)는 메모리 공간에 붙여진 이름</u></h3>
+<p>그렇다면 메모리 공간을 어떻게 할당받아야 할까? -&gt; 코드상에서 변수라는 것을 선언하면 된다.<br />
+할당받은 메모리 공간은 어떻게 사용할까? 즉, 어떻게 접근해야 할까? -&gt; 변수의 이름을 통해서 메모리 공간에 접근할 수 있다.</p>
 
-<blockquote>
-  <p>자바는 중괄호를 이용해서 클래스와 메소드의 영역을 구분한다.<br /></p>
-</blockquote>
-
-<blockquote>
-  <p>문장의 끝에는 반드시 세미콜론을 붙여서 문장의 끝을 표시한다.</p>
-</blockquote>
-
-<h2 id="01-4-들여쓰기와-컴파일의-대상에서-제외되는-주석">01-4. 들여쓰기와 컴파일의 대상에서 제외되는 주석!</h2>
-<h3 id="--블록-단위-주석">- <u>블록 단위 주석</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
-안녕하세요?
-블록 단위 주석입니다.
-*/</span>
-</code></pre></div></div>
-
-<h3 id="--행-단위-주석">- <u>행 단위 주석</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 안녕하세요? 행 단위 주석입니다.</span>
-</code></pre></div></div>
-
-<h3 id="--들여쓰기indent">- <u>들여쓰기(Indent)</u></h3>
-<p>영역 또는 의미의 구분을 위해서 일정 간격 왼쪽에서 띄운 후에 문장을 입력하는 것을 말한다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SystemOutPrintln</span><span class="o">{</span>
-    <span class="c1">// 4칸 정도 오른쪽으로 들여쓰기 되었다.</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">UseVariable</span><span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="c1">// main 메소드 내에서 4칸 정도 오른쪽으로 들여쓰기 되었다.</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"hi~ June!"</span><span class="o">)</span>
+        <span class="kt">int</span> <span class="n">num1</span><span class="o">;</span>
+        <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>  <span class="c1">// 변수 선언 == 메모리 공간 할당받음</span>
+
+        <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">num3</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span> <span class="c1">// 변수의 이름으로 메모리 공간에 접근</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">+</span> <span class="s">" + "</span><span class="o">+</span> <span class="n">num2</span> <span class="o">+</span><span class="s">" = "</span> <span class="o">+</span> <span class="n">num3</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="--중괄호를-열고-닫는-방식에-대하여">- <u>중괄호를 열고 닫는 방식에 대하여</u></h3>
-<p>일반적인 중괄호 처리 방식은 다음과 같이<br />
-클래스의 이름 오른편에, 그리고 메소드의 이름 오른편에 여는 중괄호를 위치시킨다.</p>
+<h3 id="--자료형의-종류와-구분">- <u>자료형의 종류와 구분</u></h3>
+<p>키워드: 자바 문법을 구성하는 식별자<br />
+자료형: 변수에 저장할 데이터의 유형을 알리기 위한 키워드</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SystemOutPrintln</span><span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"hi~ June!"</span><span class="o">)</span>
+<p><img src="/assets/images/java-lang/2-1.png" alt="image" width="80%" height="80%" /><br />
+위의 표에서 정리한 자료형을 가리켜 ‘기본 자료형(Primitive Data Type)’이라고 한다.</p>
+
+<h3 id="--변수의-이름을-짓는-방법">- <u>변수의 이름을 짓는 방법</u></h3>
+<p>변수의 이름을 짓는데에는 몇몇 제약 사항들이 존재한다.</p>
+<ol>
+  <li>변수의 이름은 숫자로 시작할 수 없다.</li>
+  <li>$과 _ 이외의 다른 특수문자는 변수의 이름에 사용할 수 없다.</li>
+  <li>키워드는 변수의 이름으로 사용할 수 없다.</li>
+</ol>
+
+<h2 id="02-2-정수의-표현-방식-이해하기">02-2. 정수의 표현 방식 이해하기</h2>
+<h3 id="--컴퓨터가-정수를-표현하는-방식">- <u>컴퓨터가 정수를 표현하는 방식</u></h3>
+<p>먼저, 몇 바이트로 정수를 표현할 것인가 를 결정해야한다.<br />
+다음의 예시는 1바이트를 기준으로 정수의 표현 방식을 설명한다.</p>
+
+<p><img src="/assets/images/java-lang/2-2.png" alt="image" width="40%" height="40%" /><br />
+가장 왼쪽에 위치한 비트는 부호를 나타낸다.<br />
+이렇게 부호를 결정짓는 가장 왼쪽에 위치한 비트를 가리켜 <code class="language-plaintext highlighter-rouge">MSB(Most Significant Bit)</code>라 한다.<br />
+이 비트가 0이면 양수를, 1이면 음수를 의미한다.<br />
+나머지 일곱 비트는 데이터의 양적인 크기를 의미한다.</p>
+
+<h3 id="--음의-정수를-표현하는-방식이-이게-맞아">- <u>음의 정수를 표현하는 방식이 이게 맞아?</u></h3>
+<p>그렇다면, 단순히 MSB 비트를 1로 바꾸면 음수를 만들 수 있는 것 아닌가? 한 번 확인해보자.<br />
+<img src="/assets/images/java-lang/2-3.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<p>연산을 해보니 0이 나오질 않는다. 그렇다면 음수의 표현은 어떻게 할까?</p>
+<blockquote>
+  <p>양의 정수의 이진수 표현에 2의 보수를 취한 결과를 음의 정수로 표현한다.</p>
+</blockquote>
+
+<h3 id="--2의-보수를-구하는-방법">- <u>2의 보수를 구하는 방법</u></h3>
+<p><img src="/assets/images/java-lang/2-4.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<ol>
+  <li>1의 보수를 구하고(각 비트 별로 1은 0으로, 0은 1로 변경하여 얻는다.),</li>
+  <li>1을 더한다.</li>
+</ol>
+
+<p><img src="/assets/images/java-lang/2-5.png" alt="image" width="40%" height="40%" /><br />
+컴퓨터는 n바이트 덧셈 연산을 할 경우 그 결과도 n바이트로 만들어낸다.<br />
+따라서 올림 수(Carry) 보정을 하지 않으면 덧셈 과정에서 발생하는 올림 수는 그냥 버려진다.</p>
+
+<h2 id="02-3-실수의-표현-방식-이해하기">02-3. 실수의 표현 방식 이해하기</h2>
+<h3 id="--실수의-표현-방식은-고민거리였습니다">- <u>실수의 표현 방식은 고민거리였습니다.</u></h3>
+<blockquote>
+  <p>1과 2 사이에 존재하는 실수의 개수는 몇 개인가?</p>
+</blockquote>
+
+<p>이처럼 소수점 이하 자릿수까지 표현해야 하는 실수를 컴퓨터로 표현하는 데는 한계가 있다.</p>
+
+<h3 id="--그래서-정밀도를-낮추고-근사치의-값을-찾아서-표현하기로-결정하였습니다">- <u>그래서 정밀도를 낮추고 근사치의 값을 찾아서 표현하기로 결정하였습니다.</u></h3>
+<p>오차를 혀용하지 않으면서 그 광대한 실수를 표현하는 것은 불가능하다.<br />
+따라서 다음과 같은 결론에 도달하게 된다.</p>
+<blockquote>
+  <p>정밀도를 낮추고 대신에 표현할 수 있는 값의 범위를 넓히자.</p>
+</blockquote>
+
+<p><img src="/assets/images/java-lang/2-6.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h2 id="02-4-자바의-기본-자료형">02-4. 자바의 기본 자료형</h2>
+<h3 id="--정수-자료형-byte-short-int-long">- <u>정수 자료형: byte, short, int, long</u></h3>
+<p>이 자료형으로 할당된 메모리 공간에는 ‘정수’의 표현 방식을 기준으로 값을 저장 및 참조하게 된다.<br />
+네 자료형이 같는 차이점은 <u>정수의 표현에 사용되는 메모리 공간의 크기에 있다.</u></p>
+
+<h3 id="--short형-변수를-선언할까요-int형-변수를-선언할까요">- <u>short형 변수를 선언할까요? int형 변수를 선언할까요?</u></h3>
+<blockquote>
+  <p>효율적인 메모리의 관리를 위해 적은 바이트로 선언할 수 있다면 short형 변수를 선언하는 것이 좋지 않을까..?</p>
+</blockquote>
+
+<p>다음 코드를 보면 컴파일 오류가 발생하는 것을 알 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OperatePromotion</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">short</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
+        <span class="kt">short</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">22</span><span class="o">;</span>
+        
+        <span class="kt">short</span> <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span> <span class="c1">// 컴파일 오류 발생</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>자바는 정수형 연산을 int형으로 진행한다.</p>
+</blockquote>
+
+<p>연산 수행 시 byte형 변수나 short형 변수에 저장된 값을 먼저 int형 값으로 변경해 버린다.<br />
+result는 short형 변수인데, 연산이 진행된 결과는 int형이므로 에러가 난다.</p>
+
+<p>정리하면, 연산을 동반하는 상황에서는 변수를 byte, short로 선언해도 생각만큼 메모리가 절약되지 않고<br />
+오히려 데이터의 변환 과정만 추가될 뿐이니, 이때는 int로 선언하자.
+(참고) long형에서 int형으로의 변환은 일어나지 않는다. 8바이트를 4바이트로 변환하면 데이터 손실이 발행하기 때문이다.</p>
+
+<p>Q) 그렇다면 byte나 short형은 불필요한가?<br />
+A) 아니다.<br />
+프로그램상에서 표현하는 데이터 중에는 잦은 연산이 필요한 데이터도 있지만 그렇지 않은 경우도 있다.<br />
+예를 들면 게임의 지형, 캐릭터 등을 그리기 위한 그래픽 정보나 음원 정보 등이 있다.<br />
+이러한 경우에는 int형보다 작은 byte형 또는 short형으로 데이터를 저장하는 것이 의미가 있다.</p>
+
+<h3 id="--실수-자료형-float-double">- <u>실수 자료형: float, double</u></h3>
+<p>이들은 모두 정밀도를 포기하고 표현의 범위를 넓힌 자료형 들이기 때문에 float와 double의 선택 기준은 ‘값의 표현 범위’에 있지 않다.<br />
+그렇다면 float과 double의 선택 기준은 어디에 있을까?</p>
+
+<blockquote>
+  <p>답은 정밀도이다. 실수의 표현에 사용되는 바이트 수가 크면 오차의 크기는 작아진다.</p>
+</blockquote>
+
+<p>실제로 float은 6자리의 정밀도를 갖고, double은 15자리의 정밀도를 갖는다.<br />
+다시 말해 float는 소수점 이하 6자리까지는 오차가 발생하지 않고 double은 소수점 이하 15자리까지 오차가 발생하지 않는다.</p>
+
+<p>(참고)<br />
+double형 데이터 하나만 놓고 보면 소수점 이하 15자리까지는 오차가 발생하지 않는다.<br />
+하지만 그 이하부터는 오차가 발생하기 때문에, 오차가 존재하는 double형 데이터 둘 이상을 더하다 보면, 소수점 이하 셋째 자리에서 오차가 발견될 수도 있다.<br />
+따라서 실수의 계산은 기본적으로 오차가 존재한다고 가정해야 한다.</p>
+
+<h3 id="--문자-자료형-char">- <u>문자 자료형: char</u></h3>
+<p>수를 인식하고 표현하는 장치인 하드웨어에서 문자를 어떻게 표현해야할까?</p>
+<blockquote>
+  <p>문자 하나하나에 숫자를 부여하는 방식으로 표현한다.</p>
+</blockquote>
+
+<p>이러한 ‘문자의 표현에 대한 약속’을 가리켜 ‘문자 셋(Character Set)’이라 하고,<br />
+전 세계적으로 사용할 수 있는 문자 셋을 설계하게 되었는데, 이를 가리켜 ‘유니코드(Unicode)’라 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CharTypeUnicode</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">char</span> <span class="n">ch1</span> <span class="o">=</span> <span class="sc">'헐'</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch2</span> <span class="o">=</span> <span class="sc">'확'</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch3</span> <span class="o">=</span> <span class="mi">54736</span><span class="o">;</span>   <span class="c1">// 문자 '헐'의 유니코드 값</span>
+        <span class="kt">char</span> <span class="n">ch4</span> <span class="o">=</span> <span class="mi">54869</span><span class="o">;</span>   <span class="c1">// 문자 '확'의 유니코드 값</span>
+        <span class="kt">char</span> <span class="n">ch5</span> <span class="o">=</span> <span class="mh">0xD5D0</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">ch6</span> <span class="o">=</span> <span class="mh">0xD655</span><span class="o">;</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch1</span> <span class="o">+</span> <span class="s">" "</span><span class="o">+</span><span class="n">ch2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch3</span> <span class="o">+</span> <span class="s">" "</span><span class="o">+</span><span class="n">ch4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch5</span> <span class="o">+</span> <span class="s">" "</span><span class="o">+</span><span class="n">ch6</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>자바의 char는 문자의 저장을 위한 자료형이다. 자바는 유니코드를 기반으로 문자를 처리한다.<br />
+정리하자면</p>
+<ol>
+  <li>자바 프로그램 내에서 문자는 작은따옴표로 묶어서 표현한다.</li>
+  <li>문자를 char형 변수에 저장할 때 실제 저장되는 것은 해당 문자의 유니코드 값이다.</li>
+</ol>
+
+<h3 id="--논리-자료형-boolean">- <u>논리 자료형: boolean</u></h3>
+<p>자바에는 ‘참’과 ‘거짓’의 표현을 목적으로 하는 ‘논리 자료형’이라는 것이 존재한다.<br />
+이 두 상태의 표현을 위해 다음 두 개의 키워드를 정의하고 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="n">isBlue</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>  <span class="c1">// '참'을 의미하는 값</span>
+<span class="kt">boolean</span> <span class="n">isRed</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>  <span class="c1">// '거짓'을 의미하는 값</span>
 </code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>

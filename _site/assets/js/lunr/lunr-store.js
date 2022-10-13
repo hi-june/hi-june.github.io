@@ -184,4 +184,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap11/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력",
+        "excerpt":"12-1. 콘솔 출력(Console Output) - System.out.println &amp; Systme.out.print System.out.println은 참조 값이 전달되면, 이 값의 인스턴스를 대상으로 toString 메소드를 호출한다. 그리고 이때 반환되는 문자열을 출력한다. - System.out.printf 12-2. 콘솔 입력(Console Input) - Scanner 클래스 Scanner(File source) Scanner(String source) Scanner(InputStream source) - Scanner 클래스의 키보드 적용 Scanner sc = new Scanner(System.in); -...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap12/",
+        "teaser": null
       }]
