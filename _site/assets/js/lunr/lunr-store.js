@@ -190,4 +190,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap12/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)",
+        "excerpt":"13-1. 1차원 배열의 이해와 활용 배열: 자료형이 같은 둘 이상의 값을 저장할 수 있는 메모리 공간 - 1차원 배열의 생성방법 자바는 배열도 ‘인스턴스’로 처리한다. public class ArrayIsInstance { public static void main(String[] args) { // 길이가 5인 int형 1차원 배열의 생성 int[] ar1 = new int[5]; // 배열의 참조변수와 인스턴스...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap13/",
+        "teaser": null
       }]
