@@ -1,0 +1,1323 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본 -  June &amp; Directory</title>
+<meta name="description" content="Java 문법 정리! ">
+
+
+  <meta name="author" content="hi~ June!!">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content=" June & Directory ">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap14/">
+
+
+  <meta property="og:description" content="Java 문법 정리! ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/Profile/jenga.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2022-10-17T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-10-17T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap14/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "June & Directory",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" June & Directory  Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+
+    <!-- 스크롤바 커스터마이징 -->
+    <style> 
+      ::-webkit-scrollbar{width: 16px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb:hover {background: #4cb7ff;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:12px;height:12px;background:transparent; }
+
+      
+    </style>
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           June & Directory 
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/index.html">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">카테고리 Click</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#java-lang" itemprop="item"><span itemprop="name">Java lang</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile/jenga.jpg" alt="hi~ June!!" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">hi~ June!!</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>반갑습니다!! 😆</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:wnsgur735@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">카테고리 Click</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Nanum Gothic Coding';">전체 글 수</style> <span style="font-family:'Nanum Gothic Coding';">34</style> <span style="font-family:'Nanum Gothic Coding';">개</style> 
+      </li>
+      <li>
+
+        <span class="nav__sub-title">Project</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SiDoli" class="">SiDoli (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Team_ForV" class="">Team_ForV (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Java</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java-lang" class="">Java 기본문법 정리 (14)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Spring/Spring Boot</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Spring-Tutorial" class="">Spring-Tutorial (7)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SpringBoot-JPA" class="">Spring Boot & JPA (1)</a></li>
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">DataBase</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        
+        <span class="nav__sub-title">Computer Science</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Mobile</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/Android" class="">Android (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본">
+    <meta itemprop="description" content="Java 문법 정리!">
+    <meta itemprop="datePublished" content="2022-10-17T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-10-17T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본
+</h1>
+          
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-10-17T00:00:00+09:00">2022.10.17</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-17">2022.10.17</time></p>
+          
+          
+            
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+    
+    </span>
+  </p>
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#14-1-상속의-기본-문법-이해">14-1. 상속의 기본 문법 이해</a>
+    <ul>
+      <li><a href="#--상속에-대한-매우-치명적인-오해">- 상속에 대한 매우 치명적인 오해</a></li>
+      <li><a href="#--상속의-가장-기본적인-특성">- 상속의 가장 기본적인 특성</a></li>
+      <li><a href="#--상속과-생성자">- 상속과 생성자</a></li>
+      <li><a href="#--상속-관계에-있는-두-클래스의-적절한-생성자-정의">- 상속 관계에 있는 두 클래스의 적절한 생성자 정의</a></li>
+      <li><a href="#--단일-상속만을-지원하는-자바">- 단일 상속만을 지원하는 자바</a></li>
+    </ul>
+  </li>
+  <li><a href="#14-2-클래스-변수-클래스-메소드와-상속">14-2. 클래스 변수, 클래스 메소드와 상속</a>
+    <ul>
+      <li><a href="#--static-선언이-붙는-클래스-변수와-클래스-메소드의-상속">- static 선언이 붙는 ‘클래스 변수’와 ‘클래스 메소드’의 상속</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="14-1-상속의-기본-문법-이해">14-1. 상속의 기본 문법 이해</h2>
+<h3 id="--상속에-대한-매우-치명적인-오해">- <u>상속에 대한 매우 치명적인 오해</u></h3>
+<p>상속의 이유와 목적에 대해 설명할 때, 단순히 이렇게 답하는 경우가 있다.</p>
+<blockquote>
+  <p>상속은 코드의 재활용을 위한 문법이다..?</p>
+</blockquote>
+
+<p>하지만 객체지향 기반의 개발을 공부하다보면 상속을 단순히 코드의 재활용을 위한 문법이라기보단 다음과 같은 설명이 더 적합하다.</p>
+<blockquote>
+  <p>연관된 일련의 클래스들에 대해 공통적인 규약(규칙)을 정의할 수 있다.</p>
+</blockquote>
+
+<h3 id="--상속의-가장-기본적인-특성">- <u>상속의 가장 기본적인 특성</u></h3>
+<p>상속을 단순하게 설명하면,</p>
+<blockquote>
+  <p>기존에 정의된 클래스에 메소드와 변수를 추가하여 새로운 클래스를 정의하는 것이다.</p>
+</blockquote>
+
+<p>Man 클래스를 상속하여 새로운 클래스 BusinessMan 클래스를 만들어보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Man</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tellYourName</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My name is "</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BusinessMan</span> <span class="kd">extends</span> <span class="nc">Man</span> <span class="o">{</span> <span class="c1">// Man을 상속하는 BusinessMan</span>
+    <span class="nc">String</span> <span class="n">company</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">position</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tellYourInfo</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My company is "</span> <span class="o">+</span> <span class="n">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My position is "</span> <span class="o">+</span> <span class="n">position</span><span class="o">);</span>
+        <span class="n">tellYourName</span><span class="o">();</span> <span class="c1">// Man 클래스를 상속했기 때문에 호출 가능!</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/14-1.png" alt="image" width="50%" height="50%" />
+<img src="/assets/images/java-lang/14-2.png" alt="image" width="49%" height="50%" /><br /></p>
+
+<h3 id="--상속과-생성자">- <u>상속과 생성자</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SuperCLS</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">SuperCLS</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Super Class!!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SubCLS</span> <span class="kd">extends</span> <span class="nc">SuperCLS</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">SubCLS</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sub Class!!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SuperSubCon</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="nf">SubCLS</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/14-3.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<ol>
+  <li>하위 클래스의 인스턴스 생성 시 상위 클래스, 하위 클래스의 생성자 ‘모두’ 호출된다.</li>
+  <li>하위 클래스의 인스턴스 생성 시 상위 클래스의 생성자가 ‘먼저’ 호출된다.</li>
+</ol>
+
+<p><br />그렇다면, 상위 클래스의 생성자가 여러 개 있을 시 어떻게 명시적으로 호출할 수 있을까?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SuperCLS</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">SuperCLS</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SuperCLS()"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">SuperCLS</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>    <span class="c1">// 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SuperCLS(int i)"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">SuperCLS</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SuperCLS(int i, int j)"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SubCLS</span> <span class="kd">extends</span> <span class="nc">SuperCLS</span> <span class="o">{</span> <span class="c1">// super(); // 상위 클래스의 생성자를 명시적으로 호출하지 않으면 자동으로 호출됨</span>
+    <span class="c1">// super를 이용한 상위 클래스의 생성자 호출문은 생성자의 첫 문장에 들어가야 함</span>
+    <span class="kd">public</span> <span class="nf">SubCLS</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SubCLS()"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">SubCLS</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>   <span class="c1">// 상위 클래스의 2번 메소드 호출</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SubCLS(int i)"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">SubCLS</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>    <span class="c1">// 상위 클래스의 3번 메소드 호출</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SubCLS(int i, int j)"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SuperSubCon2</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"1. "</span><span class="o">);</span>
+        <span class="k">new</span> <span class="nf">SubCLS</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"2. "</span><span class="o">);</span>
+        <span class="k">new</span> <span class="nf">SubCLS</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3. "</span><span class="o">);</span>
+        <span class="k">new</span> <span class="nf">SubCLS</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/14-4.png" alt="image" width="60%" height="60%" /><br /></p>
+
+<h3 id="--상속-관계에-있는-두-클래스의-적절한-생성자-정의">- <u>상속 관계에 있는 두 클래스의 적절한 생성자 정의</u></h3>
+<blockquote>
+  <p>모든 멤버는 자신이 속한 클래스에서 초기화되는 것이 좋다.</p>
+</blockquote>
+
+<p>따라서, 상속에서도 마찬가지로 상위 클래스의 멤버는 상위 클래스의 생성자를 통해서 초기화해야한다.<br />
+앞서 만든 BusinessMan 클래스를 리펙토링해보자!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Man</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Man</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tellYourName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My name is "</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">BusinessMan</span> <span class="kd">extends</span> <span class="nc">Man</span><span class="o">{</span>
+    <span class="nc">String</span> <span class="n">company</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">position</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">BusinessMan</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">String</span> <span class="n">company</span><span class="o">,</span> <span class="nc">String</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">company</span> <span class="o">=</span> <span class="n">company</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="n">position</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tellYourInfo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My company is "</span> <span class="o">+</span> <span class="n">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My position is "</span> <span class="o">+</span> <span class="n">position</span><span class="o">);</span>
+        <span class="n">tellYourName</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBusinessMan</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">BusinessMan</span> <span class="n">man</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BusinessMan</span><span class="o">(</span><span class="s">"Hi-June"</span><span class="o">,</span> <span class="s">"TUK"</span><span class="o">,</span> <span class="s">"Developer"</span><span class="o">);</span>
+        <span class="n">man</span><span class="o">.</span><span class="na">tellYourInfo</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/14-5.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<h3 id="--단일-상속만을-지원하는-자바">- <u>단일 상속만을 지원하는 자바</u></h3>
+<p>자바는 프로그램이 과도하게 복잡해지는 것을 방지하기 위해 단일 상속만을 지원한다.<br />
+하나의 클래스가 상속할 수 있는 클래스의 수가 최대 하나라는 것을 의미한다.</p>
+
+<p>(참고) 다중 상속을 하게 되면 어떤 문제가 생길까?</p>
+<ol>
+  <li>
+    <p>애매한 상황이 발생한다.<br />
+<img src="/assets/images/java-lang/14-6.png" alt="image" width="40%" height="40%" /><br />
+동일한 이름을 가진 print()를 상속받을 때 문제가 생긴다.</p>
+  </li>
+  <li>
+    <p>다이아몬드 문제<br />
+<img src="/assets/images/java-lang/14-7.png" alt="image" width="40%" height="40%" /><br />
+show() 메소드의 경로에 대해서 애매한 문제가 발생한다.</p>
+  </li>
+</ol>
+
+<h2 id="14-2-클래스-변수-클래스-메소드와-상속">14-2. 클래스 변수, 클래스 메소드와 상속</h2>
+<h3 id="--static-선언이-붙는-클래스-변수와-클래스-메소드의-상속">- <u>static 선언이 붙는 '클래스 변수'와 '클래스 메소드'의 상속</u></h3>
+<p>클래스 변수와 클래스 메소드의 특징은 다음과 같다.</p>
+
+<ol>
+  <li>인스턴스의 생성과 상관 없이 접근이 가능하다.</li>
+  <li>클래스 내부와 외부에서(접근 수준 지시자가 허용하면) 접근이 가능하다.</li>
+  <li>클래스 변수와 클래스 메소드가 위치한 클래스 내에서는 직접 접근이 가능하다.</li>
+</ol>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SuperCLS</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>   <span class="c1">// 클래스 변수</span>
+
+    <span class="kd">public</span> <span class="nf">SuperCLS</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">count</span><span class="o">++;</span>    <span class="c1">// 클래스 내에서는 직접 접근이 가능</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>클래스 변수는 인스턴스의 멤버로써 존재하지 않는다.<br />
+따라서, 이를 상속하는 하위 클래스의 멤버로도 존재할 수 없다.<br />
+일반적으로 static 변수에 접근하듯이 접근하면 된다.</p>
+
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <!-- '카테고리 내 다른 글 보러가기' -->
+        <p></p>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Java lang</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <!--
+
+  <nav class="pagination">
+    
+      <a href="/java%20lang/Chap13/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+-->
+
+
+
+
+  
+  	
+  	
+  	
+  	
+  	
+
+
+  <nav class="pagination_prev_next">
+    
+      <a href="/java%20lang/Chap13/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)</a>
+    
+    
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
+    
+  </nav>
+
+
+<!--
+
+
+
+-->
+
+
+
+        <p></p>
+
+        <!-- archive 중간 광고 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+            data-ad-client="ca-pub-6111782407607310"
+            data-ad-slot="5458515780"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+      <footer class="page__meta">
+        
+        <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+14+-+%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98+%EC%83%81%EC%86%8D+1%3A+%EC%83%81%EC%86%8D%EC%9D%98+%EA%B8%B0%EB%B3%B8%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap14%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap14%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap14%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+  </article>
+
+  
+  
+    <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
+      <h4 class="page__related-title">최근 글 10 개 :)</h4>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap13/">[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap12/">[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.13
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap11/">[윤성우의 열혈 Java 프로그래밍] Chapter 11 - 메소드 오버로딩과 String 클래스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.10
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap10/">[윤성우의 열혈 Java 프로그래밍] Chapter 10 - 클래스 변수와 클래스 메소드</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.09
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap09/">[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap08/">[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap07/">[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.02
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap06/">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.01
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap05/">[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.01
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap04/">[윤성우의 열혈 Java 프로그래밍] Chapter 04 - 연산자(Operators)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.09.29
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 June & Directory. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'hi-june/hi-june.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'photon-dark');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </body>
+</html>

@@ -1,4 +1,209 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-16T12:53:53+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)</title><link href="http://localhost:4000/java%20lang/Chap13/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)" /><published>2022-10-15T00:00:00+09:00</published><updated>2022-10-15T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap13</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap13/"><![CDATA[<h2 id="13-1-1차원-배열의-이해와-활용">13-1. 1차원 배열의 이해와 활용</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-18T01:06:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본</title><link href="http://localhost:4000/java%20lang/Chap14/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본" /><published>2022-10-17T00:00:00+09:00</published><updated>2022-10-17T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap14</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap14/"><![CDATA[<h2 id="14-1-상속의-기본-문법-이해">14-1. 상속의 기본 문법 이해</h2>
+<h3 id="--상속에-대한-매우-치명적인-오해">- <u>상속에 대한 매우 치명적인 오해</u></h3>
+<p>상속의 이유와 목적에 대해 설명할 때, 단순히 이렇게 답하는 경우가 있다.</p>
+<blockquote>
+  <p>상속은 코드의 재활용을 위한 문법이다..?</p>
+</blockquote>
+
+<p>하지만 객체지향 기반의 개발을 공부하다보면 상속을 단순히 코드의 재활용을 위한 문법이라기보단 다음과 같은 설명이 더 적합하다.</p>
+<blockquote>
+  <p>연관된 일련의 클래스들에 대해 공통적인 규약(규칙)을 정의할 수 있다.</p>
+</blockquote>
+
+<h3 id="--상속의-가장-기본적인-특성">- <u>상속의 가장 기본적인 특성</u></h3>
+<p>상속을 단순하게 설명하면,</p>
+<blockquote>
+  <p>기존에 정의된 클래스에 메소드와 변수를 추가하여 새로운 클래스를 정의하는 것이다.</p>
+</blockquote>
+
+<p>Man 클래스를 상속하여 새로운 클래스 BusinessMan 클래스를 만들어보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Man</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tellYourName</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My name is "</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BusinessMan</span> <span class="kd">extends</span> <span class="nc">Man</span> <span class="o">{</span> <span class="c1">// Man을 상속하는 BusinessMan</span>
+    <span class="nc">String</span> <span class="n">company</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">position</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tellYourInfo</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My company is "</span> <span class="o">+</span> <span class="n">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My position is "</span> <span class="o">+</span> <span class="n">position</span><span class="o">);</span>
+        <span class="n">tellYourName</span><span class="o">();</span> <span class="c1">// Man 클래스를 상속했기 때문에 호출 가능!</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/14-1.png" alt="image" width="50%" height="50%" />
+<img src="/assets/images/java-lang/14-2.png" alt="image" width="49%" height="50%" /><br /></p>
+
+<h3 id="--상속과-생성자">- <u>상속과 생성자</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SuperCLS</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">SuperCLS</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Super Class!!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SubCLS</span> <span class="kd">extends</span> <span class="nc">SuperCLS</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">SubCLS</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sub Class!!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SuperSubCon</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="nf">SubCLS</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/14-3.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<ol>
+  <li>하위 클래스의 인스턴스 생성 시 상위 클래스, 하위 클래스의 생성자 ‘모두’ 호출된다.</li>
+  <li>하위 클래스의 인스턴스 생성 시 상위 클래스의 생성자가 ‘먼저’ 호출된다.</li>
+</ol>
+
+<p><br />그렇다면, 상위 클래스의 생성자가 여러 개 있을 시 어떻게 명시적으로 호출할 수 있을까?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SuperCLS</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">SuperCLS</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SuperCLS()"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">SuperCLS</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>    <span class="c1">// 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SuperCLS(int i)"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">SuperCLS</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SuperCLS(int i, int j)"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SubCLS</span> <span class="kd">extends</span> <span class="nc">SuperCLS</span> <span class="o">{</span> <span class="c1">// super(); // 상위 클래스의 생성자를 명시적으로 호출하지 않으면 자동으로 호출됨</span>
+    <span class="c1">// super를 이용한 상위 클래스의 생성자 호출문은 생성자의 첫 문장에 들어가야 함</span>
+    <span class="kd">public</span> <span class="nf">SubCLS</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SubCLS()"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">SubCLS</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>   <span class="c1">// 상위 클래스의 2번 메소드 호출</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SubCLS(int i)"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">SubCLS</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>    <span class="c1">// 상위 클래스의 3번 메소드 호출</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Con: SubCLS(int i, int j)"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SuperSubCon2</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"1. "</span><span class="o">);</span>
+        <span class="k">new</span> <span class="nf">SubCLS</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"2. "</span><span class="o">);</span>
+        <span class="k">new</span> <span class="nf">SubCLS</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3. "</span><span class="o">);</span>
+        <span class="k">new</span> <span class="nf">SubCLS</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/14-4.png" alt="image" width="60%" height="60%" /><br /></p>
+
+<h3 id="--상속-관계에-있는-두-클래스의-적절한-생성자-정의">- <u>상속 관계에 있는 두 클래스의 적절한 생성자 정의</u></h3>
+<blockquote>
+  <p>모든 멤버는 자신이 속한 클래스에서 초기화되는 것이 좋다.</p>
+</blockquote>
+
+<p>따라서, 상속에서도 마찬가지로 상위 클래스의 멤버는 상위 클래스의 생성자를 통해서 초기화해야한다.<br />
+앞서 만든 BusinessMan 클래스를 리펙토링해보자!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Man</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Man</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tellYourName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My name is "</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">BusinessMan</span> <span class="kd">extends</span> <span class="nc">Man</span><span class="o">{</span>
+    <span class="nc">String</span> <span class="n">company</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">position</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">BusinessMan</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">String</span> <span class="n">company</span><span class="o">,</span> <span class="nc">String</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">company</span> <span class="o">=</span> <span class="n">company</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="n">position</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tellYourInfo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My company is "</span> <span class="o">+</span> <span class="n">company</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"My position is "</span> <span class="o">+</span> <span class="n">position</span><span class="o">);</span>
+        <span class="n">tellYourName</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBusinessMan</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">BusinessMan</span> <span class="n">man</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BusinessMan</span><span class="o">(</span><span class="s">"Hi-June"</span><span class="o">,</span> <span class="s">"TUK"</span><span class="o">,</span> <span class="s">"Developer"</span><span class="o">);</span>
+        <span class="n">man</span><span class="o">.</span><span class="na">tellYourInfo</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/14-5.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<h3 id="--단일-상속만을-지원하는-자바">- <u>단일 상속만을 지원하는 자바</u></h3>
+<p>자바는 프로그램이 과도하게 복잡해지는 것을 방지하기 위해 단일 상속만을 지원한다.<br />
+하나의 클래스가 상속할 수 있는 클래스의 수가 최대 하나라는 것을 의미한다.</p>
+
+<p>(참고) 다중 상속을 하게 되면 어떤 문제가 생길까?</p>
+<ol>
+  <li>
+    <p>애매한 상황이 발생한다.<br />
+<img src="/assets/images/java-lang/14-6.png" alt="image" width="40%" height="40%" /><br />
+동일한 이름을 가진 print()를 상속받을 때 문제가 생긴다.</p>
+  </li>
+  <li>
+    <p>다이아몬드 문제<br />
+<img src="/assets/images/java-lang/14-7.png" alt="image" width="40%" height="40%" /><br />
+show() 메소드의 경로에 대해서 애매한 문제가 발생한다.</p>
+  </li>
+</ol>
+
+<h2 id="14-2-클래스-변수-클래스-메소드와-상속">14-2. 클래스 변수, 클래스 메소드와 상속</h2>
+<h3 id="--static-선언이-붙는-클래스-변수와-클래스-메소드의-상속">- <u>static 선언이 붙는 '클래스 변수'와 '클래스 메소드'의 상속</u></h3>
+<p>클래스 변수와 클래스 메소드의 특징은 다음과 같다.</p>
+
+<ol>
+  <li>인스턴스의 생성과 상관 없이 접근이 가능하다.</li>
+  <li>클래스 내부와 외부에서(접근 수준 지시자가 허용하면) 접근이 가능하다.</li>
+  <li>클래스 변수와 클래스 메소드가 위치한 클래스 내에서는 직접 접근이 가능하다.</li>
+</ol>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SuperCLS</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>   <span class="c1">// 클래스 변수</span>
+
+    <span class="kd">public</span> <span class="nf">SuperCLS</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">count</span><span class="o">++;</span>    <span class="c1">// 클래스 내에서는 직접 접근이 가능</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>클래스 변수는 인스턴스의 멤버로써 존재하지 않는다.<br />
+따라서, 이를 상속하는 하위 클래스의 멤버로도 존재할 수 없다.<br />
+일반적으로 static 변수에 접근하듯이 접근하면 된다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)</title><link href="http://localhost:4000/java%20lang/Chap13/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)" /><published>2022-10-15T00:00:00+09:00</published><updated>2022-10-15T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap13</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap13/"><![CDATA[<h2 id="13-1-1차원-배열의-이해와-활용">13-1. 1차원 배열의 이해와 활용</h2>
 <blockquote>
   <p>배열: 자료형이 같은 둘 이상의 값을 저장할 수 있는 메모리 공간</p>
 </blockquote>
@@ -850,7 +1055,7 @@ StringBuilder   -&gt; 멀티 쓰레드 환경에서 안전하지 않음, 속도 
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>적절히, 최소한으로 사용하면 도음이 되지만 무분별하게 사용한다면 해당 메소드 또는 변수가 어디에 저장되고 선언된 것인지 구분이 힘들어져 오히려 방해가 될 수 있다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화</title><link href="http://localhost:4000/java%20lang/Chap09/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화" /><published>2022-10-05T00:00:00+09:00</published><updated>2022-10-05T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap09</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap09/"><![CDATA[<h2 id="09-1-정보-은닉information-hiding">09-1. 정보 은닉(Information Hiding)</h2>
+<p>적절히, 최소한으로 사용하면 도음이 되지만 무분별하게 사용한다면 해당 메소드 또는 변수가 어디에 저장되고 선언된 것인지 구분이 힘들어져 오히려 방해가 될 수 있다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화</title><link href="http://localhost:4000/java%20lang/Chap09/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화" /><published>2022-10-05T00:00:00+09:00</published><updated>2022-10-17T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap09</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap09/"><![CDATA[<h2 id="09-1-정보-은닉information-hiding">09-1. 정보 은닉(Information Hiding)</h2>
 <p>자바에서 말하는 ‘정보’는 클래스의 ‘인스턴스 변수’를 의미한다.</p>
 
 <p>데이터에 대해 클래스나 인스턴스 ‘외부’에서 접근하는 것을 막겠다는 뜻이다.(내부에서만 허용하겠다.)<br />
@@ -908,7 +1113,7 @@ StringBuilder   -&gt; 멀티 쓰레드 환경에서 안전하지 않음, 속도 
 <p>만약 멤버 변수에 직접적인 접근을 허용하면, <u>컴파일 과정에서 드러나지 않는 중대한 실수</u>가 발생할 수 있다.<br />
 따라서, ‘정보 은닉’을 적용한 클래스의 설계가 필요하다.</p>
 
-<h3 id="--정보의-은닉을-위한-pravate-선언">- <u>정보의 은닉을 위한 pravate 선언</u></h3>
+<h3 id="--정보의-은닉을-위한-private-선언">- <u>정보의 은닉을 위한 private 선언</u></h3>
 <p>정보 은닉을 적용한 코드를 보자.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Circle</span><span class="o">{</span>
@@ -1787,104 +1992,4 @@ if(조건){
 
 <h2 id="05-5-반복문의-중첩">05-5. 반복문의 중첩</h2>
 <p>반복문의 종류가 세 가지이니, 다음과 같이 총 아홉 가지 형태로 반복문의 중첩이 가능하다.<br />
-<img src="/assets/images/java-lang/5-3.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java</title><link href="http://localhost:4000/java%20lang/Chap01/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java" /><published>2022-09-29T00:00:00+09:00</published><updated>2022-09-29T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap01</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap01/"><![CDATA[<h2 id="01-1-자바의-세계로-오신-여러분을-환영합니다">01-1. 자바의 세계로 오신 여러분을 환영합니다.</h2>
-<h3 id="--jdk">- <u>JDK</u></h3>
-<p>자바로 프로그램을 만들기 위해서는 그에 따른 기본 도구가 필요하다.<br />
-이 도구를 가리켜 <code class="language-plaintext highlighter-rouge">JDK(Java Development Kit)</code>라고 한다.<br />
-쉽게 말하면 자바 프로그램 개발을 위한 도구들의 모임 정도로 보면 될 것 같다.<br />
-<a href="https://www.oracle.com">https://www.oracle.com</a>로 가서 받도록 하자!</p>
-
-<h3 id="--환경변수">- <u>환경변수</u></h3>
-<p>명령 프롬프트의 어느 경로에서든 실행 가능하도록 환경변수 Path에 등록해준다.<br />
-환경변수 Path는 운영체제가 명령 프롬프트에서 입력된 실행파일을 찾는 경로의 정보가 된다.<br />
-따라서 명령 프롬프트에서 디렉토리 경로에 상관없이 실행되기를 원하는 실행파일이 있다면<br />
-<u>이 실행파일이 저장되어 있는 경로 정보를 환경변수 Path에 등록해야 한다.</u></p>
-
-<p>본인은 Mac OS를 사용중이기 때문에 zprofile에 Java SDK 경로를 추가해줬다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># java SDK path
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
-</code></pre></div></div>
-
-<h2 id="01-2-자바-프로그램과-실행의-원리에-대한-이해">01-2. 자바 프로그램과 실행의 원리에 대한 이해</h2>
-<h3 id="--자바-프로그램의-실행-구조와-자바-가상머신">- <u>자바 프로그램의 실행 구조와 자바 가상머신</u></h3>
-<ul>
-  <li><b>일반적인 프로그램의 실행 구조</b><br />
-<img src="/assets/images/java-lang/1-1.png" alt="image" width="40%" height="40%" /><br />
-    <ol>
-      <li>하드웨어를 기반으로</li>
-      <li>운영체제가 동작하고,</li>
-      <li>그 위에서 프로그램이 실행되는 구조이다.</li>
-    </ol>
-
-    <p>즉, 하드웨어 위에서 실행되는 운영체제가 프로그램을 실행시키는 구조이다.</p>
-  </li>
-  <li><b>자바 프로그램의 실행 구조</b><br />
-<img src="/assets/images/java-lang/1-2.png" alt="image" width="40%" height="40%" /><br />
-    <ol>
-      <li>운영체제는 자바 가상머신을 실행시키고,</li>
-      <li>자바 가상머신이 자바 프로그램을 실행시키는 구조로 동작한다.<br />
-  <br /></li>
-    </ol>
-  </li>
-  <li><b>자바 가상머신(JVM)이란?</b><br />
-  운영체제 위에서 동작하는 일종의 소프트웨어이다.<br />
-  <img src="/assets/images/java-lang/1-3.png" alt="image" width="50%" height="50%" /><br />
-  이처럼 운영체제가 직접 실행시키는 구조가 아닌 자바 가상머신에 의해 실행되는 구조를 선택할 경우,<br />
-  <u>자바 프로그램을 운영체제에 상관없이 실행시킬 수 있다.</u></li>
-</ul>
-
-<h3 id="--자바-컴파일러와-자바-바이트코드">- <u>자바 컴파일러와 자바 바이트코드</u></h3>
-<blockquote>
-  <p>자바 컴파일러는 자바 가상머신이 이해할 수 있는 코드를 생성해닌다.</p>
-</blockquote>
-
-<p><img src="/assets/images/java-lang/1-4.png" alt="image" width="80%" height="80%" /><br /></p>
-
-<p>자바 컴파일러(javac.exe): 소스파일에 저장된 소스코드를 자바 가상머신이 이해할 수 있는 ‘자바 바이트코드’로 변환하는 프로그램<br />
-자바 런처(java.exe): 자바 가상머신을 구동하고 그 위에 자바 프로그램이 실행되도록 돕는 프로그램이다.</p>
-
-<h2 id="01-3-첫-번째-자바-프로그램의-관찰과-응용">01-3. 첫 번째 자바 프로그램의 관찰과 응용</h2>
-<h3 id="--프로그램의-골격과-구성">- <u>프로그램의 골격과 구성</u></h3>
-<p><img src="/assets/images/java-lang/1-5.png" alt="image" width="60%" height="60%" /><br /></p>
-
-<blockquote>
-  <p>자바는 중괄호를 이용해서 클래스와 메소드의 영역을 구분한다.<br /></p>
-</blockquote>
-
-<blockquote>
-  <p>문장의 끝에는 반드시 세미콜론을 붙여서 문장의 끝을 표시한다.</p>
-</blockquote>
-
-<h2 id="01-4-들여쓰기와-컴파일의-대상에서-제외되는-주석">01-4. 들여쓰기와 컴파일의 대상에서 제외되는 주석!</h2>
-<h3 id="--블록-단위-주석">- <u>블록 단위 주석</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
-안녕하세요?
-블록 단위 주석입니다.
-*/</span>
-</code></pre></div></div>
-
-<h3 id="--행-단위-주석">- <u>행 단위 주석</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 안녕하세요? 행 단위 주석입니다.</span>
-</code></pre></div></div>
-
-<h3 id="--들여쓰기indent">- <u>들여쓰기(Indent)</u></h3>
-<p>영역 또는 의미의 구분을 위해서 일정 간격 왼쪽에서 띄운 후에 문장을 입력하는 것을 말한다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SystemOutPrintln</span><span class="o">{</span>
-    <span class="c1">// 4칸 정도 오른쪽으로 들여쓰기 되었다.</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="c1">// main 메소드 내에서 4칸 정도 오른쪽으로 들여쓰기 되었다.</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"hi~ June!"</span><span class="o">)</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--중괄호를-열고-닫는-방식에-대하여">- <u>중괄호를 열고 닫는 방식에 대하여</u></h3>
-<p>일반적인 중괄호 처리 방식은 다음과 같이<br />
-클래스의 이름 오른편에, 그리고 메소드의 이름 오른편에 여는 중괄호를 위치시킨다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SystemOutPrintln</span><span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"hi~ June!"</span><span class="o">)</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
+<img src="/assets/images/java-lang/5-3.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
