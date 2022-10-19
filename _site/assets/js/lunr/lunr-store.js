@@ -202,4 +202,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap14/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 15 - 클래스의 상속 2: 오버라이딩",
+        "excerpt":"15-1. 상속을 위한 두 클래스의 관계 - 상속의 기본 조건인 'IS-A 관계' 상위 클래스와 하위 클래스간의 다음 관계가 성립한다. 하위 클래스는 상위 클래스의 모든 특성을 지닌다. 하위 클래스는 자신만의 추가적인 특성을 더하게 된다. 예시를 통해서 상속 관계를 이해해보자. class MobilePhone { protected String number; public MobilePhone(String number) { this.number =...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap15/",
+        "teaser": null
       }]

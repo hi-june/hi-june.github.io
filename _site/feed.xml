@@ -1,4 +1,366 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-18T01:06:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본</title><link href="http://localhost:4000/java%20lang/Chap14/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본" /><published>2022-10-17T00:00:00+09:00</published><updated>2022-10-17T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap14</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap14/"><![CDATA[<h2 id="14-1-상속의-기본-문법-이해">14-1. 상속의 기본 문법 이해</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-18T18:47:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 15 - 클래스의 상속 2: 오버라이딩</title><link href="http://localhost:4000/java%20lang/Chap15/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 15 - 클래스의 상속 2: 오버라이딩" /><published>2022-10-18T00:00:00+09:00</published><updated>2022-10-18T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap15</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap15/"><![CDATA[<h2 id="15-1-상속을-위한-두-클래스의-관계">15-1. 상속을 위한 두 클래스의 관계</h2>
+<h3 id="--상속의-기본-조건인-is-a-관계">- <u>상속의 기본 조건인 'IS-A 관계'</u></h3>
+<p>상위 클래스와 하위 클래스간의 다음 관계가 성립한다.</p>
+
+<blockquote>
+  <p>하위 클래스는 상위 클래스의 모든 특성을 지닌다.<br />
+하위 클래스는 자신만의 추가적인 특성을 더하게 된다.</p>
+</blockquote>
+
+<p>예시를 통해서 상속 관계를 이해해보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MobilePhone</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">number</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MobilePhone</span><span class="o">(</span><span class="nc">String</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">number</span> <span class="o">=</span> <span class="n">number</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">answer</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hi~ from "</span> <span class="o">+</span> <span class="n">number</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SmartPhone</span> <span class="kd">extends</span> <span class="nc">MobilePhone</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">androidVer</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">SmartPhone</span><span class="o">(</span><span class="nc">String</span> <span class="n">number</span><span class="o">,</span> <span class="nc">String</span> <span class="n">androidVer</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">androidVer</span> <span class="o">=</span> <span class="n">androidVer</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">playApp</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"App is running in "</span> <span class="o">+</span> <span class="n">androidVer</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MobileSmartPhone</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">SmartPhone</span> <span class="n">phone</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SmartPhone</span><span class="o">(</span><span class="s">"010-777-7777"</span><span class="o">,</span> <span class="s">"JellyBean"</span><span class="o">);</span>
+
+        <span class="n">phone</span><span class="o">.</span><span class="na">answer</span><span class="o">();</span>
+        <span class="n">phone</span><span class="o">.</span><span class="na">playApp</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>‘모바일폰’과 ‘스마트폰’의 관계를 예시로 들어 상속의 특징을 설명하고 있다.<br />
+위의 예시를 객체지향적으로 본다면 다음과 같이 얘기할 수 있다.</p>
+
+<blockquote>
+  <p>모바일폰을 스마트폰이 상속한다.</p>
+</blockquote>
+
+<p>이를 코드를 통해 나타낸 부분은 다음과 같다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SmartPhone</span> <span class="kd">extends</span> <span class="nc">MobilePhone</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p>그런데, 우리는 ‘스마트폰도 모바일폰의 한 종류’라고 말하기도 한다.<br />
+따라서 다음과 같이 말하는 것도 가능하다.</p>
+
+<blockquote>
+  <p>스마트폰도 모바일폰이다.<br />
+스마트폰은 일종의 모바일폰이다.</p>
+</blockquote>
+
+<p>그리고 위의 문장들이 나타내는 관계를 가리켜 ‘IS-A 관계’라고 하고,<br />
+이것이 상속의 관계를 맺기 위한 두 클래스의 기본 조건이 된다.</p>
+
+<ul>
+  <li>IS-A 관계 정리
+    <ul>
+      <li>IS-A 관계는 ‘~은 ~이다.’로 표현되는 관계이다.</li>
+      <li>상속이 갖는 문법적 특성은 IS-A 관계의 표현에 적합하다.</li>
+      <li>따라서 상속 관계를 형성하기 위한 두 클래스는 IS-A 관계에 있어야한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="15-2-메소드-오버라이딩">15-2. 메소드 오버라이딩</h2>
+<p>메소드 오버라이딩: 상위 클래스에 정의된 메소드를 하위 클래스에서 다시 정의하는 것<br />
+문법적으로는 단순하지만 이것이 가져다주는 이점은 가볍지 않다.</p>
+
+<blockquote>
+  <p>인스턴스를 생성 후, 무엇으로 참조하느냐에 따라 인스턴스의 활용능력이 달라진다!</p>
+</blockquote>
+
+<h3 id="--상위-클래스의-참조변수가-참조할-수-있는-대상의-범위">- <u>상위 클래스의 참조변수가 참조할 수 있는 대상의 범위</u></h3>
+<p>위에서 만들었던 예시를 다시 보자..</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MobilePhone</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">number</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MobilePhone</span><span class="o">(</span><span class="nc">String</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">number</span> <span class="o">=</span> <span class="n">number</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">answer</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hi~ from "</span> <span class="o">+</span> <span class="n">number</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SmartPhone</span> <span class="kd">extends</span> <span class="nc">MobilePhone</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">androidVer</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">SmartPhone</span><span class="o">(</span><span class="nc">String</span> <span class="n">number</span><span class="o">,</span> <span class="nc">String</span> <span class="n">androidVer</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">androidVer</span> <span class="o">=</span> <span class="n">androidVer</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">playApp</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"App is running in "</span> <span class="o">+</span> <span class="n">androidVer</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MobileSmartPhone</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// SmartPhone 인스턴스를 각각 SmartPhone과 MobilePhone 타입의 변수로 참조함</span>
+        <span class="nc">SmartPhone</span> <span class="n">phone1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SmartPhone</span><span class="o">(</span><span class="s">"010-777-7777"</span><span class="o">,</span> <span class="s">"JellyBean"</span><span class="o">);</span>
+        <span class="nc">MobilePhone</span> <span class="n">phone2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SmartPhone</span><span class="o">(</span><span class="s">"010-999-9999"</span><span class="o">,</span> <span class="s">"Cookie"</span><span class="o">);</span>
+
+        <span class="n">phone1</span><span class="o">.</span><span class="na">answer</span><span class="o">();</span>
+        <span class="n">phone1</span><span class="o">.</span><span class="na">playApp</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="n">phone2</span><span class="o">.</span><span class="na">answer</span><span class="o">();</span>
+        <span class="c1">// phone2.playApp();    // phone2가 부모클래스형 참조변수라서 컴파일 에러가 남</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>이처럼 상위 클래스의 참조변수는 하위 클래스의 인스턴스를 참조할 수 있다. 다음과 같이 정리하자.</p>
+
+<ul>
+  <li>모바일폰을 상속하는 스마트폰도 일종의 모바일폰이다.
+    <ul>
+      <li>MobilePhone을 상속하는 SmartPhone 인스턴스는 MobilePhone 인스턴스이기도 하다.</li>
+    </ul>
+  </li>
+  <li>따라서 MobilePhone형 참조변수는 SmartPhone 인스턴스를 참조할 수 있다.</li>
+</ul>
+
+<p>여기서 집중해야할 부분은 이 부분이다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">MobilePhone</span> <span class="n">phone2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SmartPhone</span><span class="o">(</span><span class="s">"010-999-9999"</span><span class="o">,</span> <span class="s">"Cookie"</span><span class="o">);</span>
+
+<span class="n">phone2</span><span class="o">.</span><span class="na">playApp</span><span class="o">();</span>   <span class="c1">// compile Error!</span>
+</code></pre></div></div>
+
+<p>참조변수 phone2는 MobilePhone 타입의 참조변수이다.<br />
+이런 경우 <u>'phone2가 참조하는 인스턴스와는 상관없이'</u><br />
+MobilePhone 클래스에 정의되었거나, 이 클래스가 상속하는 클래스의 멤버로 제한된다.</p>
+
+<p>이처럼 자바는 메소드 호출 시 참조하는 인스턴스와는 관계없이 ‘참조변수의 형(type)을 참조’하여 그 메소드 호출이 옳은 것인지 판단한다.<br />
+이에는 2가지 이유가 있는데,</p>
+
+<blockquote>
+  <p>1) 실행 시간을 늦추는 결과로 이어질 수 있다.</p>
+</blockquote>
+
+<p>실제 참조하는 인스턴스를 대상으로 메소드의 호출 가능성을 판단하는 것은 간단하지 않다.<br />
+참조하는 인스턴스의 종류는 코드의 흐름에 따라 얼마든지 달라질 수 있기 때문이다.</p>
+
+<blockquote>
+  <p>2) 참조변수의 형을 기준으로 접근 가능한 멤버를 제한하는 것은 코드를 단순하게 한다.</p>
+</blockquote>
+
+<p>단점이 많은 일부 기능을 제한함으로써 단순하고 명료한 코드의 작성을 유도했다.</p>
+
+<h3 id="--클래스의-상속과-참조변수의-참조-가능성에-대한-정리">- <u>클래스의 상속과 참조변수의 참조 가능성에 대한 정리</u></h3>
+<p>위의 내용을 정리해보자!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Cake</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sweet</span><span class="o">()</span> <span class="o">{...}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">CheeseCake</span> <span class="kd">extends</span> <span class="nc">Cake</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">milky</span><span class="o">()</span> <span class="o">{...}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">StrawberryCheeseCake</span> <span class="kd">extends</span> <span class="nc">CheeseCake</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sour</span><span class="o">()</span> <span class="o">{...}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/15-1.png" alt="image" /><br /></p>
+
+<p>Cake형의 참조변수 cake1은<br />
+    -&gt; Cake에 정의된 sweet() 메소드를 호출할 수 있다.</p>
+
+<p>하위 클래스인 CheeseCake형 참조변수 cake2는<br />
+    -&gt; Cake에 정의된 sweet() 메소드와<br />
+    -&gt; CheeseCake에 정의된 milky() 메소드를 호출할 수 있다.</p>
+
+<h3 id="--참조변수-간-대입과-형-변환">- <u>참조변수 간 대입과 형 변환</u></h3>
+<p>Cake 예시를 다시 살펴보자!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Cake</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sweet</span><span class="o">()</span> <span class="o">{...}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">CheeseCake</span> <span class="kd">extends</span> <span class="nc">Cake</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">milky</span><span class="o">()</span> <span class="o">{...}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>컴파일러는 ‘참조변수의 형’만을 가지고 대입의 가능성을 판단한다.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CheeseCake</span> <span class="n">ca1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CheeseCake</span><span class="o">();</span>
+<span class="nc">Cake</span> <span class="n">ca2</span> <span class="o">=</span> <span class="n">c1</span><span class="o">;</span>  <span class="c1">// 가능!</span>
+</code></pre></div></div>
+<p>‘CheeseCake’ is a ‘Cake’ 이기 때문에 cake형 참조변수로 CheeseCake의 인스턴스를 참조하는 것은 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Cake</span> <span class="n">ca3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CheeseCake</span><span class="o">();</span>
+<span class="nc">CheeseCake</span> <span class="n">ca4</span> <span class="o">=</span> <span class="n">ca3</span><span class="o">;</span>   <span class="c1">// 불가능!</span>
+</code></pre></div></div>
+<p>위의 문장을 자바 컴파일러는 다음과 같은 수준으로 보고 대입의 가능성을 판단한다.<br />
+Cake ca3 = …<br />
+CheeseCake ca4 = ca3;</p>
+
+<p>이렇게 ca3가 참조하는 인스턴스가 cheeseCake의 인스턴스임을 보장할 수 없다.<br />
+(Cake를 상속하는 다른 클래스의 인스턴스일 수도 있다..)</p>
+
+<p>다만, 개발자가 명시적으로 형 변환을 해주면 대입이 가능하다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Cake</span> <span class="n">ca3</span> <span class="o">=</span> <span class="o">...</span>
+<span class="nc">CheeseCake</span> <span class="n">ca4</span> <span class="o">=</span> <span class="o">(</span><span class="nc">CheeseCake</span><span class="o">)</span><span class="n">ca3</span><span class="o">;</span>   <span class="c1">// 가능함. 주의 요망!</span>
+</code></pre></div></div>
+
+<p>ca3가 참조하는 인스턴스가 CheeseCake 인스턴스임을 개발자가 보장한다는 의미이다.<br />
+이렇게하면 컴파일러는 그냥 허용하기 때문에 치명적인 실수가 발생하지 않도록 주의하여 사용해야한다.</p>
+
+<h3 id="--메소드-오버라이딩method-overriding">- <u>메소드 오버라이딩(Method Overriding)</u></h3>
+<p>상위 클래스에 정의된 메소드를 하위 클래스에서 다시 정의하는 행위를 메소드 오버라이딩이라고 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Cake</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">yummy</span><span class="o">()</span> <span class="o">{</span>   <span class="c1">// 오버라이딩 '된' 메소드</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Yummy Cake"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">CheeseCake</span> <span class="kd">extends</span> <span class="nc">Cake</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">yummy</span><span class="o">()</span> <span class="o">{</span>   <span class="c1">// 오버라이딩 '한' 메소드</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Yummy CheeseCake"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">YummyCakeOverriding</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Cake</span> <span class="n">cake1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CheeseCake</span><span class="o">();</span>
+        <span class="nc">CheeseCake</span> <span class="n">cake2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CheeseCake</span><span class="o">();</span>
+
+        <span class="n">cake1</span><span class="o">.</span><span class="na">yummy</span><span class="o">();</span>
+        <span class="n">cake2</span><span class="o">.</span><span class="na">yummy</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/15-2.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<p>다음 세 가지가 같아야 메소드 오버라이딩이 성립한다.</p>
+<ol>
+  <li>메소드의 이름</li>
+  <li>메소드의 반환형</li>
+  <li>메소드의 매개변수 선언</li>
+</ol>
+
+<p>실행결과를 보면 알 수 있듯이, 오버라이딩을 하면 참조변수의 형에 상관없이<br />
+오버라이딩 한 메소드(CheeseCake의 yummy)가<br />
+오버라이딩 된 메소드(Cake의 yummy)를 대신하게 된다.</p>
+
+<h3 id="--오버라이딩-된-메소드를-호출하는-방법">- <u>오버라이딩 된 메소드를 호출하는 방법</u></h3>
+<p>클래스 외부에서 인스턴스를 통해 오버라이딩 된 메소드를 호출하는 방법은 없다.<br />
+다만, 클래스 외부가 아닌 내부에서 메소드를 호출하는 방법은 있다. 다음을 참고하자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Cake</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">yummy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Yummy Cake"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">CheeseCake</span> <span class="kd">extends</span> <span class="nc">Cake</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">yummy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">yummy</span><span class="o">();</span>  <span class="c1">// 하위 클래스의 메소드 안에서는 오버라이딩 된 메소드의 호출이 가능하다.</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Yummy CheeseCake"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tasty</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">yummy</span><span class="o">();</span>  <span class="c1">// Cake의 yummy 메소드 호출</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Yummy Tasty Cake"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">YummyCakeSuper</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">CheeseCake</span> <span class="n">cake</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CheeseCake</span><span class="o">();</span>
+
+        <span class="n">cake</span><span class="o">.</span><span class="na">yummy</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="n">cake</span><span class="o">.</span><span class="na">tasty</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="15-3-instanceof-연산자">15-3. instanceof 연산자</h2>
+<p>연산자 instanceof는 참조변수가 참조하는 인스턴스의 ‘클래스’나 참조하는 인스턴스가 ‘상속하는 클래스’를 묻는 연산자이다.</p>
+
+<h3 id="--instanceof-연산자의-기본">- <u>instanceof 연산자의 기본</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">ca</span> <span class="k">instanceof</span> <span class="nc">Cake</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p>ca가 참조하는 인스턴스가</p>
+<ol>
+  <li>Cake의 인스턴스이거나</li>
+  <li>Cake를 상속하는 클래스의 인스턴스이면<br />
+true를, 그렇지 않으면 false를 반환한다.</li>
+</ol>
+
+<h3 id="--instanceof-연산자의-활용">- <u>instanceof 연산자의 활용</u></h3>
+<p>다음과 같은 메소드를 정의하고 싶다고 가정하자!<br />
+<img src="/assets/images/java-lang/15-3.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleWrap</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Simple Wrapping"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">PaperBox</span> <span class="kd">extends</span> <span class="nc">Box</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">paperWrap</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Paper Wrapping"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">GoldPaperBox</span> <span class="kd">extends</span> <span class="nc">PaperBox</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">goldWrap</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Gold Wrapping"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Wrapping</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span> <span class="n">box1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">();</span>
+        <span class="nc">PaperBox</span> <span class="n">box2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaperBox</span><span class="o">();</span>
+        <span class="nc">GoldPaperBox</span> <span class="n">box3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GoldPaperBox</span><span class="o">();</span>
+
+        <span class="n">wrapBox</span><span class="o">(</span><span class="n">box1</span><span class="o">);</span>
+        <span class="n">wrapBox</span><span class="o">(</span><span class="n">box2</span><span class="o">);</span>
+        <span class="n">wrapBox</span><span class="o">(</span><span class="n">box3</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">wrapBox</span><span class="o">(</span><span class="nc">Box</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">box</span> <span class="k">instanceof</span> <span class="nc">Box</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">box</span><span class="o">.</span><span class="na">simpleWrap</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">box</span> <span class="k">instanceof</span> <span class="nc">PaperBox</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">((</span><span class="nc">PaperBox</span><span class="o">)</span><span class="n">box</span><span class="o">).</span><span class="na">paperWrap</span><span class="o">();</span>    <span class="c1">// 형 변환 후 메소드 호출</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="o">((</span><span class="nc">GoldPaperBox</span><span class="o">)</span><span class="n">box</span><span class="o">).</span><span class="na">goldWrap</span><span class="o">();</span> <span class="c1">// 형 변환 후 메소드 호출</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="추가-상속의-의미를-생각하며-refactor">(추가) 상속의 의미를 생각하며 refactor</h2>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본</title><link href="http://localhost:4000/java%20lang/Chap14/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본" /><published>2022-10-17T00:00:00+09:00</published><updated>2022-10-17T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap14</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap14/"><![CDATA[<h2 id="14-1-상속의-기본-문법-이해">14-1. 상속의 기본 문법 이해</h2>
 <h3 id="--상속에-대한-매우-치명적인-오해">- <u>상속에 대한 매우 치명적인 오해</u></h3>
 <p>상속의 이유와 목적에 대해 설명할 때, 단순히 이렇게 답하는 경우가 있다.</p>
 <blockquote>
@@ -1869,127 +2231,4 @@ java에서는 ‘주소’라는 말을 안 쓴다.<br />
         <span class="c1">// showHi(--cnt);   // 이렇게 써줘야 함</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</title><link href="http://localhost:4000/java%20lang/Chap05/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤" /><published>2022-10-01T00:00:00+09:00</published><updated>2022-10-01T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap05</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap05/"><![CDATA[<h2 id="05-1-if-그리고-else">05-1. if 그리고 else</h2>
-<p>기본 골격 정도만 보고 넘어가자..</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="o">(</span><span class="kc">true</span> <span class="n">or</span> <span class="kc">false</span><span class="o">){</span>
-    <span class="c1">// 조건 true 시 실행되는 영역</span>
-<span class="o">}</span> <span class="k">else</span><span class="o">{</span>
-    <span class="c1">// 조건 false 시 실행되는 영역</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br />
-(참고) if ~ else문과 유사한 성격의 조건 연산자가 있다.<br />
-<img src="/assets/images/java-lang/5-1.png" alt="image" width="70%" height="70%" /><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">big</span> <span class="o">=</span> <span class="o">(</span><span class="n">num1</span> <span class="o">&gt;</span> <span class="n">num2</span><span class="o">)</span> <span class="o">?</span> <span class="n">num1</span> <span class="o">:</span> <span class="n">num2</span><span class="o">;</span>
-</code></pre></div></div>
-
-<h2 id="05-2-switch와-break">05-2. switch와 break</h2>
-<p>if ~ else문을 대체할 수 있는 용도로도 사용된다.<br />
-특히 중간에 else if가 많이 들어가는 상황에서는 switch문이 더 좋은 선택이 될 수 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span><span class="o">(</span><span class="n">n</span><span class="o">){</span>
-<span class="c1">// case와 default는 label이기 때문에 들여쓰기 하지 않는 것이 일반적</span>
-<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-    <span class="c1">// n이 1이면 여기부터 실행</span>
-<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-    <span class="c1">// n이 2이면 여기서부터 실행</span>
-<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
-    <span class="c1">// n이 3이면 여기서부터 실행</span>
-<span class="k">default</span><span class="o">:</span>
-    <span class="c1">// 해당하는 case 없으면 여기서부터 실행</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>break 문을 활용해서 switch문을 탈출할 수 있다.<br />
-또, 이를 이용해서 둘 이상의 label을 이어서 둘 수 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span><span class="o">(</span><span class="n">n</span><span class="o">){</span>
-<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"case 1,2,3"</span><span class="o">);</span>
-    <span class="k">break</span><span class="o">;</span>
-<span class="k">default</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"default"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="05-3-for-while-그리고-dowhile">05-3. for, while 그리고 do~while</h2>
-<h3 id="--반복문-1-while문">- <u>반복문 1: while문</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span><span class="o">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">){</span> <span class="c1">// 반복 조건</span>
-    <span class="c1">// 반복 영역</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"I like Java"</span> <span class="o">+</span> <span class="n">num</span><span class="o">);</span>
-    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p>while문의 소괄호에는 반복의 조건을 명시한다.<br />
-그리고 그 조건이 true를 반환하는 동안에는 횟수에 상관없이 while문의 중괄호가 반복 실행되는데, 다음의 패턴으로 반복이 된다.</p>
-<ol>
-  <li>먼저! 조건 검사</li>
-  <li>그리고 결과가 true이면 중괄호 영역 실행</li>
-</ol>
-
-<h3 id="--반복문-2-do--while문">- <u>반복문 2: do ~ while문</u></h3>
-<blockquote>
-  <p>조건에 따른 반복이 필요하다. 그런데 반드시 한 번은 실행을 해야 한다.</p>
-</blockquote>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-<span class="k">do</span><span class="o">{</span>
-    <span class="c1">// 반복 영역</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"I like Java "</span> <span class="o">+</span> <span class="n">num</span><span class="o">);</span>
-    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
-<span class="o">}</span> <span class="k">while</span><span class="o">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">);</span>   <span class="c1">// 반복 조건</span>
-</code></pre></div></div>
-<p>while문과의 차이는 반복 조건을 검사하는 시점에 있다.<br />
-while문은 ‘선 검사’방식이고, do ~ while문은 ‘후 검사’방식이다.</p>
-<ol>
-  <li>먼저! 중괄호 영역 실행</li>
-  <li>그리고 조건 검사 후 결과가 true이면 반복 결정</li>
-</ol>
-
-<h3 id="--반복문-3-for문">- <u>반복문 3: for문</u></h3>
-<p>while문과의 차이점은 ‘반복의 횟수가 정해져 있는 상황’에서 쓰인다는 것이다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">num</span><span class="o">++){</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"..."</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<ol>
-  <li>int num -&gt; 반복의 횟수를 세기 위한 변수</li>
-  <li>num &lt; 5 -&gt; 반복의 조건</li>
-  <li>num++ -&gt; 반복의 조건을 무너뜨리기 위한 연산</li>
-</ol>
-
-<h2 id="05-4-break--continue">05-4. break &amp; continue</h2>
-<p><img src="/assets/images/java-lang/5-2.png" alt="image" width="50%" height="50%" /><br /><br />
-break는 반복문을 탈출하고, continue는 조건 검사로 이동시킨다.</p>
-
-<h3 id="--무한-루프">- <u>무한 루프</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 
-무한 루프를 만드는 여러 방법
-중간에 
-if(조건){
-    break;
-}
-등으로 활용할 수 있다.
-*/</span>
-
-<span class="c1">// 1.</span>
-<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
-    
-<span class="o">}</span>
-
-<span class="c1">// 2.</span>
-<span class="k">do</span><span class="o">{</span>
-
-<span class="o">}</span> <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
-
-<span class="c1">// 3. </span>
-<span class="k">for</span><span class="o">(;;){</span>
-
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="05-5-반복문의-중첩">05-5. 반복문의 중첩</h2>
-<p>반복문의 종류가 세 가지이니, 다음과 같이 총 아홉 가지 형태로 반복문의 중첩이 가능하다.<br />
-<img src="/assets/images/java-lang/5-3.png" alt="image" width="70%" height="70%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
