@@ -208,4 +208,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap15/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 16 - 클래스의 상속 3: 상속의 목적",
+        "excerpt":"16-1. 상속이 도움이 되는 상황의 소개 상속을 하는 이유: 연관된 일련의 클래스들에 대해 공통적인 규약을 정의할 수 있다. - 단순한 인맥 관리 프로그램 다음과 같은 두 부류의 인맥을 관리하는 프로그램이 있다고 가정하자. 1) 대학 동창: 이름, 전공, 전화번호 2) 직장 동료: 이름, 부서, 전화번호 class UniFriend extends Friend{ // 대학...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap16/",
+        "teaser": null
       }]
