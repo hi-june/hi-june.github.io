@@ -214,4 +214,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap16/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 17 - 인터페이스의 기본과 그 의미",
+        "excerpt":"17-1. 인터페이스의 기본과 그 의미 - 추상 메소드만 담고 있는 인터페이스 interface Printable { public void print(String doc); // 추상 메소드 } 기본 골격은 클래스와 동일하다. interface라는 선언이 붙고, 추상 메소드(메소드의 몸체가 비어 있는 메소드)로 이루어져있다. 인스턴스 생성이 불가능하고, 다른 클래스에 의해서 구현(implements)된다. 클래스의 인터페이스 구현에는 다음과 같은 특징이 있다....","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap17/",
+        "teaser": null
       }]
