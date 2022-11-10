@@ -220,4 +220,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap17/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 18 - 예외처리(Exception Handling)",
+        "excerpt":"18-1. 자바 예외처리의 기본 - 자바에서 말하는 예외 프로그램 실행 중에 발생하는 ‘예외적인 상황’을 줄여서 ‘예외’라 한다. 즉, 단순한 문법 오류가 아닌 실행 중간에 발생하는 ‘정상적이지 않은 상황’을 뜻한다. 가상머신은 예외가 발생하면 그 내용을 간단히 출력하고 프로그램을 종료해버린다. 가상머신은 예외의 원인을 알지만 개발자가 원하는 예외의 처리 방식까지는 알지 못하기 때문에...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap18/",
+        "teaser": null
       }]

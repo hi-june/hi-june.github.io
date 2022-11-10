@@ -1,4 +1,253 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-02T21:33:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 17 - 인터페이스의 기본과 그 의미</title><link href="http://localhost:4000/java%20lang/Chap17/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 17 - 인터페이스의 기본과 그 의미" /><published>2022-11-02T00:00:00+09:00</published><updated>2022-11-02T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap17</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap17/"><![CDATA[<h2 id="17-1-인터페이스의-기본과-그-의미">17-1. 인터페이스의 기본과 그 의미</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-10T15:41:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 18 - 예외처리(Exception Handling)</title><link href="http://localhost:4000/java%20lang/Chap18/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 18 - 예외처리(Exception Handling)" /><published>2022-11-05T00:00:00+09:00</published><updated>2022-11-05T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap18</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap18/"><![CDATA[<h2 id="18-1-자바-예외처리의-기본">18-1. 자바 예외처리의 기본</h2>
+<h3 id="--자바에서-말하는-예외">- <u>자바에서 말하는 예외</u></h3>
+<p>프로그램 실행 중에 발생하는 ‘예외적인 상황’을 줄여서 ‘예외’라 한다.<br />
+즉, 단순한 문법 오류가 아닌 실행 중간에 발생하는 ‘정상적이지 않은 상황’을 뜻한다.</p>
+
+<p>가상머신은 예외가 발생하면 그 내용을 간단히 출력하고 프로그램을 종료해버린다.<br />
+가상머신은 예외의 원인을 알지만 개발자가 원하는 예외의 처리 방식까지는 알지 못하기 때문에<br />
+이 예외에 대해 처리하는 부분을 만들어주면 된다.</p>
+
+<h3 id="--예외의-처리를-위한-try--catch">- <u>예외의 처리를 위한 try ~ catch</u></h3>
+<p>자바는 예외 상황별로 그 상황을 알리기 위한 클래스를 정의하고 있다.<br />
+그 클래스를 ‘예외 클래스’라 한다.</p>
+
+<p>예외를 처리할 때는 try ~ catch문을 사용하는데, 구조는 다음과 같다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// try 영역에서 발생한 예외 상황을 catch 영역에서 처리한다.</span>
+
+<span class="k">try</span> <span class="o">{</span>
+    <span class="o">...</span> <span class="n">관찰</span> <span class="n">영역</span> <span class="o">...</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">...</span> <span class="n">처리</span> <span class="n">영역</span> <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>try 영역의 실행 중간에 예외 상황이 만들어지고</li>
+  <li>이로 인해 가상머신이 ArithmeticException 인스턴스를 생성하면</li>
+  <li>이 인스턴스는 메소드를 호출하듯이 catch 구문의 매개변수 e에 전달이 된다.</li>
+</ol>
+
+<h3 id="--둘-이상의-예외를-처리하기-위한-구성">- <u>둘 이상의 예외를 처리하기 위한 구성</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 각 예외마다 처리 과정이 다른 경우</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="o">...</span> <span class="n">관찰</span> <span class="n">영역</span> <span class="o">...</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">ArithmeticException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Exception 1 Occur!"</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">InputMIsmatchException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">pritntln</span><span class="o">(</span><span class="s">"Exception 2 Occur!"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 각 예외에 대해 처리 과정이 같은 경우</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="o">...</span> <span class="n">관찰</span> <span class="n">영역</span> <span class="o">...</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">ArithmeticException</span> <span class="o">|</span> <span class="nc">InputMIsmatchException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Exception Occur!"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--throwable-클래스와-예외처리의-책임-전가">- <u>Throwable 클래스와 예외처리의 책임 전가</u></h3>
+<p><img src="/assets/images/java-lang/18-1.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExceptionMessage</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">md1</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">md2</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">md2</span><span class="o">(</span><span class="kt">int</span> <span class="n">n1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">/</span> <span class="n">n2</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">md1</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Good bye~~!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위 예제의 메소드 호출 흐름은 다음과 같다.<br />
+main -&gt; md1 -&gt; md2</p>
+
+<p>예외가 발생하고 해당 예외를 처리하지 않으면<br />
+발생한 메소드를 호출한 메소드에 그 책임이 넘어간다.</p>
+
+<p><img src="/assets/images/java-lang/18-2.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<p>즉, 책임이 넘어가는 과정은<br />
+md2 -&gt; md1 -&gt; main<br />
+이렇게 된다.</p>
+
+<h2 id="18-2-예외처리에-대한-나머지-설명들">18-2. 예외처리에 대한 나머지 설명들</h2>
+<h3 id="--예외-클래스의-구분">- <u>예외 클래스의 구분</u></h3>
+<p><img src="/assets/images/java-lang/18-3.png" alt="image" width="90%" height="90%" /><br /></p>
+
+<p>예외라는 객체는 최상위 인터페이스로 Throwable이라는 인터페이스를 가진다.<br />
+이 Throwable 인터페이스를 error와 exception 인터페이스가 구현을 하고, 다시 runtimeException이 exception 인터페이스를 구현한다.</p>
+
+<ul>
+  <li>Error<br />
+  Error 클래스를 상속하는 클래스들을 보면 VirtualMachineError나 IOError 등등, JVM에서 발생한 오류이거나 입출력 관련하여 코드 수준 복구가 불가능한 오류 같이 사용자 애플리케이션이 제어할 수 있는 예외가 아니다. 말 그대로 ‘에러’인 것이다.
+    <blockquote>
+      <p>즉 Error 클래스를 상속하는 예외는 처리의 대상이 아니다.</p>
+    </blockquote>
+
+    <p>따라서 이런 유형의 예외가 발생하면 그냥 프로그램이 종료되도록 놔두고 이후에 원인을 파악하는 과정이 이어져야 한다.</p>
+  </li>
+  <li>
+    <p>Exception<br />
+  예상할 수 있는 예외 또는 프로그래머가 만드는 예외 이다.</p>
+
+    <p><code class="language-plaintext highlighter-rouge">Checked exception</code>은 개발자가 사용하는 라이브러리, 코드 등에서 new 생성자를 이용해 만들어져, 해당 모듈을 사용하는 객체에게 여기서 예외가 발생할 수 있으니 throws 키워드를 이용하여 상위 caller에게 예외를 전달하든, 확인해서 처리하든지 하라는 뜻이다.</p>
+
+    <p><code class="language-plaintext highlighter-rouge">Unchecked exception</code>은 개발자가 사용하는 라이브러리, 코드 등에서 만들어졌지만, 예외처리를 해야 할 상황은 아닌 경우를 말한다. NegativeArraySizeException이나 ArrayStoreException 처럼 코드를 수정해야 할 상황이지 예외처리할 상황은 아닌 것이다.</p>
+
+    <blockquote>
+      <p>Unchecked exception 또한 처리의 대상이 아니다.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="--개발자가-정의하는-예외">- <u>개발자가 정의하는 예외</u></h3>
+<p>개발자가 직접 예외 클래스를 정의하고 이를 기반으로 특정 상황에서 예외가 발생하도록 할 수도 있다.<br />
+핵심은 Exception을 상속하는데 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">ReadAgeException</span> <span class="kd">extends</span> <span class="nc">Exception</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">ReadAgeException</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="s">"유효하지 않은 나이가 입력되었습니다."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyExceptionClass</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"나이 입력: "</span><span class="o">);</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="n">readAge</span><span class="o">();</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"입력된 나이: %d \n"</span><span class="o">,</span> <span class="n">age</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">ReadAgeException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">readAge</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">ReadAgeException</span> <span class="o">{</span>   <span class="c1">// 발생시킨 예외를 자신을 호출한 메소드에 던짐</span>
+        <span class="nc">Scanner</span> <span class="n">kb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ReadAgeException</span><span class="o">();</span>   <span class="c1">// 예외를 발생시킴</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span>  <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/18-4.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<h3 id="--finally-구문">- <u>finally 구문</u></h3>
+<p>try ~ catch문은 하나의 문장이므로 try문 홀로 존재할 수 없다.<br />
+그런데 try문에 이어서 다음과 같이 finally 구문을 둘 수도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="o">...</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span> <span class="c1">// 코드의 실행이 try 안으로 진입하면, 무조견 실행된다.</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="o">...</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">...</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span> <span class="c1">// 코드의 실행이 try 안으로 진입하면, 무조견 실행된다.</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br />
+그렇다면 finally 구문은 어떻게 유용하게 사용할 수 있을까?<br />
+다음 코드를 보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FinallyCase</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Path</span> <span class="n">file</span> <span class="o">=</span> <span class="nc">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"/Users/june/Study/java-lang"</span><span class="o">);</span>
+        <span class="nc">BufferedWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">writer</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">newBufferedWriter</span><span class="o">(</span><span class="n">file</span><span class="o">);</span> <span class="c1">// IOException 발생 가능</span>
+            <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="sc">'A'</span><span class="o">);</span>
+            <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="sc">'Z'</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span> <span class="c1">// 예외가 발생하든 안 하든 무조건 실행해야 하는 구문</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">writer</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">writer</span><span class="o">.</span><span class="na">close</span><span class="o">();</span> <span class="c1">// 파일을 열었으면 닫아주어야 함</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>   <span class="c1">// close 하는 중에도 IOException 발생 가능하기 때문</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>파일 버퍼를 열었다면 예외가 발생하든 안 하든 무조건 close를 실행하여 닫아야 한다.<br />
+따라서, finally에 close메소드를 추가하여 무조건 실행이 되도록 만들어 주었다.<br />
+다만, close하는 동안에도 IOException이 발생할 수 있기 때문에 불가피하게 try ~ catch로 잡아주게 되었다.<br />
+하지만 코드 구성이 깔끔하지 않다는 아쉬움이 남는다.<br />
+이를 해결하기 위해서 try-with-resources라는 문법이 등장했다.</p>
+
+<h3 id="--try-with-resources-구문">- <u>try-with-resources 구문</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TryWithResource</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Path</span> <span class="n">file</span> <span class="o">=</span> <span class="nc">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"/Users/june/Study/java-lang"</span><span class="o">);</span>
+
+        <span class="k">try</span> <span class="o">(</span><span class="nc">BufferedWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">newBufferedWriter</span><span class="o">(</span><span class="n">file</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="sc">'A'</span><span class="o">);</span>
+            <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="sc">'Z'</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>다음과 같이 try문 옆에 괄호 안에 종료의 과정을 필요로 하는 리소스를 생성할 수 있다.<br />
+그리고 이 리소스는 try-with-resources문을 빠져나오면서 자동으로 종료된다.</p>
+
+<p>‘자동으로 종료되어야 할 리소스’ 관련 클래스는 다음 인터페이스를 구현해야한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">AutoCloseable</span>
+</code></pre></div></div>
+
+<p>그리고 이 인터페이스에는 다음 추상 메소드가 존재한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">close</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span>
+</code></pre></div></div>
+
+<p>즉, try-with-resources문에서 호출하는 메소드는 AutoCloseable 인터페이스의 close 메소드이다. 따라서 이외의 메소드를 기대하는 것은 어렵다는 것을 염두해두자.</p>
+
+<p><br />
+(참고) 예외처리는 성능의 저하로 이어진다.<br />
+try 구문 안에 위치한 코드는 try 구문 밖에 위치한 코드에 비해 실행 속도가 느리다. 따라서 특별히 예외처리가 필요한 부분만 골라서 사용하도록 해야한다.</p>
+
+<h2 id="reference">Reference</h2>
+<p><a href="https://brunch.co.kr/@kd4/5">https://brunch.co.kr/@kd4/5</a> [자바의 예외처리]</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 17 - 인터페이스의 기본과 그 의미</title><link href="http://localhost:4000/java%20lang/Chap17/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 17 - 인터페이스의 기본과 그 의미" /><published>2022-11-02T00:00:00+09:00</published><updated>2022-11-02T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap17</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap17/"><![CDATA[<h2 id="17-1-인터페이스의-기본과-그-의미">17-1. 인터페이스의 기본과 그 의미</h2>
 <h3 id="--추상-메소드만-담고-있는-인터페이스">- <u>추상 메소드만 담고 있는 인터페이스</u></h3>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">doc</span><span class="o">);</span>  <span class="c1">// 추상 메소드</span>
@@ -2392,109 +2641,4 @@ StringBuilder   -&gt; 멀티 쓰레드 환경에서 안전하지 않음, 속도 
         <span class="n">patient</span><span class="o">.</span><span class="na">takeSinus</span><span class="o">(</span><span class="k">new</span> <span class="nc">TotalCap</span><span class="o">());</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스</title><link href="http://localhost:4000/java%20lang/Chap08/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스" /><published>2022-10-03T00:00:00+09:00</published><updated>2022-10-03T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap08</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap08/"><![CDATA[<h2 id="08-1-클래스-패스class-path">08-1. 클래스 패스(Class Path)</h2>
-<p><img src="/assets/images/java-lang/8-1.png" alt="image" width="80%" height="80%" /><br /></p>
-<blockquote>
-  <p>클래스 패스(Class Path): 자바 가상머신이 클래스 파일을 찾는 경로</p>
-</blockquote>
-
-<h3 id="--현재-디렉토리current-directory를-기준으로-한-실행">- <u>현재 디렉토리(Current Directory)를 기준으로 한 실행</u></h3>
-<p><img src="/assets/images/java-lang/8-2.png" alt="image" width="80%" height="80%" /><br />
-기본적으로 java 실행파일은 필요한 class 파일을 현재 디렉토리에서 찾는다.<br />
-명령 프롬프트 상에서 작업이 진행 중인 디렉토리의 위치에 클래스파일이 없다면 오류를 뱉는다.<br />
-따라서 앞선 상황에서 정상적인 실행 결과를 도출하려면 ‘Class Path’를 지정해야한다.</p>
-
-<h3 id="--클래스-패스의-지정">- <u>클래스 패스의 지정</u></h3>
-<p>다음에서 설명하는 방식은 ‘일시적인’ 방법이다.<br />
-터미널을 열고, 다시 닫기 전까지만 유지되는 것이다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set classpath=.:/Study/MyClass
-</code></pre></div></div>
-
-<p>위의 명령어를 통해 상대경로인 현재 디렉토리(.)와 절대경로인 /Study/Myclass를 지정해주었다.</p>
-<blockquote>
-  <p>현재 디렉토리가 바뀌면 상대 경로가 지정하는 모든 경로가 그에 맞게 수정된다.</p>
-</blockquote>
-
-<p>이러한 장점 때문에 실무에서는 상대 경로를 주로 사용한다.</p>
-
-<h3 id="--클래스-패스를-고정시키는-방법">- <u>클래스 패스를 고정시키는 방법</u></h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># .zshrc
-
-export JAVA_HOME=&lt;설치된 폴더 위치&gt;
-export CLASSPATH=&lt;설치된 폴더 위치&gt;/lib:.
-</code></pre></div></div>
-<p>이렇게 환경변수를 이용해 직접 Class Path를 고정시키는 방법도 있다.<br />
-명령 프롬프트를 새로 띄워도 Class Path가 그대로 유지되기 때문에 주의해서 사용해야한다.</p>
-
-<h2 id="08-2-패키지package의-이해">08-2. 패키지(Package)의 이해</h2>
-<blockquote>
-  <p>패키지는 클래스를 묶는 수단이다.</p>
-</blockquote>
-
-<h3 id="--패키지-선언의-의미와-목적">- <u>패키지 선언의 의미와 목적</u></h3>
-<p>패키지 이름의 예시를 보자.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">net</span>
-</code></pre></div></div>
-<p>일단 패키지 이름이 java로 시작한다. 이는 자바에서 제공하는 클래스임을 뜻한다.<br />
-그리고 net은 network를 줄인 표현으로 네트워크 관련 기능의 클래스임을 짐작하게 한다.<br />
-이렇게, 패키지는 클래스를 구분하고 파악하는데도 도움이 된다.</p>
-
-<h3 id="--패키지-이름을-짓는-관례">- <u>패키지 이름을 짓는 관례</u></h3>
-<p>패키지의 이름을 지을 때에는 다음의 관례를 따른다.</p>
-<ol>
-  <li>클래스의 이름과 구분이 되도록 패키지의 이름은 모두 소문자로 구성한다.</li>
-  <li>인터넷 도메인 이름의 역순으로 패키지 이름을 구성한다.</li>
-  <li>패키지 이름의 끝에 클래스를 정의한 주체 또는 팀을 구분하는 이름을 추가한다.</li>
-</ol>
-
-<p>예를 들어<br />
-‘인터넷 도메인이 hi_june.com인 회사’의 ‘개발자 최씨’가 개발한 클래스를 묶을 패키지 이름을 위의 관례에 따라 만들어보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>com.hi_june.choi
-</code></pre></div></div>
-
-<h3 id="--이름-충돌의-해결을-위한-패키지의-효과">- <u>이름 충돌의 해결을 위한 패키지의 효과</u></h3>
-<p>패키지의 선언은 다음과 같은 두 가지 특성을 만들어낸다.</p>
-
-<ul>
-  <li>클래스 접근 방법의 구분
-    <ul>
-      <li>서로 다른 패키지의 두 클래스는 인스턴스 생성 시 사용하는 이름이 다르다.</li>
-    </ul>
-  </li>
-  <li>클래스의 공간적인 구분
-    <ul>
-      <li>서로 다른 패키지의 두 클래스 파일은 저장되는 위치가 다르다.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>패키지의 이름이 결정되고 -&gt; 각 클래스를 패키지로 묶으면 -&gt; 클래스의 인스턴스 생성 방법도 달라진다.<br />
-<img src="/assets/images/java-lang/8-3.png" alt="image" width="80%" height="80%" /><br /></p>
-
-<p>그에 따라 클래스 파일이 저장되는 위치도 다음과 같이 달라진다.<br />
-<img src="/assets/images/java-lang/8-4.png" alt="image" width="50%" height="50%" /><br /></p>
-
-<h3 id="--import-선언">- <u>import 선언</u></h3>
-<p>클래스가 필요할 때마다 호출을</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">com</span><span class="o">.</span><span class="na">wxfx</span><span class="o">.</span><span class="na">smart</span><span class="o">.</span><span class="na">Circle</span> <span class="n">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">wxfx</span><span class="o">.</span><span class="na">smart</span><span class="o">.</span><span class="na">Circle</span><span class="o">(</span><span class="mf">3.5</span><span class="o">);</span>
-</code></pre></div></div>
-<p>이런 식으로 해야한다면 여간 번거로운 일이 아닐 것이다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.wxfx.smart.Circle</span><span class="o">;</span>
-
-<span class="nc">Circle</span> <span class="n">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="o">(</span><span class="mf">3.5</span><span class="o">);</span>
-</code></pre></div></div>
-<p>이런식으로 import문을 이용해서 코드를 간소화할 수 있다.</p>
-
-<p><br /><br />
-(참고)<br />
-클래스가 아닌 패키지를 대상으로 다음과 같이 import 선언을 하는 것도 가능하다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.wxfx.smart.*</span><span class="o">;</span>
-</code></pre></div></div>
-
-<p>다만,<br />
-패키지 대상의 import 선언은 이름 충돌이 발생할 수 있고,<br />
-또 의도하지 않은 클래스의 인스턴스를 생성하는 상황으로 이어질 수 있어서<br />
-가급적 사용을 자제하라고 권고하고 있다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
