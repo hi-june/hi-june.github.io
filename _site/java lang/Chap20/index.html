@@ -1,0 +1,1577 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스 -  June &amp; Directory</title>
+<meta name="description" content="Java 문법 정리! ">
+
+
+  <meta name="author" content="hi~ June!!">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content=" June & Directory ">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap20/">
+
+
+  <meta property="og:description" content="Java 문법 정리! ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/Profile/jenga.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2022-11-26T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-11-26T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap20/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "June & Directory",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" June & Directory  Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+
+    <!-- 스크롤바 커스터마이징 -->
+    <style> 
+      ::-webkit-scrollbar{width: 16px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb:hover {background: #4cb7ff;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:12px;height:12px;background:transparent; }
+
+      
+    </style>
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           June & Directory 
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/index.html">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">카테고리 Click</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#java-lang" itemprop="item"><span itemprop="name">Java lang</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile/jenga.jpg" alt="hi~ June!!" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">hi~ June!!</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>반갑습니다!! 😆</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:wnsgur735@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">카테고리 Click</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Nanum Gothic Coding';">전체 글 수</style> <span style="font-family:'Nanum Gothic Coding';">40</style> <span style="font-family:'Nanum Gothic Coding';">개</style> 
+      </li>
+      <li>
+
+        <span class="nav__sub-title">Project</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SiDoli" class="">SiDoli (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Team_ForV" class="">Team_ForV (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Java</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java-lang" class="">Java 기본문법 정리 (20)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Spring/Spring Boot</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Spring-Tutorial" class="">Spring-Tutorial (7)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SpringBoot-JPA" class="">Spring Boot & JPA (1)</a></li>
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">DataBase</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        
+        <span class="nav__sub-title">Computer Science</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Mobile</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/Android" class="">Android (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스">
+    <meta itemprop="description" content="Java 문법 정리!">
+    <meta itemprop="datePublished" content="2022-11-26T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-11-26T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스
+</h1>
+          
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-11-26T00:00:00+09:00">2022.11.26</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-11-26">2022.11.26</time></p>
+          
+          
+            
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+    
+    </span>
+  </p>
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+    
+    </span>
+  </p>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#20-1-래퍼-클래스-wrapper-클래스">20-1. 래퍼 클래스 (Wrapper 클래스)</a>
+    <ul>
+      <li><a href="#--기본-자료형의-값을-감싸는-래퍼-클래스">- 기본 자료형의 값을 감싸는 래퍼 클래스</a></li>
+      <li><a href="#--래퍼-클래스의-두-가지-기능">- 래퍼 클래스의 두 가지 기능</a></li>
+      <li><a href="#--오토-박싱auto-boxing--오토-언박싱auto-unboxing">- 오토 박싱(Auto Boxing) &amp; 오토 언박싱(Auto Unboxing)</a></li>
+    </ul>
+  </li>
+  <li><a href="#20-2-biginteger-클래스와-bigdecimal-클래스">20-2. BigInteger 클래스와 BigDecimal 클래스</a>
+    <ul>
+      <li><a href="#--매우-큰-정수의-표현을-위한-javamathbiginteger-클래스">- 매우 큰 정수의 표현을 위한 java.math.BigInteger 클래스</a></li>
+      <li><a href="#--오차-없는-실수의-표현을-위한-javamathbigdecimal-클래스">- 오차 없는 실수의 표현을 위한 java.math.BigDecimal 클래스</a></li>
+    </ul>
+  </li>
+  <li><a href="#20-3-math-클래스와-난수의-생성-그리고-문자열-토큰tocken의-구분">20-3. Math 클래스와 난수의 생성, 그리고 문자열 토큰(Tocken)의 구분</a>
+    <ul>
+      <li><a href="#--수학-관련-다양한-연산의-제공을-위한-math-클래스">- 수학 관련 다양한 연산의 제공을 위한 Math 클래스</a></li>
+      <li><a href="#--난수random-number의-생성">- 난수(Random Number)의 생성</a></li>
+      <li><a href="#--씨드seed-기반의-난수-생성">- 씨드(Seed) 기반의 난수 생성</a></li>
+      <li><a href="#--문자열의-토큰token-구분">- 문자열의 토큰(Token) 구분</a></li>
+    </ul>
+  </li>
+  <li><a href="#20-4-arrays-클래스">20-4. Arrays 클래스</a>
+    <ul>
+      <li><a href="#--배열의-복사">- 배열의 복사</a></li>
+      <li><a href="#--배열의-비교">- 배열의 비교</a></li>
+      <li><a href="#--배열의-정렬">- 배열의 정렬</a></li>
+      <li><a href="#--배열의-탐색">- 배열의 탐색</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="20-1-래퍼-클래스-wrapper-클래스">20-1. 래퍼 클래스 (Wrapper 클래스)</h2>
+<blockquote>
+  <p>래퍼 클래스는 이름이 의미하듯이 ‘기본 자료형의 값들을 감싸는 클래스’이다.</p>
+</blockquote>
+
+<h3 id="--기본-자료형의-값을-감싸는-래퍼-클래스">- <u>기본 자료형의 값을 감싸는 래퍼 클래스</u></h3>
+<p>래퍼 클래스는 기본 자료형의 값을 감싸는 클래스이다.<br />
+모든 기본 자료형을 대상으로 래퍼 클래스가 정의되어 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Boolean</span>
+<span class="kd">public</span> <span class="nf">Boolean</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">value</span><span class="o">)</span>
+
+<span class="c1">// Character</span>
+<span class="kd">public</span> <span class="nf">Character</span><span class="o">(</span><span class="kt">char</span> <span class="n">value</span><span class="o">)</span>
+
+<span class="c1">// Byte</span>
+<span class="kd">public</span> <span class="nf">Byte</span><span class="o">(</span><span class="kt">byte</span> <span class="n">value</span><span class="o">)</span>
+
+<span class="c1">// Short</span>
+<span class="kd">public</span> <span class="nf">Short</span><span class="o">(</span><span class="kt">short</span> <span class="n">value</span><span class="o">)</span>
+
+<span class="c1">// Integer</span>
+<span class="kd">public</span> <span class="nf">Integer</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">)</span>
+
+<span class="c1">// Long</span>
+<span class="kd">public</span> <span class="nf">Integer</span><span class="o">(</span><span class="kt">long</span> <span class="n">value</span><span class="o">)</span>
+
+<span class="c1">// Float</span>
+<span class="kd">public</span> <span class="nf">Float</span><span class="o">(</span><span class="kt">float</span> <span class="n">value</span><span class="o">),</span> <span class="kd">public</span> <span class="nf">Float</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">)</span>
+
+<span class="c1">// Double</span>
+<span class="kd">public</span> <span class="nf">Double</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="--래퍼-클래스의-두-가지-기능">- <u>래퍼 클래스의 두 가지 기능</u></h3>
+<p>하나는 값을 인스턴스로 감싸는 것이고, 다른 하나는 인스턴스에서 값을 꺼내는 것이다.<br />
+<img src="/assets/images/java-lang/20-1.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<ul>
+  <li>박싱(Boxing): 값을 인스턴스에 감싸는 행위</li>
+  <li>언박싱(Unboxing): 저장된 값을 꺼내는 행위</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Integer</span> <span class="n">iObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Integer</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span> <span class="c1">// 박싱</span>
+<span class="nc">Double</span> <span class="n">dObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Double</span><span class="o">(</span><span class="mf">3.14</span><span class="o">);</span> <span class="c1">// 박싱</span>
+
+<span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="n">iObj</span><span class="o">.</span><span class="na">intValue</span><span class="o">();</span> <span class="c1">// 언박싱</span>
+<span class="kt">double</span> <span class="n">num2</span> <span class="o">=</span> <span class="n">dObj</span><span class="o">.</span><span class="na">doubleValue</span><span class="o">();</span>   <span class="c1">// 언박싱</span>
+</code></pre></div></div>
+
+<p>래퍼 인스턴스들은 담고 있는 값을 수정하지 못한다.<br />
+따라서 값의 수정이 필요하면 새로운 래퍼 인스턴스를 생성해야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Integer</span><span class="o">(</span><span class="n">iObj</span><span class="o">.</span><span class="na">intValue</span><span class="o">()</span> <span class="o">+</span> <span class="mi">10</span><span class="o">);</span>
+<span class="n">dObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Double</span><span class="o">(</span><span class="n">dObj</span><span class="o">.</span><span class="na">doubleValue</span><span class="o">()</span> <span class="o">+</span> <span class="mf">1.2</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="--오토-박싱auto-boxing--오토-언박싱auto-unboxing">- <u>오토 박싱(Auto Boxing) &amp; 오토 언박싱(Auto Unboxing)</u></h3>
+<p>자바 5부터 박싱과 언박싱이 필요한 상황에서 이를 자동으로 처리하기 시작했다.<br />
+이를 오토 박싱, 오토 언박싱이라 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Integer</span> <span class="n">iObj</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>  <span class="c1">// 오토 박싱 진행</span>
+<span class="nc">Double</span> <span class="n">dObj</span> <span class="o">=</span> <span class="mf">3.14</span>  <span class="c1">// 오토 박싱 진행</span>
+
+<span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="n">iObj</span><span class="o">;</span>    <span class="c1">// 오토 언박싱</span>
+<span class="kt">double</span> <span class="n">num2</span> <span class="o">=</span> <span class="n">dObj</span><span class="o">;</span> <span class="c1">// 오토 언박싱</span>
+
+<span class="n">iObj</span><span class="o">++;</span> <span class="c1">// 오토 박싱, 오토 언박싱 동시 진행</span>
+</code></pre></div></div>
+
+<h2 id="20-2-biginteger-클래스와-bigdecimal-클래스">20-2. BigInteger 클래스와 BigDecimal 클래스</h2>
+<h3 id="--매우-큰-정수의-표현을-위한-javamathbiginteger-클래스">- <u>매우 큰 정수의 표현을 위한 java.math.BigInteger 클래스</u></h3>
+<p>일반적인 범위를 넘어서는 매우 큰 수의 표현을 위해 자바는 BigInteger 클래스를 제공한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">BigInteger</span> <span class="n">big1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BigInteger</span><span class="o">(</span><span class="s">"10000000000000000000000"</span><span class="o">);</span>
+<span class="nc">BigInteger</span> <span class="n">big2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BigInteger</span><span class="o">(</span><span class="s">"-9999999999999999999999"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>그리고 이렇게 표현한 큰 수를 연산하는 다양한 메소드가 정의되어있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">BigInteger</span> <span class="nf">add</span><span class="o">(</span><span class="nc">BigInteger</span> <span class="n">val</span><span class="o">);</span>  <span class="c1">// 덧셈</span>
+<span class="kd">public</span> <span class="nc">BigInteger</span> <span class="nf">subtract</span><span class="o">(</span><span class="nc">BigInteger</span> <span class="n">val</span><span class="o">);</span> <span class="c1">// 뺄셈</span>
+<span class="kd">public</span> <span class="nc">BigInteger</span> <span class="nf">multiply</span><span class="o">(</span><span class="nc">BigInteger</span> <span class="n">val</span><span class="o">);</span> <span class="c1">// 곱셈</span>
+<span class="kd">public</span> <span class="nc">BigInteger</span> <span class="nf">divide</span><span class="o">(</span><span class="nc">BigInteger</span> <span class="n">val</span><span class="o">);</span> <span class="c1">// 나눗셈의 몫</span>
+<span class="kd">public</span> <span class="nc">BigInteger</span> <span class="nf">remainder</span><span class="o">(</span><span class="nc">BigInteger</span> <span class="n">val</span><span class="o">);</span>  <span class="c1">// 나눗셈의 나머지</span>
+</code></pre></div></div>
+
+<p>연산을 통해 그 값이 int형 또는 long형으로 표현이 가능한 수준에 이르면 다음 메소드의 호출로 인스턴스에 저장된 값을 얻을 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">long</span> <span class="nf">longValueExact</span><span class="o">();</span> <span class="c1">// BigInteger 인스턴스에 저장된 값을 long형 정수로 반환</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">intValueExact</span><span class="o">();</span> <span class="c1">// BigInteger 인스턴스에 저장된 값을 int형 정수로 반환</span>
+</code></pre></div></div>
+
+<h3 id="--오차-없는-실수의-표현을-위한-javamathbigdecimal-클래스">- <u>오차 없는 실수의 표현을 위한 java.math.BigDecimal 클래스</u></h3>
+<p>BigDecimal 클래스는 오차 없는 실수의 표현을 위해 제공되는 클래스이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 정상적인 방법</span>
+<span class="nc">BigDecimal</span> <span class="n">d1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="s">"1.6"</span><span class="o">);</span>
+<span class="nc">BigDecimal</span> <span class="n">d2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="s">"0.1"</span><span class="o">);</span>
+
+<span class="c1">// 가능은 하지만 오차 발생(실수는 표현되는 순간부터 오차를 지니기 때문)</span>
+<span class="nc">BigDecimal</span> <span class="n">d1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="mf">1.6</span><span class="o">);</span>
+<span class="nc">BigDecimal</span> <span class="n">d2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="mf">0.1</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>BigDecimal 클래스에도 다음 사칙연산을 포함하여 다양한 연산을 위한 메소드가 정의되어 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">BigDecimal</span> <span class="nf">add</span><span class="o">(</span><span class="nc">BigDecimal</span> <span class="n">augend</span><span class="o">);</span> <span class="c1">// 덧셈</span>
+<span class="kd">public</span> <span class="nc">BigDecimal</span> <span class="nf">subtract</span><span class="o">(</span><span class="nc">BigDecimal</span> <span class="n">subtrahend</span><span class="o">);</span>  <span class="c1">// 뺄셈</span>
+<span class="kd">public</span> <span class="nc">BigDecimal</span> <span class="nf">multiply</span><span class="o">(</span><span class="nc">BigDecimal</span> <span class="n">multiplicand</span><span class="o">);</span>  <span class="c1">// 곱셈</span>
+<span class="kd">public</span> <span class="nc">BigDecimal</span> <span class="nf">divide</span><span class="o">(</span><span class="nc">BigDecimal</span> <span class="n">divisor</span><span class="o">);</span> <span class="c1">// 나눗셈</span>
+</code></pre></div></div>
+
+<h2 id="20-3-math-클래스와-난수의-생성-그리고-문자열-토큰tocken의-구분">20-3. Math 클래스와 난수의 생성, 그리고 문자열 토큰(Tocken)의 구분</h2>
+<h3 id="--수학-관련-다양한-연산의-제공을-위한-math-클래스">- <u>수학 관련 다양한 연산의 제공을 위한 Math 클래스</u></h3>
+<p>Math 클래스에 정의된 여러 static 메소드에 대해서 알아보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleMathUse</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"원주열: "</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">PI</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"2의 제곱근: "</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"파이에 대한 Degree: "</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">toDegrees</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">PI</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"2 파이에 대한 Degree: "</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">toDegrees</span><span class="o">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nc">Math</span><span class="o">.</span><span class="na">PI</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="kt">double</span> <span class="n">radian45</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">toRadians</span><span class="o">(</span><span class="mi">45</span><span class="o">);</span>   <span class="c1">// 디그리 단위의 값을 라디안 값으로 변환!</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"싸인 45: "</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sin</span><span class="o">(</span><span class="n">radian45</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"코싸인 45: "</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">cos</span><span class="o">(</span><span class="n">radian45</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"탄젠트 45: "</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">tan</span><span class="o">(</span><span class="n">radian45</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"로그 25: "</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="mi">25</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"2의 16승: "</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">26</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/20-2.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<h3 id="--난수random-number의-생성">- <u>난수(Random Number)의 생성</u></h3>
+<p>난수는 예측 불가능한 수를 의미한다.<br />
+자바에서 난수를 생성하는 방법은 java.util.Random 클래스의 인스턴스를 이용하면 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Random</span> <span class="n">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+
+<span class="c1">// 메소드</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">nextBoolean</span><span class="o">();</span> <span class="c1">// boolean형 난수 반환</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">nextInt</span><span class="o">();</span> <span class="c1">// int형 난수 반환</span>
+<span class="kd">public</span> <span class="kt">long</span> <span class="nf">nextLong</span><span class="o">();</span> <span class="c1">// long형 난수 반환</span>
+<span class="kd">public</span> <span class="kt">float</span> <span class="nf">nextFloat</span><span class="o">();</span> <span class="c1">// 0.0 이상 1.0 미만의 float형 난수 반환</span>
+<span class="kd">public</span> <span class="kt">double</span> <span class="nf">nextDouble</span><span class="o">();</span> <span class="c1">// 0.0 이상 1.0 미만의 double형 난수 반환</span>
+</code></pre></div></div>
+
+<h3 id="--씨드seed-기반의-난수-생성">- <u>씨드(Seed) 기반의 난수 생성</u></h3>
+<p>컴퓨터가 난수를 생성하는 것은 일종의 패턴이 있다.<br />
+이 값을 씨드 값(Seed Number)라고 하는데, 난수 생성 알고리즘은 이 숫자를 기반으로 돌아가기 때문에 이 값이 같으면 생성되는 난수의 패턴은 100% 일치한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GanRandom</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Random</span> <span class="n">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>  <span class="c1">// seed 값을 전달받음</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">1000</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>사실 씨드 값을 별도로 전달하지 않고 Random 인스턴스를 생성해도 내부에서는 다음과 같은 방식으로 씨드 값을 설정한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Random</span> <span class="n">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+
+<span class="kd">public</span> <span class="nf">Random</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">this</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">());</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--문자열의-토큰token-구분">- <u>문자열의 토큰(Token) 구분</u></h3>
+<p>StringTokenizer 클래스를 이용하면 특정 기준을 가지고 문자열을 작게 나눌 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// StringTokenizer 생성자</span>
+<span class="kd">public</span> <span class="nf">StringTokenizer</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">,</span> <span class="nc">String</span> <span class="n">delim</span><span class="o">);</span>
+
+<span class="c1">// 반환할 토큰이 남아있나</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasMoreTokens</span><span class="o">();</span>
+
+<span class="c1">// 다음 토큰을 반환</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">nextToken</span><span class="o">();</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TokenizeString</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">StringTokenizer</span> <span class="n">st1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="s">"PM:08:45"</span><span class="o">,</span> <span class="s">":"</span><span class="o">);</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">st1</span><span class="o">.</span><span class="na">hasMoreTokens</span><span class="o">())</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">st1</span><span class="o">.</span><span class="na">nextToken</span><span class="o">()</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// 구분자로 여러 개를 설정할 수 있다.</span>
+        <span class="nc">StringTokenizer</span> <span class="n">st2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="s">"12 + 36 - 8 / 2 = 44"</span><span class="o">,</span> <span class="s">"+-/= "</span><span class="o">);</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">st2</span><span class="o">.</span><span class="na">hasMoreTokens</span><span class="o">())</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">st2</span><span class="o">.</span><span class="na">nextToken</span><span class="o">()</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="20-4-arrays-클래스">20-4. Arrays 클래스</h2>
+<p>java.util.Arrays 클래스는 배열 조작에 도움을 주는 메소드들로 채워져 있다.<br />
+이 클래스의 메소드들을 이용해 배열의 복사, 비교, 정렬 및 탐색을 손쉽게 진행해보자.</p>
+
+<h3 id="--배열의-복사">- <u>배열의 복사</u></h3>
+<p><img src="/assets/images/java-lang/20-3.png" alt="image" width="80%" height="80%" /><br />
+<img src="/assets/images/java-lang/20-4.png" alt="image" width="80%" height="80%" /><br />
+<img src="/assets/images/java-lang/20-5.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CopyOfArrays</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">double</span><span class="o">[]</span> <span class="n">originArray</span> <span class="o">=</span> <span class="o">{</span><span class="mf">1.1</span><span class="o">,</span> <span class="mf">2.2</span><span class="o">,</span> <span class="mf">3.3</span><span class="o">,</span> <span class="mf">4.4</span><span class="o">,</span> <span class="mf">5.5</span><span class="o">};</span>
+
+        <span class="c1">// copyOf 메소드: 첫 번째 요소부터 n번째 요소까지 배열 복사</span>
+        <span class="kt">double</span><span class="o">[]</span> <span class="n">copyArray1</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">originArray</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
+
+        <span class="c1">// copyOfRange 메소드: 인덱스 번호 from 부터 to 이전 요소까지 복사</span>
+        <span class="kt">double</span><span class="o">[]</span> <span class="n">copyArray2</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOfRange</span><span class="o">(</span><span class="n">originArray</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+
+        <span class="c1">// 이미 존재하는 배열에 복사를 하려는 경우</span>
+        <span class="c1">// 배열 org의 인덱스 1에서 배열 copyArray3의 인덱스 1로 n 개의 요소 복사</span>
+        <span class="kt">double</span><span class="o">[]</span> <span class="n">copyArray3</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">originArray</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">copyArray3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">double</span> <span class="n">i</span> <span class="o">:</span> <span class="n">copyArray1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">double</span> <span class="n">i</span> <span class="o">:</span> <span class="n">copyArray2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">double</span> <span class="n">i</span> <span class="o">:</span> <span class="n">copyArray3</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/20-6.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<h3 id="--배열의-비교">- <u>배열의 비교</u></h3>
+<p><img src="/assets/images/java-lang/20-7.png" alt="image" width="80%" height="80%" /><br />
+위의 메소드는 두 배열에 저장된 데이터의 수, 순서, 그리고 내용이 같을 때 true를 반환한다.(배열의 길이가 다른 경우에도 false를 반환한다.)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="nc">Object</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">a2</span><span class="o">);</span>
+</code></pre></div></div>
+<p>이 메소드는 Object형 배열에 대해서도 오버로딩 되어 있다.<br />
+Object 클래스에 정의되어 있는 equals 메소드는 참조 값 비교를 진행한다.<br />
+따라서, 배열의 참조 값 비교가 아닌 내용 비교가 목적이라면 다음과 같이 equals 메소드를 목적에 맞게 오버라이딩 해야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">INum</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">INum</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">num</span> <span class="o">=</span> <span class="n">num</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="nc">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">num</span> <span class="o">==</span> <span class="o">((</span><span class="nc">Num</span><span class="o">)</span><span class="n">obj</span><span class="o">).</span><span class="na">num</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 두 인스턴스의 내용 비교</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">ArrayObjEquals</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">INum</span><span class="o">[]</span> <span class="n">ar1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">INum</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+    <span class="nc">INum</span><span class="o">[]</span> <span class="n">ar2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">INum</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+
+    <span class="n">ar1</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">INum</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span> <span class="n">ar2</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">INum</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">ar1</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">INum</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span> <span class="n">ar2</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">INum</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">ar1</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">INum</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span> <span class="n">ar2</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">INum</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">ar1</span><span class="o">,</span> <span class="n">ar2</span><span class="o">));</span>  <span class="c1">// true</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--배열의-정렬">- <u>배열의 정렬</u></h3>
+<p><img src="/assets/images/java-lang/20-9.png" alt="image" width="65%" height="65%" /><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span><span class="o">[]</span> <span class="n">ar</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+<span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">ar</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>이 메소드는 다음과 같이 Object 배열에 대해서도 오버로딩 되어 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="nc">Object</span><span class="o">[]</span> <span class="n">a</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>인스턴스의 참조 값을 저장하고 있는 배열에 대한 정렬은 무엇을 기준으로 할까?<br />
+다음 인터페이스의 구현을 기반으로 프로그래머가 클래스 별로 결정하게 되어 있다.</p>
+
+<p><img src="/assets/images/java-lang/20-10.png" alt="image" width="70%" height="70%" /><br />
+위 인터페이스에 존재하는 추상 메소드 compareTo의 구현 방법은 다음과 같다.</p>
+<ul>
+  <li>인자로 전달된 o가 작다면 양의 정수 반환</li>
+  <li>인자로 전달된 o가 크다면 음의 정수 반환</li>
+  <li>인자로 전달된 o와 같다면 0을 반환</li>
+</ul>
+
+<p>다음의 예시를 통해 compareTo 메소드를 어떻게 구성하는지 살펴보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Person</span> <span class="kd">implements</span> <span class="nc">Comparable</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * 나이가 어린 인스턴스의 크기가 작은 것으로 결정한다.
+     *
+     * @param o the object to be compared.
+     * @return
+     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Person</span> <span class="n">p</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Person</span><span class="o">)</span> <span class="n">o</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="na">age</span><span class="o">;</span>
+<span class="c1">//        if (this.age &gt; ((Person)o).age) return 1;</span>
+<span class="c1">//        else if (this.age &lt; ((Person)o).age) return -1;</span>
+<span class="c1">//        else return 0;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayObjSort</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Person</span><span class="o">[]</span> <span class="n">ar</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+        <span class="n">ar</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Kim"</span><span class="o">,</span> <span class="mi">22</span><span class="o">);</span>
+        <span class="n">ar</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Choi"</span><span class="o">,</span> <span class="mi">26</span><span class="o">);</span>
+        <span class="n">ar</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Park"</span><span class="o">,</span> <span class="mi">24</span><span class="o">);</span>
+
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">ar</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Person</span> <span class="n">p</span> <span class="o">:</span> <span class="n">ar</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><img src="/assets/images/java-lang/20-11.png" alt="image" width="45%" height="45%" /><br /></p>
+
+<h3 id="--배열의-탐색">- <u>배열의 탐색</u></h3>
+<p><img src="/assets/images/java-lang/20-12.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArraySearch</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">ar</span> <span class="o">=</span> <span class="o">{</span><span class="mi">33</span><span class="o">,</span> <span class="mi">55</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">44</span><span class="o">,</span> <span class="mi">22</span><span class="o">};</span>
+
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">ar</span><span class="o">);</span>    <span class="c1">// 탐색 이전에 정렬이 선행되어야 한다.</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">:</span> <span class="n">ar</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">n</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">binarySearch</span><span class="o">(</span><span class="n">ar</span><span class="o">,</span> <span class="mi">33</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Index of 33: "</span> <span class="o">+</span> <span class="n">idx</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>이진 탐색(Binary Search)라는 알고리즘을 기반으로 탐색을 진행하기 때문에 정렬 과정이 선행되어야한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="nc">Object</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">key</span><span class="o">)</span>
+</code></pre></div></div>
+<p>마찬가지로 Object형 배열에 대해서도 오버로딩되어있고,<br />
+마찬가지로 이 메소드를 사용하기 위해 Comparable 인터페이스를 구현하고 compareTo 메소드를 오버라이딩하면 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Person</span> <span class="kd">implements</span> <span class="nc">Comparable</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * 탐색 기준: 이름
+     *
+     * @param o the object to be compared.
+     * @return
+     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Person</span> <span class="n">p</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Person</span><span class="o">)</span> <span class="n">o</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayObjSearch</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Person</span><span class="o">[]</span> <span class="n">ar</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+        <span class="n">ar</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Kim"</span><span class="o">,</span> <span class="mi">22</span><span class="o">);</span>
+        <span class="n">ar</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Choi"</span><span class="o">,</span> <span class="mi">26</span><span class="o">);</span>
+        <span class="n">ar</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Park"</span><span class="o">,</span> <span class="mi">24</span><span class="o">);</span>
+
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">ar</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">binarySearch</span><span class="o">(</span><span class="n">ar</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Choi"</span><span class="o">,</span> <span class="mi">26</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ar</span><span class="o">[</span><span class="n">idx</span><span class="o">]);</span>  <span class="c1">// choi: 26</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><img src="/assets/images/java-lang/20-13.png" alt="image" width="35%" height="35%" /><br /></p>
+
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <!-- '카테고리 내 다른 글 보러가기' -->
+        <p></p>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Java lang</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <!--
+
+  <nav class="pagination">
+    
+      <a href="/java%20lang/Chap19/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 19 - 자바의 메모리 모델과 Object 클래스
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+-->
+
+
+
+
+  
+  	
+  	
+  	
+  	
+  	
+
+
+  <nav class="pagination_prev_next">
+    
+      <a href="/java%20lang/Chap19/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 19 - 자바의 메모리 모델과 Object 클래스</a>
+    
+    
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
+    
+  </nav>
+
+
+<!--
+
+
+
+-->
+
+
+
+        <p></p>
+
+        <!-- archive 중간 광고 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+            data-ad-client="ca-pub-6111782407607310"
+            data-ad-slot="5458515780"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+      <footer class="page__meta">
+        
+        <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+20+-+%EC%9E%90%EB%B0%94%EC%9D%98+%EA%B8%B0%EB%B3%B8+%ED%81%B4%EB%9E%98%EC%8A%A4%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap20%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap20%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap20%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+  </article>
+
+  
+  
+    <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
+      <h4 class="page__related-title">최근 글 10 개 :)</h4>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap19/">[윤성우의 열혈 Java 프로그래밍] Chapter 19 - 자바의 메모리 모델과 Object 클래스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.11.24
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap18/">[윤성우의 열혈 Java 프로그래밍] Chapter 18 - 예외처리(Exception Handling)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.11.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap17/">[윤성우의 열혈 Java 프로그래밍] Chapter 17 - 인터페이스의 기본과 그 의미</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.11.02
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap16/">[윤성우의 열혈 Java 프로그래밍] Chapter 16 - 클래스의 상속 3: 상속의 목적</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.21
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap15/">[윤성우의 열혈 Java 프로그래밍] Chapter 15 - 클래스의 상속 2: 오버라이딩</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.18
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap14/">[윤성우의 열혈 Java 프로그래밍] Chapter 14 - 클래스의 상속 1: 상속의 기본</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.17
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap13/">[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap12/">[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.13
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap11/">[윤성우의 열혈 Java 프로그래밍] Chapter 11 - 메소드 오버로딩과 String 클래스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.10
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap10/">[윤성우의 열혈 Java 프로그래밍] Chapter 10 - 클래스 변수와 클래스 메소드</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.09
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 June & Directory. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'hi-june/hi-june.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'photon-dark');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </body>
+</html>

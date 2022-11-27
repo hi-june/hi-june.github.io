@@ -232,4 +232,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap19/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스",
+        "excerpt":"20-1. 래퍼 클래스 (Wrapper 클래스) 래퍼 클래스는 이름이 의미하듯이 ‘기본 자료형의 값들을 감싸는 클래스’이다. - 기본 자료형의 값을 감싸는 래퍼 클래스 래퍼 클래스는 기본 자료형의 값을 감싸는 클래스이다. 모든 기본 자료형을 대상으로 래퍼 클래스가 정의되어 있다. // Boolean public Boolean(boolean value) // Character public Character(char value) // Byte public Byte(byte...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap20/",
+        "teaser": null
       }]
