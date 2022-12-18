@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력 -  June &amp; Directory</title>
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1 -  June &amp; Directory</title>
 <meta name="description" content="Java 문법 정리! ">
 
 
@@ -19,8 +19,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력">
-<meta property="og:url" content="http://localhost:4000/java%20lang/Chap12/">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap21/">
 
 
   <meta property="og:description" content="Java 문법 정리! ">
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-10-13T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-12-17T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-10-13T00:00:00+09:00">
+  <meta property="article:modified_time" content="2022-12-17T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/java%20lang/Chap12/">
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap21/">
 
 
 
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력</li>
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1</li>
       
     
   </ol>
@@ -626,18 +626,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1">
     <meta itemprop="description" content="Java 문법 정리!">
-    <meta itemprop="datePublished" content="2022-10-13T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-10-13T00:00:00+09:00">
+    <meta itemprop="datePublished" content="2022-12-17T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-12-17T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-10-13T00:00:00+09:00">2022.10.13</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-13">2022.10.13</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-12-17T00:00:00+09:00">2022.12.17</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-12-17">2022.12.17</time></p>
           
           
             
@@ -685,17 +685,21 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#12-1-콘솔-출력console-output">12-1. 콘솔 출력(Console Output)</a>
+  <li><a href="#21-1-제네릭의-이해">21-1. 제네릭의 이해</a>
     <ul>
-      <li><a href="#--systemoutprintln--systmeoutprint">- System.out.println &amp; Systme.out.print</a></li>
-      <li><a href="#--systemoutprintf">- System.out.printf</a></li>
+      <li><a href="#--제네릭-기반의-클래스-정의하기">- 제네릭 기반의 클래스 정의하기</a></li>
+      <li><a href="#--제네릭-이후의-코드">- 제네릭 이후의 코드</a></li>
     </ul>
   </li>
-  <li><a href="#12-2-콘솔-입력console-input">12-2. 콘솔 입력(Console Input)</a>
+  <li><a href="#21-2-제네릭의-기본-문법">21-2. 제네릭의 기본 문법</a>
     <ul>
-      <li><a href="#--scanner-클래스">- Scanner 클래스</a></li>
-      <li><a href="#--scanner-클래스의-키보드-적용">- Scanner 클래스의 키보드 적용</a></li>
-      <li><a href="#--scanner-클래스의-주요-메소드들">- Scanner 클래스의 주요 메소드들</a></li>
+      <li><a href="#--다중-매개변수-기반-제네릭-클래스의-정의">- 다중 매개변수 기반 제네릭 클래스의 정의</a></li>
+      <li><a href="#--기본-자료형에-대한-제한-그리고-래퍼-클래스">- 기본 자료형에 대한 제한 그리고 래퍼 클래스</a></li>
+      <li><a href="#--타입-인자의-생략-다이아몬드diamond-기호">- 타입 인자의 생략: 다이아몬드(Diamond) 기호</a></li>
+      <li><a href="#--매개변수화-타입을-타입-인자로-전달하기">- ‘매개변수화 타입’을 ‘타입 인자’로 전달하기</a></li>
+      <li><a href="#--제네릭-클래스의-타입-인자-제한하기">- 제네릭 클래스의 타입 인자 제한하기</a></li>
+      <li><a href="#--제네릭-메소드의-정의">- 제네릭 메소드의 정의</a></li>
+      <li><a href="#--제네릭-메소드의-제한된-타입-매개변수-선언">- 제네릭 메소드의 제한된 타입 매개변수 선언</a></li>
     </ul>
   </li>
 </ul>
@@ -703,34 +707,184 @@
             </nav>
           </aside>
         
-        <h2 id="12-1-콘솔-출력console-output">12-1. 콘솔 출력(Console Output)</h2>
-<h3 id="--systemoutprintln--systmeoutprint">- <u>System.out.println &amp; Systme.out.print</u></h3>
+        <h2 id="21-1-제네릭의-이해">21-1. 제네릭의 이해</h2>
 <blockquote>
-  <p>System.out.println은 참조 값이 전달되면, 이 값의 인스턴스를 대상으로 toString 메소드를 호출한다. 그리고 이때 반환되는 문자열을 출력한다.</p>
+  <p>클래스를 정의하는데 있어 자료형을 결정짓지 않고 틀만 만들어놓는 형태의 클래스 정의 형태</p>
 </blockquote>
 
-<h3 id="--systemoutprintf">- <u>System.out.printf</u></h3>
-<p><img src="/assets/images/java-lang/12-2.png" alt="image" width="50%" height="50%" /><br />
-<br />
-<img src="/assets/images/java-lang/12-1.png" alt="image" width="70%" height="70%" /><br /></p>
+<h3 id="--제네릭-기반의-클래스-정의하기">- <u>제네릭 기반의 클래스 정의하기</u></h3>
+<p>제네릭이 등장하면서 자료형에 의존적이지 않은 클래스를 정의할 수 있게 되었다.</p>
 
-<h2 id="12-2-콘솔-입력console-input">12-2. 콘솔 입력(Console Input)</h2>
-<h3 id="--scanner-클래스">- <u>Scanner 클래스</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Scanner</span><span class="o">(</span><span class="nc">File</span> <span class="n">source</span><span class="o">)</span>
-<span class="nc">Scanner</span><span class="o">(</span><span class="nc">String</span> <span class="n">source</span><span class="o">)</span>
-<span class="nc">Scanner</span><span class="o">(</span><span class="nc">InputStream</span> <span class="n">source</span><span class="o">)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="no">T</span> <span class="n">ob</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ob</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ob</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>자료형에 의존적이지 않은 형태로 위의 클래스를 정의하였다.<br />
+T는 인스턴스를 생성할 때 결정하면 된다.<br />
+이렇게 <u>인스턴스 생성 시 T의 자료형을 결정하는 것</u>이 ‘제네릭’이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;</span> <span class="n">aBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;();</span>
+</code></pre></div></div>
+<ul>
+  <li>타입 매개변수 (Type Parameter): Box<T> 에서 T</T></li>
+  <li>타입 인자 (Type Argument): Box<Apple> 에서 Apple</Apple></li>
+  <li>매개변수화 타입 (Parameterized Type), 제네릭 타입(Generic Type): Box<Apple></Apple></li>
+</ul>
+
+<h3 id="--제네릭-이후의-코드">- <u>제네릭 이후의 코드</u></h3>
+<p>다음의 예제를 통해 제네릭을 이해해보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Apple</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am an apple"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Orange</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am an Orange"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="no">T</span> <span class="n">ob</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ob</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ob</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GenericExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;</span> <span class="n">aBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Orange</span><span class="o">&gt;</span> <span class="n">oBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+
+        <span class="n">aBox</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="nc">Apple</span><span class="o">());</span>
+        <span class="n">oBox</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="nc">Orange</span><span class="o">());</span>
+
+        <span class="nc">Apple</span> <span class="n">apple</span> <span class="o">=</span> <span class="n">aBox</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="nc">Orange</span> <span class="n">orange</span> <span class="o">=</span> <span class="n">oBox</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">apple</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">orange</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="--scanner-클래스의-키보드-적용">- <u>Scanner 클래스의 키보드 적용</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+<h2 id="21-2-제네릭의-기본-문법">21-2. 제네릭의 기본 문법</h2>
+<h3 id="--다중-매개변수-기반-제네릭-클래스의-정의">- <u>다중 매개변수 기반 제네릭 클래스의 정의</u></h3>
+<p>다음과 같이 둘 이상의 타입 매개변수에 대한 제네릭 클래스도 정의할 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">DBox</span><span class="o">&lt;</span><span class="no">L</span><span class="o">,</span> <span class="no">R</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="no">L</span> <span class="n">left</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="no">R</span> <span class="n">right</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="no">L</span> <span class="n">l</span><span class="o">,</span> <span class="no">R</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">l</span><span class="o">;</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">r</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">left</span> <span class="o">+</span> <span class="s">" &amp; "</span> <span class="o">+</span> <span class="n">right</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MultiTypeParam</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">DBox</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DBox</span><span class="o">&lt;&gt;();</span>
+
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Apple"</span><span class="o">,</span> <span class="mi">25</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">box</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="--scanner-클래스의-주요-메소드들">- <u>Scanner 클래스의 주요 메소드들</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">nextInt</span><span class="o">()</span>
-<span class="kt">byte</span> <span class="nf">nextLine</span><span class="o">()</span>
-<span class="nc">String</span> <span class="nf">nextLine</span><span class="o">()</span>
-<span class="kt">double</span> <span class="nf">nextDouble</span><span class="o">()</span>
-<span class="kt">boolean</span> <span class="nf">nextBoolean</span><span class="o">()</span>
+<p>타입 매개변수의 이름은 일반적으로 다음 두 가지 규칙을 지켜서 이름을 짓는다.</p>
+<ul>
+  <li>한 문자로 이름을 짓는다.</li>
+  <li>대문자로 이름을 짓는다.</li>
+</ul>
+
+<p>보편적으로 자주 사용하는 타입 매개변수의 이름과 그 의미는 다음과 같다.</p>
+<ul>
+  <li>E  Element</li>
+  <li>K  Key</li>
+  <li>N  Number</li>
+  <li>T  Type</li>
+  <li>V  Value</li>
+</ul>
+
+<h3 id="--기본-자료형에-대한-제한-그리고-래퍼-클래스">- <u>기본 자료형에 대한 제한 그리고 래퍼 클래스</u></h3>
+<p>기본 자료형의 이름은 ‘타입 인자’로 쓸 수 없다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 타입 인자로 기본 자료형이 올 수 없으므로 컴파일 오류 발생</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+</code></pre></div></div>
+
+<h3 id="--타입-인자의-생략-다이아몬드diamond-기호">- <u>타입 인자의 생략: 다이아몬드(Diamond) 기호</u></h3>
+<p>컴파일러는 제네릭 관련 문장에서 자료형의 이름을 추론하는 능력을 갖고 있다.<br />
+따라서 다음과 같은 두 가지 방법 모두 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;</span> <span class="n">aBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;();</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;</span> <span class="n">aBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+</code></pre></div></div>
+
+<h3 id="--매개변수화-타입을-타입-인자로-전달하기">- <u>'매개변수화 타입'을 '타입 인자'로 전달하기</u></h3>
+<p>‘매개변수화 타입’이 다음과 같이 ‘타입 인자’로 사용이 될 수도 있다.<br />
+<img src="/assets/images/java-lang/21-1.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<h3 id="--제네릭-클래스의-타입-인자-제한하기">- <u>제네릭 클래스의 타입 인자 제한하기</u></h3>
+<p><code class="language-plaintext highlighter-rouge">extends</code> 키워드를 이용해서 제네릭 클래스의 타입 인자를 제한할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 클래스나 인터페이스로 제한</span>
+<span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Number</span><span class="o">&gt;</span> <span class="o">{...}</span>   <span class="c1">// 클래스</span>
+<span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Eatable</span><span class="o">&gt;</span> <span class="o">{...}</span>  <span class="c1">// 인터페이스</span>
+
+<span class="c1">// 하나의 클래스와 하나 이상의 인터페이스에 대해 동시에 제한을 하는 경우</span>
+<span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Number</span> <span class="o">&amp;</span> <span class="nc">Eatable</span><span class="o">&gt;</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/21-2.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h3 id="--제네릭-메소드의-정의">- <u>제네릭 메소드의 정의</u></h3>
+<p>클래스를 대상으로 하는 것이 아닌 메소드에 대해서 제네릭으로 정의하는 것도 가능하다.<br />
+제네릭 메소드는 인스턴스 메소드 뿐만 아니라 클래스 메소드에 대해서도 정의가 가능하다.<br />
+즉, <code class="language-plaintext highlighter-rouge">static</code> 선언의 유무에 상관없이 제네릭 메소드의 정의가 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BoxFactory</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">makeBox</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>   <span class="c1">// 상자를 생성하고</span>
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">o</span><span class="o">);</span> <span class="c1">// 전달된 인스턴스를 상자에 담아서</span>
+        <span class="k">return</span> <span class="n">box</span><span class="o">;</span> <span class="c1">// 상자를 반환한다.</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>제네릭 클래스는 ‘인스턴스 생성 시’ 자료형이 결정된다.<br />
+반면, 제네릭 메소드는 ‘메소드 호출 시’ 자료형이 결정된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1.</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.&lt;</span><span class="nc">String</span><span class="o">&gt;</span><span class="n">makeBox</span><span class="o">(</span><span class="s">"Sweet"</span><span class="o">);</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">dBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.&lt;</span><span class="nc">Double</span><span class="o">&gt;</span><span class="n">makeBox</span><span class="o">(</span><span class="mf">7.59</span><span class="o">);</span>
+
+<span class="c1">// 2.</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.</span><span class="na">makeBox</span><span class="o">(</span><span class="s">"Sweet"</span><span class="o">);</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">dBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.</span><span class="na">makeBox</span><span class="o">(</span><span class="mf">7.59</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="--제네릭-메소드의-제한된-타입-매개변수-선언">- <u>제네릭 메소드의 제한된 타입 매개변수 선언</u></h3>
+<p>제네릭 클래스와 같이 제네릭 메소드도 타입 제한이 가능하다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Number</span><span class="o">&gt;</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">makeBox</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{...</span> <span class="o">}</span>
 </code></pre></div></div>
 
         
@@ -743,12 +897,11 @@
 
   <nav class="pagination">
     
-      <a href="/java%20lang/Chap11/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 11 - 메소드 오버로딩과 String 클래스
+      <a href="/java%20lang/Chap20/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스
 ">이전</a>
     
     
-      <a href="/java%20lang/Chap13/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -756,24 +909,6 @@
 
 
 
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
   	
@@ -785,10 +920,10 @@
 
   <nav class="pagination_prev_next">
     
-      <a href="/java%20lang/Chap11/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 11 - 메소드 오버로딩과 String 클래스</a>
+      <a href="/java%20lang/Chap20/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스</a>
     
     
-      <a href="/java%20lang/Chap13/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[윤성우의 열혈 Java 프로그래밍] Chapter 13 - 배열(Array)</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -821,11 +956,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+12+-+%EC%BD%98%EC%86%94+%EC%9E%85%EB%A0%A5%EA%B3%BC+%EC%B6%9C%EB%A0%A5%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap12%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+21+-+%EC%A0%9C%EB%84%A4%EB%A6%AD%28Generics%29+1%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap21%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap12%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap21%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap12%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap21%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -839,30 +974,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/java%20lang/Chap21/">[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.12.17
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1040,6 +1151,30 @@
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap12/">[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.13
               <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
         

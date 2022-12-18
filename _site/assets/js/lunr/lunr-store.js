@@ -238,4 +238,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap20/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1",
+        "excerpt":"21-1. 제네릭의 이해 클래스를 정의하는데 있어 자료형을 결정짓지 않고 틀만 만들어놓는 형태의 클래스 정의 형태 - 제네릭 기반의 클래스 정의하기 제네릭이 등장하면서 자료형에 의존적이지 않은 클래스를 정의할 수 있게 되었다. class Box&lt;T&gt; { private T ob; public void set(T o) { ob = o; } public T get() { return...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap21/",
+        "teaser": null
       }]

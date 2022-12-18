@@ -1,4 +1,182 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-27T23:12:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스</title><link href="http://localhost:4000/java%20lang/Chap20/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스" /><published>2022-11-26T00:00:00+09:00</published><updated>2022-11-26T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap20</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap20/"><![CDATA[<h2 id="20-1-래퍼-클래스-wrapper-클래스">20-1. 래퍼 클래스 (Wrapper 클래스)</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-19T02:34:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1</title><link href="http://localhost:4000/java%20lang/Chap21/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1" /><published>2022-12-17T00:00:00+09:00</published><updated>2022-12-17T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap21</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap21/"><![CDATA[<h2 id="21-1-제네릭의-이해">21-1. 제네릭의 이해</h2>
+<blockquote>
+  <p>클래스를 정의하는데 있어 자료형을 결정짓지 않고 틀만 만들어놓는 형태의 클래스 정의 형태</p>
+</blockquote>
+
+<h3 id="--제네릭-기반의-클래스-정의하기">- <u>제네릭 기반의 클래스 정의하기</u></h3>
+<p>제네릭이 등장하면서 자료형에 의존적이지 않은 클래스를 정의할 수 있게 되었다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="no">T</span> <span class="n">ob</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ob</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ob</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>자료형에 의존적이지 않은 형태로 위의 클래스를 정의하였다.<br />
+T는 인스턴스를 생성할 때 결정하면 된다.<br />
+이렇게 <u>인스턴스 생성 시 T의 자료형을 결정하는 것</u>이 ‘제네릭’이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;</span> <span class="n">aBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;();</span>
+</code></pre></div></div>
+<ul>
+  <li>타입 매개변수 (Type Parameter): Box<T> 에서 T</T></li>
+  <li>타입 인자 (Type Argument): Box<Apple> 에서 Apple</Apple></li>
+  <li>매개변수화 타입 (Parameterized Type), 제네릭 타입(Generic Type): Box<Apple></Apple></li>
+</ul>
+
+<h3 id="--제네릭-이후의-코드">- <u>제네릭 이후의 코드</u></h3>
+<p>다음의 예제를 통해 제네릭을 이해해보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Apple</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am an apple"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Orange</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am an Orange"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="no">T</span> <span class="n">ob</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ob</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ob</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GenericExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;</span> <span class="n">aBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Orange</span><span class="o">&gt;</span> <span class="n">oBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+
+        <span class="n">aBox</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="nc">Apple</span><span class="o">());</span>
+        <span class="n">oBox</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="nc">Orange</span><span class="o">());</span>
+
+        <span class="nc">Apple</span> <span class="n">apple</span> <span class="o">=</span> <span class="n">aBox</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="nc">Orange</span> <span class="n">orange</span> <span class="o">=</span> <span class="n">oBox</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">apple</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">orange</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="21-2-제네릭의-기본-문법">21-2. 제네릭의 기본 문법</h2>
+<h3 id="--다중-매개변수-기반-제네릭-클래스의-정의">- <u>다중 매개변수 기반 제네릭 클래스의 정의</u></h3>
+<p>다음과 같이 둘 이상의 타입 매개변수에 대한 제네릭 클래스도 정의할 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">DBox</span><span class="o">&lt;</span><span class="no">L</span><span class="o">,</span> <span class="no">R</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="no">L</span> <span class="n">left</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="no">R</span> <span class="n">right</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="no">L</span> <span class="n">l</span><span class="o">,</span> <span class="no">R</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">l</span><span class="o">;</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">r</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">left</span> <span class="o">+</span> <span class="s">" &amp; "</span> <span class="o">+</span> <span class="n">right</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MultiTypeParam</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">DBox</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DBox</span><span class="o">&lt;&gt;();</span>
+
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Apple"</span><span class="o">,</span> <span class="mi">25</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">box</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>타입 매개변수의 이름은 일반적으로 다음 두 가지 규칙을 지켜서 이름을 짓는다.</p>
+<ul>
+  <li>한 문자로 이름을 짓는다.</li>
+  <li>대문자로 이름을 짓는다.</li>
+</ul>
+
+<p>보편적으로 자주 사용하는 타입 매개변수의 이름과 그 의미는 다음과 같다.</p>
+<ul>
+  <li>E  Element</li>
+  <li>K  Key</li>
+  <li>N  Number</li>
+  <li>T  Type</li>
+  <li>V  Value</li>
+</ul>
+
+<h3 id="--기본-자료형에-대한-제한-그리고-래퍼-클래스">- <u>기본 자료형에 대한 제한 그리고 래퍼 클래스</u></h3>
+<p>기본 자료형의 이름은 ‘타입 인자’로 쓸 수 없다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 타입 인자로 기본 자료형이 올 수 없으므로 컴파일 오류 발생</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+</code></pre></div></div>
+
+<h3 id="--타입-인자의-생략-다이아몬드diamond-기호">- <u>타입 인자의 생략: 다이아몬드(Diamond) 기호</u></h3>
+<p>컴파일러는 제네릭 관련 문장에서 자료형의 이름을 추론하는 능력을 갖고 있다.<br />
+따라서 다음과 같은 두 가지 방법 모두 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;</span> <span class="n">aBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;();</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Apple</span><span class="o">&gt;</span> <span class="n">aBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+</code></pre></div></div>
+
+<h3 id="--매개변수화-타입을-타입-인자로-전달하기">- <u>'매개변수화 타입'을 '타입 인자'로 전달하기</u></h3>
+<p>‘매개변수화 타입’이 다음과 같이 ‘타입 인자’로 사용이 될 수도 있다.<br />
+<img src="/assets/images/java-lang/21-1.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<h3 id="--제네릭-클래스의-타입-인자-제한하기">- <u>제네릭 클래스의 타입 인자 제한하기</u></h3>
+<p><code class="language-plaintext highlighter-rouge">extends</code> 키워드를 이용해서 제네릭 클래스의 타입 인자를 제한할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 클래스나 인터페이스로 제한</span>
+<span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Number</span><span class="o">&gt;</span> <span class="o">{...}</span>   <span class="c1">// 클래스</span>
+<span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Eatable</span><span class="o">&gt;</span> <span class="o">{...}</span>  <span class="c1">// 인터페이스</span>
+
+<span class="c1">// 하나의 클래스와 하나 이상의 인터페이스에 대해 동시에 제한을 하는 경우</span>
+<span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Number</span> <span class="o">&amp;</span> <span class="nc">Eatable</span><span class="o">&gt;</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/java-lang/21-2.png" alt="image" width="70%" height="70%" /><br /></p>
+
+<h3 id="--제네릭-메소드의-정의">- <u>제네릭 메소드의 정의</u></h3>
+<p>클래스를 대상으로 하는 것이 아닌 메소드에 대해서 제네릭으로 정의하는 것도 가능하다.<br />
+제네릭 메소드는 인스턴스 메소드 뿐만 아니라 클래스 메소드에 대해서도 정의가 가능하다.<br />
+즉, <code class="language-plaintext highlighter-rouge">static</code> 선언의 유무에 상관없이 제네릭 메소드의 정의가 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BoxFactory</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">makeBox</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>   <span class="c1">// 상자를 생성하고</span>
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">o</span><span class="o">);</span> <span class="c1">// 전달된 인스턴스를 상자에 담아서</span>
+        <span class="k">return</span> <span class="n">box</span><span class="o">;</span> <span class="c1">// 상자를 반환한다.</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>제네릭 클래스는 ‘인스턴스 생성 시’ 자료형이 결정된다.<br />
+반면, 제네릭 메소드는 ‘메소드 호출 시’ 자료형이 결정된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1.</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.&lt;</span><span class="nc">String</span><span class="o">&gt;</span><span class="n">makeBox</span><span class="o">(</span><span class="s">"Sweet"</span><span class="o">);</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">dBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.&lt;</span><span class="nc">Double</span><span class="o">&gt;</span><span class="n">makeBox</span><span class="o">(</span><span class="mf">7.59</span><span class="o">);</span>
+
+<span class="c1">// 2.</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.</span><span class="na">makeBox</span><span class="o">(</span><span class="s">"Sweet"</span><span class="o">);</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">dBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.</span><span class="na">makeBox</span><span class="o">(</span><span class="mf">7.59</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="--제네릭-메소드의-제한된-타입-매개변수-선언">- <u>제네릭 메소드의 제한된 타입 매개변수 선언</u></h3>
+<p>제네릭 클래스와 같이 제네릭 메소드도 타입 제한이 가능하다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Number</span><span class="o">&gt;</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">makeBox</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{...</span> <span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스</title><link href="http://localhost:4000/java%20lang/Chap20/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 20 - 자바의 기본 클래스" /><published>2022-11-26T00:00:00+09:00</published><updated>2022-11-26T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap20</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap20/"><![CDATA[<h2 id="20-1-래퍼-클래스-wrapper-클래스">20-1. 래퍼 클래스 (Wrapper 클래스)</h2>
 <blockquote>
   <p>래퍼 클래스는 이름이 의미하듯이 ‘기본 자료형의 값들을 감싸는 클래스’이다.</p>
 </blockquote>
@@ -2547,290 +2725,4 @@ for loop의 구조가 파이썬과 유사하게 돌아가니 참고하자.</p>
 <span class="nc">String</span> <span class="nf">nextLine</span><span class="o">()</span>
 <span class="kt">double</span> <span class="nf">nextDouble</span><span class="o">()</span>
 <span class="kt">boolean</span> <span class="nf">nextBoolean</span><span class="o">()</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 11 - 메소드 오버로딩과 String 클래스</title><link href="http://localhost:4000/java%20lang/Chap11/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 11 - 메소드 오버로딩과 String 클래스" /><published>2022-10-10T00:00:00+09:00</published><updated>2022-10-10T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap11</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap11/"><![CDATA[<h2 id="11-1-메소드-오버로딩method-overloading">11-1. 메소드 오버로딩(Method overloading)</h2>
-<h3 id="--메소드-오버로딩의-조건">- <u>메소드 오버로딩의 조건</u></h3>
-<p>호출할 메소드를 찾을 때 다음 두 가지 정보를 참조하여 메소드를 찾게 된다.</p>
-<ol>
-  <li>메소드의 이름</li>
-  <li>메소드의 매개변수 정보(타입, 갯수)</li>
-</ol>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyHome</span> <span class="o">{</span>  <span class="c1">// 매개변수의 선언이 다르면 호출된 메소드의 구분이 가능하다.</span>
-    <span class="kt">void</span> <span class="nf">mySimpleRoom</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span> <span class="o">}</span>
-    <span class="kt">void</span> <span class="nf">mySimpleRoom</span><span class="o">(</span><span class="kt">int</span> <span class="n">n1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n2</span><span class="o">){</span> <span class="o">}</span>
-    <span class="kt">void</span> <span class="nf">mySimpleRoom</span><span class="o">(</span><span class="kt">double</span> <span class="n">d1</span><span class="o">,</span> <span class="kt">double</span> <span class="n">d2</span><span class="o">)</span> <span class="o">{</span> <span class="o">}</span>
-
-    <span class="cm">/* 반환형은 호출할 메소드를 선택하는데 있어서의 판단 기준이 아니다.
-    int simpleMethod(){ }
-    double simpleMethod(){ }
-    */</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--생성자도-오버로딩의-대상이-된다">- <u>생성자도 오버로딩의 대상이 된다.</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">regiNum</span><span class="o">;</span>    <span class="c1">// 주민등록 번호</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">passNum</span><span class="o">;</span>    <span class="c1">// 여권 번호</span>
-
-    <span class="nc">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">rnum</span><span class="o">,</span> <span class="kt">int</span> <span class="n">pnum</span><span class="o">){</span> <span class="c1">// 매개변수의 갯수가 다름</span>
-        <span class="n">regiNum</span> <span class="o">=</span> <span class="n">rnum</span><span class="o">;</span>
-        <span class="n">passNum</span> <span class="o">=</span> <span class="n">pnum</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="nc">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">rnum</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">regiNum</span> <span class="o">=</span> <span class="n">rnum</span><span class="o">;</span>
-        <span class="n">passNum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">ConOverloading</span><span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="nc">Person</span> <span class="n">choi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="mi">335577</span><span class="o">,</span> <span class="mi">112233</span><span class="o">);</span>    <span class="c1">// 여권이 있는 경우</span>
-        <span class="nc">Person</span> <span class="n">park</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="mi">335577</span><span class="o">);</span>   <span class="c1">// 여권이 없는 경우</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--키워드-this를-이용한-다른-생성자의-호출">- <u>키워드 this를 이용한 다른 생성자의 호출</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">regiNum</span><span class="o">;</span>    <span class="c1">// 주민등록 번호</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">passNum</span><span class="o">;</span>    <span class="c1">// 여권 번호</span>
-
-    <span class="nc">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">rnum</span><span class="o">,</span> <span class="kt">int</span> <span class="n">pnum</span><span class="o">){</span> <span class="c1">// 매개변수의 갯수가 다름</span>
-        <span class="n">regiNum</span> <span class="o">=</span> <span class="n">rnum</span><span class="o">;</span>
-        <span class="n">passNum</span> <span class="o">=</span> <span class="n">pnum</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="nc">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">rnum</span><span class="o">){</span>
-        <span class="k">this</span><span class="o">(</span><span class="n">rnum</span><span class="o">,</span><span class="mi">0</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="c1">//    Person(int rnum) {</span>
-<span class="c1">//        regiNum = rnum;</span>
-<span class="c1">//        passNum = 0;</span>
-<span class="c1">//    }</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">ConOverloading</span><span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="nc">Person</span> <span class="n">choi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="mi">335577</span><span class="o">,</span> <span class="mi">112233</span><span class="o">);</span>    <span class="c1">// 여권이 있는 경우</span>
-        <span class="nc">Person</span> <span class="n">park</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="mi">335577</span><span class="o">);</span>   <span class="c1">// 여권이 없는 경우</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>this는 오버로딩 된 다른 생성자를 의미한다. 이 생성자는 단순히 초기화할 값을 전달받는 역할만 하고,<br />
-실제 초기화는 첫 번째로 정의된 생성자를 통해서 진행하는 형태가 된다.</p>
-
-<h3 id="--키워드-this를-이용한-인스턴스-변수의-접근">- <u>키워드 this를 이용한 인스턴스 변수의 접근</u></h3>
-<p><img src="/assets/images/java-lang/11-1.png" alt="image" width="90%" height="90%" class="align-center" /><br />
-여기서 this가 의미하는 것은 ‘이 문장이 속한 인스턴스’이다.</p>
-
-<h2 id="11-2-string-클래스">11-2. String 클래스</h2>
-<h3 id="--string-클래스의-인스턴스-생성">- <u>String 클래스의 인스턴스 생성</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"Simple String"</span><span class="o">);</span>
-<span class="nc">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"Best String"</span><span class="o">;</span>
-
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str1</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>  <span class="c1">// println은 다양한 인자를 전달받을 수 있도록 오버로딩이 되어있다. </span>
-</code></pre></div></div>
-
-<h3 id="--문자열-생성을-위한-두-가지-방법의-차이점은">- <u>문자열 생성을 위한 두 가지 방법의 차이점은?</u></h3>
-<p>앞서 보인 두 가지 문자열 생성 방법의 차이점을 알아보자!</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">ImmutableString</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="c1">// 문자열 생성 방법 1</span>
-        <span class="nc">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"Simple String"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"Simple String"</span><span class="o">;</span>
-
-        <span class="c1">// 문자열 생성 방법 2</span>
-        <span class="nc">String</span> <span class="n">str3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"Simple String"</span><span class="o">);</span>
-        <span class="nc">String</span> <span class="n">str4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"Simple String"</span><span class="o">);</span>
-        
-        <span class="k">if</span><span class="o">(</span><span class="n">str1</span> <span class="o">==</span> <span class="n">str2</span><span class="o">)</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"str1과 str2는 동일 인스턴스 참조"</span><span class="o">);</span>
-        <span class="k">else</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"str1과 str2는 다른 인스턴스 참조"</span><span class="o">);</span>
-
-        <span class="k">if</span><span class="o">(</span><span class="n">str3</span> <span class="o">==</span> <span class="n">str4</span><span class="o">)</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"str3과 str4는 동일 인스턴스 참조"</span><span class="o">);</span>
-        <span class="k">else</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"str3과 str4는 다른 인스턴스 참조"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><img src="/assets/images/java-lang/11-2.png" alt="image" width="90%" height="90%" class="align-center" /><br />
-참조변수를 대상으로 한 == 연산은 ‘참조변수의 참조 값’에 대한 비교 연산을 진행한다.</p>
-
-<p>이러한 차이를 보이는 이유는..</p>
-<blockquote>
-  <p>String 인스턴스는 Immutable 인스턴스이다.</p>
-</blockquote>
-
-<p>Immutable하다는 것은 값을 변경할 수 없다는 뜻이다.<br />
-즉, 문자열 인스턴스를 생성한 후에는 인스턴스가 소멸할 때까지 바꿀 수 없다.</p>
-
-<p>이처럼 문자열 인스턴스는 데이터를 수정할 수 없는, 참조만 가능한 인스턴스이기 때문에<br />
-그 내용이 같을 경우 굳이 새로운 인스턴스를 생성할 필요가 없어진다.</p>
-
-<p>앞의 str1과 str2처럼 하나의 인스턴스를 생성해서 이를 공유하는 방식으로 코드를 처리하면<br />
-이로 인해 생성되는 인스턴스의 수는 줄고 성능은 향상된다.</p>
-
-<h2 id="11-3-string-클래스의-메소드">11-3. String 클래스의 메소드</h2>
-<h3 id="--문자열-연결시키기-concatenating">- <u>문자열 연결시키기: Concatenating</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringConcat</span> <span class="o">{</span> <span class="c1">// 두 문자열을 연결시킨 문자열을 결과로 얻는다.</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">String</span> <span class="n">st1</span> <span class="o">=</span> <span class="s">"Coffee"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">st2</span> <span class="o">=</span> <span class="s">"Bread"</span><span class="o">;</span>
-
-        <span class="nc">String</span> <span class="n">st3</span> <span class="o">=</span> <span class="n">st1</span><span class="o">.</span><span class="na">concat</span><span class="o">(</span><span class="n">st2</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">st3</span><span class="o">);</span>    <span class="c1">// CoffeBread</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--문자열의-일부를-추출하기-substring">- <u>문자열의 일부를 추출하기: Substring</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SubString</span> <span class="o">{</span>    <span class="c1">// 문자열의 뒷부분을 별도의 문자열로 추출할 수 있다.</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">String</span> <span class="n">st1</span> <span class="o">=</span> <span class="s">"abcdefg"</span><span class="o">;</span>
-
-        <span class="nc">String</span> <span class="n">st2</span> <span class="o">=</span> <span class="n">st1</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>  <span class="c1">// beginIndex ~ 끝까지 추출</span>
-        <span class="nc">String</span> <span class="n">st3</span> <span class="o">=</span> <span class="n">st1</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">);</span>    <span class="c1">// beginIndex ~ endIndex 사이 추출</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">st2</span><span class="o">);</span>    <span class="c1">// cdefg</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">st3</span><span class="o">);</span>    <span class="c1">// cd</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--문자열의-내용-비교-comparing">- <u>문자열의 내용 비교: comparing</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CompString</span> <span class="o">{</span>
-    <span class="cm">/**
-     1. equals
-     2. compareTo
-     3. compareToIgnoreCase
-     */</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">String</span> <span class="n">st1</span> <span class="o">=</span> <span class="s">"Lexicographically"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">st2</span> <span class="o">=</span> <span class="s">"lexicographically"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">cmp1</span><span class="o">,</span> <span class="n">cmp2</span><span class="o">;</span>
-
-        <span class="k">if</span><span class="o">(</span><span class="n">st1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">st2</span><span class="o">))</span> <span class="c1">// 두 인스턴스가 지니는 문자열이 같으면 true, 다르면 false를 반환함</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"두 문자열은 같음"</span><span class="o">);</span>
-        <span class="k">else</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"두 문자열은 다름"</span><span class="o">);</span>
-
-
-        <span class="cm">/*
-        두 문자열의 내용이 일치하면 0
-        호출된 인스턴스의 문자열(st1)이 인자로 전달된 문자열(st2)보다 앞서면 0보다 작은 값 반환
-        호출된 인스턴스의 문자열(st1)이 인자로 전달된 문자열(st2)보다 뒤서면 0보다 큰 값 반환
-         */</span>
-        <span class="n">cmp1</span> <span class="o">=</span> <span class="n">st1</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">st2</span><span class="o">);</span>   <span class="c1">// 두 문자열의 사전 편찬 상 순서를 비교함.</span>
-
-        <span class="k">if</span><span class="o">(</span><span class="n">cmp1</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"두 문자열은 일치합니다."</span><span class="o">);</span>
-        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">cmp1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"사전의 앞에 위치하는 문자: "</span> <span class="o">+</span> <span class="n">st1</span><span class="o">);</span>
-        <span class="k">else</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"사전의 앞에 위치하는 문자: "</span> <span class="o">+</span> <span class="n">st2</span><span class="o">);</span>
-
-
-        <span class="cm">/*
-        사전 편찬 순서상 대문자는 소문자보다 앞에 위치한다.
-        하지만 compareToIgnoreCase는 이름 그대로, 문자열 비교에 있어서 대소문자 구분을 하지 않는다.
-        그 외에 부분에 대해서는 compareTo와 동일하다.
-         */</span>
-        <span class="n">cmp2</span> <span class="o">=</span> <span class="n">st1</span><span class="o">.</span><span class="na">compareToIgnoreCase</span><span class="o">(</span><span class="n">st2</span><span class="o">);</span>
-
-        <span class="k">if</span><span class="o">(</span><span class="n">cmp2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"두 문자열은 같습니다."</span><span class="o">);</span>
-        <span class="k">else</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"두 문자열은 다릅니다."</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--기본-자료형의-값을-문자열로-바꾸기">- <u>기본 자료형의 값을 문자열로 바꾸기</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">static</span> <span class="nc">String</span> <span class="nf">valueOf</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">b</span><span class="o">)</span>
-<span class="kd">static</span> <span class="nc">String</span> <span class="nf">valueOf</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span>
-<span class="kd">static</span> <span class="nc">String</span> <span class="nf">valueOf</span><span class="o">(</span><span class="kt">double</span> <span class="n">d</span><span class="o">)</span>
-<span class="kd">static</span> <span class="nc">String</span> <span class="nf">valueOf</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span>
-<span class="kd">static</span> <span class="nc">String</span> <span class="nf">valueOf</span><span class="o">(</span><span class="kt">float</span> <span class="n">f</span><span class="o">)</span>
-<span class="kd">static</span> <span class="nc">String</span> <span class="nf">valueOf</span><span class="o">(</span><span class="kt">long</span> <span class="n">l</span><span class="o">)</span>
-</code></pre></div></div>
-<p>String 클래스에 정의되어 있는 위의 메소드들을 호출하면 기본 자료형의 값을 문자열로 바꿀 수 있다.<br />
-클래스 메소드이므로 다음과 같이 사용한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">e</span> <span class="o">=</span> <span class="mf">2.718281</span><span class="o">;</span>
-<span class="nc">String</span> <span class="n">se</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>  <span class="c1">// "2.718281"</span>
-</code></pre></div></div>
-
-<h3 id="--stringbuilder-클래스">- <u>StringBuilder 클래스</u></h3>
-<p>String의 반복적인 인스턴스 생성은 프로그램의 성능을 저하시킨다.<br />
-문자열끼리의 연산은 빈번한 인스턴스의 생성을 야기시킬 수 있으므로 이를 방지하기 위해 StringBuilder 클래스를 사용한다.</p>
-
-<p>StringBuilder 클래스는 내부적으로 문자열을 저장하기 위한 메모리 공간을 지닌다.<br />
-이 메모리공간은 String 클래스의 메모리 공간과는 다르게 문자를 ‘추가’하거나 ‘삭제’하는 것이 가능하다.<br />
-따라서, ‘수정하면서 유지해야 할 문자열’이 있다면 이 클래스에 그 내용을 담아서 관리하는 것이 효율적이다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// StringBuilder 클래스의 메소드</span>
-
-<span class="kd">public</span> <span class="nc">StringBuilder</span> <span class="nf">append</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span>  <span class="c1">// 기본 자료형 데이터를 문자열 내용에 추가</span>
-<span class="kd">public</span> <span class="nc">StringBuilder</span> <span class="nf">delete</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="c1">// index start부터 end 이전까지 내용 삭제</span>
-<span class="kd">public</span> <span class="nc">StringBuilder</span> <span class="nf">insert</span><span class="o">(</span><span class="kt">int</span> <span class="n">offset</span><span class="o">,</span> <span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="c1">// 인덱스 offset의 위치에 str에 전달된 문자열 추가</span>
-<span class="kd">public</span> <span class="nc">StringBuilder</span> <span class="nf">replace</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">,</span> <span class="nc">String</span> <span class="n">str</span><span class="o">)</span>    <span class="c1">// index start부터 end 이전까지 내용을 str으로 대체</span>
-<span class="kd">public</span> <span class="nc">StringBuilder</span> <span class="nf">reverse</span><span class="o">()</span>  <span class="c1">// 저장된 문자열의 내용을 뒤집는다.</span>
-<span class="kd">public</span> <span class="nc">String</span> <span class="nf">substring</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="n">in</span> <span class="n">end</span><span class="o">)</span>  <span class="c1">// 메모리 공간 안의 일부 내용만 가져다 String으로 반환</span>
-<span class="kd">public</span> <span class="nc">StringBuilder</span> <span class="nf">toString</span><span class="o">()</span> <span class="c1">// 메모리 공간 안의 모든 내용을 string으로 반환</span>
-</code></pre></div></div>
-
-<p>위의 매소드들은 무엇을 반환하는 것인가?</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReturnStringBuilder</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">StringBuilder</span> <span class="n">stb1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="s">"123"</span><span class="o">);</span>
-        <span class="nc">StringBuilder</span> <span class="n">stb2</span> <span class="o">=</span> <span class="n">stb1</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="mi">45678</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">stb1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">stb2</span><span class="o">);</span>
-
-
-        <span class="c1">// 인덱스 0~4까지의 문자 삭제</span>
-        <span class="n">stb2</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">stb1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">stb2</span><span class="o">);</span>
-
-        <span class="c1">// 참조 값의 비교</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">stb1</span> <span class="o">==</span> <span class="n">stb2</span><span class="o">)</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"same instance"</span><span class="o">);</span>    <span class="c1">// true</span>
-        <span class="k">else</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"diff instance"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>다음 코드의 결과는 same instance가 출력된다.<br />
-즉, stb1과 stb2가 같은 인스턴스를 참조하게 된다.</p>
-
-<p><img src="/assets/images/java-lang/11-3.png" alt="image" width="90%" height="90%" class="align-center" /><br />
-따라서, 자바 컴파일러가 변환해 놓은 문장이 어떻게 처리되는지 알 수 있다.</p>
-
-<h3 id="--stringbuilder-클래스-이전에-사용되던-stringbuffer-클래스">- <u>StringBuilder 클래스 이전에 사용되던 StringBuffer 클래스</u></h3>
-<p>StringBuffer 클래스는 자바 5에서 등장한 클래스이다.</p>
-
-<p>StringBuffer와 StringBuilder는</p>
-<ol>
-  <li>생성자를 포함한 메소드의 수</li>
-  <li>메소드의 기능</li>
-  <li>메소드의 이름과 매개변수의 선언
-위 세 가지가 일치한다. 이는 사실상 같은 클래스임을 의미한다.</li>
-</ol>
-
-<p>그러나 차이점이 하나 있는데,</p>
-<blockquote>
-  <p>StringBuffer는 쓰레드에 안전하지만, StringBuilder는 쓰레드에 안전하지 않다.</p>
-</blockquote>
-
-<p>StringBuffer    -&gt; 멀티 쓰레드 환경에서 안전, 속도 느림<br />
-StringBuilder   -&gt; 멀티 쓰레드 환경에서 안전하지 않음, 속도 빠름</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
