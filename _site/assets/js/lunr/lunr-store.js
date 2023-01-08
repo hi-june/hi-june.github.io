@@ -244,4 +244,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap21/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2",
+        "excerpt":"22-1. 제네릭의 심화 문법 - 제네릭 클래스와 상속 제네릭 클래스도 다음과 같이 상속이 가능하다. class Box&lt;T&gt; { protected T object; public void setObject(T object) { this.object = object; } public T getObject() { return object; } } class SteelBox&lt;T&gt; extends Box&lt;T&gt; { public SteelBox(T object) { // 제네릭 클래스의 생성자...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap22/",
+        "teaser": null
       }]

@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-19T02:34:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1</title><link href="http://localhost:4000/java%20lang/Chap21/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1" /><published>2022-12-17T00:00:00+09:00</published><updated>2022-12-17T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap21</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap21/"><![CDATA[<h2 id="21-1-제네릭의-이해">21-1. 제네릭의 이해</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-08T16:43:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2</title><link href="http://localhost:4000/java%20lang/Chap22/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap22</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap22/"><![CDATA[<h2 id="22-1-제네릭의-심화-문법">22-1. 제네릭의 심화 문법</h2>
+<h3 id="--제네릭-클래스와-상속">- <u>제네릭 클래스와 상속</u></h3>
+<p>제네릭 클래스도 다음과 같이 상속이 가능하다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="no">T</span> <span class="n">object</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setObject</span><span class="o">(</span><span class="no">T</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">object</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">getObject</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SteelBox</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">SteelBox</span><span class="o">(</span><span class="no">T</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 제네릭 클래스의 생성자</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">object</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GenericInheritance</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">iBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SteelBox</span><span class="o">&lt;&gt;(</span><span class="mi">8000</span><span class="o">);</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SteelBox</span><span class="o">&lt;&gt;(</span><span class="s">"Simple"</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iBox</span><span class="o">.</span><span class="na">getObject</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sBox</span><span class="o">.</span><span class="na">getObject</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><img src="/assets/images/java-lang/22-1.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<h3 id="--타겟-타입target-types">- <u>타겟 타입(Target Types)</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="no">T</span> <span class="n">object</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setObject</span><span class="o">(</span><span class="no">T</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">object</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">getObject</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">EmptyBoxFactory</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">makeBox</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+        <span class="k">return</span> <span class="n">box</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TargetTypes</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">iBox7</span> <span class="o">=</span> <span class="nc">EmptyBoxFactory</span><span class="o">.&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span><span class="n">makeBox</span><span class="o">();</span>    <span class="c1">// java 7 이전 문법</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">iBox8</span> <span class="o">=</span> <span class="nc">EmptyBoxFactory</span><span class="o">.</span><span class="na">makeBox</span><span class="o">();</span> <span class="c1">// java 7부터 가능해짐</span>
+
+        <span class="n">iBox7</span><span class="o">.</span><span class="na">setObject</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+        <span class="n">iBox8</span><span class="o">.</span><span class="na">setObject</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iBox7</span><span class="o">.</span><span class="na">getObject</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iBox8</span><span class="o">.</span><span class="na">getObject</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><img src="/assets/images/java-lang/22-2.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<p>위의 코드에서 makeBox 메소드는 인자를 전달받지 않는다.<br />
+따라서, 원래는 T에 대한 타입 인자를 전달해주어야한다.<br />
+하지만 자바 7부터는 컴파일러의 자료형 유추 범위가 넓어졌기 때문에 위와 같이 호출하는 것이 가능해졌다.</p>
+
+<h3 id="--와일드카드wildcard">- <u>와일드카드(Wildcard)</u></h3>
+
+<h3 id="--">- <u></u></h3>
+<h3 id="---1">- <u></u></h3>
+<h3 id="---2">- <u></u></h3>
+<h3 id="---3">- <u></u></h3>
+<h3 id="---4">- <u></u></h3>
+<h3 id="---5">- <u></u></h3>
+<h3 id="---6">- <u></u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1</title><link href="http://localhost:4000/java%20lang/Chap21/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1" /><published>2022-12-17T00:00:00+09:00</published><updated>2022-12-17T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap21</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap21/"><![CDATA[<h2 id="21-1-제네릭의-이해">21-1. 제네릭의 이해</h2>
 <blockquote>
   <p>클래스를 정의하는데 있어 자료형을 결정짓지 않고 틀만 만들어놓는 형태의 클래스 정의 형태</p>
 </blockquote>
@@ -2697,32 +2777,4 @@ for loop의 구조가 파이썬과 유사하게 돌아가니 참고하자.</p>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<p><img src="/assets/images/java-lang/13-11.png" alt="image" width="40%" height="40%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력</title><link href="http://localhost:4000/java%20lang/Chap12/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력" /><published>2022-10-13T00:00:00+09:00</published><updated>2022-10-13T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap12</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap12/"><![CDATA[<h2 id="12-1-콘솔-출력console-output">12-1. 콘솔 출력(Console Output)</h2>
-<h3 id="--systemoutprintln--systmeoutprint">- <u>System.out.println &amp; Systme.out.print</u></h3>
-<blockquote>
-  <p>System.out.println은 참조 값이 전달되면, 이 값의 인스턴스를 대상으로 toString 메소드를 호출한다. 그리고 이때 반환되는 문자열을 출력한다.</p>
-</blockquote>
-
-<h3 id="--systemoutprintf">- <u>System.out.printf</u></h3>
-<p><img src="/assets/images/java-lang/12-2.png" alt="image" width="50%" height="50%" /><br />
-<br />
-<img src="/assets/images/java-lang/12-1.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<h2 id="12-2-콘솔-입력console-input">12-2. 콘솔 입력(Console Input)</h2>
-<h3 id="--scanner-클래스">- <u>Scanner 클래스</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Scanner</span><span class="o">(</span><span class="nc">File</span> <span class="n">source</span><span class="o">)</span>
-<span class="nc">Scanner</span><span class="o">(</span><span class="nc">String</span> <span class="n">source</span><span class="o">)</span>
-<span class="nc">Scanner</span><span class="o">(</span><span class="nc">InputStream</span> <span class="n">source</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="--scanner-클래스의-키보드-적용">- <u>Scanner 클래스의 키보드 적용</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-</code></pre></div></div>
-
-<h3 id="--scanner-클래스의-주요-메소드들">- <u>Scanner 클래스의 주요 메소드들</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">nextInt</span><span class="o">()</span>
-<span class="kt">byte</span> <span class="nf">nextLine</span><span class="o">()</span>
-<span class="nc">String</span> <span class="nf">nextLine</span><span class="o">()</span>
-<span class="kt">double</span> <span class="nf">nextDouble</span><span class="o">()</span>
-<span class="kt">boolean</span> <span class="nf">nextBoolean</span><span class="o">()</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
+<p><img src="/assets/images/java-lang/13-11.png" alt="image" width="40%" height="40%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>

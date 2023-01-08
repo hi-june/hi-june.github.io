@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정 -  June &amp; Directory</title>
-<meta name="description" content="Spring Boot web application ">
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2 -  June &amp; Directory</title>
+<meta name="description" content="Java 문법 정리! ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정">
-<meta property="og:url" content="http://localhost:4000/springboot-jpa/Section01/">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap22/">
 
 
-  <meta property="og:description" content="Spring Boot web application ">
+  <meta property="og:description" content="Java 문법 정리! ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-09-14T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-01-07T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-09-27T00:00:00+09:00">
+  <meta property="article:modified_time" content="2023-01-07T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/springboot-jpa/Section01/">
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap22/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#springboot-jpa" itemprop="item"><span itemprop="name">Springboot jpa</span></a>
+          <a href="/categories/#java-lang" itemprop="item"><span itemprop="name">Java lang</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정</li>
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2</li>
       
     
   </ol>
@@ -626,18 +626,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정">
-    <meta itemprop="description" content="Spring Boot web application">
-    <meta itemprop="datePublished" content="2022-09-14T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-09-27T00:00:00+09:00">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2">
+    <meta itemprop="description" content="Java 문법 정리!">
+    <meta itemprop="datePublished" content="2023-01-07T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-01-07T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[스프링 부트와 JPA 활용 1] Section 01 - 프로젝트 환경설정
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-09-14T00:00:00+09:00">2022.09.14</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-09-27">2022.09.27</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-01-07T00:00:00+09:00">2023.01.07</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-01-07">2023.01.07</time></p>
           
           
             
@@ -653,7 +653,7 @@
     
       
       
-      <a href="/categories/#springboot-jpa" class="page__taxonomy-item-category" rel="tag">SpringBoot-JPA</a>
+      <a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
     
     </span>
   </p>
@@ -667,10 +667,6 @@
   <p class="page__taxonomy">
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#spring-boot" class="page__taxonomy-item-tag" rel="tag">spring boot</a><span class="sep"> </span>
     
       
       
@@ -689,168 +685,122 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#개발-순서-안내">개발 순서 안내</a></li>
-  <li><a href="#프로젝트-생성">프로젝트 생성</a></li>
-  <li><a href="#jpa와-db-설정">JPA와 DB 설정</a></li>
-  <li><a href="#실제-동작-확인">실제 동작 확인</a></li>
+  <li><a href="#22-1-제네릭의-심화-문법">22-1. 제네릭의 심화 문법</a>
+    <ul>
+      <li><a href="#--제네릭-클래스와-상속">- 제네릭 클래스와 상속</a></li>
+      <li><a href="#--타겟-타입target-types">- 타겟 타입(Target Types)</a></li>
+      <li><a href="#--와일드카드wildcard">- 와일드카드(Wildcard)</a></li>
+      <li><a href="#--">- </a></li>
+      <li><a href="#---1">- </a></li>
+      <li><a href="#---2">- </a></li>
+      <li><a href="#---3">- </a></li>
+      <li><a href="#---4">- </a></li>
+      <li><a href="#---5">- </a></li>
+      <li><a href="#---6">- </a></li>
+    </ul>
+  </li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="개발-순서-안내">개발 순서 안내</h2>
-<p>일반적인 개발의 순서와 같은 방식으로 진행한다.</p>
+        <h2 id="22-1-제네릭의-심화-문법">22-1. 제네릭의 심화 문법</h2>
+<h3 id="--제네릭-클래스와-상속">- <u>제네릭 클래스와 상속</u></h3>
+<p>제네릭 클래스도 다음과 같이 상속이 가능하다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="no">T</span> <span class="n">object</span><span class="o">;</span>
 
-<ol>
-  <li>개발 환경 세팅</li>
-  <li>요구사항 분석</li>
-  <li>도메인 모델 설계</li>
-  <li>엔티티 설계</li>
-  <li>테이블 설계</li>
-  <li>JPA로 엔티티와 테이블을 ORM 메핑</li>
-  <li>애플리케이션 아키텍처 구성</li>
-  <li>핵심 비즈니스 로직 개발</li>
-</ol>
-
-<h2 id="프로젝트-생성">프로젝트 생성</h2>
-<p>스프링 부트 스타터를 이용하여 초기 세팅을 한다. -&gt; <a href="https://start.spring.io/">https://start.spring.io/</a></p>
-
-<p>사용 기능: web, thymeleaf, jpa, h2, lombok(반복 코드를 줄여주는 라이브러리), validation</p>
-
-<h2 id="jpa와-db-설정">JPA와 DB 설정</h2>
-<p>yml 파일을 이용하여 설정을 해준다.</p>
-
-<div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># main/resources/application.yml</span><span class="w">
-
-</span><span class="n">spring</span><span class="o">:</span><span class="w">
-  </span><span class="n">datasource</span><span class="o">:</span><span class="w">
-    </span><span class="n">url</span><span class="o">:</span><span class="w">  </span><span class="n">jdbc</span><span class="o">:</span><span class="n">h2</span><span class="o">:</span><span class="n">tcp</span><span class="o">://</span><span class="n">localhost</span><span class="o">/~/</span><span class="n">Study</span><span class="o">/</span><span class="n">springboot</span><span class="o">-</span><span class="n">jpa</span><span class="o">/</span><span class="n">jpashop</span><span class="w">
-    </span><span class="n">username</span><span class="o">:</span><span class="w"> </span><span class="n">sa</span><span class="w">
-    </span><span class="n">password</span><span class="o">:</span><span class="w">
-    </span><span class="n">driver</span><span class="o">-</span><span class="n">class</span><span class="o">-</span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">org.h2.Driver</span><span class="w">
-
-  </span><span class="n">jpa</span><span class="o">:</span><span class="w">
-    </span><span class="n">hibernate</span><span class="o">:</span><span class="w">
-      </span><span class="n">ddl</span><span class="o">-</span><span class="n">auto</span><span class="o">:</span><span class="w"> </span><span class="n">create</span><span class="w">  </span><span class="c1"># 애플리케이션 실행 시점에 테이블을 drop하고, 다시 생성한다.</span><span class="w">
-    </span><span class="n">properties</span><span class="o">:</span><span class="w"> </span><span class="c1"># hibernate와 관련된 특정한 properties를 쓸 수 있음</span><span class="w">
-      </span><span class="n">hibernate</span><span class="o">:</span><span class="w">
-        </span><span class="n">format_sql</span><span class="o">:</span><span class="w"> </span><span class="n">true</span><span class="w">
-        </span><span class="c1">#show_sql: true</span><span class="w">
-
-</span><span class="n">logging.level</span><span class="o">:</span><span class="w">
-  </span><span class="n">org.hibernate.SQL</span><span class="o">:</span><span class="w"> </span><span class="n">debug</span><span class="w">
-  </span><span class="n">org.hibernate.type</span><span class="o">:</span><span class="w"> </span><span class="n">trace</span><span class="w">
-</span></code></pre></div></div>
-
-<h2 id="실제-동작-확인">실제 동작 확인</h2>
-<p>간단한 회원 엔티티와 리포지토리를 만들고, 테스트 코드를 통해 동작을 확인해보자.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Member.java</span>
-
-<span class="kn">package</span> <span class="nn">jpabook.jpashop</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">lombok.Getter</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">lombok.Setter</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
-
-<span class="nd">@Entity</span>
-<span class="nd">@Getter</span> <span class="nd">@Setter</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
-
-    <span class="nd">@Id</span> <span class="nd">@GeneratedValue</span>
-    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">username</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberRepository.java</span>
-
-<span class="kn">package</span> <span class="nn">jpabook.jpashop</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.PersistenceContext</span><span class="o">;</span>
-
-<span class="nd">@Repository</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberRepository</span> <span class="o">{</span>
-
-    <span class="nd">@PersistenceContext</span> <span class="c1">// spring-boot가 이 어노테이션이 있으면 entity manager를 주입해준다.</span>
-    <span class="nc">EntityManager</span> <span class="n">em</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nc">Long</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// command성이기 때문에 return값을 따로 안 만든다.</span>
-        <span class="k">return</span> <span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>  <span class="c1">// 왜 member를 반환하지 않나: command랑 query를 분리해라..</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setObject</span><span class="o">(</span><span class="no">T</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">object</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="nc">Member</span> <span class="nf">find</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">em</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">getObject</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SteelBox</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">SteelBox</span><span class="o">(</span><span class="no">T</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 제네릭 클래스의 생성자</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">object</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GenericInheritance</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">iBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SteelBox</span><span class="o">&lt;&gt;(</span><span class="mi">8000</span><span class="o">);</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SteelBox</span><span class="o">&lt;&gt;(</span><span class="s">"Simple"</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iBox</span><span class="o">.</span><span class="na">getObject</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sBox</span><span class="o">.</span><span class="na">getObject</span><span class="o">());</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
+<p><img src="/assets/images/java-lang/22-1.png" alt="image" width="40%" height="40%" /><br /></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MemberRepositoryTest.java</span>
+<h3 id="--타겟-타입target-types">- <u>타겟 타입(Target Types)</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="no">T</span> <span class="n">object</span><span class="o">;</span>
 
-<span class="kn">package</span> <span class="nn">jpabook.jpashop</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setObject</span><span class="o">(</span><span class="no">T</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">object</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<span class="kn">import</span> <span class="nn">org.assertj.core.api.Assertions</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.boot.test.context.SpringBootTest</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.test.annotation.Rollback</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.test.context.junit4.SpringRunner</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.transaction.annotation.Transactional</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">getObject</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
+<span class="kd">class</span> <span class="nc">EmptyBoxFactory</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">makeBox</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+        <span class="k">return</span> <span class="n">box</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-<span class="nd">@RunWith</span><span class="o">(</span><span class="nc">SpringRunner</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>    <span class="c1">// JUnit에게 spring과 관련된 것으로 테스트를 할 것이라고 알려줌</span>
-<span class="nd">@SpringBootTest</span> <span class="c1">// spring-boot로 테스트 할 거니까 추가</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberRepositoryTest</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TargetTypes</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">iBox7</span> <span class="o">=</span> <span class="nc">EmptyBoxFactory</span><span class="o">.&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span><span class="n">makeBox</span><span class="o">();</span>    <span class="c1">// java 7 이전 문법</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">iBox8</span> <span class="o">=</span> <span class="nc">EmptyBoxFactory</span><span class="o">.</span><span class="na">makeBox</span><span class="o">();</span> <span class="c1">// java 7부터 가능해짐</span>
 
-    <span class="nd">@Autowired</span> <span class="nc">MemberRepository</span> <span class="n">memberRepository</span><span class="o">;</span>
+        <span class="n">iBox7</span><span class="o">.</span><span class="na">setObject</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+        <span class="n">iBox8</span><span class="o">.</span><span class="na">setObject</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
 
-    <span class="nd">@Test</span>
-    <span class="nd">@Transactional</span>  <span class="c1">// EntityManager를 통한 모든 데이터 변경은 항상 Transaction 안에서 이루어져야 함!</span>
-    <span class="c1">// @Rollback(false)    // 기본적으로 test의 반복적 수행을 위해 한 번 수행 이후 roll back 되지만 눈으로 확인하고 싶다면 이 옵션을 사용하면 됨!</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testMember</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">// given</span>
-        <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">();</span>   <span class="c1">// member를 생성하고</span>
-        <span class="n">member</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span><span class="s">"memberA"</span><span class="o">);</span>  <span class="c1">// 이름 설정 후</span>
-
-        <span class="c1">// when</span>
-        <span class="nc">Long</span> <span class="n">savedId</span> <span class="o">=</span> <span class="n">memberRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>   <span class="c1">// save한 뒤</span>
-        <span class="nc">Member</span> <span class="n">findMember</span> <span class="o">=</span> <span class="n">memberRepository</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">savedId</span><span class="o">);</span> <span class="c1">// id를 기반으로 찾아봤을 때</span>
-
-        <span class="c1">// then</span>
-        <span class="nc">Assertions</span><span class="o">.</span><span class="na">assertThat</span><span class="o">(</span><span class="n">findMember</span><span class="o">.</span><span class="na">getId</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">());</span>    <span class="c1">// member의 id 기반 확인</span>
-        <span class="nc">Assertions</span><span class="o">.</span><span class="na">assertThat</span><span class="o">(</span><span class="n">findMember</span><span class="o">.</span><span class="na">getUsername</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getUsername</span><span class="o">());</span>    <span class="c1">// member의 username 기반 확인</span>
-
-        <span class="c1">// 같은 transaction 안에서 저장하고 조회하면 영속성 context가 똑같음. 같은 영속성 context 안에서는 id 값이 같으면 같은 엔티티로 인식</span>
-        <span class="nc">Assertions</span><span class="o">.</span><span class="na">assertThat</span><span class="o">(</span><span class="n">findMember</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"findMember == member: "</span><span class="o">+(</span><span class="n">findMember</span> <span class="o">==</span> <span class="n">member</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iBox7</span><span class="o">.</span><span class="na">getObject</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iBox8</span><span class="o">.</span><span class="na">getObject</span><span class="o">());</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
+<p><img src="/assets/images/java-lang/22-2.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<p>위의 코드에서 makeBox 메소드는 인자를 전달받지 않는다.<br />
+따라서, 원래는 T에 대한 타입 인자를 전달해주어야한다.<br />
+하지만 자바 7부터는 컴파일러의 자료형 유추 범위가 넓어졌기 때문에 위와 같이 호출하는 것이 가능해졌다.</p>
+
+<h3 id="--와일드카드wildcard">- <u>와일드카드(Wildcard)</u></h3>
+
+<h3 id="--">- <u></u></h3>
+<h3 id="---1">- <u></u></h3>
+<h3 id="---2">- <u></u></h3>
+<h3 id="---3">- <u></u></h3>
+<h3 id="---4">- <u></u></h3>
+<h3 id="---5">- <u></u></h3>
+<h3 id="---6">- <u></u></h3>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">SpringBoot-JPA</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Java lang</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/spring-tutorial/Section07/" class="pagination--pager" title="[스프링 입문] Section 07 - AOP
+      <a href="/java%20lang/Chap21/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1
 ">이전</a>
     
     
-      <a href="/java%20lang/Chap01/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 01 - Let’s Start Java
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -867,8 +817,14 @@
   	
 
 
-  <a href="#" class="pagination_prev_next--pager disabled-first-child">첫 번째 글입니다</a>
-  <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
+  <nav class="pagination_prev_next">
+    
+      <a href="/java%20lang/Chap21/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1</a>
+    
+    
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
+    
+  </nav>
 
 
 <!--
@@ -899,11 +855,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%8A%A4%ED%94%84%EB%A7%81+%EB%B6%80%ED%8A%B8%EC%99%80+JPA+%ED%99%9C%EC%9A%A9+1%5D+Section+01+-+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95%20http%3A%2F%2Flocalhost%3A4000%2Fspringboot-jpa%2FSection01%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+22+-+%EC%A0%9C%EB%84%A4%EB%A6%AD%28Generics%29+2%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap22%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fspringboot-jpa%2FSection01%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap22%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fspringboot-jpa%2FSection01%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap22%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -917,30 +873,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/java%20lang/Chap22/">[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.01.07
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1142,6 +1074,30 @@
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap12/">[윤성우의 열혈 Java 프로그래밍] Chapter 12 - 콘솔 입력과 출력</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.10.13
               <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
         
