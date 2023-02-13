@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-05T16:29:28+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1</title><link href="http://localhost:4000/java%20lang/Chap23/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-02-05T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap23</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap23/"><![CDATA[<h2 id="23-1-컬렉션-프레임워크의-이해">23-1. 컬렉션 프레임워크의 이해</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-14T00:06:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1</title><link href="http://localhost:4000/java%20lang/Chap23/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap23</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap23/"><![CDATA[<h2 id="23-1-컬렉션-프레임워크의-이해">23-1. 컬렉션 프레임워크의 이해</h2>
 <blockquote>
   <p>인스턴스의 저장과 삭제, 참조에 대한 문법</p>
 </blockquote>
@@ -20,7 +20,7 @@
 알고리즘을 몰라도 이진 탐색을 수행할 수 있는 것이다.</p>
 
 <h3 id="--컬렉션-프레임워크의-기본-골격">- <u>컬렉션 프레임워크의 기본 골격</u></h3>
-<p><img src="/assets/images/java-lang/23-1.jpeg" alt="image" /><br /></p>
+<p><img src="/assets/images/java-lang/23-5.jpg" alt="image" /><br /></p>
 
 <p>컬렉션 클래스들이 구현하는 인터페이스들의 상속 관계를 보여주고 있다.<br />
 인스턴스를 저장하는 컬렉션 클래스들은 위의 인터페이스 중 하나를 구현하게 되어 있으며, 구현한 인터페이스에 따라서 컬렉션 클래스의 데이터 저장 방식이 결정된다.</p>
@@ -521,14 +521,117 @@ for-each문을 통한 순차적 접근의 대상이 되려면, 해당 컬렉션 
 </code></pre></div></div>
 
 <h2 id="23-4-queue-인터페이스를-구현하는-컬렉션-클래스들">23-4. Queue<E> 인터페이스를 구현하는 컬렉션 클래스들</E></h2>
-<h3 id="--">- <u></u></h3>
-<h3 id="---1">- <u></u></h3>
-<h3 id="---2">- <u></u></h3>
+<h3 id="--스택stack과-큐queue의-이해">- <u>스택(Stack)과 큐(Queue)의 이해</u></h3>
+<p><img src="/assets/images/java-lang/23-3.png" alt="image" width="30%" height="30%" /><br /><br />
+<code class="language-plaintext highlighter-rouge">Stack</code>: 가장 먼저 저장된 데이터가 가장 마지막에 나오는 자료구조이다.<br />
+LIFO(last-in-first-out) -&gt; 먼저 저장된 데이터가 마지막에 빠져나간다.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/java-lang/23-4.png" alt="image" width="40%" height="40%" /><br /><br />
+<code class="language-plaintext highlighter-rouge">Queue</code>: 들어간 순으로 빠져나오는 자료구조이다.<br />
+FIFO(first-in-first-out) -&gt; 먼저 저장된 데이터가 먼저 빠져나간다.</p>
+
+<h3 id="--queue-인터페이스와-큐queue의-규현">- <u>Queue 인터페이스와 큐(Queue)의 규현</u></h3>
+<p>큐 자료구조를 위한 <code class="language-plaintext highlighter-rouge">Queue</code> 인터페이스를 대표하는 세 가지 메소드는 다음과 같다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="nf">add</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span>    <span class="c1">// 넣기</span>
+<span class="no">E</span> <span class="nf">remove</span><span class="o">()</span>          <span class="c1">// 꺼내기</span>
+<span class="no">E</span> <span class="nf">element</span><span class="o">()</span>         <span class="c1">// 확인하기</span>
+</code></pre></div></div>
+
+<p>위의 메소드들은 꺼낼 인스턴스가 없거나 저장 공간이 부족할 때 예외를 발생시킨다.<br />
+반면, 해당 상황에 특정값(null 또는 false)를 반환하는 메소드도 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="nf">offer</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span>  <span class="c1">// 넣기, 넣을 공간이 부족하면 false를 반환</span>
+<span class="no">E</span> <span class="nf">poll</span><span class="o">()</span>            <span class="c1">// 꺼내기, 꺼낼 대상 없으면 null 반환</span>
+<span class="no">E</span> <span class="nf">peek</span><span class="o">()</span>            <span class="c1">// 확인하기, 확인할 대상 없으면 null 반환</span>
+</code></pre></div></div>
+
+<p>일반적인 선택은 offer, poll, peek이다.<br />
+비어있는 상황까지도 예외가 아닌 프로그램의 정상적인 흐름으로 간주하는 경우가 대부분이기 때문이다.</p>
+
+<h3 id="--스택stack의-구현">- <u>스택(Stack)의 구현</u></h3>
+<p>자바도 <code class="language-plaintext highlighter-rouge">Stack</code>을 지원한다.<br />
+하지만 자바 초기에 정의된 클래스로써 지금은 이전 코드와의 호환성 유지를 위해 존재하는 클래스일 뿐이라고 한다.<br />
+<code class="language-plaintext highlighter-rouge">Stack</code>은 동기화된 클래스로 멀티 쓰레드에 안전하지만, 그만큼 성능의 저하가 발생하기 때문에 대신에 자바 6에서 스택을 대신할 수 있는 <code class="language-plaintext highlighter-rouge">Dequq</code>이라는 자료구조를 살펴보도록하자.</p>
+
+<p><img src="/assets/images/java-lang/23-6.jpeg" alt="image" width="40%" height="40%" /><br />
+<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">Deque</code>의 대표 메소드는 다음과 같다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 앞으로 넣고, 꺼내고, 확인하기</span>
+<span class="kt">void</span> <span class="nf">addFirst</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span>  <span class="c1">// 넣기</span>
+<span class="no">E</span> <span class="nf">removeFirst</span><span class="o">()</span>     <span class="c1">// 꺼내기</span>
+<span class="no">E</span> <span class="nf">getFirst</span><span class="o">()</span>        <span class="c1">// 확인하기</span>
+
+<span class="c1">// 뒤로 넣고, 꺼내고, 확인하기</span>
+<span class="kt">void</span> <span class="nf">addLast</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span>   <span class="c1">// 넣기</span>
+<span class="no">E</span> <span class="nf">removeLast</span><span class="o">()</span>      <span class="c1">// 꺼내기</span>
+<span class="no">E</span> <span class="nf">getLast</span><span class="o">()</span>         <span class="c1">// 확인하기</span>
+</code></pre></div></div>
+
+<p>마찬가지로 예외 대신 특정 값을 반환하는 메소드들도 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 앞으로 넣고, 꺼내고, 확인하기</span>
+<span class="kt">boolean</span> <span class="nf">offerFirst</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span> <span class="c1">// 넣기, 공간 부족하면 false 반환</span>
+<span class="no">E</span> <span class="nf">pollFirst</span><span class="o">()</span>           <span class="c1">// 꺼내기, 꺼낼 대상 없으면 null 반환</span>
+<span class="no">E</span> <span class="nf">peekFirst</span><span class="o">()</span>           <span class="c1">// 확인하기, 확인할 대상 없으면 null 반환</span>
+
+<span class="c1">// 뒤로 넣고, 꺼내고, 확인하기</span>
+<span class="kt">boolean</span> <span class="nf">offerLast</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span>  <span class="c1">// 넣기, 공간 부족하면 false 반환</span>
+<span class="no">E</span> <span class="nf">pollLast</span><span class="o">()</span>            <span class="c1">// 꺼내기, 꺼낼 대상 없으면 null 반환</span>
+<span class="no">E</span> <span class="nf">peekLast</span><span class="o">()</span>            <span class="c1">// 확인하기, 확인할 대상 없으면 null 반환</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>따라서 <code class="language-plaintext highlighter-rouge">Deque</code>을 스택처럼 사용하고 싶으면, 넣고 빼낼 방향을 하나로 고정시키면 된다.<br />
+offerFirst &amp; pollFirst -&gt; 앞으로 넣고 앞에서 꺼내기<br />
+offerLast &amp; pollLast -&gt; 뒤로 넣고 뒤에서 꺼내기</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayDequeCollection</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">deque</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>   <span class="c1">// Deque&lt;String&gt; deque = new LinkedList&lt;&gt;();</span>
+
+        <span class="c1">// 앞으로 넣기</span>
+        <span class="n">deque</span><span class="o">.</span><span class="na">offerFirst</span><span class="o">(</span><span class="s">"1. Box"</span><span class="o">);</span>
+        <span class="n">deque</span><span class="o">.</span><span class="na">offerFirst</span><span class="o">(</span><span class="s">"2. Toy"</span><span class="o">);</span>
+        <span class="n">deque</span><span class="o">.</span><span class="na">offerFirst</span><span class="o">(</span><span class="s">"3. Robot"</span><span class="o">);</span>
+
+        <span class="c1">// 앞에서 빼기</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>(참고)<br />
+<code class="language-plaintext highlighter-rouge">Deque</code> 인터페이스에는 <code class="language-plaintext highlighter-rouge">push</code>랑 <code class="language-plaintext highlighter-rouge">pop</code> 메소드가 있고, <code class="language-plaintext highlighter-rouge">Deque</code>을 구현하는 <code class="language-plaintext highlighter-rouge">LinkedList</code>랑 <code class="language-plaintext highlighter-rouge">ArrayDeque</code>에는 이 메소드가 이미 구현되어있다.<br />
+따라서, <code class="language-plaintext highlighter-rouge">Deque</code>을 <code class="language-plaintext highlighter-rouge">Stack</code>으로 활용하고자 한다면, 그냥 <code class="language-plaintext highlighter-rouge">push</code>랑 <code class="language-plaintext highlighter-rouge">pop</code>을 활용해도 된다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayDequeCollection</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">deque</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>   <span class="c1">// Deque&lt;String&gt; deque = new LinkedList&lt;&gt;();</span>
+
+        <span class="n">deque</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="s">"1. Box"</span><span class="o">);</span>
+        <span class="n">deque</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="s">"2. Toy"</span><span class="o">);</span>
+        <span class="n">deque</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="s">"3. Robot"</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
 <h2 id="23-5-mapk-v-인터페이스를-구현하는-컬렉션-클래스들">23-5. Map&lt;K, V&gt; 인터페이스를 구현하는 컬렉션 클래스들</h2>
-<h3 id="---3">- <u></u></h3>
-<h3 id="---4">- <u></u></h3>
-<h3 id="---5">- <u></u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2</title><link href="http://localhost:4000/java%20lang/Chap22/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap22</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap22/"><![CDATA[<h2 id="22-1-제네릭의-심화-문법">22-1. 제네릭의 심화 문법</h2>
+<h3 id="--">- <u></u></h3>
+<h3 id="---1">- <u></u></h3>
+<h3 id="---2">- <u></u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2</title><link href="http://localhost:4000/java%20lang/Chap22/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap22</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap22/"><![CDATA[<h2 id="22-1-제네릭의-심화-문법">22-1. 제네릭의 심화 문법</h2>
 <h3 id="--제네릭-클래스와-상속">- <u>제네릭 클래스와 상속</u></h3>
 <p>제네릭 클래스도 다음과 같이 상속이 가능하다.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
