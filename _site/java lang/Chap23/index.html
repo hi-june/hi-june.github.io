@@ -721,9 +721,9 @@
   </li>
   <li><a href="#23-5-mapk-v-인터페이스를-구현하는-컬렉션-클래스들">23-5. Map&lt;K, V&gt; 인터페이스를 구현하는 컬렉션 클래스들</a>
     <ul>
-      <li><a href="#--">- </a></li>
-      <li><a href="#---1">- </a></li>
-      <li><a href="#---2">- </a></li>
+      <li><a href="#--key-value-방식의-데이터-저장과-hashmap-클래스">- Key-Value 방식의 데이터 저장과 HashMap 클래스</a></li>
+      <li><a href="#--hashmap의-순차적-접근-방법">- HashMap의 순차적 접근 방법</a></li>
+      <li><a href="#--treemap의-순차적-접근-방법">- TreeMap의 순차적 접근 방법</a></li>
     </ul>
   </li>
 </ul>
@@ -1362,9 +1362,112 @@ offerLast &amp; pollLast -&gt; 뒤로 넣고 뒤에서 꺼내기</p>
 </code></pre></div></div>
 
 <h2 id="23-5-mapk-v-인터페이스를-구현하는-컬렉션-클래스들">23-5. Map&lt;K, V&gt; 인터페이스를 구현하는 컬렉션 클래스들</h2>
-<h3 id="--">- <u></u></h3>
-<h3 id="---1">- <u></u></h3>
-<h3 id="---2">- <u></u></h3>
+<h3 id="--key-value-방식의-데이터-저장과-hashmap-클래스">- <u>Key-Value 방식의 데이터 저장과 HashMap 클래스</u></h3>
+<p><code class="language-plaintext highlighter-rouge">Collection</code>을 구현하는 클래스가 <code class="language-plaintext highlighter-rouge">Value</code>를 저장하는 구조였다면,<br />
+<code class="language-plaintext highlighter-rouge">Map</code>을 구현하는 클래스는 <code class="language-plaintext highlighter-rouge">Value</code>를 저장할 때, 이를 찾을 때 사용하는 <code class="language-plaintext highlighter-rouge">Key</code>를 함께 저장하는 구조이다.</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Key</code>는 지표이므로 중복될 수 없다. 반면 <code class="language-plaintext highlighter-rouge">Key</code>만 다르면 <code class="language-plaintext highlighter-rouge">Value</code>는 중복되어도 상관없다.</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">Map</code>을 구현하는 대표 클래스로는 <code class="language-plaintext highlighter-rouge">HashMap</code>과 <code class="language-plaintext highlighter-rouge">TreeMap</code>이 있다.<br />
+둘의 가장 큰 차이점은 트리 자료구조를 기반으로 구현된 <code class="language-plaintext highlighter-rouge">TreeMap</code>은 정렬 상태(<code class="language-plaintext highlighter-rouge">Key</code>를 기준으로)를 유지한다는데 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashMapCollection</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Key-Value 기반 데이터 저장</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">45</span><span class="o">,</span> <span class="s">"Brown"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">37</span><span class="o">,</span> <span class="s">"James"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">23</span><span class="o">,</span> <span class="s">"Martin"</span><span class="o">);</span>
+
+        <span class="c1">// 데이터 탐색</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">45</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">37</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">23</span><span class="o">));</span>
+
+        <span class="c1">// 데이터 삭제</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">37</span><span class="o">);</span>
+
+        <span class="c1">// 데이터 삭제 확인</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"37번: "</span> <span class="o">+</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">37</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--hashmap의-순차적-접근-방법">- <u>HashMap의 순차적 접근 방법</u></h3>
+<p><code class="language-plaintext highlighter-rouge">HashMap</code> 클래스는 <code class="language-plaintext highlighter-rouge">Iterable</code> 인터페이스를 구현하지 않으니 for-each문이나, 반복자를 얻어서 값에 순차적으로 접근할 수 없다.<br />
+다만, <code class="language-plaintext highlighter-rouge">keySet</code> 메소드를 통해 <code class="language-plaintext highlighter-rouge">Key</code>를 담은 <code class="language-plaintext highlighter-rouge">Set</code>을 생성해서 <code class="language-plaintext highlighter-rouge">Value</code>에 접근할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashMapIteration</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">45</span><span class="o">,</span> <span class="s">"Brown"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">37</span><span class="o">,</span> <span class="s">"James"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">23</span><span class="o">,</span> <span class="s">"Martin"</span><span class="o">);</span>
+
+        <span class="c1">// Key만 담고 있는 컬렉션 인스턴스 생성</span>
+        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ks</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>
+
+        <span class="c1">// Key와 Value를 출력(for-each문 기반)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Integer</span> <span class="nl">age:</span> <span class="n">ks</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">age</span> <span class="o">+</span> <span class="s">" -&gt; "</span> <span class="o">+</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">age</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Key와 Value를 출력(반복자 기반)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Iterator</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">itr</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();</span> <span class="o">)</span> <span class="o">{</span>
+            <span class="nc">Integer</span> <span class="n">age</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">itr</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">age</span> <span class="o">+</span> <span class="s">" -&gt; "</span> <span class="o">+</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">age</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><img src="/assets/images/java-lang/23-7.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<h3 id="--treemap의-순차적-접근-방법">- <u>TreeMap의 순차적 접근 방법</u></h3>
+<p><code class="language-plaintext highlighter-rouge">TreeMap</code>은 트리 자료구조를 기반으로 구현되어 있어서 정렬 상태를 유지한다.<br />
+전에 작성한 코드에서 <code class="language-plaintext highlighter-rouge">Map</code>만 <code class="language-plaintext highlighter-rouge">TreeMap</code>으로 바꾸고 결과를 비교해보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.TreeMap</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TreeMapIteration</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeMap</span><span class="o">&lt;&gt;();</span> <span class="c1">// TreeMap으로 바꿈</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">45</span><span class="o">,</span> <span class="s">"Brown"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">37</span><span class="o">,</span> <span class="s">"James"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">23</span><span class="o">,</span> <span class="s">"Martin"</span><span class="o">);</span>
+
+        <span class="c1">// Key만 담고 있는 컬렉션 인스턴스 생성</span>
+        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ks</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>
+
+        <span class="c1">// Key와 Value를 출력(for-each문 기반)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Integer</span> <span class="nl">age:</span> <span class="n">ks</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">age</span> <span class="o">+</span> <span class="s">" -&gt; "</span> <span class="o">+</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">age</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Key와 Value를 출력(반복자 기반)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Iterator</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">itr</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();</span> <span class="o">)</span> <span class="o">{</span>
+            <span class="nc">Integer</span> <span class="n">age</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">itr</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">age</span> <span class="o">+</span> <span class="s">" -&gt; "</span> <span class="o">+</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">age</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><img src="/assets/images/java-lang/23-8.png" alt="image" width="40%" height="40%" /><br /></p>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
