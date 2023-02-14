@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-14T01:21:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1</title><link href="http://localhost:4000/java%20lang/Chap23/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap23</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap23/"><![CDATA[<h2 id="23-1-컬렉션-프레임워크의-이해">23-1. 컬렉션 프레임워크의 이해</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-14T17:30:53+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1</title><link href="http://localhost:4000/java%20lang/Chap23/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-02-14T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap23</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap23/"><![CDATA[<h2 id="23-1-컬렉션-프레임워크의-이해">23-1. 컬렉션 프레임워크의 이해</h2>
 <blockquote>
   <p>인스턴스의 저장과 삭제, 참조에 대한 문법</p>
 </blockquote>
@@ -814,13 +814,114 @@ offerLast &amp; pollLast -&gt; 뒤로 넣고 뒤에서 꺼내기</p>
 <h3 id="---3">- <u></u></h3>
 <h3 id="---4">- <u></u></h3>
 <h3 id="---5">- <u></u></h3>
-<h3 id="---6">- <u></u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1</title><link href="http://localhost:4000/java%20lang/Chap21/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1" /><published>2022-12-17T00:00:00+09:00</published><updated>2022-12-17T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap21</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap21/"><![CDATA[<h2 id="21-1-제네릭의-이해">21-1. 제네릭의 이해</h2>
+<h3 id="---6">- <u></u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1</title><link href="http://localhost:4000/java%20lang/Chap21/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1" /><published>2022-12-17T00:00:00+09:00</published><updated>2023-02-14T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap21</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap21/"><![CDATA[<h2 id="21-1-제네릭의-이해">21-1. 제네릭의 이해</h2>
 <blockquote>
   <p>클래스를 정의하는데 있어 자료형을 결정짓지 않고 틀만 만들어놓는 형태의 클래스 정의 형태</p>
 </blockquote>
 
+<h3 id="--제네릭-이전의-코드">- <u>제네릭 이전의 코드</u></h3>
+<p>제네릭 문법이 등장하기 이전에는 일반적인 클래스를 정의할 때 다음과 같이 <code class="language-plaintext highlighter-rouge">Object</code>를 사용했다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Apple</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am an apple"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Orange</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am an Orange"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">GeneralBox</span> <span class="o">{</span>  <span class="c1">// 무엇이든지 담을 수 있는 박스</span>
+    <span class="kd">private</span> <span class="nc">Object</span> <span class="n">object</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="nc">Object</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">object</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BeforeGeneric</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">GeneralBox</span> <span class="n">appleBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GeneralBox</span><span class="o">();</span>
+        <span class="nc">GeneralBox</span> <span class="n">orangeBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GeneralBox</span><span class="o">();</span>
+
+        <span class="n">appleBox</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="nc">Apple</span><span class="o">());</span>
+        <span class="n">orangeBox</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="nc">Orange</span><span class="o">());</span>
+
+        <span class="c1">// 명시적 형 변환이 필요함</span>
+        <span class="nc">Apple</span> <span class="n">apple</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Apple</span><span class="o">)</span> <span class="n">appleBox</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="nc">Orange</span> <span class="n">orange</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Orange</span><span class="o">)</span> <span class="n">orangeBox</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">apple</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">orange</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+Object로 클래스를 디자인 할 시 인스턴스를 꺼내는 과정에서 필수적으로 명시적 형변환이 필요하다.<br />
+그리고 이러한 번거로운 과정으로 인해 다음과 같은 실수가 발생할 수도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Apple</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am an apple"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Orange</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am an Orange"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">GeneralBox</span> <span class="o">{</span>  <span class="c1">// 무엇이든지 담을 수 있는 박스</span>
+    <span class="kd">private</span> <span class="nc">Object</span> <span class="n">object</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="nc">Object</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">object</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BeforeGenericFault</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">GeneralBox</span> <span class="n">appleBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GeneralBox</span><span class="o">();</span>
+        <span class="nc">GeneralBox</span> <span class="n">orangeBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GeneralBox</span><span class="o">();</span>
+
+        <span class="c1">// 아래 두 문장에서는 사과와 오렌지가 아닌 '문자열'을 담았다.(개발자의 실수)</span>
+        <span class="n">appleBox</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Apple"</span><span class="o">);</span>
+        <span class="n">orangeBox</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Orange"</span><span class="o">);</span>
+
+        <span class="c1">// 상자에 과일이 담기지 않았는데 과일을 꺼내려 한다.</span>
+        <span class="nc">Apple</span> <span class="n">apple</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Apple</span><span class="o">)</span> <span class="n">appleBox</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="nc">Orange</span> <span class="n">orange</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Orange</span><span class="o">)</span> <span class="n">orangeBox</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">apple</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">orange</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>위 코드에서 가장 큰 문제점은 개발자의 실수가 컴파일 과정에서 발견되지 않았다는데 있다.<br />
+즉, 제네릭 등장 이전의 자바코드는</p>
+<ol>
+  <li>물건을 꺼낼 때, 명시적 형변환이 필요하다는 점과</li>
+  <li>이로 인해 프로그래머가 실수를 해도 그 실수가 드러나지 않을 수 있다<br />
+는 점이 불편함과 문제점으로 있다.</li>
+</ol>
+
 <h3 id="--제네릭-기반의-클래스-정의하기">- <u>제네릭 기반의 클래스 정의하기</u></h3>
-<p>제네릭이 등장하면서 자료형에 의존적이지 않은 클래스를 정의할 수 있게 되었다.</p>
+<p>제네릭이 등장하면서 <u>자료형에 의존적이지 않은 클래스</u>를 정의할 수 있게 되었다.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="no">T</span> <span class="n">ob</span><span class="o">;</span>
@@ -980,11 +1081,11 @@ T는 인스턴스를 생성할 때 결정하면 된다.<br />
 <p>제네릭 클래스는 ‘인스턴스 생성 시’ 자료형이 결정된다.<br />
 반면, 제네릭 메소드는 ‘메소드 호출 시’ 자료형이 결정된다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1.</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1. 기본형태</span>
 <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.&lt;</span><span class="nc">String</span><span class="o">&gt;</span><span class="n">makeBox</span><span class="o">(</span><span class="s">"Sweet"</span><span class="o">);</span>
 <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">dBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.&lt;</span><span class="nc">Double</span><span class="o">&gt;</span><span class="n">makeBox</span><span class="o">(</span><span class="mf">7.59</span><span class="o">);</span>
 
-<span class="c1">// 2.</span>
+<span class="c1">// 2. 컴파일러는 'makeBox에 전달되는 인자'를 보고 T를 String과 Double로 유추한다.</span>
 <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.</span><span class="na">makeBox</span><span class="o">(</span><span class="s">"Sweet"</span><span class="o">);</span>
 <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">dBox</span> <span class="o">=</span> <span class="nc">BoxFactory</span><span class="o">.</span><span class="na">makeBox</span><span class="o">(</span><span class="mf">7.59</span><span class="o">);</span>
 </code></pre></div></div>
