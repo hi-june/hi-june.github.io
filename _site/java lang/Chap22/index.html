@@ -37,7 +37,7 @@
 
 
 
-  <meta property="article:modified_time" content="2023-01-07T00:00:00+09:00">
+  <meta property="article:modified_time" content="2023-02-15T00:00:00+09:00">
 
 
 
@@ -629,7 +629,7 @@
     <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2">
     <meta itemprop="description" content="Java 문법 정리!">
     <meta itemprop="datePublished" content="2023-01-07T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2023-01-07T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-02-15T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
@@ -637,7 +637,7 @@
           <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-01-07T00:00:00+09:00">2023.01.07</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-01-07">2023.01.07</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-01-07T00:00:00+09:00">2023.01.07</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-02-15">2023.02.15</time></p>
           
           
             
@@ -690,13 +690,13 @@
       <li><a href="#--제네릭-클래스와-상속">- 제네릭 클래스와 상속</a></li>
       <li><a href="#--타겟-타입target-types">- 타겟 타입(Target Types)</a></li>
       <li><a href="#--와일드카드wildcard">- 와일드카드(Wildcard)</a></li>
-      <li><a href="#--">- </a></li>
-      <li><a href="#---1">- </a></li>
-      <li><a href="#---2">- </a></li>
-      <li><a href="#---3">- </a></li>
-      <li><a href="#---4">- </a></li>
-      <li><a href="#---5">- </a></li>
-      <li><a href="#---6">- </a></li>
+      <li><a href="#--와일드카드의-상한과-하한의-제한-bounded-wildcards">- 와일드카드의 상한과 하한의 제한: Bounded Wildcards</a></li>
+      <li><a href="#--언제-와일드-카드에-제한을-걸어야-하는가-도입">- 언제 와일드 카드에 제한을 걸어야 하는가?: 도입</a></li>
+      <li><a href="#--언제-와일드-카드에-제한을-걸어야-하는가-상한-제한의-목적">- 언제 와일드 카드에 제한을 걸어야 하는가?: 상한 제한의 목적</a></li>
+      <li><a href="#--언제-와일드-카드에-제한을-걸어야-하는가-하한-제한의-목적">- 언제 와일드 카드에 제한을 걸어야 하는가?: 하한 제한의 목적</a></li>
+      <li><a href="#--언제-와일드-카드에-제한을-걸어야-하는가-정리하기">- 언제 와일드 카드에 제한을 걸어야 하는가?: 정리하기</a></li>
+      <li><a href="#--제한된-와일드카드-선언을-갖는-제네릭-메소드">- 제한된 와일드카드 선언을 갖는 제네릭 메소드</a></li>
+      <li><a href="#--제네릭-인터페이스의-정의와-구현">- 제네릭 인터페이스의 정의와 구현</a></li>
     </ul>
   </li>
 </ul>
@@ -735,7 +735,18 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<p><img src="/assets/images/java-lang/22-1.png" alt="image" width="40%" height="40%" /><br /></p>
+<p><img src="/assets/images/java-lang/22-1.png" alt="image" width="40%" height="40%" /><br /><br />
+<img src="/assets/images/java-lang/22-3.png" alt="image" width="60%" height="60%" /><br /></p>
+<blockquote>
+  <p>SteelBox&lt;Integer&gt; 클래스는 Box&lt;Integer&gt; 클래스를 상속한다.<br />
+SteelBox&lt;Integer&gt; 제네릭 타입은 Box&lt;Integer&gt; 제네릭 타입을 상속한다.</p>
+</blockquote>
+
+<p>상속 관계 파악을 잘 해야 한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Number</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>   <span class="c1">// 컴파일 가능할까?</span>
+</code></pre></div></div>
+<p>뭔가 <code class="language-plaintext highlighter-rouge">Number</code>를 <code class="language-plaintext highlighter-rouge">Integer</code>가 상속하니까 위의 코드도 가능할 것 같지만,<br />
+Box&lt;Number&gt;와 Box&lt;Integer&gt;는 상속 관계를 형성하지 않는다.</p>
 
 <h3 id="--타겟-타입target-types">- <u>타겟 타입(Target Types)</u></h3>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
@@ -776,15 +787,19 @@
 따라서, 원래는 T에 대한 타입 인자를 전달해주어야한다.<br />
 하지만 자바 7부터는 컴파일러의 자료형 유추 범위가 넓어졌기 때문에 위와 같이 호출하는 것이 가능해졌다.</p>
 
-<h3 id="--와일드카드wildcard">- <u>와일드카드(Wildcard)</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">iBox8</span> <span class="o">=</span> <span class="nc">EmptyBoxFactory</span><span class="o">.</span><span class="na">makeBox</span><span class="o">();</span> <span class="c1">// java 7부터 가능해짐</span>
+</code></pre></div></div>
+<p>컴파일러는 위 문장을 보면서 makeBox 메소드는 Box&lt;Integer&gt; 인스턴스의 참조 값을 반환해야 한다고 판단한다.<br />
+그리고 이 때, T의 유추에 사용된 정보 Box&lt;Integer&gt;를 가리켜 ‘타겟 타입’이라 한다.</p>
 
-<h3 id="--">- <u></u></h3>
-<h3 id="---1">- <u></u></h3>
-<h3 id="---2">- <u></u></h3>
-<h3 id="---3">- <u></u></h3>
-<h3 id="---4">- <u></u></h3>
-<h3 id="---5">- <u></u></h3>
-<h3 id="---6">- <u></u></h3>
+<h3 id="--와일드카드wildcard">- <u>와일드카드(Wildcard)</u></h3>
+<h3 id="--와일드카드의-상한과-하한의-제한-bounded-wildcards">- <u>와일드카드의 상한과 하한의 제한: Bounded Wildcards</u></h3>
+<h3 id="--언제-와일드-카드에-제한을-걸어야-하는가-도입">- <u>언제 와일드 카드에 제한을 걸어야 하는가?: 도입</u></h3>
+<h3 id="--언제-와일드-카드에-제한을-걸어야-하는가-상한-제한의-목적">- <u>언제 와일드 카드에 제한을 걸어야 하는가?: 상한 제한의 목적</u></h3>
+<h3 id="--언제-와일드-카드에-제한을-걸어야-하는가-하한-제한의-목적">- <u>언제 와일드 카드에 제한을 걸어야 하는가?: 하한 제한의 목적</u></h3>
+<h3 id="--언제-와일드-카드에-제한을-걸어야-하는가-정리하기">- <u>언제 와일드 카드에 제한을 걸어야 하는가?: 정리하기</u></h3>
+<h3 id="--제한된-와일드카드-선언을-갖는-제네릭-메소드">- <u>제한된 와일드카드 선언을 갖는 제네릭 메소드</u></h3>
+<h3 id="--제네릭-인터페이스의-정의와-구현">- <u>제네릭 인터페이스의 정의와 구현</u></h3>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
