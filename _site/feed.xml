@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-15T01:26:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1</title><link href="http://localhost:4000/java%20lang/Chap23/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-02-14T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap23</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap23/"><![CDATA[<h2 id="23-1-컬렉션-프레임워크의-이해">23-1. 컬렉션 프레임워크의 이해</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-16T01:54:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1</title><link href="http://localhost:4000/java%20lang/Chap23/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-02-14T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap23</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap23/"><![CDATA[<h2 id="23-1-컬렉션-프레임워크의-이해">23-1. 컬렉션 프레임워크의 이해</h2>
 <blockquote>
   <p>인스턴스의 저장과 삭제, 참조에 대한 문법</p>
 </blockquote>
@@ -823,13 +823,373 @@ Box&lt;Number&gt;와 Box&lt;Integer&gt;는 상속 관계를 형성하지 않는�
 그리고 이 때, T의 유추에 사용된 정보 Box&lt;Integer&gt;를 가리켜 ‘타겟 타입’이라 한다.</p>
 
 <h3 id="--와일드카드wildcard">- <u>와일드카드(Wildcard)</u></h3>
+<p>상자의 내용물을 넣고, 확인하는 메소드가 있는 클래스를 예시로 들어보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="no">T</span> <span class="n">object</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="no">T</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">object</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">object</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Unboxer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="no">T</span> <span class="nf">openBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">box</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">peekBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>    <span class="c1">// 와일드카드를 적용한 메소드</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">box</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WildcardUnboxer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"So Simple String"</span><span class="o">);</span>
+        <span class="nc">Unboxer</span><span class="o">.</span><span class="na">peekBox</span><span class="o">(</span><span class="n">box</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>와일드카드를 사용하면 Box&lt;T&gt;를 기반으로 생성된, Box&lt;Integer&gt; 인스턴스나 Box&lt;String&gt; 인스턴스들을 인자로 받을 수 있다.<br />
+그런데, 가만히 잘 생각해보자. 굳이 와일드카드를 사용해야했었나?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 제네릭 메소드의 정의</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">peekBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">box</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// 와일드카드 기반 메소드 정의</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">peekBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">box</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>같은 기능을 하는 메소드는 제네릭으로도 만들 수 있다.<br />
+물론 내부적인 동작은 다르겠지만 기능적으로는 동일하다고 볼 수 있다.<br />
+즉, 제네릭 메소드와 와일드카드 기반 메소드는 상호 대체 가능한 측면이 있다.<br />
+하지만 코드가 좀 더 간결하다는 이유로 와일드카드 기반 메소드의 정의를 선호한다.<br />
+그리고 와일드카드를 쓰는 진짜 이유는 <code class="language-plaintext highlighter-rouge">extends</code>와 <code class="language-plaintext highlighter-rouge">super</code>를 통한 상한과 하한의 제한에 있다.</p>
+
 <h3 id="--와일드카드의-상한과-하한의-제한-bounded-wildcards">- <u>와일드카드의 상한과 하한의 제한: Bounded Wildcards</u></h3>
+<p><img src="/assets/images/java-lang/22-4.png" alt="image" width="40%" height="40%" /><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">peekBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Number</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// box는 Box&lt;T&gt; 인스턴스를 참조하는 참조변수이다.</span>
+    <span class="c1">// 단 이때 Box&lt;T&gt; 인스턴스의 T는 Number 또는 이를 상속하는 하위 클래스이어야 한다.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>메소드의 인자로 특정 클래스 또는 그 클래스의 하위 클래스인 제네릭 타입의 인스턴스만 전달되도록 제한할 때,<br />
+다음과 같이 ‘상한 제한된 와일드카드(Upper-Bounded Wildcards)’를 사용한다.<br />
+<br /></p>
+
+<p><img src="/assets/images/java-lang/22-5.png" alt="image" width="40%" height="40%" /><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">peekBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// box는 Box&lt;T&gt; 인스턴스를 참조하는 참조변수이다.</span>
+    <span class="c1">// 단 이때 Box&lt;T&gt; 인스턴스의 T는 Integer 또는 Integer가 상속하는 클래스이어야 한다.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>반대로 메소드의 인자로 특정 클래스 또는 그 클래스의 상위 클래스인 제네릭 타입의 인스턴스만 전달되도록 제한할 때,<br />
+다음과 같이 ‘하한 제한된 와일드카드(Lower-Bounded Wildcards)’를 사용한다.</p>
+
 <h3 id="--언제-와일드-카드에-제한을-걸어야-하는가-도입">- <u>언제 와일드 카드에 제한을 걸어야 하는가?: 도입</u></h3>
+<blockquote>
+  <p>Box<T>의 T를 Number 또는 Number를 직간접적으로 상속하는 클래스로 제한하기 위한 것</T></p>
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">peekBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Number</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<blockquote>
+  <p>Box<T>의 T를 Integer 또는 Integer가 직간접적으로 상속하는 클래스로 제한하기 위한 것</T></p>
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">peekBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<p>위의 두 설명은 정확한 설명이다.<br />
+하지만 뒤에 나올 컬렉션 프레임워크에서 나올 다음과 같은 메소드를 해석하려면 여기서 좀 더 많은 의미를 끌어내야 한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Collections 클래스의 복사 메소드</span>
+<span class="c1">// 왜 dest에는 super가, src에는 extends가 쓰였을까?</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">copy</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">dest</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">src</span><span class="o">)</span>
+</code></pre></div></div>
+
 <h3 id="--언제-와일드-카드에-제한을-걸어야-하는가-상한-제한의-목적">- <u>언제 와일드 카드에 제한을 걸어야 하는가?: 상한 제한의 목적</u></h3>
+<p>박스에서 물건을 꺼내고 담는 기능을 하는 메소드가 들어있는 클래스를 예시로 보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BoxHandler</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">outBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Toy</span> <span class="n">toy</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>    <span class="c1">// 상자에서 꺼내기</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">toy</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">inBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">,</span> <span class="nc">Toy</span> <span class="n">toy</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">toy</span><span class="o">);</span>   <span class="c1">// 상자에 넣기</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>잘 정의된 코드는 필요한 만큼만 기능을 허용하여, 코드의 오류가 컴파일 과정에서 최대한 발견되도록 해야 한다.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">outBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">box</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>    <span class="c1">// 꺼내는 것! OK!</span>
+    <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="nc">Toy</span><span class="o">())</span>  <span class="c1">// 넣는 것도 OK?!</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>이렇게 메소드를 정의할 경우 꺼내는 역할만 수행해야할 메소드에 set하는 동작이 수행되어도 컴파일 과정에서 발견되지 않게된다.<br />
+<br /></p>
+
+<p>이러한 문제를 해결하기 위해서는 해당 메소드를 다음과 같이 바꿔주면 된다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">outBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">box</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>    <span class="c1">// 꺼내는 것! OK!</span>
+    <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="nc">Toy</span><span class="o">())</span>  <span class="c1">// 넣는 것은 ERROR!</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위 상황에서 set 메소드의 호출이 불가능한 이유는 간단하다(사실 처음 보면 좀 생각해봐야하지도..)<br />
+하위 클래스 타입의 변수로는 상위 클래스의 인스턴스를 참조할 수 없고,<br />
+메소드의 매개변수로 Toy 인스턴스를 저장할 수 있는 상자(Box&lt;T&gt; 인스턴스만) 전달된다는 사실을 보장할 수 없기 때문이다.</p>
+
+<p><img src="/assets/images/java-lang/22-6.png" alt="image" width="30%" height="30%" /><br />
+즉, 이렇게 T에 Toy를 상속하는 Car나 Robot이 전달될 수도 있기 때문에 컴파일 과정에서 오류를 뱉게된다.<br />
+<br /></p>
+
+<p>정리하자면, 다음과 같은 매개변수 선언을 보고, 이렇게 판단할 수 있어야 한다.</p>
+<blockquote>
+  <p>box가 참조하는 인스턴스를 대상으로 저장하는 기능의 메소드 호출은 불가능하다.</p>
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">outBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+    <span class="cm">/*
+    이 안에서는 box가 참조하는 인스턴스에 Toy 인스턴스를 저장하는(전달하는) 메소드 호출은 불가능하다.
+    */</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<p>이렇게 적용함으로써 코드의 안전성을 더 높일 수 있다.</p>
+
 <h3 id="--언제-와일드-카드에-제한을-걸어야-하는가-하한-제한의-목적">- <u>언제 와일드 카드에 제한을 걸어야 하는가?: 하한 제한의 목적</u></h3>
+<p>다음 메소드도 앞선 예시와 같이 문제가 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">inBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">,</span> <span class="nc">Toy</span> <span class="n">toy</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">toy</span><span class="o">);</span>   <span class="c1">// 넣는 것 OK!</span>
+    <span class="nc">Toy</span> <span class="n">myToy</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>  <span class="c1">// 꺼내는 것도 OK?!</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>넣는 역할만 수행해야하는 메소드에서 get하는 동작이 수행되어도 컴파일 과정에서 발견되지 않는다.<br />
+<br /></p>
+
+<p>이러한 문제를 해결하기 위해서는 해당 메소드를 다음과 같이 바꿔주면 된다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">inBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">,</span> <span class="nc">Toy</span> <span class="n">toy</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">toy</span><span class="o">);</span>   <span class="c1">// 넣는 것 OK!</span>
+    <span class="nc">Toy</span> <span class="n">myToy</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>  <span class="c1">// 꺼내는 것 ERROR!</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위 상황같은 경우 get 메소드 호출 자체는 문제되지 않지만, 반환값을 저장하기 위해 선언한 참조변수의 형을 Toy로 결정했다는 점에서 문제가 생긴다.<br />
+즉, get을 보면 컴파일 과정에서 무엇이 반환되는지 알 수가 없다.</p>
+
+<p><img src="/assets/images/java-lang/22-7.png" alt="image" width="30%" height="30%" /><br />
+이렇게 만약 Toy가 Plastic을 상속한다면 상위 클래스의 인스턴스를 하위 클래스 타입형 변수로 참조하는 것이 되므로 오류가 나는 것이다.<br />
+<br /></p>
+
+<p>정리하자면, 다음과 같은 매개변수 선언을 보고, 이렇게 판단할 수 있어야 한다.</p>
+<blockquote>
+  <p>box가 참조하는 인스턴스를 대상으로 꺼내는 기능의 메소드 호출은 불가능하다.</p>
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">outBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+    <span class="cm">/*
+    이 안에서는 box가 참조하는 인스턴스에서 Toy 인스턴스를 꺼내는(반환하는) 메소드 호출은 불가능하다.
+    */</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<p>마찬가지로, 이렇게 적용함으로써 코드의 안전성을 더 높일 수 있다.</p>
+
 <h3 id="--언제-와일드-카드에-제한을-걸어야-하는가-정리하기">- <u>언제 와일드 카드에 제한을 걸어야 하는가?: 정리하기</u></h3>
+<p>최종으로 정리된 코드를 살펴보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+   <span class="kd">protected</span> <span class="no">T</span> <span class="n">object</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="no">T</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">this</span><span class="o">.</span><span class="na">object</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+       <span class="k">return</span> <span class="n">object</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Toy</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am a Toy"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">BoxHandler</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">outBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// get만 가능하도록 제한</span>
+        <span class="nc">Toy</span> <span class="n">toy</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">toy</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">inBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">,</span> <span class="nc">Toy</span> <span class="n">toy</span><span class="o">)</span> <span class="o">{</span>   <span class="c1">// set만 가능하도록 제한</span>
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">toy</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BoundedWildcardBase</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;();</span>
+
+        <span class="nc">BoxHandler</span><span class="o">.</span><span class="na">inBox</span><span class="o">(</span><span class="n">box</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Toy</span><span class="o">());</span>
+        <span class="nc">BoxHandler</span><span class="o">.</span><span class="na">outBox</span><span class="o">(</span><span class="n">box</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br />다음과 같이 정리해두자!<br />
+<img src="/assets/images/java-lang/22-9.png" alt="image" width="80%" height="80%" /><br />
+<img src="/assets/images/java-lang/22-10.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<p>그렇다면, 앞부분에 언급했던 컬랙션 클래스의 copy 메소드를 해석해보자!</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Collections 클래스의 복사 메소드</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">copy</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">dest</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">src</span><span class="o">)</span> <span class="o">{</span>
+    <span class="cm">/*
+    Q: 왜 dest에는 super가, src에는 extends가 쓰였을까?
+    A: dest에서는 set만 가능하도록, src에서는 get만 가능하도록 제한을 두었다 는 의미로 해석할 수 있다.
+    */</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>역으로 앞으로 SDK를 읽을 때, <code class="language-plaintext highlighter-rouge">super</code>, <code class="language-plaintext highlighter-rouge">extends</code>를 보고<br />
+아, 각각 이러한 기능으로 쓰라고 디자인한거구나! 라고 해석할줄도 알아야겠다.</p>
+
 <h3 id="--제한된-와일드카드-선언을-갖는-제네릭-메소드">- <u>제한된 와일드카드 선언을 갖는 제네릭 메소드</u></h3>
-<h3 id="--제네릭-인터페이스의-정의와-구현">- <u>제네릭 인터페이스의 정의와 구현</u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1</title><link href="http://localhost:4000/java%20lang/Chap21/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1" /><published>2022-12-17T00:00:00+09:00</published><updated>2023-02-14T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap21</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap21/"><![CDATA[<h2 id="21-1-제네릭의-이해">21-1. 제네릭의 이해</h2>
+<p>그래서 Toy 클래스를 담은 상자를 기준으로 다음과 같이 inBox와 outBox 메소드를 정의하였다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BoxHandler</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">outBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Toy</span> <span class="n">toy</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>    <span class="c1">// 상자에서 꺼내기</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">toy</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">inBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">,</span> <span class="nc">Toy</span> <span class="n">toy</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">toy</span><span class="o">);</span>   <span class="c1">// 상자에 넣기</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>그렇다면 좀 더 다양한 클래스를 담는 메소드로 변경하고 싶다면 어떻게 해야할까?<br />
+<br /></p>
+
+<p>먼저, 오버로딩을 시도해보자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 다음 두 메소드는 오버로딩 인정 안 됨.</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">outBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{...}</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">outBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Robot</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{...}</span>
+
+<span class="c1">// 다음 두 메소드는 두 번째 매개변수로 인해 오버로딩 인정 됨.</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">inBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">,</span> <span class="nc">Toy</span> <span class="n">n</span><span class="o">)</span> <span class="o">{...}</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">inBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="nc">Robot</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">,</span> <span class="nc">Robot</span> <span class="n">n</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p>결론부터 말하자면 권장하지 않는 방법이다.<br />
+자바는 제네릭 등장 이전에 정의된 클래스들과의 상호 호환성 유지를 위해 컴파일 시 제네릭과 와일드카드 관련 정보를 지우는 과정을 거친다고한다.<br />
+즉, &lt;…&gt; 이 부분이 다 삭제되는 것이다.<br />
+이렇게 컴파일러가 제네릭 정보를 지우는 행위를 가리켜 ‘Type Erasure’라 한다.<br />
+<br /></p>
+
+<p>따라서, 메소드를 오버로딩 해야하는 상황에서는 다음과 같이 제네릭 메소드로 만들어 문제를 해결하도록 하자.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BoxHandler</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">outBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+        <span class="no">T</span> <span class="n">t</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>    <span class="c1">// 상자에서 꺼내기</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">inBox</span><span class="o">(</span><span class="nc">Box</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">,</span> <span class="no">T</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">t</span><span class="o">);</span>   <span class="c1">// 상자에 넣기</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--제네릭-인터페이스의-정의와-구현">- <u>제네릭 인터페이스의 정의와 구현</u></h3>
+<p>인터페이스 역시 클래스와 마찬가지로 제네릭으로 정의할 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Getable</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="no">T</span> <span class="nf">get</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">GBox</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">Getable</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="no">T</span> <span class="n">ob</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ob</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ob</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Toy</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am a Toy"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GetableGenericInterface</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">GBox</span><span class="o">&lt;</span><span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GBox</span><span class="o">&lt;&gt;();</span>
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="nc">Toy</span><span class="o">());</span>
+
+        <span class="c1">// GBox&lt;T&gt;가 Getable&lt;T&gt;를 구현하므로 참조 가능</span>
+        <span class="nc">Getable</span><span class="o">&lt;</span><span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">gt</span> <span class="o">=</span> <span class="n">box</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">gt</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>그리고 제네릭 인터페이스를 구현할 때 T를 결정한 상태로 구현할 수도 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Getable</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="no">T</span> <span class="nf">get</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">GBox</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">Getable</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="no">T</span> <span class="n">ob</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ob</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>   <span class="c1">// 반환형은 T가 아닌 String이어야 한다.</span>
+        <span class="k">return</span> <span class="n">ob</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Toy</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am a Toy"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GetableGenericInterface</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">GBox</span><span class="o">&lt;</span><span class="nc">Toy</span><span class="o">&gt;</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GBox</span><span class="o">&lt;&gt;();</span>
+        <span class="n">box</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="nc">Toy</span><span class="o">());</span>
+
+        <span class="nc">Getable</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">gt</span> <span class="o">=</span> <span class="n">box</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">gt</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1</title><link href="http://localhost:4000/java%20lang/Chap21/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 21 - 제네릭(Generics) 1" /><published>2022-12-17T00:00:00+09:00</published><updated>2023-02-14T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap21</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap21/"><![CDATA[<h2 id="21-1-제네릭의-이해">21-1. 제네릭의 이해</h2>
 <blockquote>
   <p>클래스를 정의하는데 있어 자료형을 결정짓지 않고 틀만 만들어놓는 형태의 클래스 정의 형태</p>
 </blockquote>
