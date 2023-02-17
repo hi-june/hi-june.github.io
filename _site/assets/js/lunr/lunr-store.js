@@ -256,4 +256,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap23/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 24 - 컬렉션 프레임워크 2",
+        "excerpt":"24-1. 컬렉션 기반 알고리즘 Collections에 정의된 static 메소드를 사용하는 것은 간단하다. 하지만, 제네릭과 와일드카드 기반으로 정의된 메소드의 의미를 해석하는 것은 간단하지 않다. - 정렬 sort 메소드의 모습은 다음과 같다. /** 인자로 List&lt;T&gt;의 인스턴스는 모두 전달 가능 단, T는 Comparable&lt;? extends T&gt; 인터페이스를 구현한 상태이어야 한다. */ public static &lt;T extends...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap24/",
+        "teaser": null
       }]
