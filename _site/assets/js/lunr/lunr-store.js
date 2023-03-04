@@ -262,4 +262,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap24/",
         "teaser": null
+      },{
+        "title": "[이것이 코딩 테스트다] 그리디",
+        "excerpt":" ","categories": ["This is coding test"],
+        "tags": ["coding test"],
+        "url": "/this%20is%20coding%20test/greedy/",
+        "teaser": null
       }]

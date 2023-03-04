@@ -174,7 +174,11 @@
 </url>
 <url>
 <loc>http://localhost:4000/java%20lang/Chap24/</loc>
-<lastmod>2023-02-16T00:00:00+09:00</lastmod>
+<lastmod>2023-02-17T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/this%20is%20coding%20test/greedy/</loc>
+<lastmod>2023-03-04T00:00:00+09:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/categories/</loc>
@@ -199,9 +203,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/boj</loc>
-</url>
-<url>
-<loc>http://localhost:4000/categories/codeup</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/data-structure</loc>
@@ -229,6 +230,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/question</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/this-is-coding-test</loc>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
