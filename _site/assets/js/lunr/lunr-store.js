@@ -264,8 +264,14 @@ var store = [{
         "teaser": null
       },{
         "title": "[이것이 코딩 테스트다] 그리디",
-        "excerpt":" ","categories": ["This is coding test"],
+        "excerpt":"거스름돈  ","categories": ["This is coding test"],
         "tags": ["coding test"],
         "url": "/this%20is%20coding%20test/greedy/",
+        "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션",
+        "excerpt":"25-1. 열거형 열거형: ‘의미가 부여된 이름’을 갖는 ‘상수’의 선언 - 인터페이스 기반의 상수 정의 열거형 등장 이전의 모습을 보자. interface Animal { int DOG = 1; int CAT = 2; } interface Person { int MAN = 1; int WOMAN = 2; } class NonSafeConst { public static void main(String[]...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap25/",
         "teaser": null
       }]

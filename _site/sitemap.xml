@@ -181,6 +181,10 @@
 <lastmod>2023-03-04T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/java%20lang/Chap25/</loc>
+<lastmod>2023-03-06T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/categories/</loc>
 </url>
 <url>
@@ -266,6 +270,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/page9/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page10/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/google8a97825fdbe4bbc7.html</loc>
