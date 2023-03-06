@@ -1,6 +1,249 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-06T10:49:39+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개</title><link href="http://localhost:4000/java%20lang/Chap26/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap26</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap26/"><![CDATA[<h2 id="26-1-네스티드nested-클래스와-이너inner-클래스">26-1. 네스티드(Nested) 클래스와 이너(Inner) 클래스</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-07T01:51:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개</title><link href="http://localhost:4000/java%20lang/Chap26/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-07T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap26</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap26/"><![CDATA[<h2 id="26-1-네스티드nested-클래스와-이너inner-클래스">26-1. 네스티드(Nested) 클래스와 이너(Inner) 클래스</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Outer</span> <span class="o">{</span>
+  <span class="kd">class</span> <span class="nc">Nested</span> <span class="o">{...}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-<h2 id="26-2-람다lambda의-소개">26-2. 람다(Lambda)의 소개</h2>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션</title><link href="http://localhost:4000/java%20lang/Chap25/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap25</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap25/"><![CDATA[<h2 id="25-1-열거형">25-1. 열거형</h2>
+<p>클래스 내에 정의된 클래스를 가리켜 네스티드 클래스(Nested Class)라 하고,<br />
+이를 감싸는 클래스를 외부 클래스(Outer Class)라 한다.</p>
+
+<h3 id="--네스티드-클래스의-구분">- <u>네스티드 클래스의 구분</u></h3>
+<p><img src="/assets/images/java-lang/26-1.png" alt="image" width="80%" height="80%" /><br />
+static이냐, non static이냐로 나뉘고,<br />
+non static 네스티드 클래스는 다시 멤버 클래스, 로컬 클래스, 익명 클래스로 나뉜다.</p>
+
+<h3 id="--static-네스티드-클래스-static-nested-class">- <u>Static 네스티드 클래스 (Static Nested Class)</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Outer</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Nested1</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">num</span> <span class="o">+=</span> <span class="n">n</span><span class="o">;</span>   <span class="c1">// Outer 클래스의 static 변수를 공유한다.</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Nested2</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">num</span><span class="o">;</span> <span class="c1">// Outer 클래스의 static 변수를 공유한다.</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StaticNested</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// 인스턴스 생성방법</span>
+    <span class="nc">Outer</span><span class="o">.</span><span class="na">Nested1</span> <span class="n">nst1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Outer</span><span class="o">.</span><span class="na">Nested1</span><span class="o">();</span>
+    <span class="nc">Outer</span><span class="o">.</span><span class="na">Nested2</span> <span class="n">nst2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Outer</span><span class="o">.</span><span class="na">Nested2</span><span class="o">();</span>
+
+    <span class="c1">// static 변수 num을 공유한다.</span>
+    <span class="n">nst1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">nst2</span><span class="o">.</span><span class="na">get</span><span class="o">());</span> <span class="c1">// 5가 출력됨</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Static 네스티드 클래스의 인스턴스 생성은 외부 클래스의 인스턴스 생성과 무관하다.<br />
+따라서, 다음도 유추해볼 수 있다.</p>
+<blockquote>
+  <p>Static 네스티드 클래스 내에서 외부 클래스의 인스턴스 변수와 메소드에 접근 불가능하다.<br />
+즉, Static 네스티드 클래스 내에서는 외부 클래스에 static으로 선언된 변수와 메소드에만 접근이 가능하다.</p>
+</blockquote>
+
+<h3 id="--이너inner-클래스의-구분">- <u>이너(Inner) 클래스의 구분</u></h3>
+<p>네스티드 클래스 중에서 static 선언이 붙지 않은 클래스를 가리켜 ‘이너 클래스’라 한다.</p>
+<ul>
+  <li>멤버 클래스 (Member Class)</li>
+  <li>로컬 클래스 (Local Class)</li>
+  <li>익명 클래스 (Anonymous Class)</li>
+</ul>
+
+<p>이들 중 다음 둘은 정의된 위치에 따라서 구분이 된다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Outer</span> <span class="o">{</span>
+  <span class="cm">/**
+  * 멤버 클래스
+  * 인스턴스 변수, 인스턴스 메소드와 동일한 위치에 정의
+  */</span>
+  <span class="kd">class</span> <span class="nc">MemberInner</span> <span class="o">{...}</span> 
+  
+  <span class="cm">/**
+  * 로컬 클래스
+  * 중괄호 내에, 특히 메소드 내에 정의
+  */</span>
+  <span class="kt">void</span> <span class="nf">method</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">class</span> <span class="nc">LocalInner</span> <span class="o">{...}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--멤버-클래스member-class">- <u>멤버 클래스(Member Class)</u></h3>
+<p><img src="/assets/images/java-lang/26-2.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<p>Member 클래스 내에서는 Outer 클래스의 인스턴스 변수에 접근이 가능하다.<br />
+그리고 코드에서 볼 수 있듯이</p>
+<blockquote>
+  <p>멤버 클래스의 인스턴스는 외부 클래스의 인스턴스에 종속적이다.</p>
+</blockquote>
+
+<h3 id="--멤버-클래스를-언제-사용하는가">- <u>'멤버 클래스'를 언제 사용하는가?</u></h3>
+<blockquote>
+  <p>클래스의 정의를 감추어야 할 때 유용하게 사용이 된다.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">print</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Paper</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">con</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Paper</span><span class="o">(</span><span class="nc">String</span> <span class="n">con</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">con</span> <span class="o">=</span> <span class="n">con</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">Printable</span> <span class="nf">getPrinter</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Printer</span><span class="o">();</span>   <span class="c1">// 멤버 클래스 인스턴스 생성 및 반환</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Printer</span> <span class="kd">implements</span> <span class="nc">Printable</span> <span class="o">{</span>    <span class="c1">// 멤버 클래스의 정의</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">()</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">con</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UseMemberInner</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Paper</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Paper</span><span class="o">(</span><span class="s">"서류 내용: 행복합니다."</span><span class="o">);</span>
+    <span class="nc">Printable</span> <span class="n">prn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">getPrinter</span><span class="o">();</span>
+    <span class="n">prn</span><span class="o">.</span><span class="na">print</span><span class="o">();</span>    <span class="c1">// 서류 내용: 행복합니다.</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Printer 클래스는 private으로 선언되었기 때문에 이 클래스를 감싸는 클래스 내에서만 인스턴스 생성이 가능하다.
+이 때문에 Papers 클래스의 외부에서는 getPrinter 메소드가 어떤 인스턴스의 참조 값을 반환하는지 알지 못한다.<br />
+다만, 반환되는 참조 값의 인스턴스가 Printable을 구현하고 있어서 Printable의 참조 변수로 참조할 수 있다는 사실만 안다.<br />
+이러한 상황을 ‘클래스의 정의가 감추어진 상황’이라 한다.</p>
+
+<p>클래스의 정의를 감추면 getPrinter 메소드가 반환하는 인스턴스가 다른 클래스의 인스턴스로 변경되어도 Papers 클래스 외부의 코드는 수정할 필요가 없다.<br />
+즉, 코드에 유연성이 부여되었다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+  <span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="o">....</span>
+  <span class="kd">public</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Itr</span><span class="o">();</span> <span class="c1">// 멤버 클래스의 인스턴스 생성 및 반환</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Itr</span> <span class="kd">implements</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="o">{</span>  <span class="c1">// 멤버 클래스의 정의</span>
+    <span class="o">...</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>전에 보았던 iterator 메소드도 보다싶이 inner class로 정의되어있다.<br />
+이를 통해 반복자가 Outer Class의 멤버에 직접 접근이 가능했던 이유를 알 수 있다.</p>
+
+<h3 id="--로컬-클래스-local-class">- <u>로컬 클래스 (Local Class)</u></h3>
+<p>‘로컬 클래스’는 ‘멤버 클래스’와 매우 유사하다.<br />
+다만, 클래스의 정의 위치가 if문이나 while문 또는 메소드 몸체와 같은 블록 안에 정의된다는 점에서 ‘멤버 클래스’와 구분된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">print</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Paper</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">con</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Paper</span><span class="o">(</span><span class="nc">String</span> <span class="n">con</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">con</span> <span class="o">=</span> <span class="n">con</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">Printable</span> <span class="nf">getPrinter</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">class</span> <span class="nc">Printer</span> <span class="kd">implements</span> <span class="nc">Printable</span> <span class="o">{</span>    <span class="c1">// 로컬 클래스의 정의</span>
+      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">con</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Printer</span><span class="o">();</span>   <span class="c1">// 로컬 클래스 인스턴스 생성 및 반환</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UseLocalInner</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Paper</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Paper</span><span class="o">(</span><span class="s">"서류 내용: 행복합니다."</span><span class="o">);</span>
+    <span class="nc">Printable</span> <span class="n">prn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">getPrinter</span><span class="o">();</span>
+    <span class="n">prn</span><span class="o">.</span><span class="na">print</span><span class="o">();</span>    <span class="c1">// 서류 내용: 행복합니다.</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>멤버 클래스보다도 클래스를 더 깊이, 특정 블록 안으로 감추는 효과가 있다.</p>
+
+<h3 id="--익명-클래스-anonymous-class">- <u>익명 클래스 (Anonymous Class)</u></h3>
+<p>익명 클래스의 이해를 돕기 위해 위의 클래스를 익명 클래스의 형태로 재정의해보자.<br />
+<img src="/assets/images/java-lang/26-3.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<p>실제로 전에 Collection 공부할 당시 쓰였던 코드를 익명 클래스의 정의 형태로 다시 만들어보았다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">SSComp</span> <span class="kd">implements</span> <span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">String</span> <span class="n">s1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s2</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">s2</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortComparator</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"ROBOT"</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"APPLE"</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"BOX"</span><span class="o">);</span>
+
+    <span class="nc">SSComp</span> <span class="n">cmp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SSComp</span><span class="o">();</span>      <span class="c1">// 정렬 기준</span>
+    <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">cmp</span><span class="o">);</span>    <span class="c1">// 정렬 기준 변경해서 정렬 진행</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnonymousComparator</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"ROBOT"</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"APPLE"</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"BOX"</span><span class="o">);</span>
+
+    <span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">cmp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+      <span class="nd">@Override</span>
+      <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">String</span> <span class="n">o1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">o2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">o1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">o2</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">};</span>
+
+    <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">cmp</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="26-2-람다lambda의-소개">26-2. 람다(Lambda)의 소개</h2>
+<h3 id="--람다의-이해">- <u>람다의 이해</u></h3>
+<h3 id="--람다식의-인자-전달">- <u>람다식의 인자 전달</u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션</title><link href="http://localhost:4000/java%20lang/Chap25/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap25</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap25/"><![CDATA[<h2 id="25-1-열거형">25-1. 열거형</h2>
 <blockquote>
   <p>열거형: ‘의미가 부여된 이름’을 갖는 ‘상수’의 선언</p>
 </blockquote>

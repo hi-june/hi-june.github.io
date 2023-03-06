@@ -276,7 +276,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개",
-        "excerpt":"26-1. 네스티드(Nested) 클래스와 이너(Inner) 클래스   26-2. 람다(Lambda)의 소개  ","categories": ["Java lang"],
+        "excerpt":"26-1. 네스티드(Nested) 클래스와 이너(Inner) 클래스 class Outer { class Nested {...} } 클래스 내에 정의된 클래스를 가리켜 네스티드 클래스(Nested Class)라 하고, 이를 감싸는 클래스를 외부 클래스(Outer Class)라 한다. - 네스티드 클래스의 구분 static이냐, non static이냐로 나뉘고, non static 네스티드 클래스는 다시 멤버 클래스, 로컬 클래스, 익명 클래스로 나뉜다. - Static...","categories": ["Java lang"],
         "tags": ["java"],
         "url": "/java%20lang/Chap26/",
         "teaser": null
