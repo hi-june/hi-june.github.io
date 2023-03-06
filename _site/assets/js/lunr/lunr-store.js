@@ -274,4 +274,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap25/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개",
+        "excerpt":"26-1. 네스티드(Nested) 클래스와 이너(Inner) 클래스   26-2. 람다(Lambda)의 소개  ","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap26/",
+        "teaser": null
       }]
