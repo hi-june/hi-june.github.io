@@ -280,4 +280,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap26/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스",
+        "excerpt":"27-1. 람다와 함수형 인터페이스 - 인스턴스보다 기능 하나가 필요한 상황을 위한 람다 기능 하나를 정의해서 전달해야 하는 상황 자바는 객체지향언어이기 때문에 인스턴스를 전달하는 형태이지만 내용을 보면 메소드, 즉 기능을 전달하는 상황이 생기곤 한다. 이러한 상황에서 람다가 유용하게 쓰일 수 있다. - 매개변수가 있고 반환하지 않는 람다식 interface LambdaExample { void...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap27/",
+        "teaser": null
       }]

@@ -1,4 +1,475 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-07T12:50:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개</title><link href="http://localhost:4000/java%20lang/Chap26/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-07T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap26</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap26/"><![CDATA[<h2 id="26-1-네스티드nested-클래스와-이너inner-클래스">26-1. 네스티드(Nested) 클래스와 이너(Inner) 클래스</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-07T20:35:24+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스</title><link href="http://localhost:4000/java%20lang/Chap27/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스" /><published>2023-03-07T00:00:00+09:00</published><updated>2023-03-07T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap27</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap27/"><![CDATA[<h2 id="27-1-람다와-함수형-인터페이스">27-1. 람다와 함수형 인터페이스</h2>
+<h3 id="--인스턴스보다-기능-하나가-필요한-상황을-위한-람다">- <u>인스턴스보다 기능 하나가 필요한 상황을 위한 람다</u></h3>
+<blockquote>
+  <p>기능 하나를 정의해서 전달해야 하는 상황</p>
+</blockquote>
+
+<p>자바는 객체지향언어이기 때문에 인스턴스를 전달하는 형태이지만 내용을 보면 메소드, 즉 기능을 전달하는 상황이 생기곤 한다.<br />
+이러한 상황에서 람다가 유용하게 쓰일 수 있다.</p>
+
+<h3 id="--매개변수가-있고-반환하지-않는-람다식">- <u>매개변수가 있고 반환하지 않는 람다식</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">LambdaExample</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OneParamNoReturn</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">LambdaExample</span> <span class="n">l</span><span class="o">;</span>
+
+        <span class="c1">// 줄임 없는 표현</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="o">};</span>
+
+        <span class="c1">// 중괄호 생략</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+
+        <span class="c1">// 매개변수 형 생략</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+
+        <span class="c1">// 매개변수 소괄호 생략</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">s</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+
+        <span class="n">l</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Lambda example!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Calculate</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">cal</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TwoParamNoReturn</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Calculate</span> <span class="n">c</span><span class="o">;</span>    <span class="c1">// 매개변수가 둘 이상인 경우, 괄호를 생략하는 것은 불가능하다.</span>
+
+        <span class="c1">// 덧셈 진행</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+
+        <span class="c1">// 뺄셈 진행</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">);</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">);</span>
+
+        <span class="c1">// 곱셈 진행</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="o">);</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--매개변수가-있고-반환하는-람다식">- <u>매개변수가 있고 반환하는 람다식</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">RCalculate</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">cal</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TwoParamAndReturn</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">RCalculate</span> <span class="n">c</span><span class="o">;</span>
+
+        <span class="c1">// 몸체에 return이 들어가면 중괄호 생략 불가</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span> <span class="o">};</span>    <span class="c1">// c = (a, b) -&gt; { a + b; }; 불가능</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">));</span>
+
+        <span class="c1">// return 문이 메소드의 몸체를 이루는 유일한 경우</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--매개변수가-없는-람다식">- <u>매개변수가 없는 람다식</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+
+<span class="kd">interface</span> <span class="nc">Generator</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">rand</span><span class="o">();</span> <span class="c1">// 매개변수 없는 메소드</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NoParamAndReturn</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Generator</span> <span class="n">g</span><span class="o">;</span>
+
+        <span class="n">g</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">Random</span> <span class="n">random</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+            <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">50</span><span class="o">);</span>
+        <span class="o">};</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="na">rand</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--함수형-인터페이스와-어노테이션">- <u>함수형 인터페이스와 어노테이션</u></h3>
+<blockquote>
+  <p>함수형 인터페이스: 추상 메소드가 딱 하나만 존재하는 인터페이스</p>
+</blockquote>
+
+<p>@FunctionsalInterface 어노테이션 타입을 통해 함수형 인터페이스에 부합하는지를 확인할 수 있다.<br />
+인터페이스에 둘 이상의 추상 메소드가 존재하면, 컴파일 오류로 이어진다.<br />
+그러나 static, default 선언이 붙은 메소드의 정의는 함수형 인터페이스의 정의에 아무런 영향을 미치지 않는다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@FunctionalInterface</span>
+<span class="kd">interface</span> <span class="nc">Calculate</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">cal</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">);</span>
+    <span class="k">default</span> <span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">static</span> <span class="kt">int</span> <span class="nf">sub</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--람다식과-제네릭">- <u>람다식과 제네릭</u></h3>
+<p>인터페이스는 제네릭으로 정의하는 것이 가능하다.<br />
+따라서 제네릭으로 정의된 함수형 인터페이스를 대상으로 람다식을 작성할 수도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@FunctionalInterface</span>
+<span class="kd">interface</span> <span class="nc">Calculator</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="no">T</span> <span class="nf">cal</span><span class="o">(</span><span class="no">T</span> <span class="n">a</span><span class="o">,</span> <span class="no">T</span> <span class="n">b</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LambdaGeneric</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 참조변수의 형을 지정해서 문장을 구성하면 된다.</span>
+        <span class="nc">Calculator</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">intCalculator</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">intCalculator</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">));</span>
+
+        <span class="nc">Calculator</span><span class="o">&lt;</span><span class="nc">Double</span><span class="o">&gt;</span> <span class="n">doubleCalculator</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">doubleCalculator</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mf">4.32</span><span class="o">,</span> <span class="mf">3.45</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="27-2-정의되어-있는-함수형-인터페이스">27-2. 정의되어 있는 함수형 인터페이스</h2>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션</title><link href="http://localhost:4000/java%20lang/Chap25/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap25</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap25/"><![CDATA[<h2 id="25-1-열거형">25-1. 열거형</h2>
+<blockquote>
+  <p>열거형: ‘의미가 부여된 이름’을 갖는 ‘상수’의 선언</p>
+</blockquote>
+
+<h3 id="--인터페이스-기반의-상수-정의">- <u>인터페이스 기반의 상수 정의</u></h3>
+<p>열거형 등장 이전의 모습을 보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Animal</span> <span class="o">{</span>
+   <span class="kt">int</span> <span class="no">DOG</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>  
+   <span class="kt">int</span> <span class="no">CAT</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> 
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">Person</span> <span class="o">{</span>
+   <span class="kt">int</span> <span class="no">MAN</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+   <span class="kt">int</span> <span class="no">WOMAN</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">NonSafeConst</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">who</span><span class="o">(</span><span class="nc">Person</span><span class="o">.</span><span class="na">MAN</span><span class="o">);</span>    <span class="c1">// 정상적인 메소드 호출</span>
+	<span class="n">who</span><span class="o">(</span><span class="nc">Animal</span><span class="o">.</span><span class="na">DOG</span><span class="o">);</span>    <span class="c1">// 비정상적 메소드 호출</span>
+    <span class="o">}</span>
+	
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">who</span><span class="o">(</span><span class="kt">int</span> <span class="n">man</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">switch</span><span class="o">(</span><span class="n">man</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">case</span> <span class="nc">Person</span><span class="o">.</span><span class="na">MAN</span><span class="o">:</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"남성 손님입니다."</span><span class="o">);</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="k">case</span> <span class="nc">Person</span><span class="o">.</span><span class="na">WOMAN</span><span class="o">:</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"여성 손님입니다."</span><span class="o">);</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>열거형 등장 이전에는 보다싶이 인터페이스를 이용하여 의미를 가진 상수를 표현했다.<br />
+다만, 이런 방식의 경우 위의 코드와 같이 개발자의 의도와는 다르게<br />
+Person.MAN에 Animal.DOG이 전달되더라도 컴파일 단계에서 오류가 발견되지 않는다.</p>
+
+<h3 id="--자료형의-부여를-돕는-열거형">- <u>자료형의 부여를 돕는 열거형</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="nc">Scale</span> <span class="o">{</span>
+    <span class="no">DO</span><span class="o">,</span> <span class="no">RE</span><span class="o">,</span> <span class="no">MI</span><span class="o">,</span> <span class="no">FA</span><span class="o">,</span> <span class="no">SO</span><span class="o">,</span> <span class="no">RA</span><span class="o">,</span> <span class="no">TI</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>열거형은 다음과 같이 정의한다.<br />
+그 안에 위치한 이름들을 가리켜 ‘열거형 값’, <code class="language-plaintext highlighter-rouge">Enumerated Values</code>라고 한다.</p>
+
+<p>다음과 같이 Scale형 변수를 선언하고, switch문을 구성할 수도 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="nc">Scale</span> <span class="o">{</span>
+   <span class="no">DO</span><span class="o">,</span> <span class="no">RE</span><span class="o">,</span> <span class="no">MI</span><span class="o">,</span> <span class="no">FA</span><span class="o">,</span> <span class="no">SO</span><span class="o">,</span> <span class="no">RA</span><span class="o">,</span> <span class="no">TI</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SimpleEnum</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Scale</span> <span class="n">sc</span> <span class="o">=</span> <span class="nc">Scale</span><span class="o">.</span><span class="na">DO</span><span class="o">;</span>    <span class="c1">// Scale형 참조변수 선언</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sc</span><span class="o">);</span>
+
+        <span class="k">switch</span><span class="o">(</span><span class="n">sc</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">case</span> <span class="nl">DO:</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"도~ "</span><span class="o">);</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="k">case</span> <span class="nl">RE:</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"레~ "</span><span class="o">);</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="k">case</span> <span class="nl">MI:</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"미~ "</span><span class="o">);</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="k">case</span> <span class="nl">FA:</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"파~ "</span><span class="o">);</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"솔~ 라~ 시~ "</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--클래스-내에-정의가-가능한-열거형의-정의">- <u>클래스 내에 정의가 가능한 열거형의 정의</u></h3>
+<p>특정 클래스 내에서만 사용하고 싶은 열거형 값이 있다면, 해당 클래스 내에 열거형을 정의하는 방법도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Customer</span> <span class="o">{</span>
+    <span class="kd">enum</span> <span class="nc">Gender</span> <span class="o">{</span> <span class="no">MALE</span><span class="o">,</span> <span class="no">FEMALE</span> <span class="o">}</span>    <span class="c1">// 클래스 내부에서 열거형 선언</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Gender</span> <span class="n">gen</span><span class="o">;</span>
+    
+    <span class="nc">Customer</span><span class="o">(</span><span class="nc">String</span> <span class="n">n</span><span class="o">,</span> <span class="nc">String</span> <span class="n">g</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+        
+        <span class="k">if</span><span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"man"</span><span class="o">))</span>
+            <span class="n">gen</span> <span class="o">=</span> <span class="nc">Gender</span><span class="o">.</span><span class="na">MALE</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="n">gen</span> <span class="o">=</span> <span class="nc">Gender</span><span class="o">.</span><span class="na">FEMALE</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">gen</span> <span class="o">==</span> <span class="nc">Gender</span><span class="o">.</span><span class="na">MALE</span><span class="o">)</span>
+            <span class="k">return</span> <span class="s">"Thank you, Mr "</span> <span class="o">+</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="s">"Thank you, Mrs "</span> <span class="o">+</span> <span class="n">name</span><span class="o">;</span> 
+    <span class="o">}</span>    
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">InnerEnum</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Customer</span> <span class="n">cus1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Customer</span><span class="o">(</span><span class="s">"Brown"</span><span class="o">,</span> <span class="s">"man"</span><span class="o">);</span>
+        <span class="nc">Customer</span> <span class="n">cus2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Customer</span><span class="o">(</span><span class="s">"Susan Hill"</span><span class="o">,</span> <span class="s">"woman"</span><span class="o">);</span>
+  
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cus1</span><span class="o">);</span> 
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cus2</span><span class="o">);</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--열거형-값의-정체">- <u>열거형 값의 정체</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="nc">Human</span> <span class="o">{</span>
+    <span class="no">MAN</span><span class="o">(</span><span class="mi">29</span><span class="o">),</span> <span class="no">WOMAN</span><span class="o">(</span><span class="mi">25</span><span class="o">);</span>
+    
+    <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nf">Human</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Human Constructor called"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"I am "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">" years old!"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnumExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Human</span><span class="o">.</span><span class="na">MAN</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Human</span><span class="o">.</span><span class="na">WOMAN</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><img src="/assets/images/java-lang/25-1.png" alt="image" width="40%" height="40%" /><br /></p>
+
+<p>위의 실행 결과를 통해 다음을 알 수 있다.</p>
+<ol>
+  <li>생성자가 호출되었다.</li>
+  <li>toString 메소드가 호출되었다.</li>
+</ol>
+
+<p>모든 열거형은 java.lang.Enum<E> 클래스를 상속하고, Enum<E>는 Object 클래스를 상속한다. 이런 측면에서 볼 때 열거형은 넓게 보면 클래스라고도 할 수 있다.  
+또한, toString이 호출된 것으로 볼 때 Human.Man, Human.WOMAN 두 열거형 값은 Human 인스턴스를 참조하는 참조변수임을 알 수 있다.</E></E></p>
+
+<p>열거형의 정의에도 생성자가 없으면 디폴트 생성자가 삽입되지만, 이 생성자는 <code class="language-plaintext highlighter-rouge">private</code>으로 선언되어 직접 인스턴스를 생성하는 것이 불가능할 뿐이다.</p>
+
+<p>정리하자면,</p>
+<ul>
+  <li>열거형도 <code class="language-plaintext highlighter-rouge">Object</code> 클래스를 상속하는 일종의 클래스이다.</li>
+  <li>따라서 생성자는 물론, 인스턴스 변수와 메소드 둘 다 가질 수 있다.</li>
+  <li>다만 모든 생성자를 <code class="language-plaintext highlighter-rouge">private</code>로 선언해야 하기 때문에 ‘열거형 값’이 유일한 인스턴스 생성 방법이라는 차이가 있을 뿐이다.</li>
+</ul>
+
+<h2 id="25-2-매개변수의-가변-인자-선언">25-2. 매개변수의 가변 인자 선언</h2>
+<blockquote>
+  <p>…이 삽입된 이 메소드의 매개변수 선언을 가리켜 ‘가변 인자 선언’이라 한다.</p>
+</blockquote>
+
+<h3 id="--매개변수의-가변-인자-선언과-호출">- <u>매개변수의 가변 인자 선언과 호출</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Varargs</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showAll</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">vargs</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LEN: "</span> <span class="o">+</span> <span class="n">vargs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">vargs</span><span class="o">)</span> 
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">s</span> <span class="o">+</span> <span class="sc">'\t'</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">);</span>
+        <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">);</span>
+        <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">,</span> <span class="s">"Apple"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>자바에서는 인자들을 받아 배열로 만들고, 그 배열의 참조값을 참조변수가 참조하도록 한다.</p>
+
+<h3 id="--가변-인자-선언에-대한-컴파일러의-처리">- <u>가변 인자 선언에 대한 컴파일러의 처리</u></h3>
+<p>매개변수의 가변 인자 선언은 자바 5에서 추가된 문법이다.<br />
+기존 코드는 다음과 같고, 이것이 컴파일러가 변환하는 형태이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 컴파일러 번역 전</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showAll</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">vargs</span><span class="o">)</span> <span class="o">{...}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">);</span>
+    <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">);</span>
+    <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">,</span> <span class="s">"Apple"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 컴파일러 번역 후</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showAll</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">vargs</span><span class="o">)</span> <span class="o">{...}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">showAll</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">[]{</span><span class="s">"Box"</span><span class="o">});</span>
+    <span class="n">showAll</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">[]{</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">});</span>
+    <span class="n">showAll</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">[]{</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">,</span> <span class="s">"Apple"</span><span class="o">});</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="25-3-어노테이션annotations">25-3. 어노테이션(Annotations)</h2>
+<blockquote>
+  <p>자바 컴파일러에게 메시지를 전달하는 목적의 메모</p>
+</blockquote>
+
+<h3 id="--어노테이션의-설명-범위">- <u>어노테이션의 설명 범위</u></h3>
+<p>어노테이션은 자바 5에서 소개되었고, 당시 소개된 어노테이션 타입 세 가지는 다음과 같다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">@Override</code><br />
+<code class="language-plaintext highlighter-rouge">@Deprecated</code><br />
+<code class="language-plaintext highlighter-rouge">@SuppressWarnings</code></p>
+
+<h3 id="--override">- <u>@Override</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Viewable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Viewer</span> <span class="kd">implements</span> <span class="nc">Viewable</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="kd">class</span> <span class="nc">AtOverride</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Viewable</span> <span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Viewer</span><span class="o">();</span>
+        <span class="n">view</span><span class="o">.</span><span class="na">showIt</span><span class="o">(</span><span class="s">"Hello Annotations"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>상위 클래스의 메소드 오버라이딩 또는 인터페이스에 선언된 추상 메소드의 구현이다.</p>
+</blockquote>
+
+<p>이에 어긋난 메소드의 정의가 이뤄지면 컴파일 오류로 이어져서 개발자로 하여금 잘못된 부분을 확인할 수 있게 해준다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Viewable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="kt">long</span> <span class="n">num</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Viewer</span> <span class="kd">implements</span> <span class="nc">Viewable</span> <span class="o">{</span>
+    <span class="nd">@Override</span>   <span class="c1">// 이 어노테이션이 없으면 컴파일러는 단순히 오버로딩으로 간주하고 컴파일 단계에서 오류를 뱉지 않음</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="kd">class</span> <span class="nc">AtOverride</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Viewable</span> <span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Viewer</span><span class="o">();</span>
+        <span class="n">view</span><span class="o">.</span><span class="na">showIt</span><span class="o">(</span><span class="mi">777</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--deprecated">- <u>@Deprecated</u></h3>
+<p>문제의 발생 소지가 있거나 개선된 기능의 다른 것으로 대체되어서 더 이상 필요 없게 되었음을 뜻하는 말로,<br />
+아직은 호환성 유지를 위해 존재하지만 이후에 사라질 수 있는 클래스 또는 메소드를 가리켜 Deprecated 되었다고 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Viewable</span> <span class="o">{</span>
+    <span class="nd">@Deprecated</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span> <span class="c1">// 컴파일러가 경고함!</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brShowIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Viewer</span> <span class="kd">implements</span> <span class="nc">Viewable</span> <span class="o">{</span>
+    <span class="nd">@Override</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brShowIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="sc">'['</span> <span class="o">+</span> <span class="n">str</span> <span class="o">+</span> <span class="sc">']'</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">AtDeprecated</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Viewable</span> <span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Viewer</span><span class="o">();</span>
+        <span class="n">view</span><span class="o">.</span><span class="na">showIt</span><span class="o">(</span><span class="s">"Hello Annotations"</span><span class="o">);</span>   <span class="c1">// 컴파일러가 경고함!</span>
+        <span class="n">view</span><span class="o">.</span><span class="na">brShowIt</span><span class="o">(</span><span class="s">"Hello Annotations"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--suppresswarnings">- <u>@SuppressWarnings</u></h3>
+<p>컴파일러가 경고 메시지를 전달하는 특정 상황에 대해서, 경고 메시지를 전달하지 말라고 요청할 때 어노테이션 타입 @SuppressWarnings를 사용한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Viewable</span> <span class="o">{</span>
+    <span class="nd">@Deprecated</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brShowIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Viewer</span> <span class="kd">implements</span> <span class="nc">Viewable</span> <span class="o">{</span>
+    <span class="nd">@Override</span> 
+    <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">"deprecation"</span><span class="o">)</span>    <span class="c1">// 컴파일러의 경고 무시</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brShowIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="sc">'['</span> <span class="o">+</span> <span class="n">str</span> <span class="o">+</span> <span class="sc">']'</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="kd">class</span> <span class="nc">AtSuppressWarnings</span> <span class="o">{</span>
+    <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">"deprecation"</span><span class="o">)</span>    <span class="c1">// 컴파일러의 경고 무시</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Viewable</span> <span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Viewer</span><span class="o">();</span>     
+        <span class="n">view</span><span class="o">.</span><span class="na">showIt</span><span class="o">(</span><span class="s">"Hello Annotations"</span><span class="o">);</span>
+        <span class="n">view</span><span class="o">.</span><span class="na">brShowIt</span><span class="o">(</span><span class="s">"Hello Annotations"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>그리고 다음과 같이 동시에 여러 경고 유형에 대해 @SuppressWarnings 선언을 할 수도 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SuppressWarnings</span><span class="o">({</span><span class="s">"fallthrough"</span><span class="o">,</span> <span class="s">"deprecation"</span><span class="o">})</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개</title><link href="http://localhost:4000/java%20lang/Chap26/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-07T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap26</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap26/"><![CDATA[<h2 id="26-1-네스티드nested-클래스와-이너inner-클래스">26-1. 네스티드(Nested) 클래스와 이너(Inner) 클래스</h2>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Outer</span> <span class="o">{</span>
   <span class="kd">class</span> <span class="nc">Nested</span> <span class="o">{...}</span>
 <span class="o">}</span>
@@ -339,340 +810,6 @@ non static 네스티드 클래스는 다시 멤버 클래스, 로컬 클래스, 
     <span class="n">showString</span><span class="o">((</span><span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="o">},</span> <span class="s">"What is Lambda?"</span><span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션</title><link href="http://localhost:4000/java%20lang/Chap25/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap25</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap25/"><![CDATA[<h2 id="25-1-열거형">25-1. 열거형</h2>
-<blockquote>
-  <p>열거형: ‘의미가 부여된 이름’을 갖는 ‘상수’의 선언</p>
-</blockquote>
-
-<h3 id="--인터페이스-기반의-상수-정의">- <u>인터페이스 기반의 상수 정의</u></h3>
-<p>열거형 등장 이전의 모습을 보자.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Animal</span> <span class="o">{</span>
-   <span class="kt">int</span> <span class="no">DOG</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>  
-   <span class="kt">int</span> <span class="no">CAT</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> 
-<span class="o">}</span>
-
-<span class="kd">interface</span> <span class="nc">Person</span> <span class="o">{</span>
-   <span class="kt">int</span> <span class="no">MAN</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-   <span class="kt">int</span> <span class="no">WOMAN</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">NonSafeConst</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">who</span><span class="o">(</span><span class="nc">Person</span><span class="o">.</span><span class="na">MAN</span><span class="o">);</span>    <span class="c1">// 정상적인 메소드 호출</span>
-	<span class="n">who</span><span class="o">(</span><span class="nc">Animal</span><span class="o">.</span><span class="na">DOG</span><span class="o">);</span>    <span class="c1">// 비정상적 메소드 호출</span>
-    <span class="o">}</span>
-	
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">who</span><span class="o">(</span><span class="kt">int</span> <span class="n">man</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">switch</span><span class="o">(</span><span class="n">man</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">case</span> <span class="nc">Person</span><span class="o">.</span><span class="na">MAN</span><span class="o">:</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"남성 손님입니다."</span><span class="o">);</span>
-            <span class="k">break</span><span class="o">;</span>
-        <span class="k">case</span> <span class="nc">Person</span><span class="o">.</span><span class="na">WOMAN</span><span class="o">:</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"여성 손님입니다."</span><span class="o">);</span>
-            <span class="k">break</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>열거형 등장 이전에는 보다싶이 인터페이스를 이용하여 의미를 가진 상수를 표현했다.<br />
-다만, 이런 방식의 경우 위의 코드와 같이 개발자의 의도와는 다르게<br />
-Person.MAN에 Animal.DOG이 전달되더라도 컴파일 단계에서 오류가 발견되지 않는다.</p>
-
-<h3 id="--자료형의-부여를-돕는-열거형">- <u>자료형의 부여를 돕는 열거형</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="nc">Scale</span> <span class="o">{</span>
-    <span class="no">DO</span><span class="o">,</span> <span class="no">RE</span><span class="o">,</span> <span class="no">MI</span><span class="o">,</span> <span class="no">FA</span><span class="o">,</span> <span class="no">SO</span><span class="o">,</span> <span class="no">RA</span><span class="o">,</span> <span class="no">TI</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p>열거형은 다음과 같이 정의한다.<br />
-그 안에 위치한 이름들을 가리켜 ‘열거형 값’, <code class="language-plaintext highlighter-rouge">Enumerated Values</code>라고 한다.</p>
-
-<p>다음과 같이 Scale형 변수를 선언하고, switch문을 구성할 수도 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="nc">Scale</span> <span class="o">{</span>
-   <span class="no">DO</span><span class="o">,</span> <span class="no">RE</span><span class="o">,</span> <span class="no">MI</span><span class="o">,</span> <span class="no">FA</span><span class="o">,</span> <span class="no">SO</span><span class="o">,</span> <span class="no">RA</span><span class="o">,</span> <span class="no">TI</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">SimpleEnum</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Scale</span> <span class="n">sc</span> <span class="o">=</span> <span class="nc">Scale</span><span class="o">.</span><span class="na">DO</span><span class="o">;</span>    <span class="c1">// Scale형 참조변수 선언</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sc</span><span class="o">);</span>
-
-        <span class="k">switch</span><span class="o">(</span><span class="n">sc</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">case</span> <span class="nl">DO:</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"도~ "</span><span class="o">);</span>
-            <span class="k">break</span><span class="o">;</span>
-        <span class="k">case</span> <span class="nl">RE:</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"레~ "</span><span class="o">);</span>
-            <span class="k">break</span><span class="o">;</span>
-        <span class="k">case</span> <span class="nl">MI:</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"미~ "</span><span class="o">);</span>
-            <span class="k">break</span><span class="o">;</span>
-        <span class="k">case</span> <span class="nl">FA:</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"파~ "</span><span class="o">);</span>
-            <span class="k">break</span><span class="o">;</span>
-        <span class="k">default</span><span class="o">:</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"솔~ 라~ 시~ "</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--클래스-내에-정의가-가능한-열거형의-정의">- <u>클래스 내에 정의가 가능한 열거형의 정의</u></h3>
-<p>특정 클래스 내에서만 사용하고 싶은 열거형 값이 있다면, 해당 클래스 내에 열거형을 정의하는 방법도 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Customer</span> <span class="o">{</span>
-    <span class="kd">enum</span> <span class="nc">Gender</span> <span class="o">{</span> <span class="no">MALE</span><span class="o">,</span> <span class="no">FEMALE</span> <span class="o">}</span>    <span class="c1">// 클래스 내부에서 열거형 선언</span>
-
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="nc">Gender</span> <span class="n">gen</span><span class="o">;</span>
-    
-    <span class="nc">Customer</span><span class="o">(</span><span class="nc">String</span> <span class="n">n</span><span class="o">,</span> <span class="nc">String</span> <span class="n">g</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-        
-        <span class="k">if</span><span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"man"</span><span class="o">))</span>
-            <span class="n">gen</span> <span class="o">=</span> <span class="nc">Gender</span><span class="o">.</span><span class="na">MALE</span><span class="o">;</span>
-        <span class="k">else</span>
-            <span class="n">gen</span> <span class="o">=</span> <span class="nc">Gender</span><span class="o">.</span><span class="na">FEMALE</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">gen</span> <span class="o">==</span> <span class="nc">Gender</span><span class="o">.</span><span class="na">MALE</span><span class="o">)</span>
-            <span class="k">return</span> <span class="s">"Thank you, Mr "</span> <span class="o">+</span> <span class="n">name</span><span class="o">;</span>
-        <span class="k">else</span>
-            <span class="k">return</span> <span class="s">"Thank you, Mrs "</span> <span class="o">+</span> <span class="n">name</span><span class="o">;</span> 
-    <span class="o">}</span>    
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">InnerEnum</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Customer</span> <span class="n">cus1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Customer</span><span class="o">(</span><span class="s">"Brown"</span><span class="o">,</span> <span class="s">"man"</span><span class="o">);</span>
-        <span class="nc">Customer</span> <span class="n">cus2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Customer</span><span class="o">(</span><span class="s">"Susan Hill"</span><span class="o">,</span> <span class="s">"woman"</span><span class="o">);</span>
-  
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cus1</span><span class="o">);</span> 
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cus2</span><span class="o">);</span> 
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--열거형-값의-정체">- <u>열거형 값의 정체</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="nc">Human</span> <span class="o">{</span>
-    <span class="no">MAN</span><span class="o">(</span><span class="mi">29</span><span class="o">),</span> <span class="no">WOMAN</span><span class="o">(</span><span class="mi">25</span><span class="o">);</span>
-    
-    <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-
-    <span class="kd">private</span> <span class="nf">Human</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Human Constructor called"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"I am "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">" years old!"</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnumExample</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Human</span><span class="o">.</span><span class="na">MAN</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Human</span><span class="o">.</span><span class="na">WOMAN</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><img src="/assets/images/java-lang/25-1.png" alt="image" width="40%" height="40%" /><br /></p>
-
-<p>위의 실행 결과를 통해 다음을 알 수 있다.</p>
-<ol>
-  <li>생성자가 호출되었다.</li>
-  <li>toString 메소드가 호출되었다.</li>
-</ol>
-
-<p>모든 열거형은 java.lang.Enum<E> 클래스를 상속하고, Enum<E>는 Object 클래스를 상속한다. 이런 측면에서 볼 때 열거형은 넓게 보면 클래스라고도 할 수 있다.  
-또한, toString이 호출된 것으로 볼 때 Human.Man, Human.WOMAN 두 열거형 값은 Human 인스턴스를 참조하는 참조변수임을 알 수 있다.</E></E></p>
-
-<p>열거형의 정의에도 생성자가 없으면 디폴트 생성자가 삽입되지만, 이 생성자는 <code class="language-plaintext highlighter-rouge">private</code>으로 선언되어 직접 인스턴스를 생성하는 것이 불가능할 뿐이다.</p>
-
-<p>정리하자면,</p>
-<ul>
-  <li>열거형도 <code class="language-plaintext highlighter-rouge">Object</code> 클래스를 상속하는 일종의 클래스이다.</li>
-  <li>따라서 생성자는 물론, 인스턴스 변수와 메소드 둘 다 가질 수 있다.</li>
-  <li>다만 모든 생성자를 <code class="language-plaintext highlighter-rouge">private</code>로 선언해야 하기 때문에 ‘열거형 값’이 유일한 인스턴스 생성 방법이라는 차이가 있을 뿐이다.</li>
-</ul>
-
-<h2 id="25-2-매개변수의-가변-인자-선언">25-2. 매개변수의 가변 인자 선언</h2>
-<blockquote>
-  <p>…이 삽입된 이 메소드의 매개변수 선언을 가리켜 ‘가변 인자 선언’이라 한다.</p>
-</blockquote>
-
-<h3 id="--매개변수의-가변-인자-선언과-호출">- <u>매개변수의 가변 인자 선언과 호출</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Varargs</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showAll</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">vargs</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LEN: "</span> <span class="o">+</span> <span class="n">vargs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
-
-        <span class="k">for</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">vargs</span><span class="o">)</span> 
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">s</span> <span class="o">+</span> <span class="sc">'\t'</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">);</span>
-        <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">);</span>
-        <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">,</span> <span class="s">"Apple"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>자바에서는 인자들을 받아 배열로 만들고, 그 배열의 참조값을 참조변수가 참조하도록 한다.</p>
-
-<h3 id="--가변-인자-선언에-대한-컴파일러의-처리">- <u>가변 인자 선언에 대한 컴파일러의 처리</u></h3>
-<p>매개변수의 가변 인자 선언은 자바 5에서 추가된 문법이다.<br />
-기존 코드는 다음과 같고, 이것이 컴파일러가 변환하는 형태이다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 컴파일러 번역 전</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showAll</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">vargs</span><span class="o">)</span> <span class="o">{...}</span>
-
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">);</span>
-    <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">);</span>
-    <span class="n">showAll</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">,</span> <span class="s">"Apple"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 컴파일러 번역 후</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showAll</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">vargs</span><span class="o">)</span> <span class="o">{...}</span>
-
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">showAll</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">[]{</span><span class="s">"Box"</span><span class="o">});</span>
-    <span class="n">showAll</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">[]{</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">});</span>
-    <span class="n">showAll</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">[]{</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">,</span> <span class="s">"Apple"</span><span class="o">});</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="25-3-어노테이션annotations">25-3. 어노테이션(Annotations)</h2>
-<blockquote>
-  <p>자바 컴파일러에게 메시지를 전달하는 목적의 메모</p>
-</blockquote>
-
-<h3 id="--어노테이션의-설명-범위">- <u>어노테이션의 설명 범위</u></h3>
-<p>어노테이션은 자바 5에서 소개되었고, 당시 소개된 어노테이션 타입 세 가지는 다음과 같다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">@Override</code><br />
-<code class="language-plaintext highlighter-rouge">@Deprecated</code><br />
-<code class="language-plaintext highlighter-rouge">@SuppressWarnings</code></p>
-
-<h3 id="--override">- <u>@Override</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Viewable</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Viewer</span> <span class="kd">implements</span> <span class="nc">Viewable</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">};</span>
-
-<span class="kd">class</span> <span class="nc">AtOverride</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Viewable</span> <span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Viewer</span><span class="o">();</span>
-        <span class="n">view</span><span class="o">.</span><span class="na">showIt</span><span class="o">(</span><span class="s">"Hello Annotations"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>상위 클래스의 메소드 오버라이딩 또는 인터페이스에 선언된 추상 메소드의 구현이다.</p>
-</blockquote>
-
-<p>이에 어긋난 메소드의 정의가 이뤄지면 컴파일 오류로 이어져서 개발자로 하여금 잘못된 부분을 확인할 수 있게 해준다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Viewable</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="kt">long</span> <span class="n">num</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Viewer</span> <span class="kd">implements</span> <span class="nc">Viewable</span> <span class="o">{</span>
-    <span class="nd">@Override</span>   <span class="c1">// 이 어노테이션이 없으면 컴파일러는 단순히 오버로딩으로 간주하고 컴파일 단계에서 오류를 뱉지 않음</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">};</span>
-
-<span class="kd">class</span> <span class="nc">AtOverride</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Viewable</span> <span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Viewer</span><span class="o">();</span>
-        <span class="n">view</span><span class="o">.</span><span class="na">showIt</span><span class="o">(</span><span class="mi">777</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--deprecated">- <u>@Deprecated</u></h3>
-<p>문제의 발생 소지가 있거나 개선된 기능의 다른 것으로 대체되어서 더 이상 필요 없게 되었음을 뜻하는 말로,<br />
-아직은 호환성 유지를 위해 존재하지만 이후에 사라질 수 있는 클래스 또는 메소드를 가리켜 Deprecated 되었다고 한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Viewable</span> <span class="o">{</span>
-    <span class="nd">@Deprecated</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span> <span class="c1">// 컴파일러가 경고함!</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brShowIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Viewer</span> <span class="kd">implements</span> <span class="nc">Viewable</span> <span class="o">{</span>
-    <span class="nd">@Override</span> 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brShowIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="sc">'['</span> <span class="o">+</span> <span class="n">str</span> <span class="o">+</span> <span class="sc">']'</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">AtDeprecated</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Viewable</span> <span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Viewer</span><span class="o">();</span>
-        <span class="n">view</span><span class="o">.</span><span class="na">showIt</span><span class="o">(</span><span class="s">"Hello Annotations"</span><span class="o">);</span>   <span class="c1">// 컴파일러가 경고함!</span>
-        <span class="n">view</span><span class="o">.</span><span class="na">brShowIt</span><span class="o">(</span><span class="s">"Hello Annotations"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--suppresswarnings">- <u>@SuppressWarnings</u></h3>
-<p>컴파일러가 경고 메시지를 전달하는 특정 상황에 대해서, 경고 메시지를 전달하지 말라고 요청할 때 어노테이션 타입 @SuppressWarnings를 사용한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Viewable</span> <span class="o">{</span>
-    <span class="nd">@Deprecated</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brShowIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Viewer</span> <span class="kd">implements</span> <span class="nc">Viewable</span> <span class="o">{</span>
-    <span class="nd">@Override</span> 
-    <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">"deprecation"</span><span class="o">)</span>    <span class="c1">// 컴파일러의 경고 무시</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brShowIt</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="sc">'['</span> <span class="o">+</span> <span class="n">str</span> <span class="o">+</span> <span class="sc">']'</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">};</span>
-
-<span class="kd">class</span> <span class="nc">AtSuppressWarnings</span> <span class="o">{</span>
-    <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">"deprecation"</span><span class="o">)</span>    <span class="c1">// 컴파일러의 경고 무시</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Viewable</span> <span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Viewer</span><span class="o">();</span>     
-        <span class="n">view</span><span class="o">.</span><span class="na">showIt</span><span class="o">(</span><span class="s">"Hello Annotations"</span><span class="o">);</span>
-        <span class="n">view</span><span class="o">.</span><span class="na">brShowIt</span><span class="o">(</span><span class="s">"Hello Annotations"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>그리고 다음과 같이 동시에 여러 경고 유형에 대해 @SuppressWarnings 선언을 할 수도 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SuppressWarnings</span><span class="o">({</span><span class="s">"fallthrough"</span><span class="o">,</span> <span class="s">"deprecation"</span><span class="o">})</span>
 </code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[이것이 코딩 테스트다] 그리디</title><link href="http://localhost:4000/this%20is%20coding%20test/greedy/" rel="alternate" type="text/html" title="[이것이 코딩 테스트다] 그리디" /><published>2023-03-04T00:00:00+09:00</published><updated>2023-03-04T00:00:00+09:00</updated><id>http://localhost:4000/this%20is%20coding%20test/greedy</id><content type="html" xml:base="http://localhost:4000/this%20is%20coding%20test/greedy/"><![CDATA[<h2 id="거스름돈">거스름돈</h2>]]></content><author><name>hi~ June!!</name></author><category term="This is coding test" /><category term="coding test" /><summary type="html"><![CDATA[현재 상황에서 가장 좋아 보이는 것만을 선택하는 알고리즘]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 24 - 컬렉션 프레임워크 2</title><link href="http://localhost:4000/java%20lang/Chap24/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 24 - 컬렉션 프레임워크 2" /><published>2023-02-16T00:00:00+09:00</published><updated>2023-02-17T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap24</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap24/"><![CDATA[<h2 id="24-1-컬렉션-기반-알고리즘">24-1. 컬렉션 기반 알고리즘</h2>
 <p><code class="language-plaintext highlighter-rouge">Collections</code>에 정의된 <code class="language-plaintext highlighter-rouge">static</code> 메소드를 사용하는 것은 간단하다.<br />
 하지만, 제네릭과 와일드카드 기반으로 정의된 메소드의 의미를 해석하는 것은 간단하지 않다.</p>
@@ -3272,253 +3409,4 @@ String은 Cloneable 인터페이스를 구현하지 않기 때문이다.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 다음과 같이 형 변환 없는 clone 메소드의 호출이 가능하다.</span>
 <span class="nc">Point</span> <span class="n">org</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
 <span class="nc">Point</span> <span class="n">cpy</span> <span class="o">=</span> <span class="n">org</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>  <span class="c1">// 형 변환 필요 없음</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 18 - 예외처리(Exception Handling)</title><link href="http://localhost:4000/java%20lang/Chap18/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 18 - 예외처리(Exception Handling)" /><published>2022-11-05T00:00:00+09:00</published><updated>2022-11-05T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap18</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap18/"><![CDATA[<h2 id="18-1-자바-예외처리의-기본">18-1. 자바 예외처리의 기본</h2>
-<h3 id="--자바에서-말하는-예외">- <u>자바에서 말하는 예외</u></h3>
-<p>프로그램 실행 중에 발생하는 ‘예외적인 상황’을 줄여서 ‘예외’라 한다.<br />
-즉, 단순한 문법 오류가 아닌 실행 중간에 발생하는 ‘정상적이지 않은 상황’을 뜻한다.</p>
-
-<p>가상머신은 예외가 발생하면 그 내용을 간단히 출력하고 프로그램을 종료해버린다.<br />
-가상머신은 예외의 원인을 알지만 개발자가 원하는 예외의 처리 방식까지는 알지 못하기 때문에<br />
-이 예외에 대해 처리하는 부분을 만들어주면 된다.</p>
-
-<h3 id="--예외의-처리를-위한-try--catch">- <u>예외의 처리를 위한 try ~ catch</u></h3>
-<p>자바는 예외 상황별로 그 상황을 알리기 위한 클래스를 정의하고 있다.<br />
-그 클래스를 ‘예외 클래스’라 한다.</p>
-
-<p>예외를 처리할 때는 try ~ catch문을 사용하는데, 구조는 다음과 같다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// try 영역에서 발생한 예외 상황을 catch 영역에서 처리한다.</span>
-
-<span class="k">try</span> <span class="o">{</span>
-    <span class="o">...</span> <span class="n">관찰</span> <span class="n">영역</span> <span class="o">...</span>
-<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="o">...</span> <span class="n">처리</span> <span class="n">영역</span> <span class="o">...</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<ol>
-  <li>try 영역의 실행 중간에 예외 상황이 만들어지고</li>
-  <li>이로 인해 가상머신이 ArithmeticException 인스턴스를 생성하면</li>
-  <li>이 인스턴스는 메소드를 호출하듯이 catch 구문의 매개변수 e에 전달이 된다.</li>
-</ol>
-
-<h3 id="--둘-이상의-예외를-처리하기-위한-구성">- <u>둘 이상의 예외를 처리하기 위한 구성</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 각 예외마다 처리 과정이 다른 경우</span>
-<span class="k">try</span> <span class="o">{</span>
-    <span class="o">...</span> <span class="n">관찰</span> <span class="n">영역</span> <span class="o">...</span>
-<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">ArithmeticException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Exception 1 Occur!"</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">InputMIsmatchException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">pritntln</span><span class="o">(</span><span class="s">"Exception 2 Occur!"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 각 예외에 대해 처리 과정이 같은 경우</span>
-<span class="k">try</span> <span class="o">{</span>
-    <span class="o">...</span> <span class="n">관찰</span> <span class="n">영역</span> <span class="o">...</span>
-<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">ArithmeticException</span> <span class="o">|</span> <span class="nc">InputMIsmatchException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Exception Occur!"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--throwable-클래스와-예외처리의-책임-전가">- <u>Throwable 클래스와 예외처리의 책임 전가</u></h3>
-<p><img src="/assets/images/java-lang/18-1.png" alt="image" width="80%" height="80%" /><br /></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExceptionMessage</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">md1</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">md2</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">md2</span><span class="o">(</span><span class="kt">int</span> <span class="n">n1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">/</span> <span class="n">n2</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">md1</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Good bye~~!"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>위 예제의 메소드 호출 흐름은 다음과 같다.<br />
-main -&gt; md1 -&gt; md2</p>
-
-<p>예외가 발생하고 해당 예외를 처리하지 않으면<br />
-발생한 메소드를 호출한 메소드에 그 책임이 넘어간다.</p>
-
-<p><img src="/assets/images/java-lang/18-2.png" alt="image" width="80%" height="80%" /><br /></p>
-
-<p>즉, 책임이 넘어가는 과정은<br />
-md2 -&gt; md1 -&gt; main<br />
-이렇게 된다.</p>
-
-<h2 id="18-2-예외처리에-대한-나머지-설명들">18-2. 예외처리에 대한 나머지 설명들</h2>
-<h3 id="--예외-클래스의-구분">- <u>예외 클래스의 구분</u></h3>
-<p><img src="/assets/images/java-lang/18-3.png" alt="image" width="90%" height="90%" /><br /></p>
-
-<p>예외라는 객체는 최상위 인터페이스로 Throwable이라는 인터페이스를 가진다.<br />
-이 Throwable 인터페이스를 error와 exception 인터페이스가 구현을 하고, 다시 runtimeException이 exception 인터페이스를 구현한다.</p>
-
-<ul>
-  <li>Error<br />
-  Error 클래스를 상속하는 클래스들을 보면 VirtualMachineError나 IOError 등등, JVM에서 발생한 오류이거나 입출력 관련하여 코드 수준 복구가 불가능한 오류 같이 사용자 애플리케이션이 제어할 수 있는 예외가 아니다. 말 그대로 ‘에러’인 것이다.
-    <blockquote>
-      <p>즉 Error 클래스를 상속하는 예외는 처리의 대상이 아니다.</p>
-    </blockquote>
-
-    <p>따라서 이런 유형의 예외가 발생하면 그냥 프로그램이 종료되도록 놔두고 이후에 원인을 파악하는 과정이 이어져야 한다.</p>
-  </li>
-  <li>
-    <p>Exception<br />
-  예상할 수 있는 예외 또는 프로그래머가 만드는 예외 이다.</p>
-
-    <p><code class="language-plaintext highlighter-rouge">Checked exception</code>은 개발자가 사용하는 라이브러리, 코드 등에서 new 생성자를 이용해 만들어져, 해당 모듈을 사용하는 객체에게 여기서 예외가 발생할 수 있으니 throws 키워드를 이용하여 상위 caller에게 예외를 전달하든, 확인해서 처리하든지 하라는 뜻이다.</p>
-
-    <p><code class="language-plaintext highlighter-rouge">Unchecked exception</code>은 개발자가 사용하는 라이브러리, 코드 등에서 만들어졌지만, 예외처리를 해야 할 상황은 아닌 경우를 말한다. NegativeArraySizeException이나 ArrayStoreException 처럼 코드를 수정해야 할 상황이지 예외처리할 상황은 아닌 것이다.</p>
-
-    <blockquote>
-      <p>Unchecked exception 또한 처리의 대상이 아니다.</p>
-    </blockquote>
-  </li>
-</ul>
-
-<h3 id="--개발자가-정의하는-예외">- <u>개발자가 정의하는 예외</u></h3>
-<p>개발자가 직접 예외 클래스를 정의하고 이를 기반으로 특정 상황에서 예외가 발생하도록 할 수도 있다.<br />
-핵심은 Exception을 상속하는데 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">ReadAgeException</span> <span class="kd">extends</span> <span class="nc">Exception</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="nf">ReadAgeException</span><span class="o">()</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="s">"유효하지 않은 나이가 입력되었습니다."</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyExceptionClass</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"나이 입력: "</span><span class="o">);</span>
-
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="n">readAge</span><span class="o">();</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"입력된 나이: %d \n"</span><span class="o">,</span> <span class="n">age</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">ReadAgeException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
-        <span class="o">}</span>
-
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">readAge</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">ReadAgeException</span> <span class="o">{</span>   <span class="c1">// 발생시킨 예외를 자신을 호출한 메소드에 던짐</span>
-        <span class="nc">Scanner</span> <span class="n">kb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-
-        <span class="k">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ReadAgeException</span><span class="o">();</span>   <span class="c1">// 예외를 발생시킴</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span>  <span class="n">age</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><img src="/assets/images/java-lang/18-4.png" alt="image" width="50%" height="50%" /><br /></p>
-
-<h3 id="--finally-구문">- <u>finally 구문</u></h3>
-<p>try ~ catch문은 하나의 문장이므로 try문 홀로 존재할 수 없다.<br />
-그런데 try문에 이어서 다음과 같이 finally 구문을 둘 수도 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
-    <span class="o">...</span>
-<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span> <span class="c1">// 코드의 실행이 try 안으로 진입하면, 무조견 실행된다.</span>
-
-<span class="o">}</span>
-</code></pre></div></div>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
-    <span class="o">...</span>
-<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="o">...</span>
-<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span> <span class="c1">// 코드의 실행이 try 안으로 진입하면, 무조견 실행된다.</span>
-    <span class="o">...</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><br />
-그렇다면 finally 구문은 어떻게 유용하게 사용할 수 있을까?<br />
-다음 코드를 보자.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedWriter</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FinallyCase</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Path</span> <span class="n">file</span> <span class="o">=</span> <span class="nc">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"/Users/june/Study/java-lang"</span><span class="o">);</span>
-        <span class="nc">BufferedWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">writer</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">newBufferedWriter</span><span class="o">(</span><span class="n">file</span><span class="o">);</span> <span class="c1">// IOException 발생 가능</span>
-            <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="sc">'A'</span><span class="o">);</span>
-            <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="sc">'Z'</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span> <span class="c1">// 예외가 발생하든 안 하든 무조건 실행해야 하는 구문</span>
-            <span class="k">try</span> <span class="o">{</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">writer</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">writer</span><span class="o">.</span><span class="na">close</span><span class="o">();</span> <span class="c1">// 파일을 열었으면 닫아주어야 함</span>
-                <span class="o">}</span>
-            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>   <span class="c1">// close 하는 중에도 IOException 발생 가능하기 때문</span>
-                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>파일 버퍼를 열었다면 예외가 발생하든 안 하든 무조건 close를 실행하여 닫아야 한다.<br />
-따라서, finally에 close메소드를 추가하여 무조건 실행이 되도록 만들어 주었다.<br />
-다만, close하는 동안에도 IOException이 발생할 수 있기 때문에 불가피하게 try ~ catch로 잡아주게 되었다.<br />
-하지만 코드 구성이 깔끔하지 않다는 아쉬움이 남는다.<br />
-이를 해결하기 위해서 try-with-resources라는 문법이 등장했다.</p>
-
-<h3 id="--try-with-resources-구문">- <u>try-with-resources 구문</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedWriter</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TryWithResource</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Path</span> <span class="n">file</span> <span class="o">=</span> <span class="nc">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"/Users/june/Study/java-lang"</span><span class="o">);</span>
-
-        <span class="k">try</span> <span class="o">(</span><span class="nc">BufferedWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">newBufferedWriter</span><span class="o">(</span><span class="n">file</span><span class="o">))</span> <span class="o">{</span>
-            <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="sc">'A'</span><span class="o">);</span>
-            <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="sc">'Z'</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>다음과 같이 try문 옆에 괄호 안에 종료의 과정을 필요로 하는 리소스를 생성할 수 있다.<br />
-그리고 이 리소스는 try-with-resources문을 빠져나오면서 자동으로 종료된다.</p>
-
-<p>‘자동으로 종료되어야 할 리소스’ 관련 클래스는 다음 인터페이스를 구현해야한다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">AutoCloseable</span>
-</code></pre></div></div>
-
-<p>그리고 이 인터페이스에는 다음 추상 메소드가 존재한다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">close</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span>
-</code></pre></div></div>
-
-<p>즉, try-with-resources문에서 호출하는 메소드는 AutoCloseable 인터페이스의 close 메소드이다. 따라서 이외의 메소드를 기대하는 것은 어렵다는 것을 염두해두자.</p>
-
-<p><br />
-(참고) 예외처리는 성능의 저하로 이어진다.<br />
-try 구문 안에 위치한 코드는 try 구문 밖에 위치한 코드에 비해 실행 속도가 느리다. 따라서 특별히 예외처리가 필요한 부분만 골라서 사용하도록 해야한다.</p>
-
-<h2 id="reference">Reference</h2>
-<p><a href="https://brunch.co.kr/@kd4/5">https://brunch.co.kr/@kd4/5</a> [자바의 예외처리]</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>

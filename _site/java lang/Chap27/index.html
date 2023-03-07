@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의 -  June &amp; Directory</title>
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스 -  June &amp; Directory</title>
 <meta name="description" content="Java 문법 정리! ">
 
 
@@ -19,8 +19,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의">
-<meta property="og:url" content="http://localhost:4000/java%20lang/Chap06/">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap27/">
 
 
   <meta property="og:description" content="Java 문법 정리! ">
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-10-01T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-03-07T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-10-01T00:00:00+09:00">
+  <meta property="article:modified_time" content="2023-03-07T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/java%20lang/Chap06/">
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap27/">
 
 
 
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의</li>
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스</li>
       
     
   </ol>
@@ -662,18 +662,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스">
     <meta itemprop="description" content="Java 문법 정리!">
-    <meta itemprop="datePublished" content="2022-10-01T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-10-01T00:00:00+09:00">
+    <meta itemprop="datePublished" content="2023-03-07T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-03-07T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-10-01T00:00:00+09:00">2022.10.01</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-01">2022.10.01</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-03-07T00:00:00+09:00">2023.03.07</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-03-07">2023.03.07</time></p>
           
           
             
@@ -721,102 +721,161 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#06-1-메소드에-대한-이해와-메소드의-정의">06-1. 메소드에 대한 이해와 메소드의 정의</a>
+  <li><a href="#27-1-람다와-함수형-인터페이스">27-1. 람다와 함수형 인터페이스</a>
     <ul>
-      <li><a href="#--메소드의-동작">- 메소드의 동작</a></li>
-      <li><a href="#--값을-반환하는-메소드">- 값을 반환하는 메소드</a></li>
+      <li><a href="#--인스턴스보다-기능-하나가-필요한-상황을-위한-람다">- 인스턴스보다 기능 하나가 필요한 상황을 위한 람다</a></li>
+      <li><a href="#--매개변수가-있고-반환하지-않는-람다식">- 매개변수가 있고 반환하지 않는 람다식</a></li>
+      <li><a href="#--매개변수가-있고-반환하는-람다식">- 매개변수가 있고 반환하는 람다식</a></li>
+      <li><a href="#--매개변수가-없는-람다식">- 매개변수가 없는 람다식</a></li>
+      <li><a href="#--함수형-인터페이스와-어노테이션">- 함수형 인터페이스와 어노테이션</a></li>
+      <li><a href="#--람다식과-제네릭">- 람다식과 제네릭</a></li>
     </ul>
   </li>
-  <li><a href="#06-2-변수의-스코프">06-2. 변수의 스코프</a></li>
-  <li><a href="#06-3-메소드의-재귀-호출">06-3. 메소드의 재귀 호출</a></li>
+  <li><a href="#27-2-정의되어-있는-함수형-인터페이스">27-2. 정의되어 있는 함수형 인터페이스</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="06-1-메소드에-대한-이해와-메소드의-정의">06-1. 메소드에 대한 이해와 메소드의 정의</h2>
-<h3 id="--메소드의-동작">- <u>메소드의 동작</u></h3>
-<p><img src="/assets/images/java-lang/6-1.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodDef</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 시작"</span><span class="o">);</span>
-        <span class="n">hiEveryone</span><span class="o">(</span><span class="mi">26</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 끝"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hiEveryone</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"좋은 아침입니다."</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"제 나이는 "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">"입니다."</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--값을-반환하는-메소드">- <u>값을 반환하는 메소드</u></h3>
-<p><img src="/assets/images/java-lang/6-2.png" alt="image" width="70%" height="70%" /><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodReturns</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">result</span><span class="o">;</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">adder</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">square</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">adder</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">addResult</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">;</span>
-        <span class="k">return</span> <span class="n">addResult</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">square</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="06-2-변수의-스코프">06-2. 변수의 스코프</h2>
+        <h2 id="27-1-람다와-함수형-인터페이스">27-1. 람다와 함수형 인터페이스</h2>
+<h3 id="--인스턴스보다-기능-하나가-필요한-상황을-위한-람다">- <u>인스턴스보다 기능 하나가 필요한 상황을 위한 람다</u></h3>
 <blockquote>
-  <p>지역변수(Local Variable)는 선언된 지역을 벗어나면 메모리 공간에서 소멸된다.</p>
+  <p>기능 하나를 정의해서 전달해야 하는 상황</p>
 </blockquote>
 
-<p><img src="/assets/images/java-lang/6-3.png" alt="image" width="70%" height="70%" /><br /></p>
+<p>자바는 객체지향언어이기 때문에 인스턴스를 전달하는 형태이지만 내용을 보면 메소드, 즉 기능을 전달하는 상황이 생기곤 한다.<br />
+이러한 상황에서 람다가 유용하게 쓰일 수 있다.</p>
 
-<h2 id="06-3-메소드의-재귀-호출">06-3. 메소드의 재귀 호출</h2>
-<p><img src="/assets/images/java-lang/6-4.png" alt="image" width="70%" height="70%" /><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReculFactorial</span> <span class="o">{</span>
+<h3 id="--매개변수가-있고-반환하지-않는-람다식">- <u>매개변수가 있고 반환하지 않는 람다식</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">LambdaExample</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OneParamNoReturn</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"12 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">12</span><span class="o">));</span>
-    <span class="o">}</span>
+        <span class="nc">LambdaExample</span> <span class="n">l</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
-            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="k">else</span>
-            <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+        <span class="c1">// 줄임 없는 표현</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="o">};</span>
+
+        <span class="c1">// 중괄호 생략</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+
+        <span class="c1">// 매개변수 형 생략</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+
+        <span class="c1">// 매개변수 소괄호 생략</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">s</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+
+        <span class="n">l</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Lambda example!"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<p><img src="/assets/images/java-lang/6-5.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<p><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Calculate</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">cal</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">);</span>
+<span class="o">}</span>
 
-<p>(주의) 종료 조건을 꼭 설정해야한다. 안 하면 재귀문을 탈출할 수 없다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InfRecul</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TwoParamNoReturn</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">showHi</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-    <span class="o">}</span>
+        <span class="nc">Calculate</span> <span class="n">c</span><span class="o">;</span>    <span class="c1">// 매개변수가 둘 이상인 경우, 괄호를 생략하는 것은 불가능하다.</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showHi</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hi~ "</span><span class="o">);</span>
+        <span class="c1">// 덧셈 진행</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
 
-        <span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
-            <span class="k">return</span><span class="o">;</span>
+        <span class="c1">// 뺄셈 진행</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">);</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">);</span>
 
-        <span class="n">showHi</span><span class="o">(</span><span class="n">cnt</span><span class="o">--);</span>  <span class="c1">// cnt의 값이 전달된 다음에 cnt의 값이 감소한다. 따라서 재귀문을 탈출할 수 없다.</span>
-        <span class="c1">// showHi(--cnt);   // 이렇게 써줘야 함</span>
+        <span class="c1">// 곱셈 진행</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="o">);</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
+
+<h3 id="--매개변수가-있고-반환하는-람다식">- <u>매개변수가 있고 반환하는 람다식</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">RCalculate</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">cal</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TwoParamAndReturn</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">RCalculate</span> <span class="n">c</span><span class="o">;</span>
+
+        <span class="c1">// 몸체에 return이 들어가면 중괄호 생략 불가</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span> <span class="o">};</span>    <span class="c1">// c = (a, b) -&gt; { a + b; }; 불가능</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">));</span>
+
+        <span class="c1">// return 문이 메소드의 몸체를 이루는 유일한 경우</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--매개변수가-없는-람다식">- <u>매개변수가 없는 람다식</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+
+<span class="kd">interface</span> <span class="nc">Generator</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">rand</span><span class="o">();</span> <span class="c1">// 매개변수 없는 메소드</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NoParamAndReturn</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Generator</span> <span class="n">g</span><span class="o">;</span>
+
+        <span class="n">g</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">Random</span> <span class="n">random</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+            <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">50</span><span class="o">);</span>
+        <span class="o">};</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="na">rand</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--함수형-인터페이스와-어노테이션">- <u>함수형 인터페이스와 어노테이션</u></h3>
+<blockquote>
+  <p>함수형 인터페이스: 추상 메소드가 딱 하나만 존재하는 인터페이스</p>
+</blockquote>
+
+<p>@FunctionsalInterface 어노테이션 타입을 통해 함수형 인터페이스에 부합하는지를 확인할 수 있다.<br />
+인터페이스에 둘 이상의 추상 메소드가 존재하면, 컴파일 오류로 이어진다.<br />
+그러나 static, default 선언이 붙은 메소드의 정의는 함수형 인터페이스의 정의에 아무런 영향을 미치지 않는다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@FunctionalInterface</span>
+<span class="kd">interface</span> <span class="nc">Calculate</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">cal</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">);</span>
+    <span class="k">default</span> <span class="kt">int</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">static</span> <span class="kt">int</span> <span class="nf">sub</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--람다식과-제네릭">- <u>람다식과 제네릭</u></h3>
+<p>인터페이스는 제네릭으로 정의하는 것이 가능하다.<br />
+따라서 제네릭으로 정의된 함수형 인터페이스를 대상으로 람다식을 작성할 수도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@FunctionalInterface</span>
+<span class="kd">interface</span> <span class="nc">Calculator</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="no">T</span> <span class="nf">cal</span><span class="o">(</span><span class="no">T</span> <span class="n">a</span><span class="o">,</span> <span class="no">T</span> <span class="n">b</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LambdaGeneric</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 참조변수의 형을 지정해서 문장을 구성하면 된다.</span>
+        <span class="nc">Calculator</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">intCalculator</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">intCalculator</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">));</span>
+
+        <span class="nc">Calculator</span><span class="o">&lt;</span><span class="nc">Double</span><span class="o">&gt;</span> <span class="n">doubleCalculator</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">doubleCalculator</span><span class="o">.</span><span class="na">cal</span><span class="o">(</span><span class="mf">4.32</span><span class="o">,</span> <span class="mf">3.45</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="27-2-정의되어-있는-함수형-인터페이스">27-2. 정의되어 있는 함수형 인터페이스</h2>
+
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -828,12 +887,11 @@
 
   <nav class="pagination">
     
-      <a href="/java%20lang/Chap05/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤
+      <a href="/java%20lang/Chap26/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개
 ">이전</a>
     
     
-      <a href="/java%20lang/Chap07/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -841,48 +899,6 @@
 
 
 
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
   	
@@ -894,10 +910,10 @@
 
   <nav class="pagination_prev_next">
     
-      <a href="/java%20lang/Chap05/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</a>
+      <a href="/java%20lang/Chap26/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개</a>
     
     
-      <a href="/java%20lang/Chap07/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -930,11 +946,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+06+-+%EB%A9%94%EC%86%8C%EB%93%9C%EC%97%90+%EB%8C%80%ED%95%9C+%EC%9D%B4%ED%95%B4%EC%99%80+%EC%A0%95%EC%9D%98%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap06%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+27+-+%EB%9E%8C%EB%8B%A4%EC%99%80+%ED%95%A8%EC%88%98%ED%98%95+%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap27%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap06%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap27%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap06%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap27%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -948,30 +964,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/java%20lang/Chap27/">[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.03.07
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1173,6 +1165,30 @@
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.11.24
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap18/">[윤성우의 열혈 Java 프로그래밍] Chapter 18 - 예외처리(Exception Handling)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.11.05
               <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
         
