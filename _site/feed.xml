@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-07T01:51:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개</title><link href="http://localhost:4000/java%20lang/Chap26/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-07T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap26</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap26/"><![CDATA[<h2 id="26-1-네스티드nested-클래스와-이너inner-클래스">26-1. 네스티드(Nested) 클래스와 이너(Inner) 클래스</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-07T12:50:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개</title><link href="http://localhost:4000/java%20lang/Chap26/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-07T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap26</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap26/"><![CDATA[<h2 id="26-1-네스티드nested-클래스와-이너inner-클래스">26-1. 네스티드(Nested) 클래스와 이너(Inner) 클래스</h2>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Outer</span> <span class="o">{</span>
   <span class="kd">class</span> <span class="nc">Nested</span> <span class="o">{...}</span>
 <span class="o">}</span>
@@ -243,7 +243,103 @@ non static 네스티드 클래스는 다시 멤버 클래스, 로컬 클래스, 
 
 <h2 id="26-2-람다lambda의-소개">26-2. 람다(Lambda)의 소개</h2>
 <h3 id="--람다의-이해">- <u>람다의 이해</u></h3>
-<h3 id="--람다식의-인자-전달">- <u>람다식의 인자 전달</u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션</title><link href="http://localhost:4000/java%20lang/Chap25/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap25</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap25/"><![CDATA[<h2 id="25-1-열거형">25-1. 열거형</h2>
+<p>람다를 사용하면 코드를 줄일 수 있고, 그렇게 만들어진 코드는 가독성도 뛰어나다.<br />
+다음 예시를 보고 람다를 이해해보자.</p>
+
+<p>1) 기존 방식</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인터페이스 Printable을 구현하는 인스턴스의 생성을 위해..</span>
+<span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// 1. Printable 인터페이스를 구현하는 Printer 클래스를 정의함</span>
+<span class="kd">class</span> <span class="nc">Printer</span> <span class="kd">implements</span> <span class="nc">Printable</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Lambda1</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Printer 클래스를 통해 인스턴스를 생성함</span>
+    <span class="nc">Priatable</span> <span class="n">prn</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Printer</span><span class="o">();</span>
+    
+    <span class="n">prn</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"What is Lambda?"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>2) 익명 클래스 활용</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인터페이스 Printable을 구현하는 인스턴스의 생성을 위해..</span>
+<span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Lambda2</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// 2. 익명 클래스의 적용을 통해 기존 Printer 클래스의 정의를 하나 줄여줌</span>
+    <span class="nc">Priatable</span> <span class="n">prn</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Printer</span><span class="o">()</span> <span class="o">{</span>
+      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">};</span>
+    
+    <span class="n">prn</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"What is Lambda?"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>3) 람다 활용</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인터페이스 Printable을 구현하는 인스턴스의 생성을 위해..</span>
+<span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LambdaExample</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// 위의 예시를 람다 기반으로 수정함</span>
+    <span class="nc">Printable</span> <span class="n">prn</span> <span class="o">=</span> <span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="o">};</span>
+    
+    <span class="n">prn</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"What is Lambda"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>익명 클래스와 람다는 분명 다르지만 둘 다 인스턴스의 생성으로 이어지고, 람다식이 익명 클래스의 정의를 일부 대체하기 때문에 익명 클래스의 정의를 기반으로 람다식을 이해해보자.</p>
+
+<p><img src="/assets/images/java-lang/26-5.png" alt="image" width="60%" height="60%" /><br />
+핵심은 참조변수의 type 정보를 보고 컴파일러가 어디까지 유추할 수 있는가에 있다.<br />
+컴파일러가 참조변수의 type(Printable)을 보고</p>
+<ol>
+  <li>아! 오른쪽에 Printable 인터페이스를 구현하는 인스턴스가 와야하는 구나</li>
+  <li>Printable 인터페이스에 추상 메소드가 하나 밖에 없으니 몸체에 오는 건 그 메소드의 내용이겠구나</li>
+</ol>
+
+<p>위 두 가지 정보를 유추할 수 있다. 따라서 생략도 가능하다.</p>
+
+<p><img src="/assets/images/java-lang/26-4.png" alt="image" width="80%" height="80%" /><br /></p>
+
+<h3 id="--람다식의-인자-전달">- <u>람다식의 인자 전달</u></h3>
+<p>람다식을 메소드의 인자로 전달할 수도 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Show</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">ShowString</span><span class="o">(</span><span class="nc">Printable</span> <span class="n">p</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">p</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LambdaExample</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">showString</span><span class="o">((</span><span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="o">},</span> <span class="s">"What is Lambda?"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션</title><link href="http://localhost:4000/java%20lang/Chap25/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 25 - 열거형, 가변 인자 그리고 어노테이션" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-06T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap25</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap25/"><![CDATA[<h2 id="25-1-열거형">25-1. 열거형</h2>
 <blockquote>
   <p>열거형: ‘의미가 부여된 이름’을 갖는 ‘상수’의 선언</p>
 </blockquote>
