@@ -286,4 +286,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap27/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 28 - 메소드 참조와 Optional",
+        "excerpt":"28-1. 메소드 참조 (Method References) 이미 정의되어 있는 메소드가 있다면, 이 메소드의 정의가 람다식을 대신할 수 있지 않을까? 실제로 메소드 정의는 람다식을 대신할 수 있다. - 메소드 참조의 4가지 유형과 메소드 참조의 장점 메소드 참조의 유형은 총 4가지이다. static 메소드의 참조 참조변수를 통한 인스턴스 메소드 참조 클래스 이름을 통한 인스턴스...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap28/",
+        "teaser": null
       }]

@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스 -  June &amp; Directory</title>
+<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 28 - 메소드 참조와 Optional -  June &amp; Directory</title>
 <meta name="description" content="Java 문법 정리! ">
 
 
@@ -19,8 +19,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스">
-<meta property="og:url" content="http://localhost:4000/java%20lang/Chap08/">
+<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 28 - 메소드 참조와 Optional">
+<meta property="og:url" content="http://localhost:4000/java%20lang/Chap28/">
 
 
   <meta property="og:description" content="Java 문법 정리! ">
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-10-03T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-03-08T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-10-03T00:00:00+09:00">
+  <meta property="article:modified_time" content="2023-03-08T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/java%20lang/Chap08/">
+<link rel="canonical" href="http://localhost:4000/java%20lang/Chap28/">
 
 
 
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스</li>
+        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 28 - 메소드 참조와 Optional</li>
       
     
   </ol>
@@ -662,18 +662,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스">
+    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 28 - 메소드 참조와 Optional">
     <meta itemprop="description" content="Java 문법 정리!">
-    <meta itemprop="datePublished" content="2022-10-03T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-10-03T00:00:00+09:00">
+    <meta itemprop="datePublished" content="2023-03-08T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-03-08T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 08 - 패키지와 클래스 패스
+          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 28 - 메소드 참조와 Optional
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-10-03T00:00:00+09:00">2022.10.03</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-03">2022.10.03</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-03-08T00:00:00+09:00">2023.03.08</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-03-08">2023.03.08</time></p>
           
           
             
@@ -721,132 +721,188 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#08-1-클래스-패스class-path">08-1. 클래스 패스(Class Path)</a>
+  <li><a href="#28-1-메소드-참조-method-references">28-1. 메소드 참조 (Method References)</a>
     <ul>
-      <li><a href="#--현재-디렉토리current-directory를-기준으로-한-실행">- 현재 디렉토리(Current Directory)를 기준으로 한 실행</a></li>
-      <li><a href="#--클래스-패스의-지정">- 클래스 패스의 지정</a></li>
-      <li><a href="#--클래스-패스를-고정시키는-방법">- 클래스 패스를 고정시키는 방법</a></li>
+      <li><a href="#--메소드-참조의-4가지-유형과-메소드-참조의-장점">- 메소드 참조의 4가지 유형과 메소드 참조의 장점</a></li>
+      <li><a href="#--static-메소드의-참조">- static 메소드의 참조</a></li>
+      <li><a href="#--인스턴스-메소드의-참조1-인스턴스가-존재하는-상황에서-참조">- 인스턴스 메소드의 참조1: 인스턴스가 존재하는 상황에서 참조</a></li>
+      <li><a href="#--인스턴스-메소드의-참조2-인스턴스-없이-인스턴스-메소드-참조">- 인스턴스 메소드의 참조2: 인스턴스 없이 인스턴스 메소드 참조</a></li>
+      <li><a href="#--생성자-참조">- 생성자 참조</a></li>
     </ul>
   </li>
-  <li><a href="#08-2-패키지package의-이해">08-2. 패키지(Package)의 이해</a>
-    <ul>
-      <li><a href="#--패키지-선언의-의미와-목적">- 패키지 선언의 의미와 목적</a></li>
-      <li><a href="#--패키지-이름을-짓는-관례">- 패키지 이름을 짓는 관례</a></li>
-      <li><a href="#--이름-충돌의-해결을-위한-패키지의-효과">- 이름 충돌의 해결을 위한 패키지의 효과</a></li>
-      <li><a href="#--import-선언">- import 선언</a></li>
-    </ul>
-  </li>
+  <li><a href="#28-2-optional-클래스">28-2. Optional 클래스</a></li>
+  <li><a href="#28-3-optionalint-optionallong-optionaldouble-클래스">28-3. OptionalInt, OptionalLong, OptionalDouble 클래스</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="08-1-클래스-패스class-path">08-1. 클래스 패스(Class Path)</h2>
-<p><img src="/assets/images/java-lang/8-1.png" alt="image" width="80%" height="80%" /><br /></p>
+        <h2 id="28-1-메소드-참조-method-references">28-1. 메소드 참조 (Method References)</h2>
 <blockquote>
-  <p>클래스 패스(Class Path): 자바 가상머신이 클래스 파일을 찾는 경로</p>
+  <p>이미 정의되어 있는 메소드가 있다면, 이 메소드의 정의가 람다식을 대신할 수 있지 않을까?</p>
 </blockquote>
 
-<h3 id="--현재-디렉토리current-directory를-기준으로-한-실행">- <u>현재 디렉토리(Current Directory)를 기준으로 한 실행</u></h3>
-<p><img src="/assets/images/java-lang/8-2.png" alt="image" width="80%" height="80%" /><br />
-기본적으로 java 실행파일은 필요한 class 파일을 현재 디렉토리에서 찾는다.<br />
-명령 프롬프트 상에서 작업이 진행 중인 디렉토리의 위치에 클래스파일이 없다면 오류를 뱉는다.<br />
-따라서 앞선 상황에서 정상적인 실행 결과를 도출하려면 ‘Class Path’를 지정해야한다.</p>
+<p>실제로 메소드 정의는 람다식을 대신할 수 있다.</p>
 
-<h3 id="--클래스-패스의-지정">- <u>클래스 패스의 지정</u></h3>
-<p>다음에서 설명하는 방식은 ‘일시적인’ 방법이다.<br />
-터미널을 열고, 다시 닫기 전까지만 유지되는 것이다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set classpath=.:/Study/MyClass
-</code></pre></div></div>
-
-<p>위의 명령어를 통해 상대경로인 현재 디렉토리(.)와 절대경로인 /Study/Myclass를 지정해주었다.</p>
-<blockquote>
-  <p>현재 디렉토리가 바뀌면 상대 경로가 지정하는 모든 경로가 그에 맞게 수정된다.</p>
-</blockquote>
-
-<p>이러한 장점 때문에 실무에서는 상대 경로를 주로 사용한다.</p>
-
-<h3 id="--클래스-패스를-고정시키는-방법">- <u>클래스 패스를 고정시키는 방법</u></h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># .zshrc
-
-export JAVA_HOME=&lt;설치된 폴더 위치&gt;
-export CLASSPATH=&lt;설치된 폴더 위치&gt;/lib:.
-</code></pre></div></div>
-<p>이렇게 환경변수를 이용해 직접 Class Path를 고정시키는 방법도 있다.<br />
-명령 프롬프트를 새로 띄워도 Class Path가 그대로 유지되기 때문에 주의해서 사용해야한다.</p>
-
-<h2 id="08-2-패키지package의-이해">08-2. 패키지(Package)의 이해</h2>
-<blockquote>
-  <p>패키지는 클래스를 묶는 수단이다.</p>
-</blockquote>
-
-<h3 id="--패키지-선언의-의미와-목적">- <u>패키지 선언의 의미와 목적</u></h3>
-<p>패키지 이름의 예시를 보자.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">net</span>
-</code></pre></div></div>
-<p>일단 패키지 이름이 java로 시작한다. 이는 자바에서 제공하는 클래스임을 뜻한다.<br />
-그리고 net은 network를 줄인 표현으로 네트워크 관련 기능의 클래스임을 짐작하게 한다.<br />
-이렇게, 패키지는 클래스를 구분하고 파악하는데도 도움이 된다.</p>
-
-<h3 id="--패키지-이름을-짓는-관례">- <u>패키지 이름을 짓는 관례</u></h3>
-<p>패키지의 이름을 지을 때에는 다음의 관례를 따른다.</p>
-<ol>
-  <li>클래스의 이름과 구분이 되도록 패키지의 이름은 모두 소문자로 구성한다.</li>
-  <li>인터넷 도메인 이름의 역순으로 패키지 이름을 구성한다.</li>
-  <li>패키지 이름의 끝에 클래스를 정의한 주체 또는 팀을 구분하는 이름을 추가한다.</li>
-</ol>
-
-<p>예를 들어<br />
-‘인터넷 도메인이 hi_june.com인 회사’의 ‘개발자 최씨’가 개발한 클래스를 묶을 패키지 이름을 위의 관례에 따라 만들어보자.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>com.hi_june.choi
-</code></pre></div></div>
-
-<h3 id="--이름-충돌의-해결을-위한-패키지의-효과">- <u>이름 충돌의 해결을 위한 패키지의 효과</u></h3>
-<p>패키지의 선언은 다음과 같은 두 가지 특성을 만들어낸다.</p>
-
+<h3 id="--메소드-참조의-4가지-유형과-메소드-참조의-장점">- <u>메소드 참조의 4가지 유형과 메소드 참조의 장점</u></h3>
+<p>메소드 참조의 유형은 총 4가지이다.</p>
 <ul>
-  <li>클래스 접근 방법의 구분
-    <ul>
-      <li>서로 다른 패키지의 두 클래스는 인스턴스 생성 시 사용하는 이름이 다르다.</li>
-    </ul>
-  </li>
-  <li>클래스의 공간적인 구분
-    <ul>
-      <li>서로 다른 패키지의 두 클래스 파일은 저장되는 위치가 다르다.</li>
-    </ul>
-  </li>
+  <li>static 메소드의 참조</li>
+  <li>참조변수를 통한 인스턴스 메소드 참조</li>
+  <li>클래스 이름을 통한 인스턴스 메소드 참조</li>
+  <li>생성자 참조</li>
 </ul>
 
-<p>패키지의 이름이 결정되고 -&gt; 각 클래스를 패키지로 묶으면 -&gt; 클래스의 인스턴스 생성 방법도 달라진다.<br />
-<img src="/assets/images/java-lang/8-3.png" alt="image" width="80%" height="80%" /><br /></p>
+<h3 id="--static-메소드의-참조">- <u>static 메소드의 참조</u></h3>
+<p>static 메소드 참조 방법<br />
+ClassName::staticMethodName</p>
 
-<p>그에 따라 클래스 파일이 저장되는 위치도 다음과 같이 달라진다.<br />
-<img src="/assets/images/java-lang/8-4.png" alt="image" width="50%" height="50%" /><br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.function.Consumer</span><span class="o">;</span>
 
-<h3 id="--import-선언">- <u>import 선언</u></h3>
-<p>클래스가 필요할 때마다 호출을</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">com</span><span class="o">.</span><span class="na">wxfx</span><span class="o">.</span><span class="na">smart</span><span class="o">.</span><span class="na">Circle</span> <span class="n">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">wxfx</span><span class="o">.</span><span class="na">smart</span><span class="o">.</span><span class="na">Circle</span><span class="o">(</span><span class="mf">3.5</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrangeList</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
+
+        <span class="c1">// Consumer&lt;List&lt;Integer&gt;&gt; c = l -&gt; Collections.reverse(l);</span>
+        <span class="nc">Consumer</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="nl">Collections:</span><span class="o">:</span><span class="n">reverse</span><span class="o">;</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div></div>
-<p>이런 식으로 해야한다면 여간 번거로운 일이 아닐 것이다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.wxfx.smart.Circle</span><span class="o">;</span>
+<h3 id="--인스턴스-메소드의-참조1-인스턴스가-존재하는-상황에서-참조">- <u>인스턴스 메소드의 참조1: 인스턴스가 존재하는 상황에서 참조</u></h3>
+<p>인스턴스 메소드 참조 방법 - 1<br />
+ReferenceName::instanceMethodName</p>
 
-<span class="nc">Circle</span> <span class="n">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="o">(</span><span class="mf">3.5</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.function.Consumer</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">JustSort</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;?&gt;</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Collections</span><span class="o">.</span><span class="na">reverse</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrangeList3</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">));</span>
+
+        <span class="nc">JustSort</span> <span class="n">js</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JustSort</span><span class="o">();</span>
+
+        <span class="c1">// Consumer&lt;List&lt;Integer&gt;&gt; c = e -&gt; js.sort(e);</span>
+        <span class="nc">Consumer</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="nl">js:</span><span class="o">:</span><span class="n">sort</span><span class="o">;</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div></div>
-<p>이런식으로 import문을 이용해서 코드를 간소화할 수 있다.</p>
 
-<p><br /><br />
-(참고)<br />
-클래스가 아닌 패키지를 대상으로 다음과 같이 import 선언을 하는 것도 가능하다.</p>
+<p>람다식에서 같은 지역 내에 선언된 참조변수 js에 접근하고 있다.<br />
+람다식이 인스턴스의 생성으로 이어진다는 사실을 고려하면 특이한 일이지만 결론적으로 람다식에서 같은 지역에 선언된 참조변수에 접근하는 것은 가능하다. 단, 여기에는 조건이 있다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.wxfx.smart.*</span><span class="o">;</span>
+<blockquote>
+  <p>람다식에서 접근 가능한 참조변수는 final로 선언되었거나 effectively final이어야 한다.</p>
+</blockquote>
+
+<p>이렇게 제한한 이유는 참조변수가 참조하는 대상이 중간에 바뀔경우 논리적 혼란을 일으키거나 예측 불가능한 상황으로 이어질 수 있기 때문이다.</p>
+
+<p><br />
+좀 더 실질적인 상황을 보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ForEachDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Robot"</span><span class="o">);</span>
+
+        <span class="n">ls</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">));</span> <span class="c1">// 람다식 기반</span>
+        <span class="n">ls</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>    <span class="c1">// 메소드 참조 기반</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div></div>
 
-<p>다만,<br />
-패키지 대상의 import 선언은 이름 충돌이 발생할 수 있고,<br />
-또 의도하지 않은 클래스의 인스턴스를 생성하는 상황으로 이어질 수 있어서<br />
-가급적 사용을 자제하라고 권고하고 있다.</p>
+<p>Collection&lt;E&gt; 인터페이스는 Iterable&lt;T&gt;를 상속한다.<br />
+이 인터페이스에 정의되어있는 forEach메소드를 살펴보면 다음과 같다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">default</span> <span class="kt">void</span> <span class="nf">forEach</span><span class="o">(</span><span class="nc">Consumer</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">action</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">action</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="no">T</span> <span class="n">t</span> <span class="o">:</span> <span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">action</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">t</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--인스턴스-메소드의-참조2-인스턴스-없이-인스턴스-메소드-참조">- <u>인스턴스 메소드의 참조2: 인스턴스 없이 인스턴스 메소드 참조</u></h3>
+<p>인스턴스 메소드 참조 방법 - 2<br />
+ClassName::instanceMethodName</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.function.ToIntBiFunction</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">IBox</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">n</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">IBox</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">larger</span><span class="o">(</span><span class="nc">IBox</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="n">box</span><span class="o">.</span><span class="na">n</span><span class="o">)</span>
+            <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">box</span><span class="o">.</span><span class="na">n</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NoObjectMethodRef</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">IBox</span> <span class="n">iBox1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">IBox</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="nc">IBox</span> <span class="n">iBox2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">IBox</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+
+        <span class="c1">// 두 상자에 저장된 값 비교하여 더 큰 값 반환</span>
+        <span class="c1">// ToIntBiFunction&lt;IBox, IBox&gt; bf = (box1, box2) -&gt; box1.larger(box2);</span>
+        <span class="nc">ToIntBiFunction</span><span class="o">&lt;</span><span class="nc">IBox</span><span class="o">,</span> <span class="nc">IBox</span><span class="o">&gt;</span> <span class="n">bf</span> <span class="o">=</span> <span class="nl">IBox:</span><span class="o">:</span><span class="n">larger</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">bigNum</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="na">applyAsInt</span><span class="o">(</span><span class="n">iBox1</span><span class="o">,</span> <span class="n">iBox2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bigNum</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위의 방식처럼 람다를 메소드 참조로 바꿀 수 있는 이유는 larger가 ‘첫 번째 인자로 전달된 인스턴스의 메소드’임에 있고, 이는 일종의 약속이다.<br />
+bf가 참조하는 메소드는 IBox::larger이고, 이는 ibox1, ibox2도 갖는 인스턴스 메소드지만, ‘첫 번째 전달인자를 대상으로 이 메소드를 호출하기로 약속하였으므로’ 그에 근거하여 실행이 된다.</p>
+
+<h3 id="--생성자-참조">- <u>생성자 참조</u></h3>
+<p>람다식을 작성하다 보면 인스턴스를 생성하고 이의 참조 값을 반환해야 하는 경우가 있다.<br />
+ClassName::new</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.function.Function</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringMaker</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Function&lt;char[], String&gt; f = ar -&gt; new String(ar);</span>
+        <span class="nc">Function</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">[],</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="nl">String:</span><span class="o">:</span><span class="k">new</span><span class="o">;</span>
+
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">src</span> <span class="o">=</span> <span class="o">{</span><span class="sc">'R'</span><span class="o">,</span> <span class="sc">'o'</span><span class="o">,</span> <span class="sc">'b'</span><span class="o">,</span> <span class="sc">'o'</span><span class="o">,</span> <span class="sc">'t'</span><span class="o">};</span>
+        <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">src</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="28-2-optional-클래스">28-2. Optional 클래스</h2>
+
+<h2 id="28-3-optionalint-optionallong-optionaldouble-클래스">28-3. OptionalInt, OptionalLong, OptionalDouble 클래스</h2>
+
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -858,12 +914,11 @@ export CLASSPATH=&lt;설치된 폴더 위치&gt;/lib:.
 
   <nav class="pagination">
     
-      <a href="/java%20lang/Chap07/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스
+      <a href="/java%20lang/Chap27/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스
 ">이전</a>
     
     
-      <a href="/java%20lang/Chap09/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -871,46 +926,6 @@ export CLASSPATH=&lt;설치된 폴더 위치&gt;/lib:.
 
 
 
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
   	
@@ -922,10 +937,10 @@ export CLASSPATH=&lt;설치된 폴더 위치&gt;/lib:.
 
   <nav class="pagination_prev_next">
     
-      <a href="/java%20lang/Chap07/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스</a>
+      <a href="/java%20lang/Chap27/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스</a>
     
     
-      <a href="/java%20lang/Chap09/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[윤성우의 열혈 Java 프로그래밍] Chapter 09 - 정보 은닉 그리고 캡슐화</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -958,11 +973,11 @@ export CLASSPATH=&lt;설치된 폴더 위치&gt;/lib:.
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+08+-+%ED%8C%A8%ED%82%A4%EC%A7%80%EC%99%80+%ED%81%B4%EB%9E%98%EC%8A%A4+%ED%8C%A8%EC%8A%A4%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap08%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+28+-+%EB%A9%94%EC%86%8C%EB%93%9C+%EC%B0%B8%EC%A1%B0%EC%99%80+Optional%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap28%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap08%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap28%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap08%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap28%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -976,30 +991,6 @@ export CLASSPATH=&lt;설치된 폴더 위치&gt;/lib:.
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/java%20lang/Chap28/">[윤성우의 열혈 Java 프로그래밍] Chapter 28 - 메소드 참조와 Optional</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.03.08
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1201,6 +1192,30 @@ export CLASSPATH=&lt;설치된 폴더 위치&gt;/lib:.
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.11.26
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap19/">[윤성우의 열혈 Java 프로그래밍] Chapter 19 - 자바의 메모리 모델과 Object 클래스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.11.24
               <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
         
