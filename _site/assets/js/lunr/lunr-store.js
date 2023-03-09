@@ -292,4 +292,16 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap28/",
         "teaser": null
+      },{
+        "title": "[10798] 새로읽기",
+        "excerpt":"[Bronze I] 세로읽기 - 10798 문제 링크 성능 요약 메모리: 14280 KB, 시간: 164 ms 분류 구현(implementation), 문자열(string) 문제 설명 아직 글을 모르는 영석이가 벽에 걸린 칠판에 자석이 붙어있는 글자들을 붙이는 장난감을 가지고 놀고 있다. 이 장난감에 있는 글자들은 영어 대문자 ‘A’부터 ‘Z’, 영어 소문자 ‘a’부터 ‘z’, 숫자 ‘0’부터 ‘9’이다....","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/10798/",
+        "teaser": null
+      },{
+        "title": "[2750] 수 정렬하기",
+        "excerpt":"[Bronze II] 수 정렬하기 - 2750 문제 링크 성능 요약 메모리: 14936 KB, 시간: 188 ms 분류 정렬(sorting), 구현(implementation) 문제 설명 N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로그램을 작성하시오. 입력 첫째 줄에 수의 개수 N(1 ≤ N ≤ 1,000)이 주어진다. 둘째 줄부터 N개의 줄에는 수가 주어진다. 이 수는 절댓값이...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/2750/",
+        "teaser": null
       }]
