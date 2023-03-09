@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Team_ForV] 아키텍처 및 기술스택 소개 -  June &amp; Directory</title>
-<meta name="description" content="Team_ForV의 프로젝트 ">
+<!-- begin _includes/seo.html --><title>[자바 코테] 입출력 방법 정리 -  June &amp; Directory</title>
+<meta name="description" content="코딩 테스트용 자바 정리 ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[Team_ForV] 아키텍처 및 기술스택 소개">
-<meta property="og:url" content="http://localhost:4000/team_forv/Team_ForV03/">
+<meta property="og:title" content="[자바 코테] 입출력 방법 정리">
+<meta property="og:url" content="http://localhost:4000/java%20coding%20test/IO/">
 
 
-  <meta property="og:description" content="Team_ForV의 프로젝트 ">
+  <meta property="og:description" content="코딩 테스트용 자바 정리 ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-08-17T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-03-10T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-08-17T00:00:00+09:00">
+  <meta property="article:modified_time" content="2023-03-10T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/team_forv/Team_ForV03/">
+<link rel="canonical" href="http://localhost:4000/java%20coding%20test/IO/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#team_forv" itemprop="item"><span itemprop="name">Team_forv</span></a>
+          <a href="/categories/#java-coding-test" itemprop="item"><span itemprop="name">Java coding test</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[Team_ForV] 아키텍처 및 기술스택 소개</li>
+        <li class="current">[자바 코테] 입출력 방법 정리</li>
       
     
   </ol>
@@ -755,18 +755,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Team_ForV] 아키텍처 및 기술스택 소개">
-    <meta itemprop="description" content="Team_ForV의 프로젝트">
-    <meta itemprop="datePublished" content="2022-08-17T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-08-17T00:00:00+09:00">
+    <meta itemprop="headline" content="[자바 코테] 입출력 방법 정리">
+    <meta itemprop="description" content="코딩 테스트용 자바 정리">
+    <meta itemprop="datePublished" content="2023-03-10T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-03-10T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Team_ForV] 아키텍처 및 기술스택 소개
+          <h1 id="page-title" class="page__title" itemprop="headline">[자바 코테] 입출력 방법 정리
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-08-17T00:00:00+09:00">2022.08.17</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-08-17">2022.08.17</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-03-10T00:00:00+09:00">2023.03.10</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-03-10">2023.03.10</time></p>
           
           
             
@@ -782,7 +782,7 @@
     
       
       
-      <a href="/categories/#team-forv" class="page__taxonomy-item-category" rel="tag">Team_ForV</a>
+      <a href="/categories/#java-coding-test" class="page__taxonomy-item-category" rel="tag">Java Coding Test</a>
     
     </span>
   </p>
@@ -799,7 +799,7 @@
     
       
       
-      <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+      <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
     
     </span>
   </p>
@@ -814,117 +814,85 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#아키텍처-소개">아키텍처 소개</a></li>
-  <li><a href="#프로젝트의-흐름">프로젝트의 흐름</a></li>
-  <li><a href="#서버의-분리와-비동기처리">서버의 분리와 비동기처리</a>
-    <ul>
-      <li><a href="#서버의-분리">서버의 분리</a></li>
-      <li><a href="#message-queue와-worker를-이용한-비동기처리">Message Queue와 Worker를 이용한 비동기처리</a></li>
-    </ul>
-  </li>
-  <li><a href="#다음-글-소개">다음 글 소개</a></li>
+  <li><a href="#왜-사용하는가">왜 사용하는가?</a></li>
+  <li><a href="#bufferedreader">BufferedReader</a></li>
+  <li><a href="#bufferedwriter">BufferedWriter</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="아키텍처-소개">아키텍처 소개</h2>
-<p><img width="921" alt="스크린샷 2022-08-03 오후 8 56 10" src="https://user-images.githubusercontent.com/70627982/182602386-c5919ba2-ac66-43a0-86c2-ed7f12c6d3f2.png" /><br /></p>
+        <h2 id="왜-사용하는가">왜 사용하는가?</h2>
+<blockquote>
+  <p>Scanner나 println 메소드보다 속도가 월등히 빠르다..!</p>
+</blockquote>
 
-<ul>
-  <li>
-    <p><b>Front-End</b><br />
-<img src="https://img.shields.io/badge/react-02569B?style=for-the-badge&amp;logo=react&amp;logoColor=white" /> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&amp;logo=javascript&amp;logoColor=black" /></p>
-  </li>
-  <li>
-    <p><b>Back-End</b><br />
-<img src="https://img.shields.io/badge/django-007396?style=for-the-badge&amp;logo=django&amp;logoColor=white" /> <img src="https://img.shields.io/badge/flask-6DB33F?style=for-the-badge&amp;logo=flask&amp;logoColor=white" /> <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" /> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&amp;logo=mysql&amp;logoColor=white" /> <img src="https://img.shields.io/badge/celery-000000?style=for-the-badge&amp;logo=celery&amp;logoColor=white" /> <img src="https://img.shields.io/badge/rabbitmq-FF6F00?style=for-the-badge&amp;logo=rabbitmq&amp;logoColor=white" /> <img src="https://img.shields.io/badge/gunicorn-499848?style=for-the-badge&amp;logo=gunicorn&amp;logoColor=black" /></p>
-  </li>
-  <li>
-    <p><b>DevOps</b>  <br />
-<img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&amp;logo=docker&amp;logoColor=white" /> <img src="https://img.shields.io/badge/NGINX-009639?style=for-the-badge&amp;logo=nginx&amp;logoColor=black" /> <!-- <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> --></p>
-  </li>
-  <li>
-    <p><b>AI (Tools, Env)</b>  <br />
-<img src="https://img.shields.io/badge/colab-F9AB00?style=for-the-badge&amp;logo=googlecolab&amp;logoColor=white" /> <img src="https://img.shields.io/badge/pytorch-F7931E?style=for-the-badge&amp;logo=pytorch&amp;logoColor=white" /></p>
-  </li>
-  <li>
-    <p><b>UI/UX, MockUp Design </b>  <br />
-<img src="https://img.shields.io/badge/figma-34A7C1?style=for-the-badge&amp;logo=figma&amp;logoColor=white" /> <img src="https://img.shields.io/badge/zeplin-31A8FF?style=for-the-badge&amp;logo=zeplin&amp;logoColor=white" /></p>
-  </li>
-  <li>
-    <p><b>Team Collaboration Tool</b>  <br />
-<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white" /> <img src="https://img.shields.io/badge/notion-0052CC?style=for-the-badge&amp;logo=notion&amp;logoColor=white" /> <img src="https://img.shields.io/badge/slack-D24939?style=for-the-badge&amp;logo=slack&amp;logoColor=white" /> <img src="https://img.shields.io/badge/zoom-2496ED?style=for-the-badge&amp;logo=zoom&amp;logoColor=white" /></p>
-  </li>
-</ul>
+<h2 id="bufferedreader">BufferedReader</h2>
+<p><code class="language-plaintext highlighter-rouge">readLine</code>: 입력으로 들어온 데이터를 한 줄로 읽어서 String으로 바꿔주는 메소드<br />
+<code class="language-plaintext highlighter-rouge">close</code>: 입력 스트림을 닫고 사용하던 자원을 해제</p>
 
-<h2 id="프로젝트의-흐름">프로젝트의 흐름</h2>
-<p>이 프로젝트의 기본 흐름은 이러하다.</p>
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">react</code>(클라이언트)로부터 사용자의 요청이 들어오면,</li>
-  <li><code class="language-plaintext highlighter-rouge">nginx</code>(proxy 서버)가 클라이언트와 서버 사이에서 대리로 통신을 수행해준다.</li>
-  <li><code class="language-plaintext highlighter-rouge">django</code>나 <code class="language-plaintext highlighter-rouge">flask</code>는 python으로 쓰여진 web application이기 때문에 <code class="language-plaintext highlighter-rouge">gunicorn</code>과 같은 wsgi 서버를 통해 forwarding해주게 되고,</li>
-  <li>사용자의 요청에 따라
-    <ul>
-      <li>단순한 페이지 조회 요청이 들어오면 <code class="language-plaintext highlighter-rouge">django</code> api 서버로 연결되어 필요한 정보들을 <code class="language-plaintext highlighter-rouge">mysql</code> 데이터베이스에서 조회해 보여주고,</li>
-      <li>음성 합성 요청이 들어오게 되면 <code class="language-plaintext highlighter-rouge">flask</code> model 서버가 필요한 모델 파일들로 음성 파일을 합성하여 <code class="language-plaintext highlighter-rouge">google cloud storage</code>로 올린다.</li>
-    </ul>
-  </li>
-  <li>앞선 백엔드단의 작업이 완료되면, client는 원하는 멤버의 프로필 정보를 확인하거나, 원하는 문장을 원하는 멤버의 목소리로 들어볼 수 있게 된다.</li>
-  <li>마지막으로, 개발환경의 통합과 신속한 배포를 위해 <code class="language-plaintext highlighter-rouge">docker</code>로 컨테이너화하여 개발을 진행하였다.</li>
-</ol>
+<p>보통 readLine()으로 읽고 StringTokenizer나 split()울 통해 값을 배열 등등에 넣는다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-<p>이 일련의 과정들을 수행함에 있어서, 사용자의 요청이 많은 상황에 대비하여 몇몇 ‘장치’들을 추가했는데…</p>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
 
-<h2 id="서버의-분리와-비동기처리">서버의 분리와 비동기처리</h2>
-<ul>
-  <li>
-    <h3 id="서버의-분리">서버의 분리</h3>
-    <p><img src="/assets/images/Team_ForV/3-1.png" alt="image" width="50%" height="50%" /><br /></p>
-  </li>
-</ul>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+		<span class="c1">// BufferedReader를 사용하기 위해서는 throws IOException을 해 주어야 함.</span>
+		<span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-<p>아키텍처에서 볼 수 있듯이, 기능별로 서버를 분리했다. <br />
-이렇게 서버를 분리하여 운영할 시 model 서버가 다운되도 api 서버는 동작하듯이, 한 기능을 못 쓰게 되더라도 전체 서비스가 죽는 것은 방지할 수 있다.<br /></p>
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">];</span>
 
-<p><code class="language-plaintext highlighter-rouge">django</code>는 자체 ORM을 내장하여 다양한 데이터베이스에 유연하게 액세스할 수 있다. <br />
-따라서, 데이터베이스와 연결되는 모든 작업들은 <code class="language-plaintext highlighter-rouge">django</code>가 api server로써 동작하도록 만들었고, <br />
-<code class="language-plaintext highlighter-rouge">flask</code>는 비교적 가벼워서 음성 합성 작업만 전담하는 model sever로 선택했다.</p>
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="o">}</span>
 
-<ul>
-  <li>
-    <h3 id="message-queue와-worker를-이용한-비동기처리">Message Queue와 Worker를 이용한 비동기처리</h3>
-    <p><img src="/assets/images/Team_ForV/3-2.png" alt="image" width="50%" height="50%" /><br /></p>
-  </li>
-</ul>
+		<span class="n">br</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">python</code> 서버는 사용자의 요청이 수행되는 동안 또다른 요청이 들어올 시에 앞선 요청이 수행될 때까지 대기하고 있게 된다. 이는 다중 사용자가 서비스를 이용하기에 매우 안 좋은 환경이다.</p>
+<h2 id="bufferedwriter">BufferedWriter</h2>
+<p><code class="language-plaintext highlighter-rouge">write</code>: 출력할 내용을 버퍼에 담음<br />
+<code class="language-plaintext highlighter-rouge">flush</code>: 버퍼를 비워내는 동시에 콘솔에 출력<br />
+<code class="language-plaintext highlighter-rouge">close</code>: 출력 스트림을 닫고 사용하던 자원을 해제</p>
 
-<p>따라서, <code class="language-plaintext highlighter-rouge">rabbitMQ</code>와 <code class="language-plaintext highlighter-rouge">celery</code>를 이용하여 비동기처리를 하도록 만들었다. <br />
-사용자의 요청을 task화하여 <code class="language-plaintext highlighter-rouge">celery</code>에게 전달하고, <br />
-<code class="language-plaintext highlighter-rouge">celery</code> worker가 그 작업을 비동기적으로 수행하게끔하여, 서버가 여러가지 일을 수행할 수 있도록하였다!</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStreamWriter</span><span class="o">;</span>
 
-<h2 id="다음-글-소개">다음 글 소개</h2>
-<p>단순히 Frontend와 Backend를 넘어 Proxy Server, WSGI, Bucket, Docker, AWS … 등등 많은 기술들이 등장했다. <br />
-앞으로의 글에서는 앞서 언급한 기술들에 대해 하나씩 정리하고자 한다.</p>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
 
-<p>먼저, <code class="language-plaintext highlighter-rouge">python</code> 기반의 Backend framework에서의 work flow를 살펴보자!</p>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+		<span class="c1">// BufferedWriter를 사용하기 위해서는 throws IOException을 해 주어야 함.</span>
+		<span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
+		<span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">"Hello World"</span><span class="o">);</span>
+		<span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+		<span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span> 
+	<span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Team_ForV</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Java Coding Test</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/team_forv/Team_ForV02/" class="pagination--pager" title="[Team_ForV] 프로젝트 소개
+      <a href="/java%20lang/Chap28/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 28 - 메소드 참조와 Optional
 ">이전</a>
     
     
-      <a href="/team_forv/Team_ForV04/" class="pagination--pager" title="[Team_ForV] Python Web Framework
+      <a href="/boj/10798/" class="pagination--pager" title="[10798] 새로읽기
 ">다음</a>
     
   </nav>
@@ -935,18 +903,6 @@
 
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
   	
   	
   	
@@ -954,14 +910,8 @@
   	
 
 
-  <nav class="pagination_prev_next">
-    
-      <a href="/team_forv/Team_ForV02/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[Team_ForV] 프로젝트 소개</a>
-    
-    
-      <a href="/team_forv/Team_ForV04/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[Team_ForV] Python Web Framework</a>
-    
-  </nav>
+  <a href="#" class="pagination_prev_next--pager disabled-first-child">첫 번째 글입니다</a>
+  <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
 
 
 <!--
@@ -992,11 +942,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BTeam_ForV%5D+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98+%EB%B0%8F+%EA%B8%B0%EC%88%A0%EC%8A%A4%ED%83%9D+%EC%86%8C%EA%B0%9C%20http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV03%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9E%90%EB%B0%94+%EC%BD%94%ED%85%8C%5D+%EC%9E%85%EC%B6%9C%EB%A0%A5+%EB%B0%A9%EB%B2%95+%EC%A0%95%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520coding%2520test%2FIO%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV03%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520coding%2520test%2FIO%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fteam_forv%2FTeam_ForV03%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520coding%2520test%2FIO%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -1048,30 +998,6 @@
         
         <span class="page__taxonomy">
             <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/java%20coding%20test/IO/">[자바 코테] 입출력 방법 정리</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.03.10
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#java-coding-test" class="page__taxonomy-item-category" rel="tag">Java Coding Test</a>
                     
                     
                     <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
@@ -1235,6 +1161,30 @@
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.01.08
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap22/">[윤성우의 열혈 Java 프로그래밍] Chapter 22 - 제네릭(Generics) 2</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.01.07
               <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
         

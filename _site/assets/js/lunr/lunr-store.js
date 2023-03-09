@@ -293,6 +293,12 @@ var store = [{
         "url": "/java%20lang/Chap28/",
         "teaser": null
       },{
+        "title": "[자바 코테] 입출력 방법 정리",
+        "excerpt":"왜 사용하는가? Scanner나 println 메소드보다 속도가 월등히 빠르다..! BufferedReader readLine: 입력으로 들어온 데이터를 한 줄로 읽어서 String으로 바꿔주는 메소드 close: 입력 스트림을 닫고 사용하던 자원을 해제 보통 readLine()으로 읽고 StringTokenizer나 split()울 통해 값을 배열 등등에 넣는다. import java.io.BufferedReader; import java.io.IOException; import java.io.InputStreamReader; import java.util.StringTokenizer; public class Main { public static...","categories": ["Java Coding Test"],
+        "tags": ["java"],
+        "url": "/java%20coding%20test/IO/",
+        "teaser": null
+      },{
         "title": "[10798] 새로읽기",
         "excerpt":"[Bronze I] 세로읽기 - 10798 문제 링크 성능 요약 메모리: 14280 KB, 시간: 164 ms 분류 구현(implementation), 문자열(string) 문제 설명 아직 글을 모르는 영석이가 벽에 걸린 칠판에 자석이 붙어있는 글자들을 붙이는 장난감을 가지고 놀고 있다. 이 장난감에 있는 글자들은 영어 대문자 ‘A’부터 ‘Z’, 영어 소문자 ‘a’부터 ‘z’, 숫자 ‘0’부터 ‘9’이다....","categories": ["BOJ"],
         "tags": ["java"],

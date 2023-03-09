@@ -28,6 +28,13 @@
         <span class="nav__sub-title">Coding Test</span>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "Java Coding Test" %}
+                        <li><a href="/categories/java-coding-test" class="">자바 코테용 문법정리 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                     {% if category[0] == "This is coding test" %}
                         <li><a href="/categories/this-is-coding-test" class="">이것이 코딩테스트다 ({{category[1].size}})</a></li>
                     {% endif %}
