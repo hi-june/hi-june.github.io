@@ -294,7 +294,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[자바 코테] 입출력 방법 정리",
-        "excerpt":"왜 사용하는가? Scanner나 println 메소드보다 속도가 월등히 빠르다..! BufferedReader readLine: 입력으로 들어온 데이터를 한 줄로 읽어서 String으로 바꿔주는 메소드 close: 입력 스트림을 닫고 사용하던 자원을 해제 보통 readLine()으로 읽고 StringTokenizer나 split()울 통해 값을 배열 등등에 넣는다. import java.io.BufferedReader; import java.io.IOException; import java.io.InputStreamReader; import java.util.StringTokenizer; public class Main { public static...","categories": ["Java Coding Test"],
+        "excerpt":"왜 사용하는가? Scanner나 println 메소드보다 속도가 월등히 빠르다…! BufferedReader readLine: 입력으로 들어온 데이터를 한 줄로 읽어서 String으로 바꿔주는 메소드 close: 입력 스트림을 닫고 사용하던 자원을 해제 보통 readLine()으로 읽고 StringTokenizer나 split()울 통해 값을 배열 등등에 넣는다. import java.io.BufferedReader; import java.io.IOException; import java.io.InputStreamReader; import java.util.StringTokenizer; public class Main { public static...","categories": ["Java Coding Test"],
         "tags": ["java"],
         "url": "/java%20coding%20test/IO/",
         "teaser": null
