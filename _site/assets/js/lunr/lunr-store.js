@@ -322,4 +322,10 @@ var store = [{
         "tags": ["java"],
         "url": "/boj/9506/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 29 - 스트림 1",
+        "excerpt":"29-1. 스트림의 이해와 스트림의 생성 - 스트림(Stream)의 이해 배열 또는 컬렉션 인스턴스에 저장된 데이터를 꺼내서 파이프에 흘려보낸다. 파이프에 흘려보내는 데이터의 흐름을 가리켜 ‘스트림’이라 한다. 그리고 데이터를 흘려보낼 파이프(연산)의 종류는 다음 두 가지로 나뉜다. 중간 연산(Intermediate Operation): 마지막이 아닌 위치에서 진행 되어야 하는 연산 최종 연산(Terminal Operation): 마지막에 진행이 되어야 하는...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap29/",
+        "teaser": null
       }]
