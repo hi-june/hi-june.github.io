@@ -310,4 +310,16 @@ var store = [{
         "tags": ["java"],
         "url": "/boj/2750/",
         "teaser": null
+      },{
+        "title": "[2609] 최대공약수와 최소공배수",
+        "excerpt":"[Bronze I] 최대공약수와 최소공배수 - 2609 문제 링크 성능 요약 메모리: 16212 KB, 시간: 152 ms 분류 유클리드 호제법(euclidean), 수학(math), 정수론(number_theory) 문제 설명 두 개의 자연수를 입력받아 최대 공약수와 최소 공배수를 출력하는 프로그램을 작성하시오. 입력 첫째 줄에는 두 개의 자연수가 주어진다. 이 둘은 10,000이하의 자연수이며 사이에 한 칸의 공백이 주어진다....","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/2609/",
+        "teaser": null
+      },{
+        "title": "[9506] 약수들의 합",
+        "excerpt":"[Bronze I] 약수들의 합 - 9506 문제 링크 성능 요약 메모리: 16512 KB, 시간: 176 ms 분류 구현(implementation), 수학(math), 정수론(number_theory) 문제 설명 어떤 숫자 n이 자신을 제외한 모든 약수들의 합과 같으면, 그 수를 완전수라고 한다. 예를 들어 6은 6 = 1 + 2 + 3 으로 완전수이다. n이 완전수인지 아닌지...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/9506/",
+        "teaser": null
       }]

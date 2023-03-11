@@ -1,4 +1,174 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-10T15:49:39+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[2750] 수 정렬하기</title><link href="http://localhost:4000/boj/2750/" rel="alternate" type="text/html" title="[2750] 수 정렬하기" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>http://localhost:4000/boj/2750</id><content type="html" xml:base="http://localhost:4000/boj/2750/"><![CDATA[<h2 id="bronze-ii-수-정렬하기---2750">[Bronze II] 수 정렬하기 - 2750</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-11T20:19:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[9506] 약수들의 합</title><link href="http://localhost:4000/boj/9506/" rel="alternate" type="text/html" title="[9506] 약수들의 합" /><published>2023-03-11T00:00:00+09:00</published><updated>2023-03-11T00:00:00+09:00</updated><id>http://localhost:4000/boj/9506</id><content type="html" xml:base="http://localhost:4000/boj/9506/"><![CDATA[<h2 id="bronze-i-약수들의-합---9506">[Bronze I] 약수들의 합 - 9506</h2>
+
+<p><a href="https://www.acmicpc.net/problem/9506">문제 링크</a></p>
+
+<h3 id="성능-요약">성능 요약</h3>
+
+<p>메모리: 16512 KB, 시간: 176 ms</p>
+
+<h3 id="분류">분류</h3>
+
+<p>구현(implementation), 수학(math), 정수론(number_theory)</p>
+
+<h3 id="문제-설명">문제 설명</h3>
+
+<p>어떤 숫자 n이 자신을 제외한 모든 약수들의 합과 같으면, <span style="line-height:1.6em">그 수를 완전수라고 한다. </span></p>
+
+<p>예를 들어 6은 6 = 1 + 2 + 3 으로 완전수이다.</p>
+
+<p>n이 완전수인지 아닌지 판단해주는 프로그램을 작성하라.</p>
+
+<h3 id="입력">입력</h3>
+
+<p>입력은 테스트 케이스마다 한 줄 간격으로 n이 주어진다. (2 &lt; n &lt; 100,000)</p>
+
+<p>입력의 마지막엔 -1이 주어진다.</p>
+
+<h3 id="출력">출력</h3>
+
+<p>테스트케이스 마다 한줄에 하나씩 출력해야 한다.</p>
+
+<p>n이 완전수라면, n을 n이 아닌 약수들의 합으로 나타내어 출력한다(예제 출력 참고).</p>
+
+<p>이때, 약수들은 오름차순으로 나열해야 한다.</p>
+
+<p>n이 완전수가 아니라면 n is NOT perfect. 를 출력한다.</p>
+
+<h2 id="아이디어">아이디어</h2>
+<ul>
+  <li>
+    <p>구현 방법
+  각 숫자들의 약수들을 담은 리스트를 만들어<br />
+  stream api를 활용하여 총 합을 구한 뒤<br />
+  완전수 여부에 따라 결과를 출력한다.</p>
+  </li>
+  <li>
+    <p>약수를 구하는 방법</p>
+    <ul>
+      <li>1부터 n까지 for문으로 하나씩 증가시키면서 나누어 떨어지는지 검사한다.</li>
+      <li>loop의 수를 줄이기 위해 제곱근을 구하는 Math.sqrt()를 사용하였다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="답안코드">답안코드</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
+
+        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
+            
+            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span> <span class="c1">// 약수들을 담을 리스트</span>
+
+            <span class="kt">int</span> <span class="n">sqrt</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>   <span class="c1">// 제곱수</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">sqrt</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>    <span class="c1">// 약수 중 작은 수</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">/</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// 제곱근 두 번 추가 방지</span>
+                        <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">n</span> <span class="o">/</span> <span class="n">i</span><span class="o">);</span>    <span class="c1">// 약수 중 큰 수</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span> <span class="c1">// 약수 모음 오름차순 정렬</span>
+            <span class="n">nums</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>   <span class="c1">// 맨 마지막 수(자기 자신) 제거</span>
+
+            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">mapToInt</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">.</span><span class="na">intValue</span><span class="o">()).</span><span class="na">sum</span><span class="o">();</span>  <span class="c1">// 자기 자신을 제외한 약수들의 총 합</span>
+            
+            <span class="nc">String</span> <span class="n">result</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">sum</span> <span class="o">==</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">String</span> <span class="n">sumString</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>    <span class="c1">// Stream&lt;Integer&gt;</span>
+                    <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span> <span class="c1">// Stream&lt;String&gt;</span>
+                    <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">" + "</span><span class="o">));</span>    <span class="c1">// "1 + 2 + 3"</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">sumString</span> <span class="o">+</span> <span class="s">"\n"</span><span class="o">;</span>
+                <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="s">" is NOT perfect.\n"</span><span class="o">;</span>
+                <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2609] 최대공약수와 최소공배수</title><link href="http://localhost:4000/boj/2609/" rel="alternate" type="text/html" title="[2609] 최대공약수와 최소공배수" /><published>2023-03-11T00:00:00+09:00</published><updated>2023-03-11T00:00:00+09:00</updated><id>http://localhost:4000/boj/2609</id><content type="html" xml:base="http://localhost:4000/boj/2609/"><![CDATA[<h2 id="bronze-i-최대공약수와-최소공배수---2609">[Bronze I] 최대공약수와 최소공배수 - 2609</h2>
+
+<p><a href="https://www.acmicpc.net/problem/2609">문제 링크</a></p>
+
+<h3 id="성능-요약">성능 요약</h3>
+
+<p>메모리: 16212 KB, 시간: 152 ms</p>
+
+<h3 id="분류">분류</h3>
+
+<p>유클리드 호제법(euclidean), 수학(math), 정수론(number_theory)</p>
+
+<h3 id="문제-설명">문제 설명</h3>
+
+<p>두 개의 자연수를 입력받아 최대 공약수와 최소 공배수를 출력하는 프로그램을 작성하시오.</p>
+
+<h3 id="입력">입력</h3>
+
+<p>첫째 줄에는 두 개의 자연수가 주어진다. 이 둘은 10,000이하의 자연수이며 사이에 한 칸의 공백이 주어진다.</p>
+
+<h3 id="출력">출력</h3>
+
+<p>첫째 줄에는 입력으로 주어진 두 수의 최대공약수를, 둘째 줄에는 입력으로 주어진 두 수의 최소 공배수를 출력한다.</p>
+
+<h2 id="아이디어">아이디어</h2>
+<ul>
+  <li>최대공약수 구하기
+    <ul>
+      <li>i를 1부터 n까지 for문을 이용하여 1씩 증가시키며 나누어 떨어지는지 검사한다.</li>
+      <li>loop의 수를 줄이기 위해 두 숫자 중 더 작은 숫자를 넘기 전까지만 수행한다.(최대공약수는 작은 수보다 더 클 수 없음)</li>
+    </ul>
+  </li>
+  <li>최소공배수
+    <ul>
+      <li>두 수의 곱 나누기 최대공약수</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="답안코드">답안코드</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="c1">// 최대공약수: 약수들끼리 겹치는 수</span>
+        <span class="c1">// 최소공배수: 두 수의 곱 / 최대공약수</span>
+
+        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
+
+        <span class="nc">String</span> <span class="n">input</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+        <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">input</span><span class="o">);</span>
+        
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+
+        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>    <span class="c1">// 최대공약수</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">max</span><span class="o">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        
+        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="o">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="o">)</span> <span class="o">/</span> <span class="n">max</span><span class="o">;</span>    <span class="c1">// 최소 공배수</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">max</span> <span class="o">+</span> <span class="s">"\n"</span> <span class="o">+</span> <span class="n">min</span><span class="o">);</span>
+
+        <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2750] 수 정렬하기</title><link href="http://localhost:4000/boj/2750/" rel="alternate" type="text/html" title="[2750] 수 정렬하기" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>http://localhost:4000/boj/2750</id><content type="html" xml:base="http://localhost:4000/boj/2750/"><![CDATA[<h2 id="bronze-ii-수-정렬하기---2750">[Bronze II] 수 정렬하기 - 2750</h2>
 
 <p><a href="https://www.acmicpc.net/problem/2750">문제 링크</a></p>
 
@@ -1642,1013 +1812,4 @@ Person.MAN에 Animal.DOG이 전달되더라도 컴파일 단계에서 오류가 
 
 <p>그리고 다음과 같이 동시에 여러 경고 유형에 대해 @SuppressWarnings 선언을 할 수도 있다.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SuppressWarnings</span><span class="o">({</span><span class="s">"fallthrough"</span><span class="o">,</span> <span class="s">"deprecation"</span><span class="o">})</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[이것이 코딩 테스트다] 그리디</title><link href="http://localhost:4000/this%20is%20coding%20test/greedy/" rel="alternate" type="text/html" title="[이것이 코딩 테스트다] 그리디" /><published>2023-03-04T00:00:00+09:00</published><updated>2023-03-04T00:00:00+09:00</updated><id>http://localhost:4000/this%20is%20coding%20test/greedy</id><content type="html" xml:base="http://localhost:4000/this%20is%20coding%20test/greedy/"><![CDATA[<h2 id="거스름돈">거스름돈</h2>]]></content><author><name>hi~ June!!</name></author><category term="This is coding test" /><category term="coding test" /><summary type="html"><![CDATA[현재 상황에서 가장 좋아 보이는 것만을 선택하는 알고리즘]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 24 - 컬렉션 프레임워크 2</title><link href="http://localhost:4000/java%20lang/Chap24/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 24 - 컬렉션 프레임워크 2" /><published>2023-02-16T00:00:00+09:00</published><updated>2023-02-17T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap24</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap24/"><![CDATA[<h2 id="24-1-컬렉션-기반-알고리즘">24-1. 컬렉션 기반 알고리즘</h2>
-<p><code class="language-plaintext highlighter-rouge">Collections</code>에 정의된 <code class="language-plaintext highlighter-rouge">static</code> 메소드를 사용하는 것은 간단하다.<br />
-하지만, 제네릭과 와일드카드 기반으로 정의된 메소드의 의미를 해석하는 것은 간단하지 않다.</p>
-
-<h3 id="--정렬">- 정렬</h3>
-<p><code class="language-plaintext highlighter-rouge">sort</code> 메소드의 모습은 다음과 같다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
-인자로 List&lt;T&gt;의 인스턴스는 모두 전달 가능
-단, T는 Comparable&lt;? extends T&gt; 인터페이스를 구현한 상태이어야 한다.
-*/</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Comparable</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;&gt;</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">)</span>
-</code></pre></div></div>
-
-<p><img src="/assets/images/java-lang/24-1.png" alt="image" /><br /></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Car</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">Car</span><span class="o">&gt;</span> <span class="o">{</span>
-   <span class="kd">protected</span> <span class="kt">int</span> <span class="n">disp</span><span class="o">;</span> <span class="c1">// 배기량</span>
-
-   <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="kt">int</span> <span class="n">disp</span><span class="o">)</span> <span class="o">{</span>
-       <span class="k">this</span><span class="o">.</span><span class="na">disp</span> <span class="o">=</span> <span class="n">disp</span><span class="o">;</span>
-   <span class="o">}</span>
-
-   <span class="nd">@Override</span>
-   <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-       <span class="k">return</span> <span class="s">"cc: "</span> <span class="o">+</span> <span class="n">disp</span><span class="o">;</span>
-   <span class="o">}</span>
-
-   <span class="nd">@Override</span>
-   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">Car</span> <span class="n">car</span><span class="o">)</span> <span class="o">{</span>
-       <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">disp</span> <span class="o">-</span> <span class="n">car</span><span class="o">.</span><span class="na">disp</span><span class="o">;</span>
-   <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">ECar</span> <span class="kd">extends</span> <span class="nc">Car</span> <span class="o">{</span>
-   <span class="kd">private</span> <span class="kt">int</span> <span class="n">battery</span><span class="o">;</span>    <span class="c1">// 배기량</span>
-
-   <span class="kd">public</span> <span class="nf">ECar</span><span class="o">(</span><span class="kt">int</span> <span class="n">disp</span><span class="o">,</span> <span class="kt">int</span> <span class="n">battery</span><span class="o">)</span> <span class="o">{</span>
-       <span class="kd">super</span><span class="o">(</span><span class="n">disp</span><span class="o">);</span>
-       <span class="k">this</span><span class="o">.</span><span class="na">battery</span> <span class="o">=</span> <span class="n">battery</span><span class="o">;</span>
-   <span class="o">}</span>
-
-   <span class="nd">@Override</span>
-   <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-       <span class="k">return</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"cc: %s, ba: %s"</span><span class="o">,</span> <span class="n">disp</span><span class="o">,</span> <span class="n">battery</span><span class="o">);</span>
-   <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarSortCollections</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ECar</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ECar</span><span class="o">(</span><span class="mi">1200</span><span class="o">,</span> <span class="mi">99</span><span class="o">));</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ECar</span><span class="o">(</span><span class="mi">3000</span><span class="o">,</span> <span class="mi">55</span><span class="o">));</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ECar</span><span class="o">(</span><span class="mi">1800</span><span class="o">,</span> <span class="mi">87</span><span class="o">));</span>
-
-        <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="nc">Iterator</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">itr</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">itr</span><span class="o">.</span><span class="na">next</span><span class="o">());</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--정렬-comparatort-기반">- 정렬: Comparator&lt;T&gt; 기반</h3>
-<p><code class="language-plaintext highlighter-rouge">sort</code> 메소드 중 호출 시 정렬의 기준을 결정할 수 있는 형태로 정의된 메소드도 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">,,</span> <span class="nc">Comparator</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">c</span><span class="o">)</span>
-</code></pre></div></div>
-
-<p><img src="/assets/images/java-lang/24-2.png" alt="image" /><br /></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Car</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">Car</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kd">protected</span> <span class="kt">int</span> <span class="n">disp</span><span class="o">;</span> <span class="c1">// 배기량</span>
-
-    <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="kt">int</span> <span class="n">disp</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">disp</span> <span class="o">=</span> <span class="n">disp</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"cc: "</span> <span class="o">+</span> <span class="n">disp</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">Car</span> <span class="n">car</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">disp</span> <span class="o">-</span> <span class="n">car</span><span class="o">.</span><span class="na">disp</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">ECar</span> <span class="kd">extends</span> <span class="nc">Car</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">battery</span><span class="o">;</span>    <span class="c1">// 배기량</span>
-
-    <span class="kd">public</span> <span class="nf">ECar</span><span class="o">(</span><span class="kt">int</span> <span class="n">disp</span><span class="o">,</span> <span class="kt">int</span> <span class="n">battery</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">disp</span><span class="o">);</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">battery</span> <span class="o">=</span> <span class="n">battery</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"cc: %s, ba: %s"</span><span class="o">,</span> <span class="n">disp</span><span class="o">,</span> <span class="n">battery</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">CarComp</span> <span class="kd">implements</span> <span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">Car</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">Car</span> <span class="n">car1</span><span class="o">,</span> <span class="nc">Car</span> <span class="n">car2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">car1</span><span class="o">.</span><span class="na">disp</span> <span class="o">-</span> <span class="n">car2</span><span class="o">.</span><span class="na">disp</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarComparator</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Car</span><span class="o">&gt;</span> <span class="n">cars</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="mi">1800</span><span class="o">));</span>
-        <span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="mi">1200</span><span class="o">));</span>
-        <span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="mi">3000</span><span class="o">));</span>
-
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ECar</span><span class="o">&gt;</span> <span class="n">eCars</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">eCars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ECar</span><span class="o">(</span><span class="mi">3000</span><span class="o">,</span> <span class="mi">55</span><span class="o">));</span>
-        <span class="n">eCars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ECar</span><span class="o">(</span><span class="mi">1800</span><span class="o">,</span> <span class="mi">87</span><span class="o">));</span>
-        <span class="n">eCars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ECar</span><span class="o">(</span><span class="mi">1200</span><span class="o">,</span> <span class="mi">99</span><span class="o">));</span>
-
-        <span class="nc">CarComp</span> <span class="n">comp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CarComp</span><span class="o">();</span>
-
-        <span class="c1">// 각각 정렬</span>
-        <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">cars</span><span class="o">,</span> <span class="n">comp</span><span class="o">);</span>
-        <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">eCars</span><span class="o">,</span> <span class="n">comp</span><span class="o">);</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="nc">Car</span> <span class="n">car</span> <span class="o">:</span> <span class="n">cars</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">car</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">ECar</span> <span class="n">eCar</span> <span class="o">:</span> <span class="n">eCars</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">eCar</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--찾기">- 찾기</h3>
-<p>정렬된 리스트를 대상으로 특정 인스턴스를 찾을 때 사용할 수 있는 메소드가 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// list에서 key를 찾아 그 인덱스 값 반호나, 못 찾으면 음의 정수 반환</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Comparable</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="no">T</span> <span class="n">key</span><span class="o">)</span>
-</code></pre></div></div>
-
-<p><img src="/assets/images/java-lang/24-3.png" alt="image" /><br /></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Car</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">Car</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kd">protected</span> <span class="kt">int</span> <span class="n">disp</span><span class="o">;</span> <span class="c1">// 배기량</span>
-
-    <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="kt">int</span> <span class="n">disp</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">disp</span> <span class="o">=</span> <span class="n">disp</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"cc: "</span> <span class="o">+</span> <span class="n">disp</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">Car</span> <span class="n">car</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">disp</span> <span class="o">-</span> <span class="n">car</span><span class="o">.</span><span class="na">disp</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">ECar</span> <span class="kd">extends</span> <span class="nc">Car</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">battery</span><span class="o">;</span>    <span class="c1">// 배기량</span>
-
-    <span class="kd">public</span> <span class="nf">ECar</span><span class="o">(</span><span class="kt">int</span> <span class="n">disp</span><span class="o">,</span> <span class="kt">int</span> <span class="n">battery</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">disp</span><span class="o">);</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">battery</span> <span class="o">=</span> <span class="n">battery</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"cc: %s, ba: %s"</span><span class="o">,</span> <span class="n">disp</span><span class="o">,</span> <span class="n">battery</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarBinarySearch</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ECar</span><span class="o">&gt;</span> <span class="n">eCars</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">eCars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ECar</span><span class="o">(</span><span class="mi">3000</span><span class="o">,</span> <span class="mi">55</span><span class="o">));</span>
-        <span class="n">eCars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ECar</span><span class="o">(</span><span class="mi">1800</span><span class="o">,</span> <span class="mi">87</span><span class="o">));</span>
-        <span class="n">eCars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ECar</span><span class="o">(</span><span class="mi">1200</span><span class="o">,</span> <span class="mi">99</span><span class="o">));</span>
-
-        <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">eCars</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">binarySearch</span><span class="o">(</span><span class="n">eCars</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ECar</span><span class="o">(</span><span class="mi">1800</span><span class="o">,</span> <span class="mi">87</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">eCars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">idx</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--찾기-comparatort-기반">- 찾기: Comparator&lt;T&gt; 기반</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// list에서 key를 찾는데 c의 기준을 적용하여 찾는다.</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="no">T</span> <span class="n">key</span><span class="o">,</span> <span class="nc">Comparator</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">c</span><span class="o">)</span>
-</code></pre></div></div>
-
-<p><img src="/assets/images/java-lang/24-4.png" alt="image" /><br /></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">StrComp</span> <span class="kd">implements</span> <span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">String</span> <span class="n">s1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">s1</span><span class="o">.</span><span class="na">compareToIgnoreCase</span><span class="o">(</span><span class="n">s2</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringComparator</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Robot"</span><span class="o">,</span> <span class="s">"Apple"</span><span class="o">,</span> <span class="s">"Box"</span><span class="o">);</span>
-
-        <span class="nc">StrComp</span> <span class="n">comp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StrComp</span><span class="o">();</span>   <span class="c1">// 정렬과 탐색의 기준</span>
-
-        <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">comp</span><span class="o">);</span>   <span class="c1">// 정렬</span>
-
-        <span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">binarySearch</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="s">"Robot"</span><span class="o">,</span> <span class="n">comp</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">idx</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--복사">- 복사</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// src의 내용을 dest로 복사</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">copy</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">dest</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">src</span><span class="o">)</span>
-</code></pre></div></div>
-
-<p><img src="/assets/images/java-lang/24-5.png" alt="image" /><br /></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CopyList</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">src</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Apple"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">,</span> <span class="s">"Robot"</span><span class="o">);</span>
-
-        <span class="cm">/**
-         주의!
-         매개변수 dest에 전달되는 컬렉션 인스턴스의 저장 공간이 src에 전달되는 컬렉션 인스턴스의 저장공간보다 크거나 최소한 같아야 한다!
-         */</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">dest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">src</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">dest</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="nc">Collections</span><span class="o">.</span><span class="na">copy</span><span class="o">(</span><span class="n">dest</span><span class="o">,</span><span class="n">src</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">src</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dest</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1</title><link href="http://localhost:4000/java%20lang/Chap23/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 23 - 컬렉션 프레임워크 1" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-02-14T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap23</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap23/"><![CDATA[<h2 id="23-1-컬렉션-프레임워크의-이해">23-1. 컬렉션 프레임워크의 이해</h2>
-<blockquote>
-  <p>인스턴스의 저장과 삭제, 참조에 대한 문법</p>
-</blockquote>
-
-<h3 id="--프레임워크라는-표현의-이해">- <u>'프레임워크'라는 표현의 이해</u></h3>
-<p>자바에서 말하는 프레임워크는 다음과 같이 이해할 수 있다.</p>
-<blockquote>
-  <p>잘 정의된 구조의 클래스들</p>
-</blockquote>
-
-<p>즉, 프로그래머들이 쓸 수 있도록 잘 정의된 클래스들의 모임이라 할 수 있다.<br />
-다만, 컬렉션 관련된 클래스의 정의에 적용되는 설계 원칙 또는 구조가 존재하기 때문에<br />
-단순히 ‘컬렉션 라이브러리’라 하지 않고, ‘컬렉션 프레임워크’라고 한다.</p>
-
-<h3 id="--컬렉션의-의미와-자료구조">- <u>컬렉션의 의미와 자료구조</u></h3>
-<p>컬렉션 프레임워크는 데이터의 저장 방법, 그리고 이와 관련있는 알고리즘에 대한 프레임워크이다.<br />
-즉, 자료구조와 알고리즘을 제네릭 기반의 클래스와 메소드로 미리 구현해 놓은 결과물이라 할 수 있다.<br />
-따라서 컬렉션 프레임워크를 이용하면 자료구조를 몰라도 트리 기반으로 데이터를 저장할 수 있고,<br />
-알고리즘을 몰라도 이진 탐색을 수행할 수 있는 것이다.</p>
-
-<h3 id="--컬렉션-프레임워크의-기본-골격">- <u>컬렉션 프레임워크의 기본 골격</u></h3>
-<p><img src="/assets/images/java-lang/23-5.jpg" alt="image" /><br /></p>
-
-<p>컬렉션 클래스들이 구현하는 인터페이스들의 상속 관계를 보여주고 있다.<br />
-인스턴스를 저장하는 컬렉션 클래스들은 위의 인터페이스 중 하나를 구현하게 되어 있으며, 구현한 인터페이스에 따라서 컬렉션 클래스의 데이터 저장 방식이 결정된다.</p>
-
-<h2 id="23-2-list-인터페이스를-구현하는-컬렉션-클래스들">23-2. List<E> 인터페이스를 구현하는 컬렉션 클래스들</E></h2>
-<h3 id="--arraylist-linkedlist">- <u>ArrayList, LinkedList</u></h3>
-<p><code class="language-plaintext highlighter-rouge">List</code> 인터페이스를 구현하는 대표적인 컬렉션 클래스 둘은 다음과 같다.</p>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">ArrayList</code>: 배열 기반 자료구조, 배열을 이용하여 인스턴스 저장</li>
-  <li><code class="language-plaintext highlighter-rouge">LinkedList</code>: 리스트 기반 자료구조, 리스트를 구성하여 인스턴스 저장</li>
-</ul>
-
-<p><br /></p>
-
-<p><code class="language-plaintext highlighter-rouge">List</code> 인터페이스를 구현하는 컬렉션 클래스들은 공통적으로 다음 두 가지 특성을 가진다.</p>
-<ol>
-  <li>인스턴스의 저장 순서를 유지한다.</li>
-  <li>동일하 인스턴스의 중복 저장을 허용한다.</li>
-</ol>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListCollection</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">//List&lt;String&gt; list = new LinkedList&lt;&gt;();</span>
-
-        <span class="c1">// 컬렉션 인스턴스에 문자열 인스턴스 저장</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Toy"</span><span class="o">);</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Box"</span><span class="o">);</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Robot"</span><span class="o">);</span>
-
-        <span class="c1">// 저장된 문자열 인스턴스의 참조</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="sc">'\t'</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// 첫 번째 인스턴스 삭제</span>
-
-        <span class="c1">// 첫 번째 인스턴스 삭제 후 나머지 인스턴스들을 참조</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="sc">'\t'</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>코드에 유연성을 제공하기 위해 위와 같이 List형 참조변수를 사용하는 것이 더 적절하다.<br />
-주로 <code class="language-plaintext highlighter-rouge">List</code>에 선언된 메소드를 호출하기 때문에 굳이 <code class="language-plaintext highlighter-rouge">ArrayList</code>형 참조변수를 선언할 필요가 없으며,<br />
-다음과 같이 컬렉션 클래스의 교체가 용이해진다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-    <span class="o">-&gt;</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
-</code></pre></div></div>
-
-<h3 id="--arraylist-vs-linkedlist">- <u>ArrayList vs LinkedList</u></h3>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">ArrayList</code>
-    <ul>
-      <li>장점
-        <ul>
-          <li>저장된 인스턴스의 참조가 빠르다.</li>
-        </ul>
-      </li>
-      <li>단점
-        <ul>
-          <li>저장공간을 늘리는 과정에서 시간이 많이 소요된다.</li>
-          <li>인스턴스의 삭제 연산에서 많은 연산이 필요하다. 따라서 속도가 느리다.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">LinkedList</code>
-    <ul>
-      <li>장점
-        <ul>
-          <li>저장공간을 늘리는 과정이 간단하다.</li>
-          <li>저장된 인스턴스의 삭제 과정이 단순하다.</li>
-        </ul>
-      </li>
-      <li>단점
-        <ul>
-          <li>저장된 인스턴스의 참조과정이 배열에 비해 복잡하다. 따라서 속도가 느리다.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="--저장된-인스턴스의-순차적-접근-방법-1-enhanced-for문의-사용">- <u>저장된 인스턴스의 순차적 접근 방법 1: enhanced for문의 사용</u></h3>
-<p>다음과 같이 enhanced for문을 사용하여 저장된 인스턴스들에 순차적으로 접근이 가능하다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnhancedForCollection</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">//List&lt;String&gt; list = new LinkedList&lt;&gt;();</span>
-
-        <span class="c1">// 컬렉션 인스턴스에 문자열 인스턴스 저장</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Toy"</span><span class="o">);</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Box"</span><span class="o">);</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Robot"</span><span class="o">);</span>
-
-        <span class="c1">// 저장된 문자열 인스턴스의 참조</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span> <span class="o">+</span> <span class="sc">'\t'</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// 첫 번째 인스턴스 삭제</span>
-
-        <span class="c1">// 첫 번째 인스턴스 삭제 후 나머지 인스턴스들을 참조</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span> <span class="o">+</span> <span class="sc">'\t'</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br />
-for-each문을 통한 순차적 접근의 대상이 되려면, 해당 컬렉션 클래스는 다음 인터페이스를 구현해야 한다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Iterable</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span>
-</code></pre></div></div>
-
-<p><code class="language-plaintext highlighter-rouge">Collection</code>이 <code class="language-plaintext highlighter-rouge">Iterable</code>을 상속하기 때문에<br />
-<code class="language-plaintext highlighter-rouge">LinkedList</code>와 <code class="language-plaintext highlighter-rouge">ArrayList</code> 클래스는 for-each문 사용이 가능하다.</p>
-
-<h3 id="--저장된-인스턴스의-순차적-접근-방법-2">- <u>저장된 인스턴스의 순차적 접근 방법 2</u></h3>
-<p><code class="language-plaintext highlighter-rouge">Iterable</code>에는 다음 추상 메소드가 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Iterable</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">()</span>  <span class="c1">// 반복자를 반환하는 메소드</span>
-</code></pre></div></div>
-
-<p>반복자란,<br />
-저장된 인스턴스들을 순차적으로 참조할 때 사용하는 인스턴스로 일종의 ‘지팡이’에 비유할 수 있다.<br />
-그리고 이 반복자를 통해 호출할 수 있는 메소들을은 다음과 같다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">E</span> <span class="nf">next</span><span class="o">()</span>            <span class="c1">// 다음 인스턴스의 참조 값을 반환</span>
-<span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">()</span>   <span class="c1">// next 메소드 호출 시 참조 값 반환 가능 여부 확인</span>
-<span class="kt">void</span> <span class="nf">remove</span><span class="o">()</span>       <span class="c1">// next 메소드 호출을 통해 반환했던 인스턴스 삭제</span>
-</code></pre></div></div>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IteratorCollection</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Toy"</span><span class="o">);</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Box"</span><span class="o">);</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Robot"</span><span class="o">);</span>
-        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Box"</span><span class="o">);</span>
-
-        <span class="nc">Iterator</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="c1">// 반복자 처음 획득</span>
-
-        <span class="c1">// 반복자를 이용한 순차적 참조</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">itr</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">itr</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="n">itr</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>  <span class="c1">// 반복자 다시 획득</span>
-
-        <span class="c1">// 모든 "Box" 삭제</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">itr</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">itr</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"Box"</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">itr</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="n">itr</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="c1">// 반복자 다시 획득</span>
-
-        <span class="c1">// 삭제 후 결과 확인</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">itr</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">itr</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--배열보다는-컬렉션-인스턴스가-좋다--컬렉션-변환">- <u>배열보다는 컬렉션 인스턴스가 좋다. : 컬렉션 변환</u></h3>
-<p>첫 번째로 인스턴스의 저장과 삭제가 편하다.<br />
-두 번째로 ‘반복자’를 쓸 수 있다.</p>
-
-<p>단, 배열처럼 ‘선언과 동시에 초기화’를 할 수 없어서 다음과 같은 방법을 써준다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인자로 전달된 인스턴스들을 저장한 컬렉션 인스턴스의 생성 및 반환</span>
-<span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Toy"</span><span class="o">,</span> <span class="s">"Robot"</span><span class="o">,</span> <span class="s">"Box"</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>하지만 이렇게 생성된 컬렉션 인스턴스는 immutable하다.<br />
-따라서 새로운 인스턴스의 추가나 삭제가 필요한 상황이라면 다음 생성자를 기반으로 ArrayList 인스턴스를 생성해야 한다.</p>
-
-<ul>
-  <li>public ArrayList(Collection&lt;? extends E&gt; c)<br />
-  -&gt; Collection을 구현한 컬렉션 인스턴스를 인자로 전달받는다.<br />
-  -&gt; 그리고 E는 인스턴스 생성 과정에서 결정되므로 무엇이든 될 수 있다.<br />
-  -&gt; 덧붙여서 매개변수 c로 전달된 컬렉션 인스턴스에서는 참조만(꺼내기만) 가능하다.</li>
-</ul>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Toy"</span><span class="o">,</span> <span class="s">"Box"</span><span class="o">,</span> <span class="s">"Robot"</span><span class="o">);</span>
-    <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">list</span><span class="o">);</span>   <span class="c1">// 생성자</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="23-3-set-인터페이스를-구현하는-컬렉션-클래스들">23-3. Set<E> 인터페이스를 구현하는 컬렉션 클래스들</E></h2>
-<h3 id="--set을-구현하는-클래스의-특성과-hashset-클래스">- <u>Set을 구현하는 클래스의 특성과 HashSet 클래스</u></h3>
-<p><code class="language-plaintext highlighter-rouge">Set</code> 인터페이스를 구현하는 제네릭 클래스는 다음 두 가지 특징이 있다.<br />
-1) 저장 순서가 유지되지 않는다.<br />
-2) 데이터의 중복 저장을 허용하지 않는다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Num</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nf">Num</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span> <span class="n">num</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span> <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashSetEqualityOne</span> <span class="o">{</span>
-    <span class="nc">HashSet</span><span class="o">&lt;</span><span class="nc">Num</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
-
-    <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Num</span><span class="o">(</span><span class="mi">7799</span><span class="o">));</span>
-    <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Num</span><span class="o">(</span><span class="mi">9955</span><span class="o">));</span>
-    <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Num</span><span class="o">(</span><span class="mi">7799</span><span class="o">));</span> <span class="c1">// 같은 인스턴스일 것이라고 기대</span>
-
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"인스턴스 수: "</span> <span class="o">+</span> <span class="n">set</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>   <span class="c1">// 3 -&gt; 중복 무시가 안 됨</span>
-
-    <span class="k">for</span> <span class="o">(</span><span class="nc">Num</span> <span class="n">n</span> <span class="o">:</span> <span class="n">set</span><span class="o">)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>같은 인스턴스일 것이라고 기대하고 중복이 제거되어 <code class="language-plaintext highlighter-rouge">Set</code>에 들어갈 것이라 예상했지만, 모든 인스턴스가 들어갔다.<br />
-<code class="language-plaintext highlighter-rouge">HashSet</code>이 판단하는 동일 인스턴스의 기준은 <code class="language-plaintext highlighter-rouge">Object</code> 클래스에 정의되어 있는 다음 두 메소드의 호출 결과를 근거로 한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="nc">Object</span> <span class="n">obj</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">()</span>
-</code></pre></div></div>
-
-<p>두 인스턴스가 <code class="language-plaintext highlighter-rouge">hashCode</code> 메소드 호출 결과로 반환하는 값이 동일해야 한다.<br />
-그리고 이어서 두 인스턴스를 대상으로 <code class="language-plaintext highlighter-rouge">equals</code> 메소드의 호출 결과 true가 반환되면 동일 인스턴스로 간주한다.</p>
-
-<h3 id="--해쉬-알고리즘과-hashcode-메소드">- <u>해쉬 알고리즘과 hashCode 메소드</u></h3>
-<p><code class="language-plaintext highlighter-rouge">Set</code>은 들어오는 데이터가 기존에 있는 데이터인지 검사해야한다.<br />
-모든 데이터와 비교연산을 하기엔 데이터가 많아질 수록 성능적으로 좋지 않기 때문에 데이터들을 어느정도 분류해놓으면 탐색 시간을 획기적으로 줄일 수 있다.</p>
-
-<p><img src="/assets/images/java-lang/23-2.png" alt="image" width="50%" height="50%" /><br /></p>
-
-<p>만약 특정 데이터의 존재 여부를 확인하려면 가장 효율적인 방법은 그 데이터가 속하는 부류를 먼저 찾고, 그 안에서만 비교연산을 하는 것이다.<br />
-이로써 탐색 대상이 줄어들게 된다.</p>
-
-<p>이처럼 <code class="language-plaintext highlighter-rouge">HashSet</code>에서 동일 인스턴스의 존재 여부를 확인하는 것은 다음 두 단계를 거친다.<br />
-1) <code class="language-plaintext highlighter-rouge">Object</code> 클래스에 정의된 <code class="language-plaintext highlighter-rouge">hashCode</code> 메소드의 반환 값을 기반으로 부류 결정<br />
-2) 선택된 부류 내에서 <code class="language-plaintext highlighter-rouge">equals</code> 메소드를 호출하여 동등 비교</p>
-
-<p>다시 돌아와서, 사용자가 직접 정의한 클래스의 인스턴스가 동일한지 기준을 정하기 위해 <code class="language-plaintext highlighter-rouge">hashCode</code>와 <code class="language-plaintext highlighter-rouge">equals</code> 메소드를 오버라이딩하여 정의해보자.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Num</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nf">Num</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">3</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="nc">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">num</span> <span class="o">==</span> <span class="o">((</span><span class="nc">Num</span><span class="o">)</span><span class="n">o</span><span class="o">).</span><span class="na">num</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashSetEqualityTwo</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Num</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
-
-        <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Num</span><span class="o">(</span><span class="mi">4444</span><span class="o">));</span>
-        <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Num</span><span class="o">(</span><span class="mi">5555</span><span class="o">));</span>
-        <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Num</span><span class="o">(</span><span class="mi">4444</span><span class="o">));</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">Num</span><span class="o">&gt;</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">itr</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">itr</span><span class="o">.</span><span class="na">next</span><span class="o">());</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--hashcode-메소드의-다양한-정의">- <u>hashCode 메소드의 다양한 정의</u></h3>
-<p><code class="language-plaintext highlighter-rouge">hashCode</code>를 정의할 땐 데이터들의 특성을 모두 반영하여 작성해야한다.<br />
-즉, 클래스를 정의할 때마다 <code class="language-plaintext highlighter-rouge">hashCode</code>를 정의하는 것은 꽤 번거로운 일이다.<br />
-그래서 자바에서는 다음 메소드를 제공하고 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// java.util.Objects에 정의된 메소드, 전달된 인자 기반의 해쉬 값 반환</span>
-<span class="c1">// java.lang.Object가 아니다. 헷갈리니 주의하자.</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">hash</span><span class="o">(</span><span class="nc">Object</span><span class="o">...</span><span class="na">values</span><span class="o">)</span> 
-</code></pre></div></div>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
-<span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">hash</span><span class="o">(</span><span class="n">model</span><span class="o">,</span> <span class="n">color</span><span class="o">);</span>  <span class="c1">// 전달 인자 model, color 기반 해쉬 값 반환</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--treeset-클래스의-이해와-활용">- <u>TreeSet 클래스의 이해와 활용</u></h3>
-<p><code class="language-plaintext highlighter-rouge">TreeSet</code> 클래스는 트리(Tree)라는 자료구조를 기반으로 인스턴스를 저장한다.<br />
-이는 정렬된 상태가 유지되면서 인스턴스가 저장됨을 의미한다.</p>
-
-<blockquote>
-  <p>인스턴스들의 참조 순서는 오름차순을 기준으로 한다.</p>
-</blockquote>
-
-<p>그렇다면, 다음과 같이 인스턴스의 크고 작음을 정의하기 애매한 상황에서는 어떻게 할까?</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>  <span class="c1">// 이름과 나이 중 어떤 것을 기준으로 정렬해야할까?</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%s(%d세)"</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>크고 작음에 대한 기준은 개발자가 결정할 일이다.<br />
-그래서 위와 같이 클래스를 정의할 때에 다음 인터페이스의 구현을 통해 크로 작음에 대한 기준을 정해주어야 한다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span>  <span class="c1">// 이 인터페이스에 위치한 유일한 추상 메소드 int compareTo(T o)</span>
-</code></pre></div></div>
-
-<h3 id="--인스턴스의-비교-기준을-정의하는-comparable-인터페이스의-구현-기준">- <u>인스턴스의 비교 기준을 정의하는 Comparable 인터페이스의 구현 기준</u></h3>
-<p><code class="language-plaintext highlighter-rouge">Comparable</code> 인터페이스를 구현할 때 정의해야 할 추상 메소드는 다음과 같다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">campareTo</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span>
-</code></pre></div></div>
-
-<p>이 메소드는 다음과 같이 정의하면 된다. 이는 일종의 약속이다.</p>
-<ul>
-  <li>인자로 전달된 o가 작다면 양의 정수 반환</li>
-  <li>인자로 전달된 o가 크다면 음의 정수 반환</li>
-  <li>인자로 전달된 o가 같다면 0을 반환</li>
-</ul>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.TreeSet</span><span class="o">;</span>
-
-<span class="cm">/**
- 나이가 적으면 앞으로 오도록 만들 것!
- */</span>
-<span class="kd">class</span> <span class="nc">Person</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%s (%d)"</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">Person</span> <span class="n">person</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">-</span> <span class="n">person</span><span class="o">.</span><span class="na">age</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComparablePerson</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span> <span class="n">treeSet</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;&gt;();</span>
-
-        <span class="n">treeSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Yoon"</span><span class="o">,</span> <span class="mi">37</span><span class="o">));</span>
-        <span class="n">treeSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Hong"</span><span class="o">,</span> <span class="mi">53</span><span class="o">));</span>
-        <span class="n">treeSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Park"</span><span class="o">,</span> <span class="mi">22</span><span class="o">));</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="nc">Person</span> <span class="n">person</span> <span class="o">:</span> <span class="n">treeSet</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--comparator-인터페이스를-기반으로-treeset의-정렬-기준-제시하기">- <u>Comparator 인터페이스를 기반으로 TreeSet의 정렬 기준 제시하기</u></h3>
-<p>위의 예제에서 나이가 적은 사람이 앞족에 위치하도록 <code class="language-plaintext highlighter-rouge">compareTo</code> 메소드를 구현해보았다.<br />
-만약 나이가 많은 사람이 앞쪽에 위치하도록 기준을 바꿔야한다면 어떻게 해야할까?<br />
-물론 메소드의 내용을 수정하면 되지만, 일시적인 기준 변경이라면 메소드를 수정하는 일은 적절치 않다.</p>
-
-<p>그리고 이런 상황을 고려하여 다음 인터페이스가 제공된다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Comparator</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span>  <span class="c1">// int compare(T o1, T o2)의 구현을 통해 정렬 기준을 결정할 수 있다.</span>
-</code></pre></div></div>
-
-<p>이 인터페이스를 구현한 클래스의 인스턴스는 TreeSet<E>의 생성자를 통해 전달할 수 있다.</E></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// TreeSet 인스턴스를 만들 때, '정렬'에 대한 기준 정보도 같이 전달해줄 수 있음.</span>
-<span class="kd">public</span> <span class="nf">TreeSet</span><span class="o">(</span><span class="nc">Comparator</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">E</span><span class="o">&gt;</span> <span class="n">comparator</span><span class="o">)</span>
-</code></pre></div></div>
-
-<p>그리고 <code class="language-plaintext highlighter-rouge">compare</code> 메소드의 정의 기준은 다음과 같다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="no">T</span> <span class="n">o1</span><span class="o">,</span> <span class="no">T</span> <span class="n">o2</span><span class="o">)</span>
-</code></pre></div></div>
-
-<ul>
-  <li>o1이 o2보다 크면 양의 정수 반환</li>
-  <li>o1이 o2보다 작으면 음의 정수 반환</li>
-  <li>o1이 o2보다 같다면 0 반환</li>
-</ul>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.TreeSet</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Person</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%s (%d)"</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">Person</span> <span class="n">person</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">-</span> <span class="n">person</span><span class="o">.</span><span class="na">age</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">PersonComparator</span> <span class="kd">implements</span> <span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">Person</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Person</span> <span class="n">p2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">p2</span><span class="o">.</span><span class="na">age</span> <span class="o">-</span> <span class="n">p1</span><span class="o">.</span><span class="na">age</span><span class="o">;</span> <span class="c1">// 나이가 많은 사람을 앞에 세우는 연산</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComparatorPerson</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span> <span class="n">tree</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;&gt;(</span><span class="k">new</span> <span class="nc">PersonComparator</span><span class="o">());</span>
-
-        <span class="n">tree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Yoon"</span><span class="o">,</span> <span class="mi">37</span><span class="o">));</span>
-        <span class="n">tree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Hong"</span><span class="o">,</span> <span class="mi">53</span><span class="o">));</span>
-        <span class="n">tree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"Park"</span><span class="o">,</span> <span class="mi">22</span><span class="o">));</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="nc">Person</span> <span class="n">person</span> <span class="o">:</span> <span class="n">tree</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--중복된-인스턴스를-삭제하려면">- <u>중복된 인스턴스를 삭제하려면</u></h3>
-<p><code class="language-plaintext highlighter-rouge">List</code>를 구현하는 클래스는 인스턴스의 중복 삽입을 허용한다.<br />
-이렇게 중복 삽입된 인스턴스들을 하나만 남기고 모두 지워야 한다고 가정하면 어떻게 처리할 수 있을까?<br />
-<code class="language-plaintext highlighter-rouge">Set</code>을 활용해보자!</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConvertCollection</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// 중복이 포함된 리스트</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">,</span> <span class="s">"Box"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">);</span>
-
-        <span class="c1">// 중복을 제거하기위해 Set으로 타입 변환</span>
-        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;(</span><span class="n">list</span><span class="o">);</span>
-
-        <span class="c1">// 중복이 제거된 Set으로 List를 만듬</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span> <span class="o">&gt;</span> <span class="n">new_list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">set</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="23-4-queue-인터페이스를-구현하는-컬렉션-클래스들">23-4. Queue<E> 인터페이스를 구현하는 컬렉션 클래스들</E></h2>
-<h3 id="--스택stack과-큐queue의-이해">- <u>스택(Stack)과 큐(Queue)의 이해</u></h3>
-<p><img src="/assets/images/java-lang/23-3.png" alt="image" width="30%" height="30%" /><br /><br />
-<code class="language-plaintext highlighter-rouge">Stack</code>: 가장 먼저 저장된 데이터가 가장 마지막에 나오는 자료구조이다.<br />
-LIFO(last-in-first-out) -&gt; 먼저 저장된 데이터가 마지막에 빠져나간다.</p>
-
-<p><br /></p>
-
-<p><img src="/assets/images/java-lang/23-4.png" alt="image" width="40%" height="40%" /><br /><br />
-<code class="language-plaintext highlighter-rouge">Queue</code>: 들어간 순으로 빠져나오는 자료구조이다.<br />
-FIFO(first-in-first-out) -&gt; 먼저 저장된 데이터가 먼저 빠져나간다.</p>
-
-<h3 id="--queue-인터페이스와-큐queue의-규현">- <u>Queue 인터페이스와 큐(Queue)의 규현</u></h3>
-<p>큐 자료구조를 위한 <code class="language-plaintext highlighter-rouge">Queue</code> 인터페이스를 대표하는 세 가지 메소드는 다음과 같다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="nf">add</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span>    <span class="c1">// 넣기</span>
-<span class="no">E</span> <span class="nf">remove</span><span class="o">()</span>          <span class="c1">// 꺼내기</span>
-<span class="no">E</span> <span class="nf">element</span><span class="o">()</span>         <span class="c1">// 확인하기</span>
-</code></pre></div></div>
-
-<p>위의 메소드들은 꺼낼 인스턴스가 없거나 저장 공간이 부족할 때 예외를 발생시킨다.<br />
-반면, 해당 상황에 특정값(null 또는 false)를 반환하는 메소드도 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="nf">offer</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span>  <span class="c1">// 넣기, 넣을 공간이 부족하면 false를 반환</span>
-<span class="no">E</span> <span class="nf">poll</span><span class="o">()</span>            <span class="c1">// 꺼내기, 꺼낼 대상 없으면 null 반환</span>
-<span class="no">E</span> <span class="nf">peek</span><span class="o">()</span>            <span class="c1">// 확인하기, 확인할 대상 없으면 null 반환</span>
-</code></pre></div></div>
-
-<p>일반적인 선택은 offer, poll, peek이다.<br />
-비어있는 상황까지도 예외가 아닌 프로그램의 정상적인 흐름으로 간주하는 경우가 대부분이기 때문이다.</p>
-
-<h3 id="--스택stack의-구현">- <u>스택(Stack)의 구현</u></h3>
-<p>자바도 <code class="language-plaintext highlighter-rouge">Stack</code>을 지원한다.<br />
-하지만 자바 초기에 정의된 클래스로써 지금은 이전 코드와의 호환성 유지를 위해 존재하는 클래스일 뿐이라고 한다.<br />
-<code class="language-plaintext highlighter-rouge">Stack</code>은 동기화된 클래스로 멀티 쓰레드에 안전하지만, 그만큼 성능의 저하가 발생하기 때문에 대신에 자바 6에서 스택을 대신할 수 있는 <code class="language-plaintext highlighter-rouge">Dequq</code>이라는 자료구조를 살펴보도록하자.</p>
-
-<p><img src="/assets/images/java-lang/23-6.jpeg" alt="image" width="40%" height="40%" /><br />
-<br /></p>
-
-<p><code class="language-plaintext highlighter-rouge">Deque</code>의 대표 메소드는 다음과 같다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 앞으로 넣고, 꺼내고, 확인하기</span>
-<span class="kt">void</span> <span class="nf">addFirst</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span>  <span class="c1">// 넣기</span>
-<span class="no">E</span> <span class="nf">removeFirst</span><span class="o">()</span>     <span class="c1">// 꺼내기</span>
-<span class="no">E</span> <span class="nf">getFirst</span><span class="o">()</span>        <span class="c1">// 확인하기</span>
-
-<span class="c1">// 뒤로 넣고, 꺼내고, 확인하기</span>
-<span class="kt">void</span> <span class="nf">addLast</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span>   <span class="c1">// 넣기</span>
-<span class="no">E</span> <span class="nf">removeLast</span><span class="o">()</span>      <span class="c1">// 꺼내기</span>
-<span class="no">E</span> <span class="nf">getLast</span><span class="o">()</span>         <span class="c1">// 확인하기</span>
-</code></pre></div></div>
-
-<p>마찬가지로 예외 대신 특정 값을 반환하는 메소드들도 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 앞으로 넣고, 꺼내고, 확인하기</span>
-<span class="kt">boolean</span> <span class="nf">offerFirst</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span> <span class="c1">// 넣기, 공간 부족하면 false 반환</span>
-<span class="no">E</span> <span class="nf">pollFirst</span><span class="o">()</span>           <span class="c1">// 꺼내기, 꺼낼 대상 없으면 null 반환</span>
-<span class="no">E</span> <span class="nf">peekFirst</span><span class="o">()</span>           <span class="c1">// 확인하기, 확인할 대상 없으면 null 반환</span>
-
-<span class="c1">// 뒤로 넣고, 꺼내고, 확인하기</span>
-<span class="kt">boolean</span> <span class="nf">offerLast</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span>  <span class="c1">// 넣기, 공간 부족하면 false 반환</span>
-<span class="no">E</span> <span class="nf">pollLast</span><span class="o">()</span>            <span class="c1">// 꺼내기, 꺼낼 대상 없으면 null 반환</span>
-<span class="no">E</span> <span class="nf">peekLast</span><span class="o">()</span>            <span class="c1">// 확인하기, 확인할 대상 없으면 null 반환</span>
-</code></pre></div></div>
-<p><br /></p>
-
-<p>따라서 <code class="language-plaintext highlighter-rouge">Deque</code>을 스택처럼 사용하고 싶으면, 넣고 빼낼 방향을 하나로 고정시키면 된다.<br />
-offerFirst &amp; pollFirst -&gt; 앞으로 넣고 앞에서 꺼내기<br />
-offerLast &amp; pollLast -&gt; 뒤로 넣고 뒤에서 꺼내기</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayDequeCollection</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">deque</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>   <span class="c1">// Deque&lt;String&gt; deque = new LinkedList&lt;&gt;();</span>
-
-        <span class="c1">// 앞으로 넣기</span>
-        <span class="n">deque</span><span class="o">.</span><span class="na">offerFirst</span><span class="o">(</span><span class="s">"1. Box"</span><span class="o">);</span>
-        <span class="n">deque</span><span class="o">.</span><span class="na">offerFirst</span><span class="o">(</span><span class="s">"2. Toy"</span><span class="o">);</span>
-        <span class="n">deque</span><span class="o">.</span><span class="na">offerFirst</span><span class="o">(</span><span class="s">"3. Robot"</span><span class="o">);</span>
-
-        <span class="c1">// 앞에서 빼기</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">());</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">());</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br /></p>
-
-<p>(참고)<br />
-<code class="language-plaintext highlighter-rouge">Deque</code> 인터페이스에는 <code class="language-plaintext highlighter-rouge">push</code>랑 <code class="language-plaintext highlighter-rouge">pop</code> 메소드가 있고, <code class="language-plaintext highlighter-rouge">Deque</code>을 구현하는 <code class="language-plaintext highlighter-rouge">LinkedList</code>랑 <code class="language-plaintext highlighter-rouge">ArrayDeque</code>에는 이 메소드가 이미 구현되어있다.<br />
-따라서, <code class="language-plaintext highlighter-rouge">Deque</code>을 <code class="language-plaintext highlighter-rouge">Stack</code>으로 활용하고자 한다면, 그냥 <code class="language-plaintext highlighter-rouge">push</code>랑 <code class="language-plaintext highlighter-rouge">pop</code>을 활용해도 된다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayDequeCollection</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">deque</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>   <span class="c1">// Deque&lt;String&gt; deque = new LinkedList&lt;&gt;();</span>
-
-        <span class="n">deque</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="s">"1. Box"</span><span class="o">);</span>
-        <span class="n">deque</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="s">"2. Toy"</span><span class="o">);</span>
-        <span class="n">deque</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="s">"3. Robot"</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">deque</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="23-5-mapk-v-인터페이스를-구현하는-컬렉션-클래스들">23-5. Map&lt;K, V&gt; 인터페이스를 구현하는 컬렉션 클래스들</h2>
-<h3 id="--key-value-방식의-데이터-저장과-hashmap-클래스">- <u>Key-Value 방식의 데이터 저장과 HashMap 클래스</u></h3>
-<p><code class="language-plaintext highlighter-rouge">Collection</code>을 구현하는 클래스가 <code class="language-plaintext highlighter-rouge">Value</code>를 저장하는 구조였다면,<br />
-<code class="language-plaintext highlighter-rouge">Map</code>을 구현하는 클래스는 <code class="language-plaintext highlighter-rouge">Value</code>를 저장할 때, 이를 찾을 때 사용하는 <code class="language-plaintext highlighter-rouge">Key</code>를 함께 저장하는 구조이다.</p>
-
-<blockquote>
-  <p><code class="language-plaintext highlighter-rouge">Key</code>는 지표이므로 중복될 수 없다. 반면 <code class="language-plaintext highlighter-rouge">Key</code>만 다르면 <code class="language-plaintext highlighter-rouge">Value</code>는 중복되어도 상관없다.</p>
-</blockquote>
-
-<p><code class="language-plaintext highlighter-rouge">Map</code>을 구현하는 대표 클래스로는 <code class="language-plaintext highlighter-rouge">HashMap</code>과 <code class="language-plaintext highlighter-rouge">TreeMap</code>이 있다.<br />
-둘의 가장 큰 차이점은 트리 자료구조를 기반으로 구현된 <code class="language-plaintext highlighter-rouge">TreeMap</code>은 정렬 상태(<code class="language-plaintext highlighter-rouge">Key</code>를 기준으로)를 유지한다는데 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashMapCollection</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Key-Value 기반 데이터 저장</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">45</span><span class="o">,</span> <span class="s">"Brown"</span><span class="o">);</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">37</span><span class="o">,</span> <span class="s">"James"</span><span class="o">);</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">23</span><span class="o">,</span> <span class="s">"Martin"</span><span class="o">);</span>
-
-        <span class="c1">// 데이터 탐색</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">45</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">37</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">23</span><span class="o">));</span>
-
-        <span class="c1">// 데이터 삭제</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">37</span><span class="o">);</span>
-
-        <span class="c1">// 데이터 삭제 확인</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"37번: "</span> <span class="o">+</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">37</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--hashmap의-순차적-접근-방법">- <u>HashMap의 순차적 접근 방법</u></h3>
-<p><code class="language-plaintext highlighter-rouge">HashMap</code> 클래스는 <code class="language-plaintext highlighter-rouge">Iterable</code> 인터페이스를 구현하지 않으니 for-each문이나, 반복자를 얻어서 값에 순차적으로 접근할 수 없다.<br />
-다만, <code class="language-plaintext highlighter-rouge">keySet</code> 메소드를 통해 <code class="language-plaintext highlighter-rouge">Key</code>를 담은 <code class="language-plaintext highlighter-rouge">Set</code>을 생성해서 <code class="language-plaintext highlighter-rouge">Value</code>에 접근할 수 있다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashMapIteration</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">45</span><span class="o">,</span> <span class="s">"Brown"</span><span class="o">);</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">37</span><span class="o">,</span> <span class="s">"James"</span><span class="o">);</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">23</span><span class="o">,</span> <span class="s">"Martin"</span><span class="o">);</span>
-
-        <span class="c1">// Key만 담고 있는 컬렉션 인스턴스 생성</span>
-        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ks</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>
-
-        <span class="c1">// Key와 Value를 출력(for-each문 기반)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">Integer</span> <span class="nl">age:</span> <span class="n">ks</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">age</span> <span class="o">+</span> <span class="s">" -&gt; "</span> <span class="o">+</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">age</span><span class="o">));</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Key와 Value를 출력(반복자 기반)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">Iterator</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">itr</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();</span> <span class="o">)</span> <span class="o">{</span>
-            <span class="nc">Integer</span> <span class="n">age</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">itr</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">age</span> <span class="o">+</span> <span class="s">" -&gt; "</span> <span class="o">+</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">age</span><span class="o">));</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><img src="/assets/images/java-lang/23-7.png" alt="image" width="40%" height="40%" /><br /></p>
-
-<h3 id="--treemap의-순차적-접근-방법">- <u>TreeMap의 순차적 접근 방법</u></h3>
-<p><code class="language-plaintext highlighter-rouge">TreeMap</code>은 트리 자료구조를 기반으로 구현되어 있어서 정렬 상태를 유지한다.<br />
-전에 작성한 코드에서 <code class="language-plaintext highlighter-rouge">Map</code>만 <code class="language-plaintext highlighter-rouge">TreeMap</code>으로 바꾸고 결과를 비교해보자.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.TreeMap</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TreeMapIteration</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeMap</span><span class="o">&lt;&gt;();</span> <span class="c1">// TreeMap으로 바꿈</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">45</span><span class="o">,</span> <span class="s">"Brown"</span><span class="o">);</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">37</span><span class="o">,</span> <span class="s">"James"</span><span class="o">);</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">23</span><span class="o">,</span> <span class="s">"Martin"</span><span class="o">);</span>
-
-        <span class="c1">// Key만 담고 있는 컬렉션 인스턴스 생성</span>
-        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ks</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>
-
-        <span class="c1">// Key와 Value를 출력(for-each문 기반)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">Integer</span> <span class="nl">age:</span> <span class="n">ks</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">age</span> <span class="o">+</span> <span class="s">" -&gt; "</span> <span class="o">+</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">age</span><span class="o">));</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Key와 Value를 출력(반복자 기반)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">Iterator</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">itr</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();</span> <span class="o">)</span> <span class="o">{</span>
-            <span class="nc">Integer</span> <span class="n">age</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">itr</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">age</span> <span class="o">+</span> <span class="s">" -&gt; "</span> <span class="o">+</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">age</span><span class="o">));</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><img src="/assets/images/java-lang/23-8.png" alt="image" width="40%" height="40%" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[이것이 코딩 테스트다] 그리디</title><link href="http://localhost:4000/this%20is%20coding%20test/greedy/" rel="alternate" type="text/html" title="[이것이 코딩 테스트다] 그리디" /><published>2023-03-04T00:00:00+09:00</published><updated>2023-03-04T00:00:00+09:00</updated><id>http://localhost:4000/this%20is%20coding%20test/greedy</id><content type="html" xml:base="http://localhost:4000/this%20is%20coding%20test/greedy/"><![CDATA[<h2 id="거스름돈">거스름돈</h2>]]></content><author><name>hi~ June!!</name></author><category term="This is coding test" /><category term="coding test" /><summary type="html"><![CDATA[현재 상황에서 가장 좋아 보이는 것만을 선택하는 알고리즘]]></summary></entry></feed>
