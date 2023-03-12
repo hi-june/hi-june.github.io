@@ -329,6 +329,12 @@ var store = [{
         "url": "/java%20lang/Chap29/",
         "teaser": null
       },{
+        "title": "[2960] 에라토스테네스의 체",
+        "excerpt":"[Silver IV] 에라토스테네스의 체 - 2960 문제 링크 성능 요약 메모리: 14464 KB, 시간: 128 ms 분류 구현(implementation), 수학(math), 정수론(number_theory), 소수 판정(primality_test), 에라토스테네스의 체(sieve) 문제 설명 에라토스테네스의 체는 N보다 작거나 같은 모든 소수를 찾는 유명한 알고리즘이다. 이 알고리즘은 다음과 같다. 2부터 N까지 모든 정수를 적는다. 아직 지우지 않은 수 중...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/2960/",
+        "teaser": null
+      },{
         "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2",
         "excerpt":"30-1. 스트림의 생성과 연결 - 스트림의 생성: 스트림 생성에 필요한 데이터를 직접 전달 스트림 생성과 관련하여 Stream&lt;T&gt; 인터페이스에 정의되어 있는 static 메소드가 있다. import java.util.List; import java.util.Arrays; import java.util.stream.Stream; class StreamOfStream { public static void main(String[] args) { // ex 1 Stream.of(11, 22, 33, 44) .forEach(n -&gt; System.out.print(n + \"\\t\"));...","categories": ["Java lang"],
         "tags": ["java"],

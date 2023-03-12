@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-12T02:13:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2</title><link href="http://localhost:4000/java%20lang/Chap30/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap30</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap30/"><![CDATA[<h2 id="30-1-스트림의-생성과-연결">30-1. 스트림의 생성과 연결</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-12T18:47:12+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2</title><link href="http://localhost:4000/java%20lang/Chap30/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap30</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap30/"><![CDATA[<h2 id="30-1-스트림의-생성과-연결">30-1. 스트림의 생성과 연결</h2>
 <h3 id="--스트림의-생성-스트림-생성에-필요한-데이터를-직접-전달">- <u>스트림의 생성: 스트림 생성에 필요한 데이터를 직접 전달</u></h3>
 <p>스트림 생성과 관련하여 Stream&lt;T&gt; 인터페이스에 정의되어 있는 static 메소드가 있다.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
@@ -275,58 +275,46 @@
 <h3 id="---1">- <u></u></h3>
 <h3 id="---2">- <u></u></h3>
 <h3 id="---3">- <u></u></h3>
-<h3 id="---4">- <u></u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[9506] 약수들의 합</title><link href="http://localhost:4000/boj/9506/" rel="alternate" type="text/html" title="[9506] 약수들의 합" /><published>2023-03-11T00:00:00+09:00</published><updated>2023-03-11T00:00:00+09:00</updated><id>http://localhost:4000/boj/9506</id><content type="html" xml:base="http://localhost:4000/boj/9506/"><![CDATA[<h2 id="bronze-i-약수들의-합---9506">[Bronze I] 약수들의 합 - 9506</h2>
+<h3 id="---4">- <u></u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[2960] 에라토스테네스의 체</title><link href="http://localhost:4000/boj/2960/" rel="alternate" type="text/html" title="[2960] 에라토스테네스의 체" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/boj/2960</id><content type="html" xml:base="http://localhost:4000/boj/2960/"><![CDATA[<h2 id="silver-iv-에라토스테네스의-체---2960">[Silver IV] 에라토스테네스의 체 - 2960</h2>
 
-<p><a href="https://www.acmicpc.net/problem/9506">문제 링크</a></p>
+<p><a href="https://www.acmicpc.net/problem/2960">문제 링크</a></p>
 
 <h3 id="성능-요약">성능 요약</h3>
 
-<p>메모리: 16512 KB, 시간: 176 ms</p>
+<p>메모리: 14464 KB, 시간: 128 ms</p>
 
 <h3 id="분류">분류</h3>
 
-<p>구현(implementation), 수학(math), 정수론(number_theory)</p>
+<p>구현(implementation), 수학(math), 정수론(number_theory), 소수 판정(primality_test), 에라토스테네스의 체(sieve)</p>
 
 <h3 id="문제-설명">문제 설명</h3>
 
-<p>어떤 숫자 n이 자신을 제외한 모든 약수들의 합과 같으면, <span style="line-height:1.6em">그 수를 완전수라고 한다. </span></p>
+<p>에라토스테네스의 체는 N보다 작거나 같은 모든 소수를 찾는 유명한 알고리즘이다.</p>
 
-<p>예를 들어 6은 6 = 1 + 2 + 3 으로 완전수이다.</p>
+<p>이 알고리즘은 다음과 같다.</p>
 
-<p>n이 완전수인지 아닌지 판단해주는 프로그램을 작성하라.</p>
+<ol>
+	<li>2부터 N까지 모든 정수를 적는다.</li>
+	<li>아직 지우지 않은 수 중 가장 작은 수를 찾는다. 이것을 P라고 하고, 이 수는 소수이다.</li>
+	<li>P를 지우고, 아직 지우지 않은 P의 배수를 크기 순서대로 지운다.</li>
+	<li>아직 모든 수를 지우지 않았다면, 다시 2번 단계로 간다.</li>
+</ol>
+
+<p>N, K가 주어졌을 때, K번째 지우는 수를 구하는 프로그램을 작성하시오.</p>
 
 <h3 id="입력">입력</h3>
 
-<p>입력은 테스트 케이스마다 한 줄 간격으로 n이 주어진다. (2 &lt; n &lt; 100,000)</p>
-
-<p>입력의 마지막엔 -1이 주어진다.</p>
+<p>첫째 줄에 N과 K가 주어진다. (1 ≤ K &lt; N, max(1, K) &lt; N ≤ 1000)</p>
 
 <h3 id="출력">출력</h3>
 
-<p>테스트케이스 마다 한줄에 하나씩 출력해야 한다.</p>
-
-<p>n이 완전수라면, n을 n이 아닌 약수들의 합으로 나타내어 출력한다(예제 출력 참고).</p>
-
-<p>이때, 약수들은 오름차순으로 나열해야 한다.</p>
-
-<p>n이 완전수가 아니라면 n is NOT perfect. 를 출력한다.</p>
+<p>첫째 줄에 K번째 지워진 수를 출력한다.</p>
 
 <h2 id="아이디어">아이디어</h2>
-<ul>
-  <li>
-    <p>구현 방법
-  각 숫자들의 약수들을 담은 리스트를 만들어<br />
-  stream api를 활용하여 총 합을 구한 뒤<br />
-  완전수 여부에 따라 결과를 출력한다.</p>
-  </li>
-  <li>
-    <p>약수를 구하는 방법</p>
-    <ul>
-      <li>1부터 n까지 for문으로 하나씩 증가시키면서 나누어 떨어지는지 검사한다.</li>
-      <li>loop의 수를 줄이기 위해 제곱근을 구하는 Math.sqrt()를 사용하였다.</li>
-    </ul>
-  </li>
-</ul>
+<p>알고리즘 설명대로 구현하면 된다.<br />
+배열을 생성할 때 인덱스와 숫자가 같도록 초기화하면 편하다.<br />
+배수를 세는 것은 그 숫자만큼 더하면서 건너뛰면 된다.<br />
+버퍼에 출력할 때는 toString이 없기 때문에 숫자 출력할 시 형변환해주어야한다.</p>
 
 <h2 id="답안코드">답안코드</h2>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
@@ -334,115 +322,31 @@
 <span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">{</span>
         <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
         <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
 
-        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
-            
-            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span> <span class="c1">// 약수들을 담을 리스트</span>
+        <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-            <span class="kt">int</span> <span class="n">sqrt</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>   <span class="c1">// 제곱수</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">sqrt</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>    <span class="c1">// 약수 중 작은 수</span>
-                    <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">/</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// 제곱근 두 번 추가 방지</span>
-                        <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">n</span> <span class="o">/</span> <span class="n">i</span><span class="o">);</span>    <span class="c1">// 약수 중 큰 수</span>
-                    <span class="o">}</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">).</span><span class="na">toArray</span><span class="o">();</span>   <span class="c1">// 인덱스와 숫자가 똑같도록 만들기 위해 0부터 배열 초기화</span>
+
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span> <span class="o">+=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// 배수 세기 == 그 숫자만큼 더하면서 건너뛰기</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span> <span class="c1">// 이미 지워진 경우는 pass</span>
+
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]));</span>
+                    <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+                    <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                    <span class="k">return</span><span class="o">;</span>
                 <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span> <span class="c1">// 약수 모음 오름차순 정렬</span>
-            <span class="n">nums</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>   <span class="c1">// 맨 마지막 수(자기 자신) 제거</span>
-
-            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">mapToInt</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">.</span><span class="na">intValue</span><span class="o">()).</span><span class="na">sum</span><span class="o">();</span>  <span class="c1">// 자기 자신을 제외한 약수들의 총 합</span>
-            
-            <span class="nc">String</span> <span class="n">result</span><span class="o">;</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">sum</span> <span class="o">==</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-                <span class="nc">String</span> <span class="n">sumString</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>    <span class="c1">// Stream&lt;Integer&gt;</span>
-                    <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span> <span class="c1">// Stream&lt;String&gt;</span>
-                    <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">" + "</span><span class="o">));</span>    <span class="c1">// "1 + 2 + 3"</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">sumString</span> <span class="o">+</span> <span class="s">"\n"</span><span class="o">;</span>
-                <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="s">" is NOT perfect.\n"</span><span class="o">;</span>
-                <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
             <span class="o">}</span>
         <span class="o">}</span>
-        <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
-        <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2609] 최대공약수와 최소공배수</title><link href="http://localhost:4000/boj/2609/" rel="alternate" type="text/html" title="[2609] 최대공약수와 최소공배수" /><published>2023-03-11T00:00:00+09:00</published><updated>2023-03-11T00:00:00+09:00</updated><id>http://localhost:4000/boj/2609</id><content type="html" xml:base="http://localhost:4000/boj/2609/"><![CDATA[<h2 id="bronze-i-최대공약수와-최소공배수---2609">[Bronze I] 최대공약수와 최소공배수 - 2609</h2>
-
-<p><a href="https://www.acmicpc.net/problem/2609">문제 링크</a></p>
-
-<h3 id="성능-요약">성능 요약</h3>
-
-<p>메모리: 16212 KB, 시간: 152 ms</p>
-
-<h3 id="분류">분류</h3>
-
-<p>유클리드 호제법(euclidean), 수학(math), 정수론(number_theory)</p>
-
-<h3 id="문제-설명">문제 설명</h3>
-
-<p>두 개의 자연수를 입력받아 최대 공약수와 최소 공배수를 출력하는 프로그램을 작성하시오.</p>
-
-<h3 id="입력">입력</h3>
-
-<p>첫째 줄에는 두 개의 자연수가 주어진다. 이 둘은 10,000이하의 자연수이며 사이에 한 칸의 공백이 주어진다.</p>
-
-<h3 id="출력">출력</h3>
-
-<p>첫째 줄에는 입력으로 주어진 두 수의 최대공약수를, 둘째 줄에는 입력으로 주어진 두 수의 최소 공배수를 출력한다.</p>
-
-<h2 id="아이디어">아이디어</h2>
-<ul>
-  <li>최대공약수 구하기
-    <ul>
-      <li>i를 1부터 n까지 for문을 이용하여 1씩 증가시키며 나누어 떨어지는지 검사한다.</li>
-      <li>loop의 수를 줄이기 위해 두 숫자 중 더 작은 숫자를 넘기 전까지만 수행한다.(최대공약수는 작은 수보다 더 클 수 없음)</li>
-    </ul>
-  </li>
-  <li>최소공배수
-    <ul>
-      <li>두 수의 곱 나누기 최대공약수</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="답안코드">답안코드</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
-        <span class="c1">// 최대공약수: 약수들끼리 겹치는 수</span>
-        <span class="c1">// 최소공배수: 두 수의 곱 / 최대공약수</span>
-
-        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
-
-        <span class="nc">String</span> <span class="n">input</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
-        <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">input</span><span class="o">);</span>
-        
-        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
-
-        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>    <span class="c1">// 최대공약수</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">max</span><span class="o">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        
-        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="o">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="o">)</span> <span class="o">/</span> <span class="n">max</span><span class="o">;</span>    <span class="c1">// 최소 공배수</span>
-        <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">max</span> <span class="o">+</span> <span class="s">"\n"</span> <span class="o">+</span> <span class="n">min</span><span class="o">);</span>
-
-        <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
-        <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 29 - 스트림 1</title><link href="http://localhost:4000/java%20lang/Chap29/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 29 - 스트림 1" /><published>2023-03-11T00:00:00+09:00</published><updated>2023-03-11T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap29</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap29/"><![CDATA[<h2 id="29-1-스트림의-이해와-스트림의-생성">29-1. 스트림의 이해와 스트림의 생성</h2>
@@ -691,7 +595,177 @@ map의 인자로 apply 함수에 대한 람다식이 전달되기 때문에 반�
 <p><img src="/assets/images/java-lang/29-1.png" alt="image" width="60%" height="60%" /><br /></p>
 
 <p>이렇게 병렬처리의 핵심은 연산의 횟수를 줄이는데 있지 않고 연산의 단계를 줄이는데 있다.<br />
-다만, 작업을 어떻게 나눌 것인지, 몇 개로 나눌 것인지 등에 따라 효율이 달라지기 때문에 무조건적으로 병렬처리가 좋다고 할 수 없음에 주의하자.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[2750] 수 정렬하기</title><link href="http://localhost:4000/boj/2750/" rel="alternate" type="text/html" title="[2750] 수 정렬하기" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>http://localhost:4000/boj/2750</id><content type="html" xml:base="http://localhost:4000/boj/2750/"><![CDATA[<h2 id="bronze-ii-수-정렬하기---2750">[Bronze II] 수 정렬하기 - 2750</h2>
+다만, 작업을 어떻게 나눌 것인지, 몇 개로 나눌 것인지 등에 따라 효율이 달라지기 때문에 무조건적으로 병렬처리가 좋다고 할 수 없음에 주의하자.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[2609] 최대공약수와 최소공배수</title><link href="http://localhost:4000/boj/2609/" rel="alternate" type="text/html" title="[2609] 최대공약수와 최소공배수" /><published>2023-03-11T00:00:00+09:00</published><updated>2023-03-11T00:00:00+09:00</updated><id>http://localhost:4000/boj/2609</id><content type="html" xml:base="http://localhost:4000/boj/2609/"><![CDATA[<h2 id="bronze-i-최대공약수와-최소공배수---2609">[Bronze I] 최대공약수와 최소공배수 - 2609</h2>
+
+<p><a href="https://www.acmicpc.net/problem/2609">문제 링크</a></p>
+
+<h3 id="성능-요약">성능 요약</h3>
+
+<p>메모리: 16212 KB, 시간: 152 ms</p>
+
+<h3 id="분류">분류</h3>
+
+<p>유클리드 호제법(euclidean), 수학(math), 정수론(number_theory)</p>
+
+<h3 id="문제-설명">문제 설명</h3>
+
+<p>두 개의 자연수를 입력받아 최대 공약수와 최소 공배수를 출력하는 프로그램을 작성하시오.</p>
+
+<h3 id="입력">입력</h3>
+
+<p>첫째 줄에는 두 개의 자연수가 주어진다. 이 둘은 10,000이하의 자연수이며 사이에 한 칸의 공백이 주어진다.</p>
+
+<h3 id="출력">출력</h3>
+
+<p>첫째 줄에는 입력으로 주어진 두 수의 최대공약수를, 둘째 줄에는 입력으로 주어진 두 수의 최소 공배수를 출력한다.</p>
+
+<h2 id="아이디어">아이디어</h2>
+<ul>
+  <li>최대공약수 구하기
+    <ul>
+      <li>i를 1부터 n까지 for문을 이용하여 1씩 증가시키며 나누어 떨어지는지 검사한다.</li>
+      <li>loop의 수를 줄이기 위해 두 숫자 중 더 작은 숫자를 넘기 전까지만 수행한다.(최대공약수는 작은 수보다 더 클 수 없음)</li>
+    </ul>
+  </li>
+  <li>최소공배수
+    <ul>
+      <li>두 수의 곱 나누기 최대공약수</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="답안코드">답안코드</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="c1">// 최대공약수: 약수들끼리 겹치는 수</span>
+        <span class="c1">// 최소공배수: 두 수의 곱 / 최대공약수</span>
+
+        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
+
+        <span class="nc">String</span> <span class="n">input</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+        <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">input</span><span class="o">);</span>
+        
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+
+        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>    <span class="c1">// 최대공약수</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">max</span><span class="o">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        
+        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="o">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="o">)</span> <span class="o">/</span> <span class="n">max</span><span class="o">;</span>    <span class="c1">// 최소 공배수</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">max</span> <span class="o">+</span> <span class="s">"\n"</span> <span class="o">+</span> <span class="n">min</span><span class="o">);</span>
+
+        <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[9506] 약수들의 합</title><link href="http://localhost:4000/boj/9506/" rel="alternate" type="text/html" title="[9506] 약수들의 합" /><published>2023-03-11T00:00:00+09:00</published><updated>2023-03-11T00:00:00+09:00</updated><id>http://localhost:4000/boj/9506</id><content type="html" xml:base="http://localhost:4000/boj/9506/"><![CDATA[<h2 id="bronze-i-약수들의-합---9506">[Bronze I] 약수들의 합 - 9506</h2>
+
+<p><a href="https://www.acmicpc.net/problem/9506">문제 링크</a></p>
+
+<h3 id="성능-요약">성능 요약</h3>
+
+<p>메모리: 16512 KB, 시간: 176 ms</p>
+
+<h3 id="분류">분류</h3>
+
+<p>구현(implementation), 수학(math), 정수론(number_theory)</p>
+
+<h3 id="문제-설명">문제 설명</h3>
+
+<p>어떤 숫자 n이 자신을 제외한 모든 약수들의 합과 같으면, <span style="line-height:1.6em">그 수를 완전수라고 한다. </span></p>
+
+<p>예를 들어 6은 6 = 1 + 2 + 3 으로 완전수이다.</p>
+
+<p>n이 완전수인지 아닌지 판단해주는 프로그램을 작성하라.</p>
+
+<h3 id="입력">입력</h3>
+
+<p>입력은 테스트 케이스마다 한 줄 간격으로 n이 주어진다. (2 &lt; n &lt; 100,000)</p>
+
+<p>입력의 마지막엔 -1이 주어진다.</p>
+
+<h3 id="출력">출력</h3>
+
+<p>테스트케이스 마다 한줄에 하나씩 출력해야 한다.</p>
+
+<p>n이 완전수라면, n을 n이 아닌 약수들의 합으로 나타내어 출력한다(예제 출력 참고).</p>
+
+<p>이때, 약수들은 오름차순으로 나열해야 한다.</p>
+
+<p>n이 완전수가 아니라면 n is NOT perfect. 를 출력한다.</p>
+
+<h2 id="아이디어">아이디어</h2>
+<ul>
+  <li>
+    <p>구현 방법
+  각 숫자들의 약수들을 담은 리스트를 만들어<br />
+  stream api를 활용하여 총 합을 구한 뒤<br />
+  완전수 여부에 따라 결과를 출력한다.</p>
+  </li>
+  <li>
+    <p>약수를 구하는 방법</p>
+    <ul>
+      <li>1부터 n까지 for문으로 하나씩 증가시키면서 나누어 떨어지는지 검사한다.</li>
+      <li>loop의 수를 줄이기 위해 제곱근을 구하는 Math.sqrt()를 사용하였다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="답안코드">답안코드</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
+
+        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
+            
+            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span> <span class="c1">// 약수들을 담을 리스트</span>
+
+            <span class="kt">int</span> <span class="n">sqrt</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>   <span class="c1">// 제곱수</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">sqrt</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>    <span class="c1">// 약수 중 작은 수</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">/</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// 제곱근 두 번 추가 방지</span>
+                        <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">n</span> <span class="o">/</span> <span class="n">i</span><span class="o">);</span>    <span class="c1">// 약수 중 큰 수</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span> <span class="c1">// 약수 모음 오름차순 정렬</span>
+            <span class="n">nums</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>   <span class="c1">// 맨 마지막 수(자기 자신) 제거</span>
+
+            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">mapToInt</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">.</span><span class="na">intValue</span><span class="o">()).</span><span class="na">sum</span><span class="o">();</span>  <span class="c1">// 자기 자신을 제외한 약수들의 총 합</span>
+            
+            <span class="nc">String</span> <span class="n">result</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">sum</span> <span class="o">==</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">String</span> <span class="n">sumString</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>    <span class="c1">// Stream&lt;Integer&gt;</span>
+                    <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span> <span class="c1">// Stream&lt;String&gt;</span>
+                    <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">" + "</span><span class="o">));</span>    <span class="c1">// "1 + 2 + 3"</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">sumString</span> <span class="o">+</span> <span class="s">"\n"</span><span class="o">;</span>
+                <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="s">" is NOT perfect.\n"</span><span class="o">;</span>
+                <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2750] 수 정렬하기</title><link href="http://localhost:4000/boj/2750/" rel="alternate" type="text/html" title="[2750] 수 정렬하기" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>http://localhost:4000/boj/2750</id><content type="html" xml:base="http://localhost:4000/boj/2750/"><![CDATA[<h2 id="bronze-ii-수-정렬하기---2750">[Bronze II] 수 정렬하기 - 2750</h2>
 
 <p><a href="https://www.acmicpc.net/problem/2750">문제 링크</a></p>
 
@@ -1659,346 +1733,5 @@ flatMap은 그냥 반환한다.</p>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ls1</span><span class="o">);</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ls2</span><span class="o">);</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개</title><link href="http://localhost:4000/java%20lang/Chap26/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 26 - 네스티드 클래스와 람다(Lambda)의 소개" /><published>2023-03-06T00:00:00+09:00</published><updated>2023-03-07T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap26</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap26/"><![CDATA[<h2 id="26-1-네스티드nested-클래스와-이너inner-클래스">26-1. 네스티드(Nested) 클래스와 이너(Inner) 클래스</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Outer</span> <span class="o">{</span>
-  <span class="kd">class</span> <span class="nc">Nested</span> <span class="o">{...}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>클래스 내에 정의된 클래스를 가리켜 네스티드 클래스(Nested Class)라 하고,<br />
-이를 감싸는 클래스를 외부 클래스(Outer Class)라 한다.</p>
-
-<h3 id="--네스티드-클래스의-구분">- <u>네스티드 클래스의 구분</u></h3>
-<p><img src="/assets/images/java-lang/26-1.png" alt="image" width="80%" height="80%" /><br />
-static이냐, non static이냐로 나뉘고,<br />
-non static 네스티드 클래스는 다시 멤버 클래스, 로컬 클래스, 익명 클래스로 나뉜다.</p>
-
-<h3 id="--static-네스티드-클래스-static-nested-class">- <u>Static 네스티드 클래스 (Static Nested Class)</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Outer</span> <span class="o">{</span>
-  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Nested1</span> <span class="o">{</span>
-    <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">num</span> <span class="o">+=</span> <span class="n">n</span><span class="o">;</span>   <span class="c1">// Outer 클래스의 static 변수를 공유한다.</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-
-  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Nested2</span> <span class="o">{</span>
-    <span class="kt">int</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
-      <span class="k">return</span> <span class="n">num</span><span class="o">;</span> <span class="c1">// Outer 클래스의 static 변수를 공유한다.</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StaticNested</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// 인스턴스 생성방법</span>
-    <span class="nc">Outer</span><span class="o">.</span><span class="na">Nested1</span> <span class="n">nst1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Outer</span><span class="o">.</span><span class="na">Nested1</span><span class="o">();</span>
-    <span class="nc">Outer</span><span class="o">.</span><span class="na">Nested2</span> <span class="n">nst2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Outer</span><span class="o">.</span><span class="na">Nested2</span><span class="o">();</span>
-
-    <span class="c1">// static 변수 num을 공유한다.</span>
-    <span class="n">nst1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">nst2</span><span class="o">.</span><span class="na">get</span><span class="o">());</span> <span class="c1">// 5가 출력됨</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Static 네스티드 클래스의 인스턴스 생성은 외부 클래스의 인스턴스 생성과 무관하다.<br />
-따라서, 다음도 유추해볼 수 있다.</p>
-<blockquote>
-  <p>Static 네스티드 클래스 내에서 외부 클래스의 인스턴스 변수와 메소드에 접근 불가능하다.<br />
-즉, Static 네스티드 클래스 내에서는 외부 클래스에 static으로 선언된 변수와 메소드에만 접근이 가능하다.</p>
-</blockquote>
-
-<h3 id="--이너inner-클래스의-구분">- <u>이너(Inner) 클래스의 구분</u></h3>
-<p>네스티드 클래스 중에서 static 선언이 붙지 않은 클래스를 가리켜 ‘이너 클래스’라 한다.</p>
-<ul>
-  <li>멤버 클래스 (Member Class)</li>
-  <li>로컬 클래스 (Local Class)</li>
-  <li>익명 클래스 (Anonymous Class)</li>
-</ul>
-
-<p>이들 중 다음 둘은 정의된 위치에 따라서 구분이 된다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Outer</span> <span class="o">{</span>
-  <span class="cm">/**
-  * 멤버 클래스
-  * 인스턴스 변수, 인스턴스 메소드와 동일한 위치에 정의
-  */</span>
-  <span class="kd">class</span> <span class="nc">MemberInner</span> <span class="o">{...}</span> 
-  
-  <span class="cm">/**
-  * 로컬 클래스
-  * 중괄호 내에, 특히 메소드 내에 정의
-  */</span>
-  <span class="kt">void</span> <span class="nf">method</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">class</span> <span class="nc">LocalInner</span> <span class="o">{...}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--멤버-클래스member-class">- <u>멤버 클래스(Member Class)</u></h3>
-<p><img src="/assets/images/java-lang/26-2.png" alt="image" width="80%" height="80%" /><br /></p>
-
-<p>Member 클래스 내에서는 Outer 클래스의 인스턴스 변수에 접근이 가능하다.<br />
-그리고 코드에서 볼 수 있듯이</p>
-<blockquote>
-  <p>멤버 클래스의 인스턴스는 외부 클래스의 인스턴스에 종속적이다.</p>
-</blockquote>
-
-<h3 id="--멤버-클래스를-언제-사용하는가">- <u>'멤버 클래스'를 언제 사용하는가?</u></h3>
-<blockquote>
-  <p>클래스의 정의를 감추어야 할 때 유용하게 사용이 된다.</p>
-</blockquote>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
-  <span class="kt">void</span> <span class="nf">print</span><span class="o">();</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Paper</span> <span class="o">{</span>
-  <span class="kd">private</span> <span class="nc">String</span> <span class="n">con</span><span class="o">;</span>
-
-  <span class="kd">public</span> <span class="nf">Paper</span><span class="o">(</span><span class="nc">String</span> <span class="n">con</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">con</span> <span class="o">=</span> <span class="n">con</span><span class="o">;</span>
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="nc">Printable</span> <span class="nf">getPrinter</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nf">Printer</span><span class="o">();</span>   <span class="c1">// 멤버 클래스 인스턴스 생성 및 반환</span>
-  <span class="o">}</span>
-
-  <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Printer</span> <span class="kd">implements</span> <span class="nc">Printable</span> <span class="o">{</span>    <span class="c1">// 멤버 클래스의 정의</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">()</span> <span class="o">{</span>
-      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">con</span><span class="o">);</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UseMemberInner</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">Paper</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Paper</span><span class="o">(</span><span class="s">"서류 내용: 행복합니다."</span><span class="o">);</span>
-    <span class="nc">Printable</span> <span class="n">prn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">getPrinter</span><span class="o">();</span>
-    <span class="n">prn</span><span class="o">.</span><span class="na">print</span><span class="o">();</span>    <span class="c1">// 서류 내용: 행복합니다.</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Printer 클래스는 private으로 선언되었기 때문에 이 클래스를 감싸는 클래스 내에서만 인스턴스 생성이 가능하다.
-이 때문에 Papers 클래스의 외부에서는 getPrinter 메소드가 어떤 인스턴스의 참조 값을 반환하는지 알지 못한다.<br />
-다만, 반환되는 참조 값의 인스턴스가 Printable을 구현하고 있어서 Printable의 참조 변수로 참조할 수 있다는 사실만 안다.<br />
-이러한 상황을 ‘클래스의 정의가 감추어진 상황’이라 한다.</p>
-
-<p>클래스의 정의를 감추면 getPrinter 메소드가 반환하는 인스턴스가 다른 클래스의 인스턴스로 변경되어도 Papers 클래스 외부의 코드는 수정할 필요가 없다.<br />
-즉, 코드에 유연성이 부여되었다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-  <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-  <span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="o">{</span>
-  <span class="o">....</span>
-  <span class="kd">public</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nf">Itr</span><span class="o">();</span> <span class="c1">// 멤버 클래스의 인스턴스 생성 및 반환</span>
-  <span class="o">}</span>
-
-  <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Itr</span> <span class="kd">implements</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="o">{</span>  <span class="c1">// 멤버 클래스의 정의</span>
-    <span class="o">...</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>전에 보았던 iterator 메소드도 보다싶이 inner class로 정의되어있다.<br />
-이를 통해 반복자가 Outer Class의 멤버에 직접 접근이 가능했던 이유를 알 수 있다.</p>
-
-<h3 id="--로컬-클래스-local-class">- <u>로컬 클래스 (Local Class)</u></h3>
-<p>‘로컬 클래스’는 ‘멤버 클래스’와 매우 유사하다.<br />
-다만, 클래스의 정의 위치가 if문이나 while문 또는 메소드 몸체와 같은 블록 안에 정의된다는 점에서 ‘멤버 클래스’와 구분된다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
-  <span class="kt">void</span> <span class="nf">print</span><span class="o">();</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Paper</span> <span class="o">{</span>
-  <span class="kd">private</span> <span class="nc">String</span> <span class="n">con</span><span class="o">;</span>
-
-  <span class="kd">public</span> <span class="nf">Paper</span><span class="o">(</span><span class="nc">String</span> <span class="n">con</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">con</span> <span class="o">=</span> <span class="n">con</span><span class="o">;</span>
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="nc">Printable</span> <span class="nf">getPrinter</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">class</span> <span class="nc">Printer</span> <span class="kd">implements</span> <span class="nc">Printable</span> <span class="o">{</span>    <span class="c1">// 로컬 클래스의 정의</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">()</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">con</span><span class="o">);</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nf">Printer</span><span class="o">();</span>   <span class="c1">// 로컬 클래스 인스턴스 생성 및 반환</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UseLocalInner</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">Paper</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Paper</span><span class="o">(</span><span class="s">"서류 내용: 행복합니다."</span><span class="o">);</span>
-    <span class="nc">Printable</span> <span class="n">prn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">getPrinter</span><span class="o">();</span>
-    <span class="n">prn</span><span class="o">.</span><span class="na">print</span><span class="o">();</span>    <span class="c1">// 서류 내용: 행복합니다.</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p>멤버 클래스보다도 클래스를 더 깊이, 특정 블록 안으로 감추는 효과가 있다.</p>
-
-<h3 id="--익명-클래스-anonymous-class">- <u>익명 클래스 (Anonymous Class)</u></h3>
-<p>익명 클래스의 이해를 돕기 위해 위의 클래스를 익명 클래스의 형태로 재정의해보자.<br />
-<img src="/assets/images/java-lang/26-3.png" alt="image" width="80%" height="80%" /><br /></p>
-
-<p>실제로 전에 Collection 공부할 당시 쓰였던 코드를 익명 클래스의 정의 형태로 다시 만들어보았다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">SSComp</span> <span class="kd">implements</span> <span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">String</span> <span class="n">s1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s2</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">s2</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortComparator</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"ROBOT"</span><span class="o">);</span>
-    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"APPLE"</span><span class="o">);</span>
-    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"BOX"</span><span class="o">);</span>
-
-    <span class="nc">SSComp</span> <span class="n">cmp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SSComp</span><span class="o">();</span>      <span class="c1">// 정렬 기준</span>
-    <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">cmp</span><span class="o">);</span>    <span class="c1">// 정렬 기준 변경해서 정렬 진행</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnonymousComparator</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"ROBOT"</span><span class="o">);</span>
-    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"APPLE"</span><span class="o">);</span>
-    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"BOX"</span><span class="o">);</span>
-
-    <span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">cmp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;()</span> <span class="o">{</span>
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">String</span> <span class="n">o1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">o2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">o1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">o2</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-      <span class="o">}</span>
-    <span class="o">};</span>
-
-    <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">cmp</span><span class="o">);</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="26-2-람다lambda의-소개">26-2. 람다(Lambda)의 소개</h2>
-<h3 id="--람다의-이해">- <u>람다의 이해</u></h3>
-<p>람다를 사용하면 코드를 줄일 수 있고, 그렇게 만들어진 코드는 가독성도 뛰어나다.<br />
-다음 예시를 보고 람다를 이해해보자.</p>
-
-<p>1) 기존 방식</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인터페이스 Printable을 구현하는 인스턴스의 생성을 위해..</span>
-<span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
-  <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="c1">// 1. Printable 인터페이스를 구현하는 Printer 클래스를 정의함</span>
-<span class="kd">class</span> <span class="nc">Printer</span> <span class="kd">implements</span> <span class="nc">Printable</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Lambda1</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// Printer 클래스를 통해 인스턴스를 생성함</span>
-    <span class="nc">Priatable</span> <span class="n">prn</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Printer</span><span class="o">();</span>
-    
-    <span class="n">prn</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"What is Lambda?"</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br /></p>
-
-<p>2) 익명 클래스 활용</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인터페이스 Printable을 구현하는 인스턴스의 생성을 위해..</span>
-<span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
-  <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Lambda2</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// 2. 익명 클래스의 적용을 통해 기존 Printer 클래스의 정의를 하나 줄여줌</span>
-    <span class="nc">Priatable</span> <span class="n">prn</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Printer</span><span class="o">()</span> <span class="o">{</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
-      <span class="o">}</span>
-    <span class="o">};</span>
-    
-    <span class="n">prn</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"What is Lambda?"</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br /></p>
-
-<p>3) 람다 활용</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인터페이스 Printable을 구현하는 인스턴스의 생성을 위해..</span>
-<span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
-  <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LambdaExample</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// 위의 예시를 람다 기반으로 수정함</span>
-    <span class="nc">Printable</span> <span class="n">prn</span> <span class="o">=</span> <span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="o">};</span>
-    
-    <span class="n">prn</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"What is Lambda"</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p><br /></p>
-
-<p>익명 클래스와 람다는 분명 다르지만 둘 다 인스턴스의 생성으로 이어지고, 람다식이 익명 클래스의 정의를 일부 대체하기 때문에 익명 클래스의 정의를 기반으로 람다식을 이해해보자.</p>
-
-<p><img src="/assets/images/java-lang/26-5.png" alt="image" width="60%" height="60%" /><br />
-핵심은 참조변수의 type 정보를 보고 컴파일러가 어디까지 유추할 수 있는가에 있다.<br />
-컴파일러가 참조변수의 type(Printable)을 보고</p>
-<ol>
-  <li>아! 오른쪽에 Printable 인터페이스를 구현하는 인스턴스가 와야하는 구나</li>
-  <li>Printable 인터페이스에 추상 메소드가 하나 밖에 없으니 몸체에 오는 건 그 메소드의 내용이겠구나</li>
-</ol>
-
-<p>위 두 가지 정보를 유추할 수 있다. 따라서 생략도 가능하다.</p>
-
-<p><img src="/assets/images/java-lang/26-4.png" alt="image" width="80%" height="80%" /><br /></p>
-
-<h3 id="--람다식의-인자-전달">- <u>람다식의 인자 전달</u></h3>
-<p>람다식을 메소드의 인자로 전달할 수도 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span>
-  <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Show</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">ShowString</span><span class="o">(</span><span class="nc">Printable</span> <span class="n">p</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">p</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LambdaExample</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">showString</span><span class="o">((</span><span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="o">},</span> <span class="s">"What is Lambda?"</span><span class="o">);</span>
-  <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
