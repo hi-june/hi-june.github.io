@@ -328,4 +328,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap29/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2",
+        "excerpt":"30-1. 스트림의 생성과 연결 - 스트림의 생성: 스트림 생성에 필요한 데이터를 직접 전달 스트림 생성과 관련하여 Stream&lt;T&gt; 인터페이스에 정의되어 있는 static 메소드가 있다. import java.util.List; import java.util.Arrays; import java.util.stream.Stream; class StreamOfStream { public static void main(String[] args) { // ex 1 Stream.of(11, 22, 33, 44) .forEach(n -&gt; System.out.print(n + \"\\t\"));...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap30/",
+        "teaser": null
       }]
