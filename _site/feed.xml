@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-12T18:47:12+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2</title><link href="http://localhost:4000/java%20lang/Chap30/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap30</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap30/"><![CDATA[<h2 id="30-1-스트림의-생성과-연결">30-1. 스트림의 생성과 연결</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-12T19:36:22+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2</title><link href="http://localhost:4000/java%20lang/Chap30/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap30</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap30/"><![CDATA[<h2 id="30-1-스트림의-생성과-연결">30-1. 스트림의 생성과 연결</h2>
 <h3 id="--스트림의-생성-스트림-생성에-필요한-데이터를-직접-전달">- <u>스트림의 생성: 스트림 생성에 필요한 데이터를 직접 전달</u></h3>
 <p>스트림 생성과 관련하여 Stream&lt;T&gt; 인터페이스에 정의되어 있는 static 메소드가 있다.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
@@ -271,11 +271,151 @@
 실행 결과를 통해 스트림의 지연 처리 특성을 볼 수 있고, peek 연산이 중간 연산임을 알 수 있다.</p>
 
 <h2 id="30-3-스트림의-최종-연산">30-3. 스트림의 최종 연산</h2>
-<h3 id="--">- <u></u></h3>
-<h3 id="---1">- <u></u></h3>
-<h3 id="---2">- <u></u></h3>
-<h3 id="---3">- <u></u></h3>
-<h3 id="---4">- <u></u></h3>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[2960] 에라토스테네스의 체</title><link href="http://localhost:4000/boj/2960/" rel="alternate" type="text/html" title="[2960] 에라토스테네스의 체" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/boj/2960</id><content type="html" xml:base="http://localhost:4000/boj/2960/"><![CDATA[<h2 id="silver-iv-에라토스테네스의-체---2960">[Silver IV] 에라토스테네스의 체 - 2960</h2>
+<h3 id="--sum-count-average-min-max">- <u>sum(), count(), average(), min(), max()</u></h3>
+<p>메소드의 이름만 봐도 알 수 있듯이 이들은 수에 의미 있는 연산이다.<br />
+따라서 IntStream, LongStream, DoubleStream형 참조변수가 참조하는 스트림을 대상으로만 이 연산들이 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// IntStream의 메소드들</span>
+<span class="kt">int</span> <span class="nf">sum</span><span class="o">()</span>
+<span class="kt">long</span> <span class="nf">count</span><span class="o">()</span>
+<span class="nc">OptionalDouble</span> <span class="nf">average</span><span class="o">()</span>
+<span class="nc">OptionalInt</span> <span class="nf">min</span><span class="o">()</span>
+<span class="nc">OptionalInt</span> <span class="nf">max</span><span class="o">()</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.stream.IntStream</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">OpIntStream</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 합</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">)</span>
+                          <span class="o">.</span><span class="na">sum</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"sum = "</span> <span class="o">+</span> <span class="n">sum</span><span class="o">);</span>
+
+        <span class="c1">// 개수</span>
+        <span class="kt">long</span> <span class="n">cnt</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">)</span>
+                          <span class="o">.</span><span class="na">count</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"count = "</span> <span class="o">+</span> <span class="n">cnt</span><span class="o">);</span>
+
+        <span class="c1">// 평균</span>
+        <span class="nc">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">average</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">ifPresent</span><span class="o">(</span><span class="n">av</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"avg = "</span> <span class="o">+</span> <span class="n">av</span><span class="o">));</span>
+
+        <span class="c1">// 최소</span>
+        <span class="nc">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">min</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">ifPresent</span><span class="o">(</span><span class="n">mn</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"min = "</span> <span class="o">+</span> <span class="n">mn</span><span class="o">));</span>
+
+        <span class="c1">// 최대</span>
+        <span class="nc">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">max</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">ifPresent</span><span class="o">(</span><span class="n">mx</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"max = "</span> <span class="o">+</span> <span class="n">mx</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--foreach">- <u>forEach</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">forEach</span><span class="o">(</span><span class="nc">Consumer</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">action</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>스트림에 포함되어있는 데이터를 대상으로 action 메소드를 호출한다.<br />
+forEach와 peek은 각각 최종 연산과 중간 연산이라는 부분에서만 차이가 있다.</p>
+
+<h3 id="--allmatch-anymatch-nonematch">- <u>allMatch, anyMatch, noneMatch</u></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 스트림의 모든 데이터가 조건을 만족하는가?</span>
+<span class="kt">boolean</span> <span class="nf">allMatch</span><span class="o">(</span><span class="nc">Predicate</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">predicate</span><span class="o">)</span>
+
+<span class="c1">// 스트림의 데이터 중 조건을 만족하는 것이 하나라도 있는가?</span>
+<span class="kt">boolean</span> <span class="nf">anyMatch</span><span class="o">(</span><span class="nc">Predicate</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">predicate</span><span class="o">)</span>
+
+<span class="c1">// 스트림의 모든 데이터가 조건을 만족하지 않는가?</span>
+<span class="kt">boolean</span> <span class="nf">noneMatch</span><span class="o">(</span><span class="nc">Predicate</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">predicate</span><span class="o">)</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.stream.IntStream</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">MatchStream</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">)</span>
+                          <span class="o">.</span><span class="na">allMatch</span><span class="o">(</span><span class="n">n</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"모두 짝수이다. "</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+
+        <span class="n">b</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">anyMatch</span><span class="o">(</span><span class="n">n</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"짝수가 하나는 있다. "</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+
+        <span class="n">b</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">noneMatch</span><span class="o">(</span><span class="n">n</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"짝수가 하나도 없다. "</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--collect">- <u>collect</u></h3>
+<blockquote>
+  <p>최종으로 원하는 것이 reduction이 아닐 때 사용한다.</p>
+</blockquote>
+
+<p>한 번 파이프라인을 통해서 가공되고 걸러진 데이터를 최종 연산 과정에서 별도로 저장하고 싶은 경우에 사용해준다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="no">R</span><span class="o">&gt;</span> <span class="no">R</span> <span class="nf">collect</span><span class="o">(</span><span class="nc">Supplier</span><span class="o">&lt;</span><span class="no">R</span><span class="o">&gt;</span> <span class="n">supplier</span><span class="o">,</span>
+                <span class="nc">BiConsumer</span><span class="o">&lt;</span><span class="no">R</span><span class="o">,</span> <span class="o">?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">accumulator</span><span class="o">,</span>
+                <span class="nc">BiConsumer</span><span class="o">&lt;</span><span class="no">R</span><span class="o">,</span> <span class="no">R</span><span class="o">&gt;</span> <span class="n">combiner</span><span class="o">)</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CollectStringStream</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="o">{</span><span class="s">"Hello"</span><span class="o">,</span> <span class="s">"Box"</span><span class="o">,</span> <span class="s">"Robot"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">};</span>
+
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">words</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(),</span>   <span class="c1">// 저장소</span>
+                        <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s</span><span class="o">),</span> <span class="c1">// c: 저장소, s: 스트림에 있는 데이터</span>
+                        <span class="o">(</span><span class="n">lst1</span><span class="o">,</span> <span class="n">lst2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">lst1</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">lst2</span><span class="o">));</span> <span class="c1">// 저장소 합치기</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>파이프를 통해 걸려진 데이터들을 저장소에 저장하는 코드이다.<br />
+마지막 인자는 순차 스트림일 경우에는 의미 없다.</p>
+
+<h3 id="--병렬-스트림에서의-collect">- <u>병렬 스트림에서의 collect</u></h3>
+<p>만약 병렬 스트림을 대상으로 collect 메소드가 호출되면,<br />
+첫 번째 인자로 전달된 람다식을 기반으로 ‘다수의 저장소’가 생성되어,<br />
+두 번째 람다식을 기반으로 이 다수의 저장소에 데이터가 나뉘어 저장된다.</p>
+
+<p>따라서, 저장이 끝난 뒤 이 다수의 저장소들을 하나로 묶는 과정을 거쳐야 하는데 이 때 사용되는 것이 세 번째 전달인자이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CollectParallelStringStream</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="o">{</span><span class="s">"Hello"</span><span class="o">,</span> <span class="s">"Box"</span><span class="o">,</span> <span class="s">"Robot"</span><span class="o">,</span> <span class="s">"Toy"</span><span class="o">};</span>
+
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">words</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">parallel</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(),</span>   <span class="c1">// 저장소</span>
+                        <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s</span><span class="o">),</span> <span class="c1">// c: 저장소, s: 스트림에 있는 데이터</span>
+                        <span class="o">(</span><span class="n">lst1</span><span class="o">,</span> <span class="n">lst2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">lst1</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">lst2</span><span class="o">));</span> <span class="c1">// 저장소 합치기</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>앞선 포스트에서도 말했듯이 병렬 처리가 능사는 아니다.<br />
+처리해야 할 일에 비해 병렬 처리를 위한 전후 과정이 더 소모적인 경우에는 오히려 속도가 더 느려질 수도 있다.<br />
+따라서 병렬 처리를 결정했을 때는 테스트를 통해 병렬 처리의 적합성을 판단해야 한다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[2960] 에라토스테네스의 체</title><link href="http://localhost:4000/boj/2960/" rel="alternate" type="text/html" title="[2960] 에라토스테네스의 체" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/boj/2960</id><content type="html" xml:base="http://localhost:4000/boj/2960/"><![CDATA[<h2 id="silver-iv-에라토스테네스의-체---2960">[Silver IV] 에라토스테네스의 체 - 2960</h2>
 
 <p><a href="https://www.acmicpc.net/problem/2960">문제 링크</a></p>
 
