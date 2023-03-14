@@ -340,4 +340,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20lang/Chap30/",
         "teaser": null
+      },{
+        "title": "[자바 코테] Stream 정리",
+        "excerpt":"Stream의 종류 구글링하다보면 같은 동작인데 방법이 너무 많다. 이 기회에 정리해보자.. Stream&lt;T&gt;: 제네릭 기반으로 정의됨 IntStream, LongStream, DoubleStream 등등: 기본 자료형 기반 Stream을 생성하는 법 배열: Arrays 클래스의 static 메소드인 stream()에 배열 인스턴스를 전달한다. int[] i = {1,2,3,4,5}; IntStream istm = Arrays.stream(i); Integer[] i = {1,2,3,4,5}; Stream&lt;Integer&gt; istm = Arrays.stream(i);...","categories": ["Java Coding Test"],
+        "tags": ["java"],
+        "url": "/java%20coding%20test/Stream/",
+        "teaser": null
       }]

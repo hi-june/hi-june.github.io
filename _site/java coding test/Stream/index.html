@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[SiDoli] 프로젝트 소개 -  June &amp; Directory</title>
-<meta name="description" content="Grean Apple Bean의 프로젝트 ">
+<!-- begin _includes/seo.html --><title>[자바 코테] Stream 정리 -  June &amp; Directory</title>
+<meta name="description" content="코딩 테스트용 자바 정리 ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[SiDoli] 프로젝트 소개">
-<meta property="og:url" content="http://localhost:4000/sidoli/SiDoli01/">
+<meta property="og:title" content="[자바 코테] Stream 정리">
+<meta property="og:url" content="http://localhost:4000/java%20coding%20test/Stream/">
 
 
-  <meta property="og:description" content="Grean Apple Bean의 프로젝트 ">
+  <meta property="og:description" content="코딩 테스트용 자바 정리 ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-29T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-03-14T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-07-01T00:00:00+09:00">
+  <meta property="article:modified_time" content="2023-03-14T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/sidoli/SiDoli01/">
+<link rel="canonical" href="http://localhost:4000/java%20coding%20test/Stream/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#sidoli" itemprop="item"><span itemprop="name">Sidoli</span></a>
+          <a href="/categories/#java-coding-test" itemprop="item"><span itemprop="name">Java coding test</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[SiDoli] 프로젝트 소개</li>
+        <li class="current">[자바 코테] Stream 정리</li>
       
     
   </ol>
@@ -755,18 +755,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[SiDoli] 프로젝트 소개">
-    <meta itemprop="description" content="Grean Apple Bean의 프로젝트">
-    <meta itemprop="datePublished" content="2022-06-29T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-07-01T00:00:00+09:00">
+    <meta itemprop="headline" content="[자바 코테] Stream 정리">
+    <meta itemprop="description" content="코딩 테스트용 자바 정리">
+    <meta itemprop="datePublished" content="2023-03-14T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-03-14T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[SiDoli] 프로젝트 소개
+          <h1 id="page-title" class="page__title" itemprop="headline">[자바 코테] Stream 정리
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-06-29T00:00:00+09:00">2022.06.29</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-07-01">2022.07.01</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-03-14T00:00:00+09:00">2023.03.14</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-03-14">2023.03.14</time></p>
           
           
             
@@ -782,7 +782,7 @@
     
       
       
-      <a href="/categories/#sidoli" class="page__taxonomy-item-category" rel="tag">SiDoli</a>
+      <a href="/categories/#java-coding-test" class="page__taxonomy-item-category" rel="tag">Java Coding Test</a>
     
     </span>
   </p>
@@ -799,7 +799,7 @@
     
       
       
-      <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+      <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
     
     </span>
   </p>
@@ -814,99 +814,88 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#0-들어가기에-앞서">0. 들어가기에 앞서</a></li>
-  <li><a href="#1-제안서-소개">1. 제안서 소개</a>
-    <ul>
-      <li><a href="#--주제-선정-및-필요성">- 주제 선정 및 필요성</a></li>
-      <li><a href="#--참고한-유사-서비스">- 참고한 유사 서비스</a></li>
-      <li><a href="#--차별성">- 차별성</a></li>
-    </ul>
-  </li>
-  <li><a href="#2-sidoli-어플리케이션-소개">2. SiDoli 어플리케이션 소개</a></li>
-  <li><a href="#3-앞으로의-게시글-예고">3. 앞으로의 게시글 예고</a></li>
+  <li><a href="#stream의-종류">Stream의 종류</a></li>
+  <li><a href="#stream을-생성하는-법">Stream을 생성하는 법</a></li>
+  <li><a href="#중간-연산intermediate-operation의-종류">중간 연산(Intermediate Operation)의 종류</a></li>
+  <li><a href="#최종-연산terminal-operation의-종류">최종 연산(Terminal Operation)의 종류</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="0-들어가기에-앞서">0. 들어가기에 앞서</h2>
-<p>학교에서 ‘안드로이드 프로그래밍’이라는 과목을 수강하면서 팀 프로젝트를 진행하게 되었다.<br />
-시흥시와 협력하는 ce 교과로써 시흥시에 도움이 될 만한 어플을 고안해서 제안해보는 과제였다.<br />
-우리 팀은 시흥시가 뭔가 위험하다는 이미지가 있는 것 같고, 이를 개선하기 위해 ‘시흥시 안전지도’라는 컨셉으로 어플리케이션을 개발해보자 라는 결론에 이르렀다.</p>
+        <h2 id="stream의-종류">Stream의 종류</h2>
+<p>구글링하다보면 같은 동작인데 방법이 너무 많다. 이 기회에 정리해보자..</p>
 
-<p>그리고 현재 기능적으로는 어플이 완성된 상태이고, 자잘한 버그와 디자인만 손 보면 구글 플레이스토어에 업로드하여 서비스해볼 생각이다. 그에 앞서 개발하면서 배웠던 점들에 대해서 정리해보는 시간을 갖고자 한다.</p>
+<p>Stream&lt;T&gt;: 제네릭 기반으로 정의됨<br />
+IntStream, LongStream, DoubleStream 등등: 기본 자료형 기반</p>
 
-<h2 id="1-제안서-소개">1. 제안서 소개</h2>
-<h3 id="--주제-선정-및-필요성">- 주제 선정 및 필요성</h3>
-<p><img src="/assets/images/SiDoli/a.png" alt="image" class="align-center" width="90%" height="90%" /></p>
-
-<p><img src="/assets/images/SiDoli/b.png" alt="image" class="align-center" width="90%" height="90%" /></p>
-
-<p>학교가 시흥에 있다는 말을 들었을 때 주변의 반응이 ‘거기 위험하지 않아?’라든지, ‘공단 있는 곳 아니야?’라든지 다소 위험하다는 인식이 많았다. 실제로 학교 근처에 공단이 위치해있다보니 가로등이 없는 거리도 꽤 있고, 어두운 거리들도 많아서 좀 더 밝은 귀갓길을 결정하는데 도움이 될 수 있는 서비스가 있다면 시흥시에 대한 인식도 개선될 수 있을 것이다.</p>
-
-<h3 id="--참고한-유사-서비스">- 참고한 유사 서비스</h3>
+<h2 id="stream을-생성하는-법">Stream을 생성하는 법</h2>
 <ol>
   <li>
-    <p>화순군 스마트 조명 지킴이
-<img src="/assets/images/SiDoli/c.png" alt="image" class="align-center" /></p>
+    <p>배열: Arrays 클래스의 static 메소드인 stream()에 배열 인스턴스를 전달한다.</p>
 
-    <p>보안등 데이터를 불러와서 지도에 보여줄 수 있다면 사용자로 하여금 좀 더 안전한 경로를 결정할 때 도움이 될 것 같다는 생각에 참고한 어플리케이션이다.</p>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kt">int</span><span class="o">[]</span> <span class="n">i</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
+ <span class="nc">IntStream</span> <span class="n">istm</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+    
+ <span class="nc">Integer</span><span class="o">[]</span> <span class="n">i</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
+ <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">istm</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+</code></pre></div>    </div>
   </li>
   <li>
-    <p>안심해
-<img src="/assets/images/SiDoli/d.png" alt="image" /></p>
+    <p>컬렉션: 컬렉션 인스턴스를 대상으로 디폴트 메소드 stream()을 호출함.</p>
 
-    <p>전반적인 기능들과 컨셉이 우리 팀이 구현하고자 하는 어플과 상당히 유사하여 참고하게 된 어플이다.</p>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"a"</span><span class="o">,</span> <span class="s">"b"</span><span class="o">,</span> <span class="s">"c"</span><span class="o">);</span>
+ <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sstm</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">stream</span><span class="o">();</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>데이터 직접 전달: Stream<T>클래스 혹은 IntStream 등의 기본 자료형 스트림의 static 메소드인 of()에 stream에 넣고 싶은 데이터들을 전달한다.</T></p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">istm</span> <span class="o">=</span> <span class="nc">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">);</span>
+ <span class="nc">IntStream</span> <span class="n">istm</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">);</span>
+</code></pre></div>    </div>
   </li>
 </ol>
 
-<h3 id="--차별성">- 차별성</h3>
-<p><img src="/assets/images/SiDoli/e.png" alt="image" class="align-center" width="90%" height="90%" /></p>
+<h2 id="중간-연산intermediate-operation의-종류">중간 연산(Intermediate Operation)의 종류</h2>
+<p>여러가지 있겠지만 대표적인 것들만 파악해보자..!</p>
 
-<p>그렇다면, 시흥시의 데이터를 이용해서 시흥시만의 특화된 서비스를 만들어보자!!</p>
-
-<h2 id="2-sidoli-어플리케이션-소개">2. SiDoli 어플리케이션 소개</h2>
-<p><img src="/assets/images/SiDoli/f.png" alt="image" class="align-center" width="90%" height="90%" /></p>
-
-<!-- Courtesy of embedresponsively.com //-->
-<div class="responsive-video-container">
-
-  <iframe src="https://www.youtube-nocookie.com/embed/tgOPO2Vbt5M" frameborder="0" allowfullscreen=""></iframe>
-
-</div>
-
-<ul>
-  <li>기본 기능(지도의 기본적인 기능)
-    <ol>
-      <li>Map View: <code class="language-plaintext highlighter-rouge">구글맵 api</code>를 이용하여 지도를 보여준다.</li>
-      <li>현 위치 조회: <code class="language-plaintext highlighter-rouge">GPS</code>를 이용하여 현 위치를 조회하고 지도에 표시해준다.</li>
-    </ol>
-  </li>
-  <li>특화 기능
-    <ol>
-      <li>보안등 정보: 시흥시에 설치된 보안등의 위치를 지도에 보여준다.</li>
-      <li>안심벨: 긴급 상황에 대비해 주변에 위험을 알릴 수 있도록 알림음이 울리도록 구현했다.</li>
-      <li>긴급신고: 인근 경찰서에 긴급신고하는 기능이다.</li>
-      <li>경찰서 안내: 현위치부터 시흥시에 있는 경찰서까지의 경로를 안내해준다.</li>
-    </ol>
-  </li>
-</ul>
-
-<h2 id="3-앞으로의-게시글-예고">3. 앞으로의 게시글 예고</h2>
-<p>프로젝트를 진행하면서 새로 배웠던 것들을 하나씩 정리해보자. 주로 코틀린 관련 내용들을 포스팅할 예정이고, 대략 이런 게시글들이 있지 않을까..</p>
+<p>java에 이미 정의되어있는 인터페이스의 종류(Predicate, Consumer, Function, Supplier 등등)를 미리 알아둔다면 각 메소드의 의미를 해석하는데 좀 더 도움이 된다. <br />
+잘 모르겠다면 람다를 열심히 공부하자..</p>
 
 <ol>
-  <li>구글 맵 api 초기 설정</li>
-  <li>공공 데이터 포털에서 필요한 데이터 이용하기</li>
-  <li>json parsing</li>
-  <li>기타 사항(Kotlin)
-    <ul>
-      <li>db 파일 내부 저장소로 옮기기</li>
-      <li>마커와 클러스트링</li>
-      <li>위치 정보와 길찾기 api</li>
-      <li>기타 잡다한 기능(ringtone, uri)</li>
-    </ul>
+  <li>filter(Predicate&lt;T&gt; p): boolean test(T t)를 구현할 것!</li>
+  <li>map(Function&lt;T, R&gt; f): R apply(T t)를 구현할 것!
+    <ol>
+      <li>mapToInt: int applyAsInt(T t)를 구현할 것!</li>
+      <li>flatMap(Function&lt;T, Stream&lt;R&gt;&gt; f): Stream을 리턴한다.</li>
+    </ol>
   </li>
+  <li>peek(consumer&lt;T&gt; c): void accept(T t)를 구현할 것!
+    <ol>
+      <li>forEach()와 같지만 중간 연산이라는 차이점이 있다.</li>
+    </ol>
+  </li>
+  <li>sorted(Comparator&lt;T&gt; c): int compare(T o1, T o2)를 구현할 것!</li>
+</ol>
+
+<h2 id="최종-연산terminal-operation의-종류">최종 연산(Terminal Operation)의 종류</h2>
+<ol>
+  <li>forEach(Consumer&lt;T&gt; c): void accept(T t) 를 구현할 것!</li>
+  <li>toArray()</li>
+  <li>collect(): 주로 Collectors 클래스의 static 메소드와 같이 쓴다.
+    <ol>
+      <li>collect(Collectors.toList()): 리스트로 만들 때 유용함.</li>
+      <li>collect(Collectors.joining(””)): string으로 만들 때 유용함.</li>
+    </ol>
+  </li>
+  <li>sum(), count(), average(), min(), max()
+    <ol>
+      <li>IntStream, LongStream, DoubleStream 인스턴스 대상으로만 사용이 가능하다.</li>
+      <li>average(), min(), max() 메소드들은 결과값으로 Optional 인스턴스가 나오니, ifPresent(Consumer&lt;T&gt; c), get(), orElse() 등의 메소드들을 사용해주면 된다.</li>
+    </ol>
+  </li>
+  <li>allMatch(), anyMatch(), noneMatch()</li>
 </ol>
 
         
@@ -914,17 +903,16 @@
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">SiDoli</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Java Coding Test</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/android/Chapter05/" class="pagination--pager" title="[안드로이드 기초] Chapter 05 - 레이아웃 익히기
+      <a href="/java%20lang/Chap30/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2
 ">이전</a>
     
     
-      <a href="/team_forv/Team_ForV02/" class="pagination--pager" title="[Team_ForV] 프로젝트 소개
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -941,8 +929,14 @@
   	
 
 
-  <a href="#" class="pagination_prev_next--pager disabled-first-child">첫 번째 글입니다</a>
-  <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
+  <nav class="pagination_prev_next">
+    
+      <a href="/java%20coding%20test/IO/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[자바 코테] 입출력 방법 정리</a>
+    
+    
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
+    
+  </nav>
 
 
 <!--
@@ -973,11 +967,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BSiDoli%5D+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%86%8C%EA%B0%9C%20http%3A%2F%2Flocalhost%3A4000%2Fsidoli%2FSiDoli01%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9E%90%EB%B0%94+%EC%BD%94%ED%85%8C%5D+Stream+%EC%A0%95%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520coding%2520test%2FStream%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fsidoli%2FSiDoli01%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520coding%2520test%2FStream%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fsidoli%2FSiDoli01%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520coding%2520test%2FStream%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -991,30 +985,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/java%20coding%20test/Stream/">[자바 코테] Stream 정리</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.03.14
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#java-coding-test" class="page__taxonomy-item-category" rel="tag">Java Coding Test</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1216,6 +1186,30 @@
             </span>
             <small> 
               <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.03.08
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20lang/Chap27/">[윤성우의 열혈 Java 프로그래밍] Chapter 27 - 람다와 함수형 인터페이스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.03.07
               <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
         
