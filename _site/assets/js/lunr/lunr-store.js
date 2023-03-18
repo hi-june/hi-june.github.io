@@ -346,4 +346,28 @@ var store = [{
         "tags": ["java"],
         "url": "/java%20coding%20test/Stream/",
         "teaser": null
+      },{
+        "title": "[자바 코테] Wrapper class와 primitive type",
+        "excerpt":"들어가며.. 솔직히 가장 번거로운 부분이 아닌가 싶다.. 코테에서 자주 접하는 자료형 및 래퍼 클래스 위주로 정리해보자. Integer static method Integer.valueOf(String s), Integer.valueOf(int i) —&gt; return Integer Integer.parseInt(String s) —&gt; return int Integer.toString(int i) —&gt; return String instance method i.intValue() —&gt; return int i.toString() —&gt; return String String static method String.valueOf(int...","categories": ["Java Coding Test"],
+        "tags": ["java"],
+        "url": "/java%20coding%20test/Wrapper/",
+        "teaser": null
+      },{
+        "title": "[10870] 피보나치 수 5",
+        "excerpt":"[Bronze II] 피보나치 수 5 - 10870 문제 링크 성능 요약 메모리: 14256 KB, 시간: 128 ms 분류 수학, 구현 문제 설명 피보나치 수는 0과 1로 시작한다. 0번째 피보나치 수는 0이고, 1번째 피보나치 수는 1이다. 그 다음 2번째 부터는 바로 앞 두 피보나치 수의 합이 된다. 이를 식으로 써보면 Fn...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/10870/",
+        "teaser": null
+      },{
+        "title": "[1929] 소수 구하기",
+        "excerpt":"[Silver III] 소수 구하기 - 1929 문제 링크 성능 요약 메모리: 24908 KB, 시간: 312 ms 분류 수학, 정수론, 소수 판정, 에라토스테네스의 체 문제 설명 M이상 N이하의 소수를 모두 출력하는 프로그램을 작성하시오. 입력 첫째 줄에 자연수 M과 N이 빈 칸을 사이에 두고 주어진다. (1 ≤ M ≤ N ≤ 1,000,000)...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/1929/",
+        "teaser": null
+      },{
+        "title": "[3460] 이진수",
+        "excerpt":"[Bronze III] 이진수 - 3460 문제 링크 성능 요약 메모리: 16204 KB, 시간: 156 ms 분류 수학, 구현 문제 설명 양의 정수 n이 주어졌을 때, 이를 이진수로 나타냈을 때 1의 위치를 모두 찾는 프로그램을 작성하시오. 최하위 비트(least significant bit, lsb)의 위치는 0이다. 입력 첫째 줄에 테스트 케이스의 개수 T가 주어진다....","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/3460/",
+        "teaser": null
       }]

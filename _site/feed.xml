@@ -1,4 +1,304 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-14T22:51:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[자바 코테] Stream 정리</title><link href="http://localhost:4000/java%20coding%20test/Stream/" rel="alternate" type="text/html" title="[자바 코테] Stream 정리" /><published>2023-03-14T00:00:00+09:00</published><updated>2023-03-14T00:00:00+09:00</updated><id>http://localhost:4000/java%20coding%20test/Stream</id><content type="html" xml:base="http://localhost:4000/java%20coding%20test/Stream/"><![CDATA[<h2 id="stream의-종류">Stream의 종류</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-18T16:57:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[3460] 이진수</title><link href="http://localhost:4000/boj/3460/" rel="alternate" type="text/html" title="[3460] 이진수" /><published>2023-03-18T00:00:00+09:00</published><updated>2023-03-18T00:00:00+09:00</updated><id>http://localhost:4000/boj/3460</id><content type="html" xml:base="http://localhost:4000/boj/3460/"><![CDATA[<h2 id="bronze-iii-이진수---3460">[Bronze III] 이진수 - 3460</h2>
+
+<p><a href="https://www.acmicpc.net/problem/3460">문제 링크</a></p>
+
+<h3 id="성능-요약">성능 요약</h3>
+
+<p>메모리: 16204 KB, 시간: 156 ms</p>
+
+<h3 id="분류">분류</h3>
+
+<p>수학, 구현</p>
+
+<h3 id="문제-설명">문제 설명</h3>
+
+<p>양의 정수 n이 주어졌을 때, 이를 이진수로 나타냈을 때 1의 위치를 모두 찾는 프로그램을 작성하시오. 최하위 비트(least significant bit, lsb)의 위치는 0이다.</p>
+
+<h3 id="입력">입력</h3>
+
+<p>첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있고, n이 주어진다. (1 ≤ T ≤ 10, 1 ≤ n ≤ 10<sup>6</sup>)</p>
+
+<h3 id="출력">출력</h3>
+
+<p>각 테스트 케이스에 대해서, 1의 위치를 공백으로 구분해서 줄 하나에 출력한다. 위치가 낮은 것부터 출력한다.</p>
+
+<h2 id="아이디어">아이디어</h2>
+<p>주어진 수를 몫이 1이 될때까지 그 값을 몫으로 갱신하며 2로 나누는 작업을 반복하면 된다.<br />
+각 연산마다 나머지값을 출력하면 이진수로 나타낼 수 있다.</p>
+
+<h2 id="답안코드">답안코드</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
+
+        <span class="kt">int</span> <span class="n">testCase</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">testCase</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">digit</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+            <span class="k">while</span> <span class="o">(</span><span class="n">n</span> <span class="o">!=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">digit</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="o">);</span>
+                <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">digit</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+
+            <span class="nc">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">digit</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">digit</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">answer</span> <span class="o">+=</span> <span class="n">j</span> <span class="o">+</span> <span class="s">" "</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">answer</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">"\n"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[10870] 피보나치 수 5</title><link href="http://localhost:4000/boj/10870/" rel="alternate" type="text/html" title="[10870] 피보나치 수 5" /><published>2023-03-18T00:00:00+09:00</published><updated>2023-03-18T00:00:00+09:00</updated><id>http://localhost:4000/boj/10870</id><content type="html" xml:base="http://localhost:4000/boj/10870/"><![CDATA[<h2 id="bronze-ii-피보나치-수-5---10870">[Bronze II] 피보나치 수 5 - 10870</h2>
+
+<p><a href="https://www.acmicpc.net/problem/10870">문제 링크</a></p>
+
+<h3 id="성능-요약">성능 요약</h3>
+
+<p>메모리: 14256 KB, 시간: 128 ms</p>
+
+<h3 id="분류">분류</h3>
+
+<p>수학, 구현</p>
+
+<h3 id="문제-설명">문제 설명</h3>
+
+<p>피보나치 수는 0과 1로 시작한다. 0번째 피보나치 수는 0이고, 1번째 피보나치 수는 1이다. 그 다음 2번째 부터는 바로 앞 두 피보나치 수의 합이 된다.</p>
+
+<p>이를 식으로 써보면 F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub> (n ≥ 2)가 된다.</p>
+
+<p>n=17일때 까지 피보나치 수를 써보면 다음과 같다.</p>
+
+<p>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597</p>
+
+<p>n이 주어졌을 때, n번째 피보나치 수를 구하는 프로그램을 작성하시오.</p>
+
+<h3 id="입력">입력</h3>
+
+<p>첫째 줄에 n이 주어진다. n은 20보다 작거나 같은 자연수 또는 0이다.</p>
+
+<h3 id="출력">출력</h3>
+
+<p>첫째 줄에 n번째 피보나치 수를 출력한다.</p>
+
+<h2 id="아이디어">아이디어</h2>
+<p>점화식으로 나타낼 수 있다면 recursion이 가능한지 시도해보자!</p>
+
+<h2 id="답안코드">답안코드</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fibo</span><span class="o">(</span><span class="n">n</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">fibo</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">fibo0</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">fibo1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">fibo0</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="k">return</span> <span class="n">fibo1</span><span class="o">;</span>
+
+        <span class="k">return</span> <span class="nf">fibo</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="o">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1929] 소수 구하기</title><link href="http://localhost:4000/boj/1929/" rel="alternate" type="text/html" title="[1929] 소수 구하기" /><published>2023-03-18T00:00:00+09:00</published><updated>2023-03-18T00:00:00+09:00</updated><id>http://localhost:4000/boj/1929</id><content type="html" xml:base="http://localhost:4000/boj/1929/"><![CDATA[<h2 id="silver-iii-소수-구하기---1929">[Silver III] 소수 구하기 - 1929</h2>
+
+<p><a href="https://www.acmicpc.net/problem/1929">문제 링크</a></p>
+
+<h3 id="성능-요약">성능 요약</h3>
+
+<p>메모리: 24908 KB, 시간: 312 ms</p>
+
+<h3 id="분류">분류</h3>
+
+<p>수학, 정수론, 소수 판정, 에라토스테네스의 체</p>
+
+<h3 id="문제-설명">문제 설명</h3>
+
+<p>M이상 N이하의 소수를 모두 출력하는 프로그램을 작성하시오.</p>
+
+<h3 id="입력">입력</h3>
+
+<p>첫째 줄에 자연수 M과 N이 빈 칸을 사이에 두고 주어진다. (1 ≤ M ≤ N ≤ 1,000,000) M이상 N이하의 소수가 하나 이상 있는 입력만 주어진다.</p>
+
+<h3 id="출력">출력</h3>
+
+<p>한 줄에 하나씩, 증가하는 순서대로 소수를 출력한다.</p>
+
+<h2 id="아이디어">아이디어</h2>
+<p>많은 수를 탐색해야할 때는 탐색의 횟수를 줄이는 것이 중요하다.<br />
+이 문제의 경우</p>
+<ol>
+  <li>외부 for-loop에서 n의 제곱근까지 탐색하는 것으로 탐색 횟수를 줄일 수 있다.</li>
+  <li>내부 for-loop에서 i의 제곱부터 탐색을 시작해주면 된다. 그 이하는 이미 이전 loop에서 제거되었을 것이기 때문이다.</li>
+</ol>
+
+<p>또, 소수 문제에서 주의할 점이 하나 더 있다.</p>
+<blockquote>
+  <p>1은 소수가 아니다.. 입력 값의 범위를 잘 확인하자</p>
+</blockquote>
+
+<p>마지막에 출력하는 과정에서 m이 1로 주어지는 상황을 놓쳐서 많은 시간을 삽질했다.<br />
+덕분에 시간 초과 문제인가 하고, 최대한 탐색의 수를 줄이는 방향으로 생각해보느라 결과적으로는 좋았지만 실전에서는 주의하도록하자!</p>
+
+<h2 id="답안코드">답안코드</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.IntStream</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
+
+        <span class="nc">StringTokenizer</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">input</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">input</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">).</span><span class="na">toArray</span><span class="o">();</span>
+        <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// 1은 소수에서 제외!!</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">n</span><span class="o">);</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>  <span class="c1">// 제곱근까지 loop를 돌리면 전체 횟수를 줄일 수 있음! 2부터 세주어야 함</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span> <span class="o">+=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// 특정 수의 제곱 이상부터 세주면 됨. 그 이하는 이미 이전 loop에서 제거됨</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">"\n"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[자바 코테] Wrapper class와 primitive type</title><link href="http://localhost:4000/java%20coding%20test/Wrapper/" rel="alternate" type="text/html" title="[자바 코테] Wrapper class와 primitive type" /><published>2023-03-15T00:00:00+09:00</published><updated>2023-03-15T00:00:00+09:00</updated><id>http://localhost:4000/java%20coding%20test/Wrapper</id><content type="html" xml:base="http://localhost:4000/java%20coding%20test/Wrapper/"><![CDATA[<h2 id="들어가며">들어가며..</h2>
+<p>솔직히 가장 번거로운 부분이 아닌가 싶다..<br />
+코테에서 자주 접하는 자료형 및 래퍼 클래스 위주로 정리해보자.</p>
+
+<h2 id="integer">Integer</h2>
+<ul>
+  <li>static method
+    <ul>
+      <li>Integer.valueOf(String s), Integer.valueOf(int i) —&gt; return Integer</li>
+      <li>Integer.parseInt(String s) —&gt; return int</li>
+      <li>Integer.toString(int i) —&gt; return String</li>
+    </ul>
+  </li>
+  <li>instance method
+    <ul>
+      <li>i.intValue() —&gt; return int</li>
+      <li>i.toString() —&gt; return String</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="string">String</h2>
+<ul>
+  <li>static method
+    <ul>
+      <li>String.valueOf(int i), String.valueOf(char c) —&gt; return String</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="character">Character</h2>
+<ul>
+  <li>static mechod
+    <ul>
+      <li>Character.valueOf(char c) —&gt; return Character</li>
+      <li>Character.toString(char c) —&gt; return String</li>
+    </ul>
+  </li>
+  <li>instance method
+    <ul>
+      <li>c.charValue() —&gt; return char</li>
+      <li>c.toString() —&gt; return String</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="스트림-다루기">스트림 다루기</h2>
+<p>프로그래머스 같은 환경에서 자바는 주로 입력 인자를 배열로 준다.(파이썬 마렵다..)<br />
+하지만, 막상 배열 자체로는 활용하기가 껄끄럽다.<br />
+필요에 의해서 리스트로 변환해서 문제를 풀어야한다면 stream을 이용하여 배열을 리스트로 바꾸는 법을 익혀두자. (박싱와 언박싱, 자료형 변환의 향연..)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">iArray</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+
+        <span class="c1">// int Array -&gt; Integer List</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">iToIList</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">iArray</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">boxed</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+
+        <span class="c1">// int Array -&gt; String List</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">iToSList</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">iArray</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">mapToObj</span><span class="o">(</span><span class="nl">String:</span><span class="o">:</span><span class="n">valueOf</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+
+        <span class="c1">/////////////////////////////////////////////////////////</span>
+
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">iList</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+
+        <span class="c1">// Integer List -&gt; int Array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="nc">IToiArray</span> <span class="o">=</span> <span class="n">iList</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">mapToInt</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">.</span><span class="na">intValue</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">toArray</span><span class="o">();</span>
+
+        <span class="c1">// Integer List -&gt; String List</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nc">IToSList</span> <span class="o">=</span> <span class="n">iList</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+
+        <span class="c1">////////////////////////////////////////////////////////////</span>
+
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sList</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"1"</span><span class="o">,</span> <span class="s">"2"</span><span class="o">,</span> <span class="s">"3"</span><span class="o">,</span> <span class="s">"4"</span><span class="o">,</span> <span class="s">"5"</span><span class="o">);</span>
+
+        <span class="c1">// String List -&gt; Integer List</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nc">SToIList</span> <span class="o">=</span> <span class="n">sList</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">Integer:</span><span class="o">:</span><span class="n">valueOf</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+
+        <span class="c1">// String List -&gt; int Array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="nc">SToiArray</span> <span class="o">=</span> <span class="n">sList</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">mapToInt</span><span class="o">(</span><span class="nl">Integer:</span><span class="o">:</span><span class="n">parseInt</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">toArray</span><span class="o">();</span>
+
+        <span class="c1">////////////////////////////////////////////////////////////</span>
+
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">sArray</span> <span class="o">=</span> <span class="o">{</span><span class="s">"1"</span><span class="o">,</span> <span class="s">"2"</span><span class="o">,</span> <span class="s">"3"</span><span class="o">,</span> <span class="s">"4"</span><span class="o">,</span> <span class="s">"5"</span><span class="o">};</span>
+
+        <span class="c1">// String Array -&gt; String List</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">sToSList</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">sArray</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+
+        <span class="c1">// String Array -&gt; Integer List</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">sToIList</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">sArray</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">Integer:</span><span class="o">:</span><span class="n">valueOf</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java Coding Test" /><category term="java" /><summary type="html"><![CDATA[코딩 테스트용 자바 정리]]></summary></entry><entry><title type="html">[자바 코테] Stream 정리</title><link href="http://localhost:4000/java%20coding%20test/Stream/" rel="alternate" type="text/html" title="[자바 코테] Stream 정리" /><published>2023-03-14T00:00:00+09:00</published><updated>2023-03-14T00:00:00+09:00</updated><id>http://localhost:4000/java%20coding%20test/Stream</id><content type="html" xml:base="http://localhost:4000/java%20coding%20test/Stream/"><![CDATA[<h2 id="stream의-종류">Stream의 종류</h2>
 <p>구글링하다보면 같은 동작인데 방법이 너무 많다. 이 기회에 정리해보자..</p>
 
 <p>Stream&lt;T&gt;: 제네릭 기반으로 정의됨<br />
@@ -71,81 +371,7 @@ IntStream, LongStream, DoubleStream 등등: 기본 자료형 기반</p>
     </ol>
   </li>
   <li>allMatch(), anyMatch(), noneMatch()</li>
-</ol>]]></content><author><name>hi~ June!!</name></author><category term="Java Coding Test" /><category term="java" /><summary type="html"><![CDATA[코딩 테스트용 자바 정리]]></summary></entry><entry><title type="html">[2960] 에라토스테네스의 체</title><link href="http://localhost:4000/boj/2960/" rel="alternate" type="text/html" title="[2960] 에라토스테네스의 체" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/boj/2960</id><content type="html" xml:base="http://localhost:4000/boj/2960/"><![CDATA[<h2 id="silver-iv-에라토스테네스의-체---2960">[Silver IV] 에라토스테네스의 체 - 2960</h2>
-
-<p><a href="https://www.acmicpc.net/problem/2960">문제 링크</a></p>
-
-<h3 id="성능-요약">성능 요약</h3>
-
-<p>메모리: 14464 KB, 시간: 128 ms</p>
-
-<h3 id="분류">분류</h3>
-
-<p>구현(implementation), 수학(math), 정수론(number_theory), 소수 판정(primality_test), 에라토스테네스의 체(sieve)</p>
-
-<h3 id="문제-설명">문제 설명</h3>
-
-<p>에라토스테네스의 체는 N보다 작거나 같은 모든 소수를 찾는 유명한 알고리즘이다.</p>
-
-<p>이 알고리즘은 다음과 같다.</p>
-
-<ol>
-	<li>2부터 N까지 모든 정수를 적는다.</li>
-	<li>아직 지우지 않은 수 중 가장 작은 수를 찾는다. 이것을 P라고 하고, 이 수는 소수이다.</li>
-	<li>P를 지우고, 아직 지우지 않은 P의 배수를 크기 순서대로 지운다.</li>
-	<li>아직 모든 수를 지우지 않았다면, 다시 2번 단계로 간다.</li>
-</ol>
-
-<p>N, K가 주어졌을 때, K번째 지우는 수를 구하는 프로그램을 작성하시오.</p>
-
-<h3 id="입력">입력</h3>
-
-<p>첫째 줄에 N과 K가 주어진다. (1 ≤ K &lt; N, max(1, K) &lt; N ≤ 1000)</p>
-
-<h3 id="출력">출력</h3>
-
-<p>첫째 줄에 K번째 지워진 수를 출력한다.</p>
-
-<h2 id="아이디어">아이디어</h2>
-<p>알고리즘 설명대로 구현하면 된다.<br />
-배열을 생성할 때 인덱스와 숫자가 같도록 초기화하면 편하다.<br />
-배수를 세는 것은 그 숫자만큼 더하면서 건너뛰면 된다.<br />
-버퍼에 출력할 때는 toString이 없기 때문에 숫자 출력할 시 형변환해주어야한다.</p>
-
-<h2 id="답안코드">답안코드</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">{</span>
-        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
-
-        <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">).</span><span class="na">toArray</span><span class="o">();</span>   <span class="c1">// 인덱스와 숫자가 똑같도록 만들기 위해 0부터 배열 초기화</span>
-
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span> <span class="o">+=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// 배수 세기 == 그 숫자만큼 더하면서 건너뛰기</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span> <span class="c1">// 이미 지워진 경우는 pass</span>
-
-                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]));</span>
-                    <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
-                    <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-                    <span class="k">return</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2</title><link href="http://localhost:4000/java%20lang/Chap30/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap30</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap30/"><![CDATA[<h2 id="30-1-스트림의-생성과-연결">30-1. 스트림의 생성과 연결</h2>
+</ol>]]></content><author><name>hi~ June!!</name></author><category term="Java Coding Test" /><category term="java" /><summary type="html"><![CDATA[코딩 테스트용 자바 정리]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2</title><link href="http://localhost:4000/java%20lang/Chap30/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 30 - 스트림 2" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap30</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap30/"><![CDATA[<h2 id="30-1-스트림의-생성과-연결">30-1. 스트림의 생성과 연결</h2>
 <h3 id="--스트림의-생성-스트림-생성에-필요한-데이터를-직접-전달">- <u>스트림의 생성: 스트림 생성에 필요한 데이터를 직접 전달</u></h3>
 <p>스트림 생성과 관련하여 Stream&lt;T&gt; 인터페이스에 정의되어 있는 static 메소드가 있다.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
@@ -562,7 +788,81 @@ forEach와 peek은 각각 최종 연산과 중간 연산이라는 부분에서�
 
 <p>앞선 포스트에서도 말했듯이 병렬 처리가 능사는 아니다.<br />
 처리해야 할 일에 비해 병렬 처리를 위한 전후 과정이 더 소모적인 경우에는 오히려 속도가 더 느려질 수도 있다.<br />
-따라서 병렬 처리를 결정했을 때는 테스트를 통해 병렬 처리의 적합성을 판단해야 한다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 29 - 스트림 1</title><link href="http://localhost:4000/java%20lang/Chap29/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 29 - 스트림 1" /><published>2023-03-11T00:00:00+09:00</published><updated>2023-03-11T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap29</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap29/"><![CDATA[<h2 id="29-1-스트림의-이해와-스트림의-생성">29-1. 스트림의 이해와 스트림의 생성</h2>
+따라서 병렬 처리를 결정했을 때는 테스트를 통해 병렬 처리의 적합성을 판단해야 한다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[2960] 에라토스테네스의 체</title><link href="http://localhost:4000/boj/2960/" rel="alternate" type="text/html" title="[2960] 에라토스테네스의 체" /><published>2023-03-12T00:00:00+09:00</published><updated>2023-03-12T00:00:00+09:00</updated><id>http://localhost:4000/boj/2960</id><content type="html" xml:base="http://localhost:4000/boj/2960/"><![CDATA[<h2 id="silver-iv-에라토스테네스의-체---2960">[Silver IV] 에라토스테네스의 체 - 2960</h2>
+
+<p><a href="https://www.acmicpc.net/problem/2960">문제 링크</a></p>
+
+<h3 id="성능-요약">성능 요약</h3>
+
+<p>메모리: 14464 KB, 시간: 128 ms</p>
+
+<h3 id="분류">분류</h3>
+
+<p>구현(implementation), 수학(math), 정수론(number_theory), 소수 판정(primality_test), 에라토스테네스의 체(sieve)</p>
+
+<h3 id="문제-설명">문제 설명</h3>
+
+<p>에라토스테네스의 체는 N보다 작거나 같은 모든 소수를 찾는 유명한 알고리즘이다.</p>
+
+<p>이 알고리즘은 다음과 같다.</p>
+
+<ol>
+	<li>2부터 N까지 모든 정수를 적는다.</li>
+	<li>아직 지우지 않은 수 중 가장 작은 수를 찾는다. 이것을 P라고 하고, 이 수는 소수이다.</li>
+	<li>P를 지우고, 아직 지우지 않은 P의 배수를 크기 순서대로 지운다.</li>
+	<li>아직 모든 수를 지우지 않았다면, 다시 2번 단계로 간다.</li>
+</ol>
+
+<p>N, K가 주어졌을 때, K번째 지우는 수를 구하는 프로그램을 작성하시오.</p>
+
+<h3 id="입력">입력</h3>
+
+<p>첫째 줄에 N과 K가 주어진다. (1 ≤ K &lt; N, max(1, K) &lt; N ≤ 1000)</p>
+
+<h3 id="출력">출력</h3>
+
+<p>첫째 줄에 K번째 지워진 수를 출력한다.</p>
+
+<h2 id="아이디어">아이디어</h2>
+<p>알고리즘 설명대로 구현하면 된다.<br />
+배열을 생성할 때 인덱스와 숫자가 같도록 초기화하면 편하다.<br />
+배수를 세는 것은 그 숫자만큼 더하면서 건너뛰면 된다.<br />
+버퍼에 출력할 때는 toString이 없기 때문에 숫자 출력할 시 형변환해주어야한다.</p>
+
+<h2 id="답안코드">답안코드</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">{</span>
+        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
+
+        <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">).</span><span class="na">toArray</span><span class="o">();</span>   <span class="c1">// 인덱스와 숫자가 똑같도록 만들기 위해 0부터 배열 초기화</span>
+
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span> <span class="o">+=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// 배수 세기 == 그 숫자만큼 더하면서 건너뛰기</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span> <span class="c1">// 이미 지워진 경우는 pass</span>
+
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]));</span>
+                    <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+                    <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                    <span class="k">return</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 29 - 스트림 1</title><link href="http://localhost:4000/java%20lang/Chap29/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 29 - 스트림 1" /><published>2023-03-11T00:00:00+09:00</published><updated>2023-03-11T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap29</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap29/"><![CDATA[<h2 id="29-1-스트림의-이해와-스트림의-생성">29-1. 스트림의 이해와 스트림의 생성</h2>
 <h3 id="--스트림stream의-이해">- <u>스트림(Stream)의 이해</u></h3>
 <blockquote>
   <p>배열 또는 컬렉션 인스턴스에 저장된 데이터를 꺼내서 파이프에 흘려보낸다.</p>
@@ -978,675 +1278,4 @@ map의 인자로 apply 함수에 대한 람다식이 전달되기 때문에 반�
         <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2750] 수 정렬하기</title><link href="http://localhost:4000/boj/2750/" rel="alternate" type="text/html" title="[2750] 수 정렬하기" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>http://localhost:4000/boj/2750</id><content type="html" xml:base="http://localhost:4000/boj/2750/"><![CDATA[<h2 id="bronze-ii-수-정렬하기---2750">[Bronze II] 수 정렬하기 - 2750</h2>
-
-<p><a href="https://www.acmicpc.net/problem/2750">문제 링크</a></p>
-
-<h3 id="성능-요약">성능 요약</h3>
-
-<p>메모리: 14936 KB, 시간: 188 ms</p>
-
-<h3 id="분류">분류</h3>
-
-<p>정렬(sorting), 구현(implementation)</p>
-
-<h3 id="문제-설명">문제 설명</h3>
-
-<p>N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로그램을 작성하시오.</p>
-
-<h3 id="입력">입력</h3>
-
-<p>첫째 줄에 수의 개수 N(1 ≤ N ≤ 1,000)이 주어진다. 둘째 줄부터 N개의 줄에는 수가 주어진다. 이 수는 절댓값이 1,000보다 작거나 같은 정수이다. 수는 중복되지 않는다.</p>
-
-<h3 id="출력">출력</h3>
-
-<p>첫째 줄부터 N개의 줄에 오름차순으로 정렬한 결과를 한 줄에 하나씩 출력한다.</p>
-
-<h2 id="아이디어">아이디어</h2>
-<p>입력받은 숫자들을 리스트에 넣어<br />
-정렬 후<br />
-리스트에 있는 요소들을 출력한다.</p>
-
-<h2 id="답안코드">답안코드</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
-        <span class="nc">BufferedReader</span> <span class="n">bf</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">bf</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bf</span><span class="o">.</span><span class="na">readLine</span><span class="o">()));</span>
-        <span class="o">}</span>
-
-        <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
-        <span class="n">nums</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[자바 코테] 입출력 방법 정리</title><link href="http://localhost:4000/java%20coding%20test/IO/" rel="alternate" type="text/html" title="[자바 코테] 입출력 방법 정리" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>http://localhost:4000/java%20coding%20test/IO</id><content type="html" xml:base="http://localhost:4000/java%20coding%20test/IO/"><![CDATA[<h2 id="왜-사용하는가">왜 사용하는가?</h2>
-<blockquote>
-  <p>Scanner나 println 메소드보다 속도가 월등히 빠르다…!</p>
-</blockquote>
-
-<h2 id="bufferedreader">BufferedReader</h2>
-<p><code class="language-plaintext highlighter-rouge">readLine</code>: 입력으로 들어온 데이터를 한 줄로 읽어서 String으로 바꿔주는 메소드<br />
-<code class="language-plaintext highlighter-rouge">close</code>: 입력 스트림을 닫고 사용하던 자원을 해제</p>
-
-<p>보통 readLine()으로 읽고 StringTokenizer나 split()울 통해 값을 배열 등등에 넣는다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
-		<span class="c1">// BufferedReader를 사용하기 위해서는 throws IOException을 해 주어야 함.</span>
-		<span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-
-		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-		<span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">];</span>
-
-		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-			<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-		<span class="o">}</span>
-
-		<span class="n">br</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="bufferedwriter">BufferedWriter</h2>
-<p><code class="language-plaintext highlighter-rouge">write</code>: 출력할 내용을 버퍼에 담음<br />
-<code class="language-plaintext highlighter-rouge">flush</code>: 버퍼를 비워내는 동시에 콘솔에 출력<br />
-<code class="language-plaintext highlighter-rouge">close</code>: 출력 스트림을 닫고 사용하던 자원을 해제</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedWriter</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.OutputStreamWriter</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
-		<span class="c1">// BufferedWriter를 사용하기 위해서는 throws IOException을 해 주어야 함.</span>
-		<span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
-		<span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">"Hello World"</span><span class="o">);</span>
-		<span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
-		<span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span> 
-	<span class="o">}</span>
-
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="Java Coding Test" /><category term="java" /><summary type="html"><![CDATA[코딩 테스트용 자바 정리]]></summary></entry><entry><title type="html">[10798] 새로읽기</title><link href="http://localhost:4000/boj/10798/" rel="alternate" type="text/html" title="[10798] 새로읽기" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>http://localhost:4000/boj/10798</id><content type="html" xml:base="http://localhost:4000/boj/10798/"><![CDATA[<h2 id="bronze-i-세로읽기---10798">[Bronze I] 세로읽기 - 10798</h2>
-
-<p><a href="https://www.acmicpc.net/problem/10798">문제 링크</a></p>
-
-<h3 id="성능-요약">성능 요약</h3>
-
-<p>메모리: 14280 KB, 시간: 164 ms</p>
-
-<h3 id="분류">분류</h3>
-
-<p>구현(implementation), 문자열(string)</p>
-
-<h3 id="문제-설명">문제 설명</h3>
-
-<p>아직 글을 모르는 영석이가 벽에 걸린 칠판에 자석이 붙어있는 글자들을 붙이는 장난감을 가지고 놀고 있다. </p>
-
-<p>이 장난감에 있는 글자들은 영어 대문자 ‘A’부터 ‘Z’, 영어 소문자 ‘a’부터 ‘z’, 숫자 ‘0’부터 ‘9’이다. 영석이는 칠판에 글자들을 수평으로 일렬로 붙여서 단어를 만든다. 다시 그 아래쪽에 글자들을 붙여서 또 다른 단어를 만든다. 이런 식으로 다섯 개의 단어를 만든다. 아래 그림 1은 영석이가 칠판에 붙여 만든 단어들의 예이다. </p>
-
-<pre>A A B C D D
-a f z z 
-0 9 1 2 1
-a 8 E W g 6
-P 5 h 3 k x</pre>
-
-<p>&lt;그림 1&gt;</p>
-
-<p>한 줄의 단어는 글자들을 빈칸 없이 연속으로 나열해서 최대 15개의 글자들로 이루어진다. 또한 만들어진 다섯 개의 단어들의 글자 개수는 서로 다를 수 있다. </p>
-
-<p>심심해진 영석이는 칠판에 만들어진 다섯 개의 단어를 세로로 읽으려 한다. 세로로 읽을 때, 각 단어의 첫 번째 글자들을 위에서 아래로 세로로 읽는다. 다음에 두 번째 글자들을 세로로 읽는다. 이런 식으로 왼쪽에서 오른쪽으로 한 자리씩 이동 하면서 동일한 자리의 글자들을 세로로 읽어 나간다. 위의 그림 1의 다섯 번째 자리를 보면 두 번째 줄의 다섯 번째 자리의 글자는 없다. 이런 경우처럼 세로로 읽을 때 해당 자리의 글자가 없으면, 읽지 않고 그 다음 글자를 계속 읽는다. 그림 1의 다섯 번째 자리를 세로로 읽으면 D1gk로 읽는다. </p>
-
-<p>그림 1에서 영석이가 세로로 읽은 순서대로 글자들을 공백 없이 출력하면 다음과 같다:</p>
-
-<p>Aa0aPAf985Bz1EhCz2W3D1gkD6x</p>
-
-<p>칠판에 붙여진 단어들이 주어질 때, 영석이가 세로로 읽은 순서대로 글자들을 출력하는 프로그램을 작성하시오.</p>
-
-<h3 id="입력">입력</h3>
-
-<p>총 다섯줄의 입력이 주어진다. 각 줄에는 최소 1개, 최대 15개의 글자들이 빈칸 없이 연속으로 주어진다. 주어지는 글자는 영어 대문자 ‘A’부터 ‘Z’, 영어 소문자 ‘a’부터 ‘z’, 숫자 ‘0’부터 ‘9’ 중 하나이다. 각 줄의 시작과 마지막에 빈칸은 없다.</p>
-
-<h3 id="출력">출력</h3>
-
-<p>영석이가 세로로 읽은 순서대로 글자들을 출력한다. 이때, 글자들을 공백 없이 연속해서 출력한다. </p>
-
-<h2 id="아이디어">아이디어</h2>
-<p>입력을 줄단위로 받아서 string 배열로 저장한 뒤<br />
-이중 for문을 돌려서 새로로 쓰되<br />
-인덱스가 배열의 길이을 넘어가면 건너뛴다.</p>
-
-<h2 id="답안코드">답안코드</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
-        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
-        
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">board</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">board</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
-        <span class="o">}</span>
-        
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">board</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">i</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span>
-                <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">));</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        
-        <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
-        <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 28 - 메소드 참조와 Optional</title><link href="http://localhost:4000/java%20lang/Chap28/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 28 - 메소드 참조와 Optional" /><published>2023-03-08T00:00:00+09:00</published><updated>2023-03-08T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap28</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap28/"><![CDATA[<h2 id="28-1-메소드-참조-method-references">28-1. 메소드 참조 (Method References)</h2>
-<blockquote>
-  <p>이미 정의되어 있는 메소드가 있다면, 이 메소드의 정의가 람다식을 대신할 수 있지 않을까?</p>
-</blockquote>
-
-<p>실제로 메소드 정의는 람다식을 대신할 수 있다.</p>
-
-<h3 id="--메소드-참조의-4가지-유형과-메소드-참조의-장점">- <u>메소드 참조의 4가지 유형과 메소드 참조의 장점</u></h3>
-<p>메소드 참조의 유형은 총 4가지이다.</p>
-<ul>
-  <li>static 메소드의 참조</li>
-  <li>참조변수를 통한 인스턴스 메소드 참조</li>
-  <li>클래스 이름을 통한 인스턴스 메소드 참조</li>
-  <li>생성자 참조</li>
-</ul>
-
-<h3 id="--static-메소드의-참조">- <u>static 메소드의 참조</u></h3>
-<p>static 메소드 참조 방법<br />
-ClassName::staticMethodName</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.function.Consumer</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrangeList</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
-
-        <span class="c1">// Consumer&lt;List&lt;Integer&gt;&gt; c = l -&gt; Collections.reverse(l);</span>
-        <span class="nc">Consumer</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="nl">Collections:</span><span class="o">:</span><span class="n">reverse</span><span class="o">;</span>
-        <span class="n">c</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--인스턴스-메소드의-참조1-인스턴스가-존재하는-상황에서-참조">- <u>인스턴스 메소드의 참조1: 인스턴스가 존재하는 상황에서 참조</u></h3>
-<p>인스턴스 메소드 참조 방법 - 1<br />
-ReferenceName::instanceMethodName</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.function.Consumer</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">JustSort</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;?&gt;</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Collections</span><span class="o">.</span><span class="na">reverse</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrangeList3</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">));</span>
-
-        <span class="nc">JustSort</span> <span class="n">js</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JustSort</span><span class="o">();</span>
-
-        <span class="c1">// Consumer&lt;List&lt;Integer&gt;&gt; c = e -&gt; js.sort(e);</span>
-        <span class="nc">Consumer</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="nl">js:</span><span class="o">:</span><span class="n">sort</span><span class="o">;</span>
-        <span class="n">c</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ls</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>람다식에서 같은 지역 내에 선언된 참조변수 js에 접근하고 있다.<br />
-람다식이 인스턴스의 생성으로 이어진다는 사실을 고려하면 특이한 일이지만 결론적으로 람다식에서 같은 지역에 선언된 참조변수에 접근하는 것은 가능하다. 단, 여기에는 조건이 있다.</p>
-
-<blockquote>
-  <p>람다식에서 접근 가능한 참조변수는 final로 선언되었거나 effectively final이어야 한다.</p>
-</blockquote>
-
-<p>이렇게 제한한 이유는 참조변수가 참조하는 대상이 중간에 바뀔경우 논리적 혼란을 일으키거나 예측 불가능한 상황으로 이어질 수 있기 때문이다.</p>
-
-<p><br />
-좀 더 실질적인 상황을 보자.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ForEachDemo</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Box"</span><span class="o">,</span> <span class="s">"Robot"</span><span class="o">);</span>
-
-        <span class="n">ls</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">));</span> <span class="c1">// 람다식 기반</span>
-        <span class="n">ls</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>    <span class="c1">// 메소드 참조 기반</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Collection&lt;E&gt; 인터페이스는 Iterable&lt;T&gt;를 상속한다.<br />
-이 인터페이스에 정의되어있는 forEach메소드를 살펴보면 다음과 같다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">default</span> <span class="kt">void</span> <span class="nf">forEach</span><span class="o">(</span><span class="nc">Consumer</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">action</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">action</span><span class="o">);</span>
-    <span class="k">for</span> <span class="o">(</span><span class="no">T</span> <span class="n">t</span> <span class="o">:</span> <span class="k">this</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">action</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">t</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--인스턴스-메소드의-참조2-인스턴스-없이-인스턴스-메소드-참조">- <u>인스턴스 메소드의 참조2: 인스턴스 없이 인스턴스 메소드 참조</u></h3>
-<p>인스턴스 메소드 참조 방법 - 2<br />
-ClassName::instanceMethodName</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.function.ToIntBiFunction</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">IBox</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">n</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nf">IBox</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">larger</span><span class="o">(</span><span class="nc">IBox</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="n">box</span><span class="o">.</span><span class="na">n</span><span class="o">)</span>
-            <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
-        <span class="k">return</span> <span class="n">box</span><span class="o">.</span><span class="na">n</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NoObjectMethodRef</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">IBox</span> <span class="n">iBox1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">IBox</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="nc">IBox</span> <span class="n">iBox2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">IBox</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
-
-        <span class="c1">// 두 상자에 저장된 값 비교하여 더 큰 값 반환</span>
-        <span class="c1">// ToIntBiFunction&lt;IBox, IBox&gt; bf = (box1, box2) -&gt; box1.larger(box2);</span>
-        <span class="nc">ToIntBiFunction</span><span class="o">&lt;</span><span class="nc">IBox</span><span class="o">,</span> <span class="nc">IBox</span><span class="o">&gt;</span> <span class="n">bf</span> <span class="o">=</span> <span class="nl">IBox:</span><span class="o">:</span><span class="n">larger</span><span class="o">;</span>
-
-        <span class="kt">int</span> <span class="n">bigNum</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="na">applyAsInt</span><span class="o">(</span><span class="n">iBox1</span><span class="o">,</span> <span class="n">iBox2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bigNum</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>위의 방식처럼 람다를 메소드 참조로 바꿀 수 있는 이유는 larger가 ‘첫 번째 인자로 전달된 인스턴스의 메소드’임에 있고, 이는 일종의 약속이다.<br />
-bf가 참조하는 메소드는 IBox::larger이고, 이는 ibox1, ibox2도 갖는 인스턴스 메소드지만, ‘첫 번째 전달인자를 대상으로 이 메소드를 호출하기로 약속하였으므로’ 그에 근거하여 실행이 된다.</p>
-
-<h3 id="--생성자-참조">- <u>생성자 참조</u></h3>
-<p>람다식을 작성하다 보면 인스턴스를 생성하고 이의 참조 값을 반환해야 하는 경우가 있다.<br />
-ClassName::new</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.function.Function</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringMaker</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Function&lt;char[], String&gt; f = ar -&gt; new String(ar);</span>
-        <span class="nc">Function</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">[],</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="nl">String:</span><span class="o">:</span><span class="k">new</span><span class="o">;</span>
-
-        <span class="kt">char</span><span class="o">[]</span> <span class="n">src</span> <span class="o">=</span> <span class="o">{</span><span class="sc">'R'</span><span class="o">,</span> <span class="sc">'o'</span><span class="o">,</span> <span class="sc">'b'</span><span class="o">,</span> <span class="sc">'o'</span><span class="o">,</span> <span class="sc">'t'</span><span class="o">};</span>
-        <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">src</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="28-2-optional-클래스">28-2. Optional 클래스</h2>
-<blockquote>
-  <p>Optional 클래스를 사용하여 조건에 따라 코드의 흐름이 나뉘어지는 상황을 막을 수 있음</p>
-</blockquote>
-
-<p>클래스를 디자인할 때 가급적 클래스의 인스턴스 변수는 null로 두지 않는 것이 좋다.<br />
-다만, 어쩔 수 없이 null을 허용해야 하는 상황에 대한 대비책으로 Otional 클래스가 하나의 대답이 될 수 있다.</p>
-
-<h3 id="--nullpointerexception-예외의-발생-샹황">- <u>NullPointerException 예외의 발생 샹황</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Friend</span> <span class="o">{</span>
-    <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="nc">Company</span> <span class="n">cmp</span><span class="o">;</span>    <span class="c1">// null 일 수 있음</span>
-
-    <span class="kd">public</span> <span class="nf">Friend</span><span class="o">(</span><span class="nc">String</span> <span class="n">n</span><span class="o">,</span> <span class="nc">Company</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-        <span class="n">cmp</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">name</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">Company</span> <span class="nf">getCmp</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">cmp</span><span class="o">;</span> <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Company</span> <span class="o">{</span>
-    <span class="nc">String</span> <span class="n">cName</span><span class="o">;</span>
-    <span class="nc">ContInfo</span> <span class="n">cInfo</span><span class="o">;</span>    <span class="c1">// null 일 수 있음</span>
-
-    <span class="kd">public</span> <span class="nf">Company</span><span class="o">(</span><span class="nc">String</span> <span class="n">cn</span><span class="o">,</span> <span class="nc">ContInfo</span> <span class="n">ci</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">cName</span> <span class="o">=</span> <span class="n">cn</span><span class="o">;</span>
-        <span class="n">cInfo</span> <span class="o">=</span> <span class="n">ci</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getCName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">cName</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">ContInfo</span> <span class="nf">getCInfo</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">cInfo</span><span class="o">;</span> <span class="o">}</span>
-
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">ContInfo</span> <span class="o">{</span>
-    <span class="nc">String</span> <span class="n">phone</span><span class="o">;</span>   <span class="c1">// null 일 수 있음</span>
-    <span class="nc">String</span> <span class="n">adrs</span><span class="o">;</span>    <span class="c1">// null 일 수 있음</span>
-
-    <span class="kd">public</span> <span class="nf">ContInfo</span><span class="o">(</span><span class="nc">String</span> <span class="n">ph</span><span class="o">,</span> <span class="nc">String</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">phone</span> <span class="o">=</span> <span class="n">ph</span><span class="o">;</span>
-        <span class="n">adrs</span> <span class="o">=</span> <span class="n">ad</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getPhone</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">phone</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getAdrs</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">adrs</span><span class="o">;</span> <span class="o">}</span>
-
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">NullPointerCaseStudy</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showCompAddr</span><span class="o">(</span><span class="nc">Friend</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 친구의 회사 주소를 출력하는 메소드</span>
-        <span class="nc">String</span> <span class="n">addr</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-    
-        <span class="k">if</span><span class="o">(</span><span class="n">f</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">Company</span> <span class="n">com</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="na">getCmp</span><span class="o">();</span>
-            
-            <span class="k">if</span><span class="o">(</span><span class="n">com</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                <span class="nc">ContInfo</span> <span class="n">info</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="na">getCInfo</span><span class="o">();</span>
-                
-                <span class="k">if</span><span class="o">(</span><span class="n">info</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-                    <span class="n">addr</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">getAdrs</span><span class="o">();</span>   
-            <span class="o">}</span>
-        <span class="o">}</span>
-        
-        <span class="k">if</span><span class="o">(</span><span class="n">addr</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">addr</span><span class="o">);</span>
-        <span class="k">else</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"There's no address information."</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="nc">ContInfo</span> <span class="n">ci</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ContInfo</span><span class="o">(</span><span class="s">"321-444-577"</span><span class="o">,</span> <span class="s">"Republic of Korea"</span><span class="o">);</span>
-        <span class="nc">Company</span> <span class="n">cp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Company</span><span class="o">(</span><span class="s">"YaHo Co., Ltd."</span><span class="o">,</span> <span class="n">ci</span><span class="o">);</span>
-        <span class="nc">Friend</span> <span class="n">frn</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Friend</span><span class="o">(</span><span class="s">"LEE SU"</span><span class="o">,</span> <span class="n">cp</span><span class="o">);</span>
-
-        <span class="c1">// 친구 정보에서 회사 주소를 출력</span>
-        <span class="n">showCompAddr</span><span class="o">(</span><span class="n">frn</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>다음과 같이 클래스의 멤버 변수가 null인 경우 NullPointerException 예외가 발생하는 것을 막기 위해 if-else로 case에 따라 수행 내용을 분리해놓을 경우 코드의 가독성도 떨어지고 불필요하게 코드가 길어진다.<br />
-위의 코드를 Optional 클래스를 통해 적절하게 수정해보자</p>
-
-<h3 id="--optional-클래스의-기본적인-사용-방법">- <u>Optional 클래스의 기본적인 사용 방법</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">StringOptional1</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">os1</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"Toy1"</span><span class="o">));</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">os2</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"Toy2"</span><span class="o">));</span>
-
-        <span class="k">if</span><span class="o">(</span><span class="n">os1</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="c1">// 내용물이 존재하면 true</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">os1</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>  <span class="c1">// get을 통한 내용물 반환</span>
-
-        <span class="k">if</span><span class="o">(</span><span class="n">os2</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">os2</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Optional은 멤버에 인스턴스를 저장하는 일종의 래퍼 클래스이다.<br />
-<img src="/assets/images/java-lang/28-2.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<p>위의 코드를 Optional의 인스턴스 메소드인 ifPresent 메소드를 통해 간략화시킬 수 있다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">StringOptional2</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">os1</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"Toy1"</span><span class="o">));</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">os2</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"Toy2"</span><span class="o">));</span>
-
-        <span class="cm">/* ifPresent(): Consumer 인스턴스를 입력인자로 받음 */</span>
-        <span class="n">os1</span><span class="o">.</span><span class="na">ifPresent</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">));</span>  <span class="c1">// 람다식 버전</span>
-        <span class="n">os2</span><span class="o">.</span><span class="na">ifPresent</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span> <span class="c1">// 메소드 참조 버전</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--map-메소드의-소개">- <u>map 메소드의 소개</u></h3>
-<blockquote>
-  <p>map 메소드는 apply 메소드가 반환하는 대상을 ‘Optional 인스턴스에 담아서’ 반환한다.</p>
-</blockquote>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">OptionalMap</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">os1</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"Optional String"</span><span class="o">);</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">os2</span> <span class="o">=</span> <span class="n">os1</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">());</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">os2</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
-
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">os3</span> <span class="o">=</span> <span class="n">os1</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="sc">' '</span><span class="o">,</span> <span class="sc">'_'</span><span class="o">))</span>
-                                  <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">());</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">os3</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><img src="/assets/images/java-lang/28-3.png" alt="image" width="70%" height="70%" /><br /></p>
-
-<p>map 함수의 매개변수 형은 Function이다.<br />
-apply 함수를 람다식을 통해 구현해주게 되면 그 구현한 내용을 통해 해당 인스턴스를 처리한 뒤<br />
-Optional 인스턴스로 한 번 감싸서 반환한다는 것이 특징이다.</p>
-
-<p>따라서 반환한 Optional 인스턴스 안에 값을 가져오기 위해 get 등의 메소드를 사용해주었다.</p>
-
-<h3 id="--orelse-메소드의-소개">- <u>orElse 메소드의 소개</u></h3>
-<p>Optional 인스턴스에 저장된 내용물을 반환하는 메소드에는 get과 orElse가 있다.<br />
-차이점은 orElse는 저장된 내용물이 없을 때, 대신해서 반환할 대상을 지정할 수 있다는 점이다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">OptionalOrElse</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">os1</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">os2</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"So Basic"</span><span class="o">);</span>
-
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">os1</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
-                       <span class="o">.</span><span class="na">orElse</span><span class="o">(</span><span class="s">"Empty"</span><span class="o">);</span>
-
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">os2</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
-                       <span class="o">.</span><span class="na">orElse</span><span class="o">(</span><span class="s">"Empty"</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s2</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--nullpointercasestudyjava의-개선-결과">- <u>NullPointerCaseStudy.java의 개선 결과</u></h3>
-<p>map과 orElse 메소드를 통해 처음 봤던 코드를 간략히 줄여보았다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Friend</span> <span class="o">{</span>
-    <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="nc">Company</span> <span class="n">cmp</span><span class="o">;</span>    <span class="c1">// null 일 수 있음</span>
-
-    <span class="kd">public</span> <span class="nf">Friend</span><span class="o">(</span><span class="nc">String</span> <span class="n">n</span><span class="o">,</span> <span class="nc">Company</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-        <span class="n">cmp</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">name</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">Company</span> <span class="nf">getCmp</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">cmp</span><span class="o">;</span> <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Company</span> <span class="o">{</span>
-    <span class="nc">String</span> <span class="n">cName</span><span class="o">;</span>
-    <span class="nc">ContInfo</span> <span class="n">cInfo</span><span class="o">;</span>    <span class="c1">// null 일 수 있음</span>
-
-    <span class="kd">public</span> <span class="nf">Company</span><span class="o">(</span><span class="nc">String</span> <span class="n">cn</span><span class="o">,</span> <span class="nc">ContInfo</span> <span class="n">ci</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">cName</span> <span class="o">=</span> <span class="n">cn</span><span class="o">;</span>
-        <span class="n">cInfo</span> <span class="o">=</span> <span class="n">ci</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getCName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">cName</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">ContInfo</span> <span class="nf">getCInfo</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">cInfo</span><span class="o">;</span> <span class="o">}</span>
-
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">ContInfo</span> <span class="o">{</span>
-    <span class="nc">String</span> <span class="n">phone</span><span class="o">;</span>   <span class="c1">// null 일 수 있음</span>
-    <span class="nc">String</span> <span class="n">adrs</span><span class="o">;</span>    <span class="c1">// null 일 수 있음</span>
-
-    <span class="kd">public</span> <span class="nf">ContInfo</span><span class="o">(</span><span class="nc">String</span> <span class="n">ph</span><span class="o">,</span> <span class="nc">String</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">phone</span> <span class="o">=</span> <span class="n">ph</span><span class="o">;</span>
-        <span class="n">adrs</span> <span class="o">=</span> <span class="n">ad</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getPhone</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">phone</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getAdrs</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">adrs</span><span class="o">;</span> <span class="o">}</span>
-
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">NullPointerCaseStudy2</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showCompAddr</span><span class="o">(</span><span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Friend</span><span class="o">&gt;</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">String</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">Friend:</span><span class="o">:</span><span class="n">getCmp</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">Company:</span><span class="o">:</span><span class="n">getCInfo</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">ContInfo:</span><span class="o">:</span><span class="n">getAdrs</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">orElse</span><span class="o">(</span><span class="s">"There's no address information."</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">addr</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="nc">ContInfo</span> <span class="n">ci</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ContInfo</span><span class="o">(</span><span class="s">"321-444-577"</span><span class="o">,</span> <span class="s">"Republic of Korea"</span><span class="o">);</span>
-        <span class="nc">Company</span> <span class="n">cp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Company</span><span class="o">(</span><span class="s">"YaHo Co., Ltd."</span><span class="o">,</span> <span class="n">ci</span><span class="o">);</span>
-        <span class="nc">Friend</span> <span class="n">frn</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Friend</span><span class="o">(</span><span class="s">"LEE SU"</span><span class="o">,</span> <span class="n">cp</span><span class="o">);</span>
-
-        <span class="c1">// 친구 정보에서 회사 주소를 출력</span>
-        <span class="n">showCompAddr</span><span class="o">(</span><span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">frn</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="--optional-클래스의-flatmap-메소드">- <u>Optional 클래스의 flatMap 메소드</u></h3>
-<p>map은 람다식이 반환하는 내용물을 Optional로 감싸서 반환한다.<br />
-flatMap은 그냥 반환한다.</p>
-
-<p>클래스의 멤버를 Optional로 두면 이 멤버와 관련된 코드 전반에 걸쳐서 코드의 개선을 기대할 수 있다.<br />
-이렇게 멤버를 Optional로 두는 경우에는 map보다 flatMap이 더 어울린다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Friend</span> <span class="o">{</span>
-    <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Company</span><span class="o">&gt;</span> <span class="n">cmp</span><span class="o">;</span>    <span class="c1">// null 일 수 있음</span>
-
-    <span class="kd">public</span> <span class="nf">Friend</span><span class="o">(</span><span class="nc">String</span> <span class="n">n</span><span class="o">,</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Company</span><span class="o">&gt;</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-        <span class="n">cmp</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">name</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Company</span><span class="o">&gt;</span> <span class="nf">getCmp</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">cmp</span><span class="o">;</span> <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Company</span> <span class="o">{</span>
-    <span class="nc">String</span> <span class="n">cName</span><span class="o">;</span>
-    <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">ContInfo</span><span class="o">&gt;</span> <span class="n">cInfo</span><span class="o">;</span>    <span class="c1">// null 일 수 있음</span>
-
-    <span class="kd">public</span> <span class="nf">Company</span><span class="o">(</span><span class="nc">String</span> <span class="n">cn</span><span class="o">,</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">ContInfo</span><span class="o">&gt;</span> <span class="n">ci</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">cName</span> <span class="o">=</span> <span class="n">cn</span><span class="o">;</span>
-        <span class="n">cInfo</span> <span class="o">=</span> <span class="n">ci</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getCName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">cName</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">ContInfo</span><span class="o">&gt;</span> <span class="nf">getCInfo</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">cInfo</span><span class="o">;</span> <span class="o">}</span>
-
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">ContInfo</span> <span class="o">{</span>
-    <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">phone</span><span class="o">;</span>   <span class="c1">// null 일 수 있음</span>
-    <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">adrs</span><span class="o">;</span>    <span class="c1">// null 일 수 있음</span>
-
-    <span class="kd">public</span> <span class="nf">ContInfo</span><span class="o">(</span><span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">ph</span><span class="o">,</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">phone</span> <span class="o">=</span> <span class="n">ph</span><span class="o">;</span>
-        <span class="n">adrs</span> <span class="o">=</span> <span class="n">ad</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">getPhone</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">phone</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">getAdrs</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">adrs</span><span class="o">;</span> <span class="o">}</span>
-
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">NullPointerCaseStudy3</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showCompAddr</span><span class="o">(</span><span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Friend</span><span class="o">&gt;</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="nc">String</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="na">flatMap</span><span class="o">(</span><span class="nl">Friend:</span><span class="o">:</span><span class="n">getCmp</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">flatMap</span><span class="o">(</span><span class="nl">Company:</span><span class="o">:</span><span class="n">getCInfo</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">flatMap</span><span class="o">(</span><span class="nl">ContInfo:</span><span class="o">:</span><span class="n">getAdrs</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">orElse</span><span class="o">(</span><span class="s">"There's no address information."</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">addr</span><span class="o">);</span>    
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">ContInfo</span><span class="o">&gt;</span> <span class="n">ci</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
-                    <span class="k">new</span> <span class="nf">ContInfo</span><span class="o">(</span><span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="kc">null</span><span class="o">),</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"Republic of Korea"</span><span class="o">))</span>
-        <span class="o">);</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Company</span><span class="o">&gt;</span> <span class="n">cp</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">Company</span><span class="o">(</span><span class="s">"YaHo Co., Ltd."</span><span class="o">,</span> <span class="n">ci</span><span class="o">));</span>
-        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Friend</span><span class="o">&gt;</span> <span class="n">frn</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">Friend</span><span class="o">(</span><span class="s">"LEE SU"</span><span class="o">,</span> <span class="n">cp</span><span class="o">));</span>
-
-        <span class="c1">// 친구 정보에서 회사 주소를 출력</span>
-        <span class="n">showCompAddr</span><span class="o">(</span><span class="n">frn</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="28-3-optionalint-optionallong-optionaldouble-클래스">28-3. OptionalInt, OptionalLong, OptionalDouble 클래스</h2>
-<p>Optional 클래스는 제네릭 클래스이다.<br />
-따라서 기본 자료형을 다루기 위해서는 다른 방식이 필요하다.</p>
-
-<h3 id="--optional과-optionalxxx와의-차이점">- <u>Optional과 OptionalXXX와의 차이점</u></h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.OptionalInt</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">OptionalIntBase</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">OptionalInt</span> <span class="n">oi1</span> <span class="o">=</span> <span class="nc">OptionalInt</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="nc">OptionalInt</span> <span class="n">oi2</span> <span class="o">=</span> <span class="nc">OptionalInt</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
-        
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"[Step 1.] : "</span><span class="o">);</span>
-        <span class="n">oi1</span><span class="o">.</span><span class="na">ifPresent</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">));</span>
-        <span class="n">oi2</span><span class="o">.</span><span class="na">ifPresent</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"[Step 2.] : "</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">oi1</span><span class="o">.</span><span class="na">orElse</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">oi2</span><span class="o">.</span><span class="na">orElse</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>기본적인 코드구성은 동일하다.<br />
-단, OptionalXXX 클래스들에는 map과 flatMap 메소드가 정의되어 있지 않다.</p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry></feed>
