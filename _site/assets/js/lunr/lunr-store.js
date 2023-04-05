@@ -430,4 +430,28 @@ var store = [{
         "tags": ["java"],
         "url": "/boj/4949/",
         "teaser": null
+      },{
+        "title": "[자바 코테] java에서 EOF를 처리하는 방법",
+        "excerpt":"입력을 얼마나 줄 것인지 문제에서 정해주지 않을 경우 언제까지 받을 것인가..? 백준 4949번 문제를 풀다가 문제를 잘못 해석해서 삽질했었는데, 나름 의미있는 삽질인 것 같아 정리해본다. 해당 문제에서는 .이 파일의 입력 종료 조건으로 주어졌는데, 별도의 입력 종료 조건이 주어지지 않았다면 어떻게 해야할까? 이건 언어마다 EOF(End Of File)을 어떻게 처리할 것인가를 보면...","categories": ["Java Coding Test"],
+        "tags": ["java"],
+        "url": "/java%20coding%20test/EOF/",
+        "teaser": null
+      },{
+        "title": "[자바 코테] java도 itertools가 있었으면 좋겠다..",
+        "excerpt":"가끔 파이썬 마려운 순간이 있다.. 자바에는 아쉽게도 파이썬의 itertools와 같은 라이브러리가 없다. 따라서 순열, 조합 관련된 코드들은 직접 구현해서 사용해야한다. 조합 class Combination&lt;T&gt; { private int n; private int r; private int[] now; // 현재 조합 private List&lt;List&lt;T&gt;&gt; result; // 모든 조합 public List&lt;List&lt;T&gt;&gt; getResult() { return result; } public...","categories": ["Java Coding Test"],
+        "tags": ["java"],
+        "url": "/java%20coding%20test/Itertools/",
+        "teaser": null
+      },{
+        "title": "[2816] 디지털 티비",
+        "excerpt":"[Bronze I] 디지털 티비 - 2816 문제 링크 성능 요약 메모리: 14160 KB, 시간: 136 ms 분류 구현, 구성적 문제 설명 2012년 12월 31일 새벽 4시부터 지상파 아날로그 TV방송이 종료되었다. TV를 자주보는 할머니를 위해서, 상근이네 집도 디지털 수신기를 구입했다. 원래 상근이네 집에는 KBS1과 KBS2만 나왔다. 할머니는 두 방송만 시청한다. 이제...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/2816/",
+        "teaser": null
+      },{
+        "title": "[2961] 도영이가 만든 맛있는 음식",
+        "excerpt":"[Silver II] 도영이가 만든 맛있는 음식 - 2961 문제 링크 성능 요약 메모리: 16248 KB, 시간: 148 ms 분류 브루트포스 알고리즘, 비트마스킹, 백트래킹 문제 설명 도영이는 짜파구리 요리사로 명성을 날렸었다. 이번에는 이전에 없었던 새로운 요리에 도전을 해보려고 한다. 지금 도영이의 앞에는 재료가 N개 있다. 도영이는 각 재료의 신맛 S와 쓴맛...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/2961/",
+        "teaser": null
       }]
