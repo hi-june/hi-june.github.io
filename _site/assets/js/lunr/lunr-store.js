@@ -443,6 +443,24 @@ var store = [{
         "url": "/java%20coding%20test/Itertools/",
         "teaser": null
       },{
+        "title": "[혼자왔니] 프로젝트 소개",
+        "excerpt":"첫 spring boot 프로젝트다! 마냥 막막해보였던 spring boot를 이용하여 만든 첫 프로젝트이다. 방학 때 진행했던 실리콘벨리 부트캠프가 끝나고, 후속 프로그램인 Techeer에 들어가게되었다. 새로운 팀원들과 진행해본 프로젝트인 만큼 우여곡절이 많았고, 처음 목표했던 것보다는 부족했지만 spring boot를 전반적으로 이해할 수 있었던 시간들이었다. 프로젝트 소개 이 프로젝트는 혼밥이 힘든 이들을 위해 만들어졌다. 같이...","categories": ["RUAlone"],
+        "tags": ["Info"],
+        "url": "/rualone/RUAlone01/",
+        "teaser": null
+      },{
+        "title": "[혼자왔니] spring에서의 예외처리와 security filter",
+        "excerpt":"예외처리 하기 프로그램에서 발생할 수 있는 여러 예외적인 상황에 대해 처리하는 것은 중요하다. spring에서는 다음과 같은 방법들로 예외를 처리한다. @ExceptionHandler @Contrller, @RestController가 적용된 Bean내에서 발생하는 예외를 잡아서 하나의 메서드에서 처리 해주는 기능을 한다. @RestController public class MyController { @GetMapping(\"/nullEx\") @ResponseBody public String myController() { throw new NullPointerException(); // 이 경우에 한해서만...","categories": ["RUAlone"],
+        "tags": ["Info"],
+        "url": "/rualone/RUAlone02/",
+        "teaser": null
+      },{
+        "title": "[혼자왔니] JPA - could not initialize proxy",
+        "excerpt":"영속성 컨텍스트, Proxy, DTO, 트랜잭션, Lazy Loading 상황 설명 현재 상황은 이렇다. User와 Post가 1:N 관계를 맺고 있고, Post 엔티티에서 User에 대해 Lazy 전략으로 설정해 준 상태이다. Client에서 Post를 조회하려고 GET 요청을 보내면 Post를 찾아 DTO로 돌려주는 가장 일반적인 형태로 구현이 되어있다. 에러가 난 코드를 살펴보자..! // 기존 코드(Controller) @Parameter(...","categories": ["RUAlone"],
+        "tags": ["Info"],
+        "url": "/rualone/RUAlone03/",
+        "teaser": null
+      },{
         "title": "[2816] 디지털 티비",
         "excerpt":"[Bronze I] 디지털 티비 - 2816 문제 링크 성능 요약 메모리: 14160 KB, 시간: 136 ms 분류 구현, 구성적 문제 설명 2012년 12월 31일 새벽 4시부터 지상파 아날로그 TV방송이 종료되었다. TV를 자주보는 할머니를 위해서, 상근이네 집도 디지털 수신기를 구입했다. 원래 상근이네 집에는 KBS1과 KBS2만 나왔다. 할머니는 두 방송만 시청한다. 이제...","categories": ["BOJ"],
         "tags": ["java"],

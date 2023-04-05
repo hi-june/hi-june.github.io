@@ -1,0 +1,1520 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[혼자왔니] spring에서의 예외처리와 security filter -  June &amp; Directory</title>
+<meta name="description" content="RUAlone(혼자왔니) 혼밥 메이트 구하기 프로젝트 ">
+
+
+  <meta name="author" content="hi~ June!!">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content=" June & Directory ">
+<meta property="og:title" content="[혼자왔니] spring에서의 예외처리와 security filter">
+<meta property="og:url" content="http://localhost:4000/rualone/RUAlone02/">
+
+
+  <meta property="og:description" content="RUAlone(혼자왔니) 혼밥 메이트 구하기 프로젝트 ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/Profile/jenga.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2023-04-06T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-04-06T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/rualone/RUAlone02/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "June & Directory",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" June & Directory  Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+
+    <!-- 스크롤바 커스터마이징 -->
+    <style> 
+      ::-webkit-scrollbar{width: 16px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb:hover {background: #4cb7ff;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:12px;height:12px;background:transparent; }
+
+      
+    </style>
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           June & Directory 
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/index.html">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">카테고리 Click</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#rualone" itemprop="item"><span itemprop="name">Rualone</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[혼자왔니] spring에서의 예외처리와 security filter</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile/jenga.jpg" alt="hi~ June!!" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">hi~ June!!</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>반갑습니다!! 😆</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:wnsgur735@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">카테고리 Click</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Nanum Gothic Coding';">전체 글 수</style> <span style="font-family:'Nanum Gothic Coding';">79</style> <span style="font-family:'Nanum Gothic Coding';">개</style> 
+      </li>
+      <li>
+
+        <span class="nav__sub-title">Project</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SiDoli" class="">SiDoli (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Team_ForV" class="">Team_ForV (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/RUAlone" class="">RUAlone(혼자왔니) (3)</a></li>
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java-coding-test" class="">자바 코테용 문법정리 (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/this-is-coding-test" class="">이것이 코딩테스트다 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/boj" class="">백준 (20)</a></li>
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Computer Science</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Java</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java-lang" class="">Java 기본문법 정리 (30)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Spring/Spring Boot</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Spring-Tutorial" class="">Spring-Tutorial (7)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SpringBoot-JPA" class="">Spring Boot & JPA (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        
+        <span class="nav__sub-title">DataBase</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Mobile</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/Android" class="">Android (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[혼자왔니] spring에서의 예외처리와 security filter">
+    <meta itemprop="description" content="RUAlone(혼자왔니) 혼밥 메이트 구하기 프로젝트">
+    <meta itemprop="datePublished" content="2023-04-06T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-04-06T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[혼자왔니] spring에서의 예외처리와 security filter
+</h1>
+          
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-04-06T00:00:00+09:00">2023.04.06</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-04-06">2023.04.06</time></p>
+          
+          
+            
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#rualone" class="page__taxonomy-item-category" rel="tag">RUAlone</a>
+    
+    </span>
+  </p>
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+    
+    </span>
+  </p>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#예외처리-하기">예외처리 하기</a></li>
+  <li><a href="#예외-메시지-관리하기">예외 메시지 관리하기</a></li>
+  <li><a href="#문제-발생">문제 발생..?</a></li>
+  <li><a href="#왜-열심히-만든-custom-예외가-안-터질까">왜 열심히 만든 Custom 예외가 안 터질까?</a></li>
+  <li><a href="#spring-security-작동-구조">Spring Security 작동 구조</a></li>
+  <li><a href="#그럼-어떻게-하죠">그럼 어떻게 하죠?</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="예외처리-하기">예외처리 하기</h2>
+
+<p>프로그램에서 발생할 수 있는 여러 예외적인 상황에 대해 처리하는 것은 중요하다.</p>
+
+<p>spring에서는 다음과 같은 방법들로 예외를 처리한다.</p>
+
+<ul>
+  <li>@ExceptionHandler
+    <ul>
+      <li>@Contrller, @RestController가 적용된 <strong>Bean내에서 발생하는 예외를 잡아서 하나의 메서드에서 처리</strong>
+  해주는 기능을 한다.</li>
+    </ul>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">@RestController</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyController</span> <span class="o">{</span>
+    
+      <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/nullEx"</span><span class="o">)</span>
+      <span class="nd">@ResponseBody</span>
+      <span class="kd">public</span> <span class="nc">String</span> <span class="nf">myController</span><span class="o">()</span> <span class="o">{</span>
+          <span class="k">throw</span> <span class="k">new</span> <span class="nf">NullPointerException</span><span class="o">();</span>   <span class="c1">// 이 경우에 한해서만 예외처리가 가능함</span>
+      <span class="o">}</span>
+    
+      <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/indexEx"</span><span class="o">)</span>
+      <span class="nd">@ResponseBody</span>
+      <span class="kd">public</span> <span class="nc">String</span> <span class="nf">myController2</span><span class="o">()</span> <span class="o">{</span>
+          <span class="k">throw</span> <span class="k">new</span> <span class="nf">IndexOutOfBoundsException</span><span class="o">();</span>
+      <span class="o">}</span>
+    
+      <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="nc">NullPointerException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>  <span class="c1">// NullPointerException만</span>
+      <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">nullEx</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+          <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getClass</span><span class="o">());</span>
+          <span class="k">return</span> <span class="s">"myServiceException"</span><span class="o">;</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>@ControllerAdvice
+    <ul>
+      <li><strong>모든</strong> @Cotroller에 대한 예외를 잡아서 처리해주는 기능</li>
+      <li>@RestControllerAdvice → @ControllerAdvice, @ResponseBody
+        <ul>
+          <li>에러응답으로 객체 리턴(json) → @RestControllerAdvice</li>
+          <li>에러응답으로 예외 페이지(viewResolver) → @ControllerAdvice</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cm">/**
+   * 1. custom exception을 만들어줌
+   */</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserNotFoundCException</span> <span class="kd">extends</span> <span class="nc">RuntimeException</span><span class="o">{</span>
+      <span class="kd">public</span> <span class="nf">UserNotFoundCException</span><span class="o">()</span> <span class="o">{</span>
+          <span class="kd">super</span><span class="o">();</span>
+      <span class="o">}</span>
+    
+      <span class="kd">public</span> <span class="nf">UserNotFoundCException</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">,</span> <span class="nc">Throwable</span> <span class="n">cause</span><span class="o">)</span> <span class="o">{</span>
+          <span class="kd">super</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="n">cause</span><span class="o">);</span>
+      <span class="o">}</span>
+    
+      <span class="kd">public</span> <span class="nf">UserNotFoundCException</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+          <span class="kd">super</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cm">/**
+   * 2. @RestControllerAdvice가 등록되어있는 ExceptionAdvice에 해당 에러를 처리하기 위한 Handler를 만들어준다.
+   */</span>
+  <span class="nd">@RequiredArgsConstructor</span>
+  <span class="nd">@RestControllerAdvice</span>  <span class="c1">// 모든 Controller에 대한 예외 통합 관리</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExceptionAdvice</span> <span class="o">{</span>
+      <span class="kd">private</span> <span class="kd">final</span> <span class="nc">ResponseService</span> <span class="n">responseService</span><span class="o">;</span>
+      <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MessageSource</span> <span class="n">messageSource</span><span class="o">;</span>
+    
+      <span class="kd">private</span> <span class="nc">String</span> <span class="nf">getMessage</span><span class="o">(</span><span class="nc">String</span> <span class="n">code</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">return</span> <span class="nf">getMessage</span><span class="o">(</span><span class="n">code</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+      <span class="o">}</span>
+    
+      <span class="kd">private</span> <span class="nc">String</span> <span class="nf">getMessage</span><span class="o">(</span><span class="nc">String</span> <span class="n">code</span><span class="o">,</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">return</span> <span class="n">messageSource</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="n">code</span><span class="o">,</span> <span class="n">args</span><span class="o">,</span> <span class="nc">LocaleContextHolder</span><span class="o">.</span><span class="na">getLocale</span><span class="o">());</span>
+      <span class="o">}</span>
+  <span class="c1">/////////////////////////////////////////////////////////////////////////////////////////////////</span>
+      <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="nc">Exception</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>  <span class="c1">// 일반 예외</span>
+      <span class="nd">@ResponseStatus</span><span class="o">(</span><span class="nc">HttpStatus</span><span class="o">.</span><span class="na">INTERNAL_SERVER_ERROR</span><span class="o">)</span>   
+      <span class="kd">protected</span> <span class="nc">CommonResult</span> <span class="nf">defaultException</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">return</span> <span class="n">responseService</span><span class="o">.</span><span class="na">getFailResult</span>
+                  <span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">getMessage</span><span class="o">(</span><span class="s">"unKnown.code"</span><span class="o">)),</span> <span class="n">getMessage</span><span class="o">(</span><span class="s">"unKnown.msg"</span><span class="o">));</span>
+      <span class="o">}</span>
+    
+      <span class="cm">/***
+       * 유저를 찾지 못했을 때 발생시키는 예외
+       */</span>
+      <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="nc">UserNotFoundCException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+      <span class="nd">@ResponseStatus</span><span class="o">(</span><span class="nc">HttpStatus</span><span class="o">.</span><span class="na">INTERNAL_SERVER_ERROR</span><span class="o">)</span>
+      <span class="kd">protected</span> <span class="nc">CommonResult</span> <span class="nf">userNotFoundException</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">return</span> <span class="n">responseService</span><span class="o">.</span><span class="na">getFailResult</span>
+                  <span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">getMessage</span><span class="o">(</span><span class="s">"userNotFound.code"</span><span class="o">)),</span> <span class="n">getMessage</span><span class="o">(</span><span class="s">"userNotFound.msg"</span><span class="o">));</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cm">/**
+   * 3. 예외가 발생해야 되는 상황에서 발생시키기
+   */</span>
+    
+  <span class="cm">/**
+   * 회원 조회(id)
+   * @param id
+   * @return UserResponseDto
+   */</span>
+  <span class="nd">@Transactional</span><span class="o">(</span><span class="n">readOnly</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="nc">UserResponseDto</span> <span class="nf">findById</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userJpaRepo</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">id</span><span class="o">).</span><span class="na">orElseThrow</span><span class="o">(</span><span class="nl">UserNotFoundCException:</span><span class="o">:</span><span class="k">new</span><span class="o">);</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="nf">UserResponseDto</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="예외-메시지-관리하기">예외 메시지 관리하기</h2>
+
+<p>통합 예외 관리에서 중요한 것은 예외 메시지 관리이다.</p>
+
+<p>enum으로 관리하는 방법 등등이 있지만, yaml에 정리해두고, 해당 yaml 파일을 참조해서 예외 메시지를 가져오는 방법도 있다.</p>
+
+<ul>
+  <li>
+    <p>MessageSource</p>
+
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># application.yml</span>
+  <span class="na">spring</span><span class="pi">:</span>
+    <span class="na">messages</span><span class="pi">:</span>
+      <span class="na">basename</span><span class="pi">:</span> <span class="s">i18n/exception</span>
+      <span class="na">encoding</span><span class="pi">:</span> <span class="s">UTF-8</span>
+</code></pre></div>    </div>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="nc">MessageSource</span> <span class="nf">messageSource</span><span class="o">(</span>
+                     <span class="nd">@Value</span><span class="o">(</span><span class="s">"${spring.messages.basename}"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">basename</span><span class="o">,</span>
+                     <span class="nd">@Value</span><span class="o">(</span><span class="s">"${spring.messages.encoding}"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">encoding</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">YamlMessageSource</span> <span class="n">ms</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">YamlMessageSource</span><span class="o">();</span>
+        <span class="n">ms</span><span class="o">.</span><span class="na">setBasename</span><span class="o">(</span><span class="n">basename</span><span class="o">);</span>
+        <span class="n">ms</span><span class="o">.</span><span class="na">setDefaultEncoding</span><span class="o">(</span><span class="n">encoding</span><span class="o">);</span>
+        <span class="n">ms</span><span class="o">.</span><span class="na">setAlwaysUseMessageFormat</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="n">ms</span><span class="o">.</span><span class="na">setUseCodeAsDefaultMessage</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="n">ms</span><span class="o">.</span><span class="na">setFallbackToSystemLocale</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">ms</span><span class="o">;</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># exception_ko.yml</span>
+  <span class="na">unKnown</span><span class="pi">:</span>
+    <span class="na">code</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-9999"</span>
+    <span class="na">msg</span><span class="pi">:</span> <span class="s2">"</span><span class="s">알수</span><span class="nv"> </span><span class="s">없는</span><span class="nv"> </span><span class="s">오류가</span><span class="nv"> </span><span class="s">발생하였습니다."</span>
+  <span class="na">userNotFound</span><span class="pi">:</span>
+    <span class="na">code</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-1000"</span>
+    <span class="na">msg</span><span class="pi">:</span> <span class="s2">"</span><span class="s">존재하지</span><span class="nv"> </span><span class="s">않는</span><span class="nv"> </span><span class="s">회원입니다."</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="문제-발생">문제 발생..?</h2>
+
+<p>spring security를 활용하여 jwt 기반 회원 인증/인가 시스템을 구현했다!</p>
+
+<p>그럼 jwt 테스트를 진행해보자!</p>
+
+<ul>
+  <li>테스트의 내용
+    <ul>
+      <li>jwt 없이 api를 요청한 경우</li>
+      <li>형식이 맞지 않거나 만료된 token을 사용한 경우</li>
+      <li>정상 token이지만 권한이 없는 경우</li>
+    </ul>
+  </li>
+</ul>
+
+<p>자, 그럼 <strong>custom 예외</strong>를 열심히 만들고, 해당 예외처리가 되는지 확인해보자..</p>
+
+<ul>
+  <li>
+    <p>응답 내용(엥..?)</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
+  	</span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-xx-xxxx"</span><span class="p">,</span><span class="w">
+  	</span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w">
+  	</span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forbidden"</span><span class="p">,</span><span class="w">
+  	</span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/user/id/1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="왜-열심히-만든-custom-예외가-안-터질까">왜 열심히 만든 Custom 예외가 안 터질까?</h2>
+
+<p>구글링 해본 결과.. spring security의 filter링과 관련이 있었다.</p>
+
+<p>현재 만든 예외처리는 <strong>@RestControllerAdvice</strong>를 통해 처리하게 했는데, 이 말은 예외가 <strong>Spring이 처리가능한 영역</strong>까지 도달한 경우 처리하도록 했다는 의미</p>
+
+<p><strong>하지만 spring security는 servlet dispatcher 앞단에 위치합니다…</strong></p>
+
+<h2 id="spring-security-작동-구조">Spring Security 작동 구조</h2>
+
+<p><img src="/assets/images/RUAlone/2-1.png" alt="image" width="80%" height="80%" /></p>
+
+<p>스프링 시큐리티 사용시 스프링은 DispatcherServlet 앞단에 <strong>Filter</strong>를 배치시켜서 요청을 가로챈다.</p>
+
+<p>클라이언트에 접근 권한이 없다면 인증화면으로 자동 리다이렉트 시킨다.</p>
+
+<h2 id="그럼-어떻게-하죠">그럼 어떻게 하죠?</h2>
+
+<p>앞서 말한 ‘테스트 내용’ 에 대해 각각 spring security가 제공하는 몇몇 애들을 상속 받아서 재정의하면 됩니다.</p>
+
+<ol>
+  <li>정상적으로 Jwt이 제대로 오지 않은 경우 - AuthenticationEntryPoint</li>
+  <li>정상적인 Jwt이 왔지만 권한이 다른 경우 - AccessDeniedHandler</li>
+  <li>@PreAuthorize, @Secured 등의 애노테이션으로 리소스 접근 권한 설정하기</li>
+</ol>
+
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <!-- '카테고리 내 다른 글 보러가기' -->
+        <p></p>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">RUAlone</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <!--
+
+  <nav class="pagination">
+    
+      <a href="/rualone/RUAlone01/" class="pagination--pager" title="[혼자왔니] 프로젝트 소개
+">이전</a>
+    
+    
+      <a href="/rualone/RUAlone03/" class="pagination--pager" title="[혼자왔니] JPA - could not initialize proxy
+">다음</a>
+    
+  </nav>
+
+-->
+
+
+
+
+  
+
+  
+  	
+  	
+  	
+  	
+  	
+
+
+  <nav class="pagination_prev_next">
+    
+      <a href="/rualone/RUAlone01/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[혼자왔니] 프로젝트 소개</a>
+    
+    
+      <a href="/rualone/RUAlone03/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[혼자왔니] JPA - could not initialize proxy</a>
+    
+  </nav>
+
+
+<!--
+
+
+
+-->
+
+
+
+        <p></p>
+
+        <!-- archive 중간 광고 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+            data-ad-client="ca-pub-6111782407607310"
+            data-ad-slot="5458515780"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+      <footer class="page__meta">
+        
+        <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%ED%98%BC%EC%9E%90%EC%99%94%EB%8B%88%5D+spring%EC%97%90%EC%84%9C%EC%9D%98+%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC%EC%99%80+security+filter%20http%3A%2F%2Flocalhost%3A4000%2Frualone%2FRUAlone02%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Frualone%2FRUAlone02%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Frualone%2FRUAlone02%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+  </article>
+
+  
+  
+    <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
+      <h4 class="page__related-title">최근 글 10 개 :)</h4>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/2961/">[2961] 도영이가 만든 맛있는 음식</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/2816/">[2816] 디지털 티비</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/rualone/RUAlone03/">[혼자왔니] JPA - could not initialize proxy</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#rualone" class="page__taxonomy-item-category" rel="tag">RUAlone</a>
+                    
+                    
+                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/rualone/RUAlone01/">[혼자왔니] 프로젝트 소개</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#rualone" class="page__taxonomy-item-category" rel="tag">RUAlone</a>
+                    
+                    
+                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20coding%20test/Itertools/">[자바 코테] java도 itertools가 있었으면 좋겠다..</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-coding-test" class="page__taxonomy-item-category" rel="tag">Java Coding Test</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/java%20coding%20test/EOF/">[자바 코테] java에서 EOF를 처리하는 방법</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#java-coding-test" class="page__taxonomy-item-category" rel="tag">Java Coding Test</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/4949/">[4949] 균형잡힌 세상</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/25325/">[25325] 학생 인기도 측정</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/1991/">[1991] 트리 순회</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/1874/">[1874] 스택 수열</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 June & Directory. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'hi-june/hi-june.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'photon-dark');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </body>
+</html>
