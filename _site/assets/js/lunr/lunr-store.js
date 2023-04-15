@@ -456,7 +456,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[혼자왔니] JPA - could not initialize proxy",
-        "excerpt":"영속성 컨텍스트, Proxy, DTO, 트랜잭션, Lazy Loading 상황 설명 현재 상황은 이렇다. User와 Post가 1:N 관계를 맺고 있고, Post 엔티티에서 User에 대해 Lazy 전략으로 설정해 준 상태이다. Client에서 Post를 조회하려고 GET 요청을 보내면 Post를 찾아 DTO로 돌려주는 가장 일반적인 형태로 구현이 되어있다. 에러가 난 코드를 살펴보자..! // 기존 코드(Controller) @Parameter(...","categories": ["RUAlone"],
+        "excerpt":"영속성 컨텍스트, Proxy, DTO, 트랜잭션, Lazy Loading 상황 설명 현재 상황은 이렇다. User와 Post가 1:N 관계를 맺고 있고, Post 엔티티에서 User에 대해 Lazy 전략으로 설정해 준 상태이다. Client에서 Post를 조회하려고 GET 요청을 보내면 Post를 찾아 DTO로 돌려주는 가장 일반적인 형태로 구현이 되어있다. 에러가 난 코드를 살펴보자…! // 기존 코드(Controller) @Parameter(...","categories": ["RUAlone"],
         "tags": ["Info"],
         "url": "/rualone/RUAlone03/",
         "teaser": null
@@ -471,5 +471,35 @@ var store = [{
         "excerpt":"[Silver II] 도영이가 만든 맛있는 음식 - 2961 문제 링크 성능 요약 메모리: 16248 KB, 시간: 148 ms 분류 브루트포스 알고리즘, 비트마스킹, 백트래킹 문제 설명 도영이는 짜파구리 요리사로 명성을 날렸었다. 이번에는 이전에 없었던 새로운 요리에 도전을 해보려고 한다. 지금 도영이의 앞에는 재료가 N개 있다. 도영이는 각 재료의 신맛 S와 쓴맛...","categories": ["BOJ"],
         "tags": ["java"],
         "url": "/boj/2961/",
+        "teaser": null
+      },{
+        "title": "[1065] 한수",
+        "excerpt":"[Silver IV] 한수 - 1065 문제 링크 성능 요약 메모리: 17164 KB, 시간: 200 ms 분류 브루트포스 알고리즘 문제 설명 어떤 양의 정수 X의 각 자리가 등차수열을 이룬다면, 그 수를 한수라고 한다. 등차수열은 연속된 두 개의 수의 차이가 일정한 수열을 말한다. N이 주어졌을 때, 1보다 크거나 같고, N보다 작거나 같은...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/1065/",
+        "teaser": null
+      },{
+        "title": "[13305] 주유소",
+        "excerpt":"[Silver III] 주유소 - 13305 문제 링크 성능 요약 메모리: 37556 KB, 시간: 468 ms 분류 그리디 알고리즘 문제 설명 어떤 나라에 N개의 도시가 있다. 이 도시들은 일직선 도로 위에 있다. 편의상 일직선을 수평 방향으로 두자. 제일 왼쪽의 도시에서 제일 오른쪽의 도시로 자동차를 이용하여 이동하려고 한다. 인접한 두 도시 사이의...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/13305/",
+        "teaser": null
+      },{
+        "title": "[1461] 도서관",
+        "excerpt":"[Gold V] 도서관 - 1461 문제 링크 성능 요약 메모리: 14244 KB, 시간: 124 ms 분류 그리디 알고리즘, 정렬 문제 설명 세준이는 도서관에서 일한다. 도서관의 개방시간이 끝나서 세준이는 사람들이 마구 놓은 책을 다시 가져다 놓아야 한다. 세준이는 현재 0에 있고, 사람들이 마구 놓은 책도 전부 0에 있다. 각 책들의 원래...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/1461/",
+        "teaser": null
+      },{
+        "title": "[1543] 문서 검색",
+        "excerpt":"[Silver IV] 문서 검색 - 1543 문제 링크 성능 요약 메모리: 14252 KB, 시간: 124 ms 분류 문자열, 브루트포스 알고리즘 문제 설명 세준이는 영어로만 이루어진 어떤 문서를 검색하는 함수를 만들려고 한다. 이 함수는 어떤 단어가 총 몇 번 등장하는지 세려고 한다. 그러나, 세준이의 함수는 중복되어 세는 것은 빼고 세야 한다....","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/1543/",
+        "teaser": null
+      },{
+        "title": "[6603] 로또",
+        "excerpt":"[Silver II] 로또 - 6603 문제 링크 성능 요약 메모리: 19368 KB, 시간: 236 ms 분류 수학, 조합론, 백트래킹, 재귀 문제 설명 독일 로또는 {1, 2, ..., 49}에서 수 6개를 고른다. 로또 번호를 선택하는데 사용되는 가장 유명한 전략은 49가지 수 중 k(k&gt;6)개의 수를 골라 집합 S를 만든 다음 그 수만...","categories": ["BOJ"],
+        "tags": ["java"],
+        "url": "/boj/6603/",
         "teaser": null
       }]
