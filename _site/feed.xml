@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-20T16:47:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[7569] 토마토</title><link href="http://localhost:4000/boj/7569/" rel="alternate" type="text/html" title="[7569] 토마토" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/7569</id><content type="html" xml:base="http://localhost:4000/boj/7569/"><![CDATA[<h2 id="gold-v-토마토---7569">[Gold V] 토마토 - 7569</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-20T17:03:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[7569] 토마토</title><link href="http://localhost:4000/boj/7569/" rel="alternate" type="text/html" title="[7569] 토마토" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/7569</id><content type="html" xml:base="http://localhost:4000/boj/7569/"><![CDATA[<h2 id="gold-v-토마토---7569">[Gold V] 토마토 - 7569</h2>
 
 <p><a href="https://www.acmicpc.net/problem/7569">문제 링크</a></p>
 
@@ -130,7 +130,7 @@ x, y, z를 z, y, x 순으로 초기화해야한다는 것을 기억하자.</p>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2606] 바이러스</title><link href="http://localhost:4000/boj/2606/" rel="alternate" type="text/html" title="[2606] 바이러스" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/2606</id><content type="html" xml:base="http://localhost:4000/boj/2606/"><![CDATA[<h2 id="silver-iii-바이러스---2606">[Silver III] 바이러스 - 2606</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2606] 바이러스</title><link href="http://localhost:4000/boj/2606/" rel="alternate" type="text/html" title="[2606] 바이러스" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/2606</id><content type="html" xml:base="http://localhost:4000/boj/2606/"><![CDATA[<h2 id="silver-iii-바이러스---2606">[Silver III] 바이러스 - 2606</h2>
 
 <p><a href="https://www.acmicpc.net/problem/2606">문제 링크</a></p>
 
@@ -161,7 +161,7 @@ x, y, z를 z, y, x 순으로 초기화해야한다는 것을 기억하자.</p>
 <p>1번 컴퓨터가 웜 바이러스에 걸렸을 때, 1번 컴퓨터를 통해 웜 바이러스에 걸리게 되는 컴퓨터의 수를 첫째 줄에 출력한다.</p>
 
 <h2 id="아이디어">아이디어</h2>
-<p><code class="language-plaintext highlighter-rouge">dfs</code> 기본 문제이다.<br />
+<p><code class="language-plaintext highlighter-rouge">bfs</code> 기본 문제이다.<br />
 그래프는 인접 리스트로 나타냈고, <code class="language-plaintext highlighter-rouge">queue</code> 자료구조를 사용했다.</p>
 
 <h2 id="답안코드">답안코드</h2>
@@ -211,7 +211,7 @@ x, y, z를 z, y, x 순으로 초기화해야한다는 것을 기억하자.</p>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2178] 미로 탐색</title><link href="http://localhost:4000/boj/2178/" rel="alternate" type="text/html" title="[2178] 미로 탐색" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/2178</id><content type="html" xml:base="http://localhost:4000/boj/2178/"><![CDATA[<h2 id="silver-i-미로-탐색---2178">[Silver I] 미로 탐색 - 2178</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2178] 미로 탐색</title><link href="http://localhost:4000/boj/2178/" rel="alternate" type="text/html" title="[2178] 미로 탐색" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/2178</id><content type="html" xml:base="http://localhost:4000/boj/2178/"><![CDATA[<h2 id="silver-i-미로-탐색---2178">[Silver I] 미로 탐색 - 2178</h2>
 
 <p><a href="https://www.acmicpc.net/problem/2178">문제 링크</a></p>
 
@@ -349,7 +349,7 @@ x, y, z를 z, y, x 순으로 초기화해야한다는 것을 기억하자.</p>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">mace</span><span class="o">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="o">]);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1260] DFS와 BFS</title><link href="http://localhost:4000/boj/1260/" rel="alternate" type="text/html" title="[1260] DFS와 BFS" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/1260</id><content type="html" xml:base="http://localhost:4000/boj/1260/"><![CDATA[<h2 id="silver-ii-dfs와-bfs---1260">[Silver II] DFS와 BFS - 1260</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1260] DFS와 BFS</title><link href="http://localhost:4000/boj/1260/" rel="alternate" type="text/html" title="[1260] DFS와 BFS" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/1260</id><content type="html" xml:base="http://localhost:4000/boj/1260/"><![CDATA[<h2 id="silver-ii-dfs와-bfs---1260">[Silver II] DFS와 BFS - 1260</h2>
 
 <p><a href="https://www.acmicpc.net/problem/1260">문제 링크</a></p>
 
@@ -449,7 +449,7 @@ bfs는 큐를 dfs는 stack을 사용했다.(함수 recursive call)</p>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2644] 촌수계산</title><link href="http://localhost:4000/boj/2644/" rel="alternate" type="text/html" title="[2644] 촌수계산" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/2644</id><content type="html" xml:base="http://localhost:4000/boj/2644/"><![CDATA[<h2 id="silver-ii-촌수계산---2644">[Silver II] 촌수계산 - 2644</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><category term="dfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2644] 촌수계산</title><link href="http://localhost:4000/boj/2644/" rel="alternate" type="text/html" title="[2644] 촌수계산" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/2644</id><content type="html" xml:base="http://localhost:4000/boj/2644/"><![CDATA[<h2 id="silver-ii-촌수계산---2644">[Silver II] 촌수계산 - 2644</h2>
 
 <p><a href="https://www.acmicpc.net/problem/2644">문제 링크</a></p>
 
@@ -535,7 +535,7 @@ bfs는 큐를 dfs는 stack을 사용했다.(함수 recursive call)</p>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[6603] 로또</title><link href="http://localhost:4000/boj/6603/" rel="alternate" type="text/html" title="[6603] 로또" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/6603</id><content type="html" xml:base="http://localhost:4000/boj/6603/"><![CDATA[<h2 id="silver-ii-로또---6603">[Silver II] 로또 - 6603</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="dfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[6603] 로또</title><link href="http://localhost:4000/boj/6603/" rel="alternate" type="text/html" title="[6603] 로또" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/6603</id><content type="html" xml:base="http://localhost:4000/boj/6603/"><![CDATA[<h2 id="silver-ii-로또---6603">[Silver II] 로또 - 6603</h2>
 
 <p><a href="https://www.acmicpc.net/problem/6603">문제 링크</a></p>
 
@@ -646,7 +646,7 @@ bfs는 큐를 dfs는 stack을 사용했다.(함수 recursive call)</p>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1461] 도서관</title><link href="http://localhost:4000/boj/1461/" rel="alternate" type="text/html" title="[1461] 도서관" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/1461</id><content type="html" xml:base="http://localhost:4000/boj/1461/"><![CDATA[<h2 id="gold-v-도서관---1461">[Gold V] 도서관 - 1461</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="수학" /><category term="조합" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1461] 도서관</title><link href="http://localhost:4000/boj/1461/" rel="alternate" type="text/html" title="[1461] 도서관" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/1461</id><content type="html" xml:base="http://localhost:4000/boj/1461/"><![CDATA[<h2 id="gold-v-도서관---1461">[Gold V] 도서관 - 1461</h2>
 
 <p><a href="https://www.acmicpc.net/problem/1461">문제 링크</a></p>
 
@@ -726,7 +726,7 @@ bfs는 큐를 dfs는 stack을 사용했다.(함수 recursive call)</p>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">steps</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[13305] 주유소</title><link href="http://localhost:4000/boj/13305/" rel="alternate" type="text/html" title="[13305] 주유소" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/13305</id><content type="html" xml:base="http://localhost:4000/boj/13305/"><![CDATA[<h2 id="silver-iii-주유소---13305">[Silver III] 주유소 - 13305</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="그리디" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[13305] 주유소</title><link href="http://localhost:4000/boj/13305/" rel="alternate" type="text/html" title="[13305] 주유소" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/13305</id><content type="html" xml:base="http://localhost:4000/boj/13305/"><![CDATA[<h2 id="silver-iii-주유소---13305">[Silver III] 주유소 - 13305</h2>
 
 <p><a href="https://www.acmicpc.net/problem/13305">문제 링크</a></p>
 
@@ -828,7 +828,7 @@ cityPoint를 참고하여 각 구간 별 거리를 더해 최소 비용을 계�
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cost</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1065] 한수</title><link href="http://localhost:4000/boj/1065/" rel="alternate" type="text/html" title="[1065] 한수" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/1065</id><content type="html" xml:base="http://localhost:4000/boj/1065/"><![CDATA[<h2 id="silver-iv-한수---1065">[Silver IV] 한수 - 1065</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="그리디" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1065] 한수</title><link href="http://localhost:4000/boj/1065/" rel="alternate" type="text/html" title="[1065] 한수" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/1065</id><content type="html" xml:base="http://localhost:4000/boj/1065/"><![CDATA[<h2 id="silver-iv-한수---1065">[Silver IV] 한수 - 1065</h2>
 
 <p><a href="https://www.acmicpc.net/problem/1065">문제 링크</a></p>
 
@@ -897,7 +897,7 @@ cityPoint를 참고하여 각 구간 별 거리를 더해 최소 비용을 계�
         <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1543] 문서 검색</title><link href="http://localhost:4000/boj/1543/" rel="alternate" type="text/html" title="[1543] 문서 검색" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/1543</id><content type="html" xml:base="http://localhost:4000/boj/1543/"><![CDATA[<h2 id="silver-iv-문서-검색---1543">[Silver IV] 문서 검색 - 1543</h2>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="구현" /><category term="수학" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1543] 문서 검색</title><link href="http://localhost:4000/boj/1543/" rel="alternate" type="text/html" title="[1543] 문서 검색" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/1543</id><content type="html" xml:base="http://localhost:4000/boj/1543/"><![CDATA[<h2 id="silver-iv-문서-검색---1543">[Silver IV] 문서 검색 - 1543</h2>
 
 <p><a href="https://www.acmicpc.net/problem/1543">문제 링크</a></p>
 
@@ -953,4 +953,4 @@ index를 증가시키며 탐색하는데, 같은 문자열을 발견하면 발�
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="구현" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry></feed>
