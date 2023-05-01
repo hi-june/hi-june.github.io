@@ -26,6 +26,13 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "Voice_Pocket" %}
+                        <li><a href="/categories/Voice_Pocket" class="">Voice_Pocket ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                     {% if category[0] == "RUAlone" %}
                         <li><a href="/categories/RUAlone" class="">RUAlone(혼자왔니) ({{category[1].size}})</a></li>
                     {% endif %}

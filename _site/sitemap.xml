@@ -357,6 +357,10 @@
 <lastmod>2023-04-20T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/voice_pocket/Voice_Pocket01/</loc>
+<lastmod>2023-05-01T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/categories/</loc>
 </url>
 <url>
@@ -376,6 +380,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/Team_ForV</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/Voice_Pocket</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/algorithm</loc>

@@ -532,4 +532,10 @@ var store = [{
         "tags": ["java","bfs"],
         "url": "/boj/7569/",
         "teaser": null
+      },{
+        "title": "[Voice Pocket] 프로젝트 소개",
+        "excerpt":"개요  ","categories": ["Voice_Pocket"],
+        "tags": ["Info"],
+        "url": "/voice_pocket/Voice_Pocket01/",
+        "teaser": null
       }]
