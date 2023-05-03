@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의 -  June &amp; Directory</title>
-<meta name="description" content="Java 문법 정리! ">
+<!-- begin _includes/seo.html --><title>[Voice Pocket] TTS 작업 속도 개선기 -  June &amp; Directory</title>
+<meta name="description" content="Voice Pocket의 프로젝트 ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의">
-<meta property="og:url" content="http://localhost:4000/java%20lang/Chap06/">
+<meta property="og:title" content="[Voice Pocket] TTS 작업 속도 개선기">
+<meta property="og:url" content="http://localhost:4000/voice_pocket/Voice_Pocket03/">
 
 
-  <meta property="og:description" content="Java 문법 정리! ">
+  <meta property="og:description" content="Voice Pocket의 프로젝트 ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-10-01T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-05-03T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-10-01T00:00:00+09:00">
+  <meta property="article:modified_time" content="2023-05-03T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/java%20lang/Chap06/">
+<link rel="canonical" href="http://localhost:4000/voice_pocket/Voice_Pocket03/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#java-lang" itemprop="item"><span itemprop="name">Java lang</span></a>
+          <a href="/categories/#voice_pocket" itemprop="item"><span itemprop="name">Voice_pocket</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의</li>
+        <li class="current">[Voice Pocket] TTS 작업 속도 개선기</li>
       
     
   </ol>
@@ -881,18 +881,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의">
-    <meta itemprop="description" content="Java 문법 정리!">
-    <meta itemprop="datePublished" content="2022-10-01T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-10-01T00:00:00+09:00">
+    <meta itemprop="headline" content="[Voice Pocket] TTS 작업 속도 개선기">
+    <meta itemprop="description" content="Voice Pocket의 프로젝트">
+    <meta itemprop="datePublished" content="2023-05-03T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-05-03T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[윤성우의 열혈 Java 프로그래밍] Chapter 06 - 메소드에 대한 이해와 정의
+          <h1 id="page-title" class="page__title" itemprop="headline">[Voice Pocket] TTS 작업 속도 개선기
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2022-10-01T00:00:00+09:00">2022.10.01</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-01">2022.10.01</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-05-03T00:00:00+09:00">2023.05.03</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-05-03">2023.05.03</time></p>
           
           
             
@@ -908,7 +908,7 @@
     
       
       
-      <a href="/categories/#java-lang" class="page__taxonomy-item-category" rel="tag">Java lang</a>
+      <a href="/categories/#voice-pocket" class="page__taxonomy-item-category" rel="tag">Voice_Pocket</a>
     
     </span>
   </p>
@@ -925,7 +925,7 @@
     
       
       
-      <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+      <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
     
     </span>
   </p>
@@ -940,119 +940,143 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#06-1-메소드에-대한-이해와-메소드의-정의">06-1. 메소드에 대한 이해와 메소드의 정의</a>
-    <ul>
-      <li><a href="#--메소드의-동작">- 메소드의 동작</a></li>
-      <li><a href="#--값을-반환하는-메소드">- 값을 반환하는 메소드</a></li>
-    </ul>
-  </li>
-  <li><a href="#06-2-변수의-스코프">06-2. 변수의 스코프</a></li>
-  <li><a href="#06-3-메소드의-재귀-호출">06-3. 메소드의 재귀 호출</a></li>
+  <li><a href="#음성-합성을-위한-과정">음성 합성을 위한 과정</a></li>
+  <li><a href="#문제는-너무-느리다는-것">문제는 너무 느리다는 것..</a></li>
+  <li><a href="#redis-cache">redis cache</a></li>
+  <li><a href="#class의-instance를-redis에-저장할-수-있을까">class의 instance를 redis에 저장할 수 있을까?</a></li>
+  <li><a href="#수행-결과">수행 결과</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="06-1-메소드에-대한-이해와-메소드의-정의">06-1. 메소드에 대한 이해와 메소드의 정의</h2>
-<h3 id="--메소드의-동작">- <u>메소드의 동작</u></h3>
-<p><img src="/assets/images/java-lang/6-1.png" alt="image" width="70%" height="70%" /><br /></p>
+        <h2 id="음성-합성을-위한-과정">음성 합성을 위한 과정</h2>
+<p>사용자의 요청에 따라 음성 파일을 합성하는 전반적인 과정은 다음과 같다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodDef</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 시작"</span><span class="o">);</span>
-        <span class="n">hiEveryone</span><span class="o">(</span><span class="mi">26</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"프로그램의 끝"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hiEveryone</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"좋은 아침입니다."</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"제 나이는 "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">"입니다."</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<p>1) 클라이언트 요청<br />
+2) 해당 음성 모델로부터 Systhesizer object initialize</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">synthesizer</span> <span class="o">=</span> <span class="n">Synthesizer</span><span class="p">(</span>
+            <span class="n">tts_checkpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_model_file_path</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">tts_config_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_config_path</span><span class="si">}</span><span class="s">"</span>
+        <span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="--값을-반환하는-메소드">- <u>값을 반환하는 메소드</u></h3>
-<p><img src="/assets/images/java-lang/6-2.png" alt="image" width="70%" height="70%" /><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodReturns</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">result</span><span class="o">;</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">adder</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">square</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
-    <span class="o">}</span>
+<p>3) 2에서 만든 Synthesizer object로부터 tts 함수 호출(wav 파일 생성)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">symbol</span> <span class="o">=</span> <span class="n">synthesizer</span><span class="p">.</span><span class="n">tts_config</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">characters</span>   <span class="c1"># symbol set
+</span><span class="n">text</span> <span class="o">=</span> <span class="n">normalize_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span> <span class="c1"># text normalize
+</span><span class="n">wav</span> <span class="o">=</span> <span class="n">synthesizer</span><span class="p">.</span><span class="n">tts</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="c1"># conver text to speech
+</span><span class="n">synthesizer</span><span class="p">.</span><span class="n">save_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">wav_path</span><span class="p">)</span> <span class="c1"># write wav file
+</span></code></pre></div></div>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">adder</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">addResult</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">;</span>
-        <span class="k">return</span> <span class="n">addResult</span><span class="o">;</span>
-    <span class="o">}</span>
+<p>4) 생성된 wav 파일을 gcs(google cloud storage) bucket에 저장</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">upload_wav_to_bucket</span><span class="p">(</span><span class="n">wav_path</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">uuid</span><span class="p">):</span>
+    <span class="n">storage_client</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="n">Client</span><span class="p">()</span>
+    
+    <span class="n">bucket_name</span> <span class="o">=</span> <span class="n">BUCKET_NAME</span>
+    <span class="n">source_file_name</span> <span class="o">=</span> <span class="n">wav_path</span>
+    <span class="n">destination_blob_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s">.wav'</span>
+    
+    <span class="n">bucket</span> <span class="o">=</span> <span class="n">storage_client</span><span class="p">.</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
+    <span class="n">blob</span> <span class="o">=</span> <span class="n">bucket</span><span class="p">.</span><span class="n">blob</span><span class="p">(</span><span class="n">destination_blob_name</span><span class="p">)</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">square</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    <span class="n">blob</span><span class="p">.</span><span class="n">upload_from_filename</span><span class="p">(</span><span class="n">source_file_name</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="06-2-변수의-스코프">06-2. 변수의 스코프</h2>
+<h2 id="문제는-너무-느리다는-것">문제는 너무 느리다는 것..</h2>
+<p>음성 하나 합성하는데 걸리는 시간이 너무 느리다는 것이 계속 걸렸다.</p>
+
+<p>2번과 3번 과정이 가장 핵심적인 부분이었고, 각각 과정(특히, 2번)들에서 많은 시간이 소요되었다.</p>
+
+<p>애초에 <code class="language-plaintext highlighter-rouge">coqui-tts</code>에서 제공하는 라이브러리를 사용하여 음성 합성을 진행하고 있기 때문에,<br />
+위의 과정 중 3번에 해당하는 text를 기반으로 wav 파일을 합성하는 데 걸리는 시간은 건드리기 힘들었다.</p>
+
 <blockquote>
-  <p>지역변수(Local Variable)는 선언된 지역을 벗어나면 메모리 공간에서 소멸된다.</p>
+  <p>따라서, 작업 요청마다 Synthesizer instance가 initialize되는 시간만 날려버려도, 시간을 상당히 많이 줄일 수 있을 것이라 판단했고, 해당 부분에 cache를 적용하기로 했다.</p>
 </blockquote>
 
-<p><img src="/assets/images/java-lang/6-3.png" alt="image" width="70%" height="70%" /><br /></p>
+<h2 id="redis-cache">redis cache</h2>
+<p><code class="language-plaintext highlighter-rouge">redis</code>는 간단히 설명하자면 key-value 형식으로 데이터를 저장하는 in-memory 기반의 데이터베이스이다.</p>
 
-<h2 id="06-3-메소드의-재귀-호출">06-3. 메소드의 재귀 호출</h2>
-<p><img src="/assets/images/java-lang/6-4.png" alt="image" width="70%" height="70%" /><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReculFactorial</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"12 factorial: "</span><span class="o">+</span><span class="n">factorial</span><span class="o">(</span><span class="mi">12</span><span class="o">));</span>
-    <span class="o">}</span>
+<p>애초에 gpu 서버에서 음성 학습을 시키고, 모델이 만들어질 때,<br />
+해당 모델 파일로부터 synthesizer를 initialize하여 synthesizer object를 redis 캐시에 저장해두고,<br />
+필요한 순간에 가져다가 쓸 수 있다면, 요청마다 initiaize되는 시간을 줄일 수 있을 것이라고 생각했다.</p>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
-            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="k">else</span>
-            <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<p>정리하자면,</p>
+<ul>
+  <li>
+    <p>음성 모델 학습이 끝나고<br />
+1) 음성 모델 합성이 완료되면 해당 모델을 기반으로 synthesizer object를 initialize.<br />
+2) synthesizer object를 redis에 저장</p>
+  </li>
+  <li>
+    <p>음성 합성 요청 시<br />
+1) 클라이언트 요청<br />
+2) redis에 접근하여 미리 저장해둔 synthesizer objcet를 불러옴<br />
+3) 불러온 object로 TTS 수행</p>
+  </li>
+</ul>
+
+<h2 id="class의-instance를-redis에-저장할-수-있을까">class의 instance를 redis에 저장할 수 있을까?</h2>
+<p><code class="language-plaintext highlighter-rouge">redis</code>에서는 value로 다양한 data type을 지원한다.<br />
+대표적으로 string을 지원하므로 python의 pickle 모듈을 사용하여 객체를 문자열로 직렬화하여 저장하는 방식을 사용했다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">redis</span>
+
+<span class="c1"># 레디스 연결
+</span><span class="n">rd</span> <span class="o">=</span> <span class="n">redis</span><span class="p">.</span><span class="n">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'{host_name}'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port_num</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db_num</span><span class="p">)</span>
+
+<span class="c1"># synthesizer initialize
+</span><span class="n">synthesizer</span> <span class="o">=</span> <span class="n">Synthesizer</span><span class="p">(</span>
+            <span class="n">tts_checkpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_model_file_path</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">tts_config_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_config_path</span><span class="si">}</span><span class="s">"</span>
+        <span class="p">)</span>
+
+<span class="c1"># synthesizer 객체를 pickle로 serialize하여 redis에 저장
+</span><span class="n">serialized_syn</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">synthesizer</span><span class="p">)</span>
+<span class="n">rd</span><span class="p">.</span><span class="nb">set</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">serialized_syn</span><span class="p">)</span>
+    
+<span class="c1"># redis에 저장해둔 객체를 불러옴
+</span><span class="n">serialized_syn</span> <span class="o">=</span> <span class="n">rd</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+<span class="n">syn</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">serialized_syn</span><span class="p">)</span>
+
+<span class="n">symbol</span> <span class="o">=</span> <span class="n">syn</span><span class="p">.</span><span class="n">tts_config</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">characters</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">normalize_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+<span class="n">wav</span> <span class="o">=</span> <span class="n">syn</span><span class="p">.</span><span class="n">tts</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">syn</span><span class="p">.</span><span class="n">save_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">WAV_PATH</span><span class="p">)</span>
 </code></pre></div></div>
-<p><img src="/assets/images/java-lang/6-5.png" alt="image" width="70%" height="70%" /><br /></p>
 
-<p><br /></p>
+<h2 id="수행-결과">수행 결과</h2>
+<p>같은 길이의 문장을 기준으로 캐시를 적용하기 전과 후를 비교해보았다.</p>
 
-<p>(주의) 종료 조건을 꼭 설정해야한다. 안 하면 재귀문을 탈출할 수 없다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InfRecul</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">showHi</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-    <span class="o">}</span>
+<ul>
+  <li>
+    <p>적용 전<br />
+<img src="/assets/images/Voice_Pocket/3-1.png" alt="image" /><br /></p>
+  </li>
+  <li>
+    <p>적용 후<br />
+<img src="/assets/images/Voice_Pocket/3-2.png" alt="image" /><br /></p>
+  </li>
+</ul>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showHi</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hi~ "</span><span class="o">);</span>
-
-        <span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
-            <span class="k">return</span><span class="o">;</span>
-
-        <span class="n">showHi</span><span class="o">(</span><span class="n">cnt</span><span class="o">--);</span>  <span class="c1">// cnt의 값이 전달된 다음에 cnt의 값이 감소한다. 따라서 재귀문을 탈출할 수 없다.</span>
-        <span class="c1">// showHi(--cnt);   // 이렇게 써줘야 함</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<p>cache를 적용하여 해당 작업을 21초에서 8초로 줄일 수 있었다!</p>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Java lang</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Voice_Pocket</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/java%20lang/Chap05/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤
+      <a href="/voice_pocket/Voice_Pocket02/" class="pagination--pager" title="[Voice Pocket] spring boot에서 celery 활용하기
 ">이전</a>
     
     
-      <a href="/java%20lang/Chap07/" class="pagination--pager" title="[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -1060,54 +1084,6 @@
 
 
 
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
   	
@@ -1119,10 +1095,10 @@
 
   <nav class="pagination_prev_next">
     
-      <a href="/java%20lang/Chap05/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[윤성우의 열혈 Java 프로그래밍] Chapter 05 - 실행 흐름의 컨트롤</a>
+      <a href="/voice_pocket/Voice_Pocket02/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[Voice Pocket] spring boot에서 celery 활용하기</a>
     
     
-      <a href="/java%20lang/Chap07/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[윤성우의 열혈 Java 프로그래밍] Chapter 07 - 클래스와 인스턴스</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -1155,11 +1131,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9C%A4%EC%84%B1%EC%9A%B0%EC%9D%98+%EC%97%B4%ED%98%88+Java+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+06+-+%EB%A9%94%EC%86%8C%EB%93%9C%EC%97%90+%EB%8C%80%ED%95%9C+%EC%9D%B4%ED%95%B4%EC%99%80+%EC%A0%95%EC%9D%98%20http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap06%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BVoice+Pocket%5D+TTS+%EC%9E%91%EC%97%85+%EC%86%8D%EB%8F%84+%EA%B0%9C%EC%84%A0%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fvoice_pocket%2FVoice_Pocket03%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap06%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvoice_pocket%2FVoice_Pocket03%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2520lang%2FChap06%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvoice_pocket%2FVoice_Pocket03%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -1173,30 +1149,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/voice_pocket/Voice_Pocket03/">[Voice Pocket] TTS 작업 속도 개선기</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.05.03
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#voice-pocket" class="page__taxonomy-item-category" rel="tag">Voice_Pocket</a>
-                    
-                    
-                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1442,6 +1394,34 @@
                     
                     
                     <a href="/tags/#%EA%B5%AC%ED%98%84" class="page__taxonomy-item-tag" rel="tag">구현</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/1461/">[1461] 도서관</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EA%B7%B8%EB%A6%AC%EB%94%94" class="page__taxonomy-item-tag" rel="tag">그리디</a>
                 
             </span>
         </span>

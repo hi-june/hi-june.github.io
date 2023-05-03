@@ -544,4 +544,10 @@ var store = [{
         "tags": ["Info"],
         "url": "/voice_pocket/Voice_Pocket02/",
         "teaser": null
+      },{
+        "title": "[Voice Pocket] TTS 작업 속도 개선기",
+        "excerpt":"음성 합성을 위한 과정 사용자의 요청에 따라 음성 파일을 합성하는 전반적인 과정은 다음과 같다. 1) 클라이언트 요청 2) 해당 음성 모델로부터 Systhesizer object initialize synthesizer = Synthesizer( tts_checkpoint = f\"{tts_model_file_path}\", tts_config_path = f\"{tts_config_path}\" ) 3) 2에서 만든 Synthesizer object로부터 tts 함수 호출(wav 파일 생성) symbol = synthesizer.tts_config.characters.characters # symbol set...","categories": ["Voice_Pocket"],
+        "tags": ["Info"],
+        "url": "/voice_pocket/Voice_Pocket03/",
+        "teaser": null
       }]
