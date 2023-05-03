@@ -358,7 +358,7 @@
 </url>
 <url>
 <loc>http://localhost:4000/voice_pocket/Voice_Pocket01/</loc>
-<lastmod>2023-05-01T00:00:00+09:00</lastmod>
+<lastmod>2023-05-03T00:00:00+09:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/categories/</loc>
@@ -368,6 +368,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/RUAlone</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/SWU</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/SiDoli</loc>

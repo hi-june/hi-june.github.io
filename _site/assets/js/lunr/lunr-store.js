@@ -534,7 +534,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[Voice Pocket] 프로젝트 소개",
-        "excerpt":"개요  ","categories": ["Voice_Pocket"],
+        "excerpt":"개요 이전에 진행했던 Team_ForV의 프로젝트가 끝나고 못내 아쉬운 부분들이 있었다. 사람의 목소리를 학습시켜 TTS 서비스를 만들 수 있다는 것은 꽤 흥미로운 주제라고 생각했고, 이 주제를 좀 더 완성도 있는 프로젝트로 발전시키고 싶다는 생각을 했다. 따라서, 기존의 문제점들을 좀 더 보완하고, 기능들을 추가하여 새로운 프로젝트를 구상하게 되었다. Voice Pocket..! 개인적으로 요즘...","categories": ["Voice_Pocket"],
         "tags": ["Info"],
         "url": "/voice_pocket/Voice_Pocket01/",
         "teaser": null
