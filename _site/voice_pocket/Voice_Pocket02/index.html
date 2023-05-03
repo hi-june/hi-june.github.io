@@ -1,0 +1,1551 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Voice Pocket] spring boot에서 celery 활용하기 -  June &amp; Directory</title>
+<meta name="description" content="Voice Pocket의 프로젝트 ">
+
+
+  <meta name="author" content="hi~ June!!">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content=" June & Directory ">
+<meta property="og:title" content="[Voice Pocket] spring boot에서 celery 활용하기">
+<meta property="og:url" content="http://localhost:4000/voice_pocket/Voice_Pocket02/">
+
+
+  <meta property="og:description" content="Voice Pocket의 프로젝트 ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/Profile/jenga.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2023-05-03T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-05-03T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/voice_pocket/Voice_Pocket02/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "June & Directory",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" June & Directory  Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+
+    <!-- 스크롤바 커스터마이징 -->
+    <style> 
+      ::-webkit-scrollbar{width: 16px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb:hover {background: #4cb7ff;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:12px;height:12px;background:transparent; }
+
+      
+    </style>
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           June & Directory 
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/index.html">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">카테고리 Click</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#voice_pocket" itemprop="item"><span itemprop="name">Voice_pocket</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Voice Pocket] spring boot에서 celery 활용하기</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/Profile/jenga.jpg" alt="hi~ June!!" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">hi~ June!!</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>반갑습니다!! 😆</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:wnsgur735@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">카테고리 Click</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Nanum Gothic Coding';">전체 글 수</style> <span style="font-family:'Nanum Gothic Coding';">91</style> <span style="font-family:'Nanum Gothic Coding';">개</style> 
+      </li>
+      <li>
+
+        <span class="nav__sub-title">Project</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SiDoli" class="">SiDoli (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Team_ForV" class="">Team_ForV (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Voice_Pocket" class="">Voice_Pocket (2)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/RUAlone" class="">RUAlone(혼자왔니) (3)</a></li>
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java-coding-test" class="">자바 코테용 문법정리 (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/this-is-coding-test" class="">이것이 코딩테스트다 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/boj" class="">백준 (30)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Computer Science</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Java</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/java-lang" class="">Java 기본문법 정리 (30)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Spring/Spring Boot</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Spring-Tutorial" class="">Spring-Tutorial (7)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/SpringBoot-JPA" class="">Spring Boot & JPA (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        
+        <span class="nav__sub-title">DataBase</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">Mobile</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/Android" class="">Android (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Voice Pocket] spring boot에서 celery 활용하기">
+    <meta itemprop="description" content="Voice Pocket의 프로젝트">
+    <meta itemprop="datePublished" content="2023-05-03T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-05-03T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Voice Pocket] spring boot에서 celery 활용하기
+</h1>
+          
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-05-03T00:00:00+09:00">2023.05.03</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-05-03">2023.05.03</time></p>
+          
+          
+            
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#voice-pocket" class="page__taxonomy-item-category" rel="tag">Voice_Pocket</a>
+    
+    </span>
+  </p>
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+    
+    </span>
+  </p>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#굳이-django를-써야할까">굳이 django를 써야할까..?</a></li>
+  <li><a href="#서버-개발-언어에-굳이-제약을-걸-필요가-없겠구나">서버 개발 언어에 굳이 제약을 걸 필요가 없겠구나!</a></li>
+  <li><a href="#python-celery를-사용하기">python celery를 사용하기</a></li>
+  <li><a href="#spring-boot에서-celery로-작업-넘기기">spring boot에서 celery로 작업 넘기기</a></li>
+  <li><a href="#celery-bootsteps-사용하기">celery bootsteps 사용하기</a></li>
+  <li><a href="#reference">Reference</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="굳이-django를-써야할까">굳이 django를 써야할까..?</h2>
+<p>한이음 멘토님과 프로젝트 관련 이야기를 하다가, 이런 이야기가 나왔다.</p>
+
+<p><u>나</u>: 음성 합성 관련 라이브러리가 python으로 쓰여서 백엔드 서버도 <code class="language-plaintext highlighter-rouge">django</code>를 사용하고 있습니다 ㅠㅠ<br />
+<u>멘토님</u>: 음.. 서버가 요청을 <code class="language-plaintext highlighter-rouge">rabbitMQ</code> 같은 message queue에 publish하면, python으로 받아서 처리하면 되니 굳이 서버까지 python으로 만들 필요는 없지요<br />
+<u>나</u>: (생각해보니 그렇네…!)</p>
+
+<h2 id="서버-개발-언어에-굳이-제약을-걸-필요가-없겠구나">서버 개발 언어에 굳이 제약을 걸 필요가 없겠구나!</h2>
+<p>아무래도 이제는 <code class="language-plaintext highlighter-rouge">django</code>보단 <code class="language-plaintext highlighter-rouge">spring boot</code>가 더 익숙하기도 하고, 요즘 적극적으로 공부하고 있는 프레임워크이기 때문에 굳이 python을 사용해야하는 상황이 아니라면 <code class="language-plaintext highlighter-rouge">django</code>를 고집하고 있을 이유도 없겠다는 생각에 기존에 구현해뒀던 서버를 <code class="language-plaintext highlighter-rouge">spring boot</code>로 변경하게 되었다.</p>
+
+<blockquote>
+  <p>spring boot(java, TTS 요청) → RabbitMQ → Celery(python, TTS 수행)</p>
+</blockquote>
+
+<p><img src="/assets/images/Voice_Pocket/2-3.png" alt="image" /><br /></p>
+
+<h2 id="python-celery를-사용하기">python celery를 사용하기</h2>
+<p>python에서는 기본적으로 동기식으로 일을 처리한다.<br />
+<img src="/assets/images/Voice_Pocket/2-2.png" alt="image" /><br /></p>
+
+<p>즉, 5명의 사용자가 TTS를 요청한다면, 5번 째 요청한 사람은 앞에 4명의 작업이 끝날 때까지 기다리고 있어야한다.<br />
+해당 작업은 시간이 꽤 걸리는 작업이기 때문에 작업을 비동기적으로 처리해줄 방법이 필요했고, 그래서 찾은 것이 <code class="language-plaintext highlighter-rouge">celery</code>이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
+
+<span class="c1"># celery app 정의
+</span><span class="n">app</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">()</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config_from_object</span><span class="p">(</span><span class="s">"celery_config"</span><span class="p">)</span>
+
+<span class="c1"># task 정의
+</span><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">task</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># task 비동기 호출
+</span><span class="n">task</span> <span class="o">=</span> <span class="n">add</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+<p>celery는 task queue를 사용하고, 이런 식으로 python으로 정의해놓은 함수를 이용해 쉽게 task를 정의 및 호출이 가능하다는 것이 장점이다.</p>
+
+<h2 id="spring-boot에서-celery로-작업-넘기기">spring boot에서 celery로 작업 넘기기</h2>
+<p><img src="/assets/images/Voice_Pocket/2-1.png" alt="image" width="60%" height="60%" /><br />
+단순할 줄 알았는데, 생각보다 많은 삽질을 했다.</p>
+
+<p>처음에는 <code class="language-plaintext highlighter-rouge">spring boot</code>에서 해당 queue에 json 형식으로 인자를 주고, 그 인자를 받아 pasing하는 task를 정의하려고 했으나, 생각해보니 task를 정의한다고 해도 그걸 어디서 호출할 것인지도 모호했고,</p>
+
+<p>그냥 celery queue에 message를 실어주면, 알아서 worker가 수행해주지 않을까 싶었는데,<br />
+queue에 실리는 task에는 일정 형식이 필요했고, 그게 맞지 않으면, worker가 그냥 message queue에서 해당 message를 삭제해버렸다.</p>
+
+<p>관련해서 이것저것 찾아보다가 <code class="language-plaintext highlighter-rouge">medium</code>에서 해답을 얻을 수 있었다.</p>
+
+<h2 id="celery-bootsteps-사용하기">celery bootsteps 사용하기</h2>
+<blockquote>
+  <p>You may want to embed custom Kombu consumers to manually process your messages.<br />
+요약하자면 ‘사용자가 custom한 message consumer를 추가할 수 있다.</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">redis</span><span class="p">,</span> <span class="n">json</span>
+
+<span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
+<span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">bootsteps</span>
+<span class="kn">from</span> <span class="nn">kombu</span> <span class="kn">import</span> <span class="n">Consumer</span><span class="p">,</span> <span class="n">Exchange</span><span class="p">,</span> <span class="n">Queue</span>
+
+<span class="n">rd</span> <span class="o">=</span> <span class="n">redis</span><span class="p">.</span><span class="n">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'host_name'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port_num</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db_num</span><span class="p">)</span>
+
+<span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="s">"queue_name"</span><span class="p">,</span> <span class="n">Exchange</span><span class="p">(</span><span class="s">"exchange_name"</span><span class="p">),</span> <span class="s">"key_name"</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">()</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config_from_object</span><span class="p">(</span><span class="s">"celery_config"</span><span class="p">)</span>
+
+<span class="c1"># TTS 정의
+</span><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">task</span>
+<span class="k">def</span> <span class="nf">text_to_speech</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">tts_process</span> <span class="kn">import</span> <span class="n">add_synth</span><span class="p">,</span> <span class="n">is_set</span><span class="p">,</span> <span class="n">make_tts</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_set</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
+        <span class="n">add_synth</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+
+    <span class="n">make_tts</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">uuid</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s">.wav"</span>
+
+
+<span class="c1"># Decalring the general input message handler
+</span><span class="k">class</span> <span class="nc">InputMessageHandler</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+        <span class="n">_type</span> <span class="o">=</span> <span class="n">body</span><span class="p">[</span><span class="s">"type"</span><span class="p">]</span>
+        
+        <span class="c1"># if you want to accept only specific type of message, you need below
+</span>        <span class="k">if</span> <span class="n">_type</span> <span class="o">==</span> <span class="s">"ETL"</span><span class="p">:</span>
+            <span class="n">ETLMessageHandler</span><span class="p">().</span><span class="n">handle</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+        
+        <span class="c1"># if body is json type, you need below
+</span>        <span class="s">'''
+        body_json = json.loads(body)  
+        _type = body_json["type"]
+
+        if _type == "ETL":
+            ETLMessageHandler().handle(body_json)
+        '''</span>
+
+
+<span class="c1"># Declaring the ETL message handler
+</span><span class="k">class</span> <span class="nc">ETLMessageHandler</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Working on ETL for message: </span><span class="si">{</span><span class="n">body</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="c1"># TODO: Calling out your Celery tasks here
+</span>        <span class="n">_uuid</span> <span class="o">=</span> <span class="n">body</span><span class="p">[</span><span class="s">"uuid"</span><span class="p">]</span>
+        <span class="n">_email</span> <span class="o">=</span> <span class="n">body</span><span class="p">[</span><span class="s">"email"</span><span class="p">]</span>
+        <span class="n">_text</span> <span class="o">=</span> <span class="n">body</span><span class="p">[</span><span class="s">"text"</span><span class="p">]</span>
+        
+        <span class="c1"># 정의한 task를 호출
+</span>        <span class="n">task</span> <span class="o">=</span> <span class="n">text_to_speech</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="n">_uuid</span><span class="p">,</span> <span class="n">_email</span><span class="p">,</span> <span class="n">_text</span><span class="p">)</span>
+        <span class="n">_task_json</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"task_id"</span><span class="p">:</span><span class="n">task</span><span class="p">.</span><span class="nb">id</span><span class="p">})</span>
+        <span class="n">rd</span><span class="p">.</span><span class="nb">set</span><span class="p">(</span><span class="n">_uuid</span><span class="p">,</span> <span class="n">_task_json</span><span class="p">)</span>
+
+
+<span class="c1"># Declaring the bootstep for our purposes
+</span><span class="k">class</span> <span class="nc">InputMessageConsumerStep</span><span class="p">(</span><span class="n">bootsteps</span><span class="p">.</span><span class="n">ConsumerStep</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_consumers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">Consumer</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span>
+                         <span class="n">queues</span><span class="o">=</span><span class="p">[</span><span class="n">queue</span><span class="p">],</span>
+                         <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="p">.</span><span class="n">handle_message</span><span class="p">],</span>
+                         <span class="n">accept</span><span class="o">=</span><span class="p">[</span><span class="s">"json"</span><span class="p">])]</span>
+
+    <span class="k">def</span> <span class="nf">handle_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="n">InputMessageHandler</span><span class="p">().</span><span class="n">handle</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+        <span class="n">message</span><span class="p">.</span><span class="n">ack</span><span class="p">()</span>
+
+
+<span class="n">app</span><span class="p">.</span><span class="n">steps</span><span class="p">[</span><span class="s">"consumer"</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">InputMessageConsumerStep</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>rabbitMQ 브로커에 kombu로 만든 queue를 얹어놓고, 거기에 spring boot에서 message를 publish하는 전략이다.<br />
+body에서 필요한 인자들을 뽑아내, handle 메소드 안 쪽에서 미리 정의해놓은 celery task를 호출하는 방식으로 이루어진다.</p>
+
+<p>개인적으로 느끼기에 많이 특이한 방식이기도 하고, ai 관련 라이브러리들은 보통 python으로 많이 짜여있어서,<br />
+서버는 서버 따로, ai 관련 작업은 해당 작업 따로 관리하고자 할 때 유용하게 사용할 수 있을 것 같아 따로 정리해두었다.</p>
+
+<p>혹시 비슷한 작업을 하고자한다면 참고하는 것도 좋을 것 같다 :)<br />
+<a href="https://github.com/hi-june/boot_rabbit_celery">https://github.com/hi-june/boot_rabbit_celery</a> [Spring boot + RabbitMQ + Celery demo project]</p>
+
+<h2 id="reference">Reference</h2>
+<p>1) <a href="https://medium.com/python4you/calling-celery-tasks-not-from-python-699bd635d317">https://medium.com/python4you/calling-celery-tasks-not-from-python-699bd635d317</a> [Calling Celery Tasks not from Python]</p>
+
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <!-- '카테고리 내 다른 글 보러가기' -->
+        <p></p>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">Voice_Pocket</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <!--
+
+  <nav class="pagination">
+    
+      <a href="/voice_pocket/Voice_Pocket01/" class="pagination--pager" title="[Voice Pocket] 프로젝트 소개
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+-->
+
+
+
+
+  
+  	
+  	
+  	
+  	
+  	
+
+
+  <nav class="pagination_prev_next">
+    
+      <a href="/voice_pocket/Voice_Pocket01/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[Voice Pocket] 프로젝트 소개</a>
+    
+    
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
+    
+  </nav>
+
+
+<!--
+
+
+
+-->
+
+
+
+        <p></p>
+
+        <!-- archive 중간 광고 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+            data-ad-client="ca-pub-6111782407607310"
+            data-ad-slot="5458515780"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+      <footer class="page__meta">
+        
+        <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BVoice+Pocket%5D+spring+boot%EC%97%90%EC%84%9C+celery+%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fvoice_pocket%2FVoice_Pocket02%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvoice_pocket%2FVoice_Pocket02%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvoice_pocket%2FVoice_Pocket02%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+  </article>
+
+  
+  
+    <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
+      <h4 class="page__related-title">최근 글 10 개 :)</h4>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/voice_pocket/Voice_Pocket01/">[Voice Pocket] 프로젝트 소개</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.05.01
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#voice-pocket" class="page__taxonomy-item-category" rel="tag">Voice_Pocket</a>
+                    
+                    
+                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/7569/">[7569] 토마토</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.20
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#bfs" class="page__taxonomy-item-tag" rel="tag">bfs</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/2644/">[2644] 촌수계산</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.20
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#dfs" class="page__taxonomy-item-tag" rel="tag">dfs</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/2606/">[2606] 바이러스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.20
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#bfs" class="page__taxonomy-item-tag" rel="tag">bfs</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/2178/">[2178] 미로 탐색</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.20
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#bfs" class="page__taxonomy-item-tag" rel="tag">bfs</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/1260/">[1260] DFS와 BFS</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.20
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#bfs" class="page__taxonomy-item-tag" rel="tag">bfs</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#dfs" class="page__taxonomy-item-tag" rel="tag">dfs</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/6603/">[6603] 로또</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%88%98%ED%95%99" class="page__taxonomy-item-tag" rel="tag">수학</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%A1%B0%ED%95%A9" class="page__taxonomy-item-tag" rel="tag">조합</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/1543/">[1543] 문서 검색</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EA%B5%AC%ED%98%84" class="page__taxonomy-item-tag" rel="tag">구현</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/1461/">[1461] 도서관</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EA%B7%B8%EB%A6%AC%EB%94%94" class="page__taxonomy-item-tag" rel="tag">그리디</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/13305/">[13305] 주유소</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EA%B7%B8%EB%A6%AC%EB%94%94" class="page__taxonomy-item-tag" rel="tag">그리디</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/hi-june" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 June & Directory. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'hi-june/hi-june.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'photon-dark');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </body>
+</html>

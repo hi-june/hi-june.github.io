@@ -538,4 +538,10 @@ var store = [{
         "tags": ["Info"],
         "url": "/voice_pocket/Voice_Pocket01/",
         "teaser": null
+      },{
+        "title": "[Voice Pocket] spring boot에서 celery 활용하기",
+        "excerpt":"굳이 django를 써야할까..? 한이음 멘토님과 프로젝트 관련 이야기를 하다가, 이런 이야기가 나왔다. 나: 음성 합성 관련 라이브러리가 python으로 쓰여서 백엔드 서버도 django를 사용하고 있습니다 ㅠㅠ 멘토님: 음.. 서버가 요청을 rabbitMQ 같은 message queue에 publish하면, python으로 받아서 처리하면 되니 굳이 서버까지 python으로 만들 필요는 없지요 나: (생각해보니 그렇네…!) 서버 개발 언어에...","categories": ["Voice_Pocket"],
+        "tags": ["Info"],
+        "url": "/voice_pocket/Voice_Pocket02/",
+        "teaser": null
       }]
