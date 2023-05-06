@@ -438,7 +438,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[자바 코테] java도 itertools가 있었으면 좋겠다..",
-        "excerpt":"가끔 파이썬 마려운 순간이 있다.. 자바에는 아쉽게도 파이썬의 itertools와 같은 라이브러리가 없다. 따라서 순열, 조합 관련된 코드들은 직접 구현해서 사용해야한다. 조합 class Combination&lt;T&gt; { private int n; private int r; private int[] now; // 현재 조합 private List&lt;List&lt;T&gt;&gt; result; // 모든 조합 public List&lt;List&lt;T&gt;&gt; getResult() { return result; } public...","categories": ["Java Coding Test"],
+        "excerpt":"가끔 파이썬이 쓰고싶어지는 순간이 있다.. 자바에는 아쉽게도 파이썬의 itertools와 같은 라이브러리가 없다. 따라서 순열, 조합 관련된 코드들은 직접 구현해서 사용해야한다. 조합 import java.util.*; class Combination&lt;T&gt; { private int n; private int r; private int[] now; private List&lt;List&lt;T&gt;&gt; result; public List&lt;List&lt;T&gt;&gt; getResult() { return result; } public Combination(int n, int r)...","categories": ["Java Coding Test"],
         "tags": ["java"],
         "url": "/java%20coding%20test/Itertools/",
         "teaser": null
