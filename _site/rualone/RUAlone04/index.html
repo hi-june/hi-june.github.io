@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[2816] 디지털 티비 -  June &amp; Directory</title>
-<meta name="description" content="백준 문제 풀이 ">
+<!-- begin _includes/seo.html --><title>[혼자왔니] postGIS를 활용한 인근 피드 조회 -  June &amp; Directory</title>
+<meta name="description" content="RUAlone(혼자왔니) 혼밥 메이트 구하기 프로젝트 ">
 
 
   <meta name="author" content="hi~ June!!">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content=" June & Directory ">
-<meta property="og:title" content="[2816] 디지털 티비">
-<meta property="og:url" content="http://localhost:4000/boj/2816/">
+<meta property="og:title" content="[혼자왔니] postGIS를 활용한 인근 피드 조회">
+<meta property="og:url" content="http://localhost:4000/rualone/RUAlone04/">
 
 
-  <meta property="og:description" content="백준 문제 풀이 ">
+  <meta property="og:description" content="RUAlone(혼자왔니) 혼밥 메이트 구하기 프로젝트 ">
 
 
 
@@ -33,11 +33,11 @@
 
 
 
-  <meta property="article:published_time" content="2023-04-06T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-05-11T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2023-04-06T00:00:00+09:00">
+  <meta property="article:modified_time" content="2023-05-11T00:00:00+09:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/boj/2816/">
+<link rel="canonical" href="http://localhost:4000/rualone/RUAlone04/">
 
 
 
@@ -195,7 +195,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#boj" itemprop="item"><span itemprop="name">Boj</span></a>
+          <a href="/categories/#rualone" itemprop="item"><span itemprop="name">Rualone</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -203,7 +203,7 @@
     
       
       
-        <li class="current">[2816] 디지털 티비</li>
+        <li class="current">[혼자왔니] postGIS를 활용한 인근 피드 조회</li>
       
     
   </ol>
@@ -881,18 +881,18 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[2816] 디지털 티비">
-    <meta itemprop="description" content="백준 문제 풀이">
-    <meta itemprop="datePublished" content="2023-04-06T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2023-04-06T00:00:00+09:00">
+    <meta itemprop="headline" content="[혼자왔니] postGIS를 활용한 인근 피드 조회">
+    <meta itemprop="description" content="RUAlone(혼자왔니) 혼밥 메이트 구하기 프로젝트">
+    <meta itemprop="datePublished" content="2023-05-11T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-05-11T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[2816] 디지털 티비
+          <h1 id="page-title" class="page__title" itemprop="headline">[혼자왔니] postGIS를 활용한 인근 피드 조회
 </h1>
           
-            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-04-06T00:00:00+09:00">2023.04.06</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-04-06">2023.04.06</time></p>
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Update:</strong> <time datetime="2023-05-11T00:00:00+09:00">2023.05.11</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-05-11">2023.05.11</time></p>
           
           
             
@@ -908,7 +908,7 @@
     
       
       
-      <a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+      <a href="/categories/#rualone" class="page__taxonomy-item-category" rel="tag">RUAlone</a>
     
     </span>
   </p>
@@ -925,11 +925,7 @@
     
       
       
-      <a href="/tags/#%EA%B5%AC%ED%98%84" class="page__taxonomy-item-tag" rel="tag">구현</a><span class="sep"> </span>
-    
-      
-      
-      <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
+      <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
     
     </span>
   </p>
@@ -944,133 +940,122 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
               <ul class="toc__menu">
-  <li><a href="#bronze-i-디지털-티비---2816">[Bronze I] 디지털 티비 - 2816</a>
-    <ul>
-      <li><a href="#성능-요약">성능 요약</a></li>
-      <li><a href="#분류">분류</a></li>
-      <li><a href="#문제-설명">문제 설명</a></li>
-      <li><a href="#입력">입력</a></li>
-      <li><a href="#출력">출력</a></li>
-    </ul>
-  </li>
-  <li><a href="#아이디어">아이디어</a></li>
-  <li><a href="#답안코드">답안코드</a></li>
+  <li><a href="#공간-데이터를-다뤄야-하는-상황">공간 데이터를 다뤄야 하는 상황</a></li>
+  <li><a href="#postgresql의-postgis-익스텐션을-활용해보자">postgreSQL의 postGIS 익스텐션을 활용해보자.</a></li>
+  <li><a href="#라이브러리-및-설정-파일-세팅">라이브러리 및 설정 파일 세팅</a></li>
+  <li><a href="#point-객체를-이용해서-위치에-대한-정보를-저장하자">Point 객체를 이용해서 위치에 대한 정보를 저장하자.</a></li>
+  <li><a href="#인근-게시글을-조회하기-위한-쿼리를-작성해보자">인근 게시글을 조회하기 위한 쿼리를 작성해보자.</a></li>
+  <li><a href="#더-살펴볼-내용들">더 살펴볼 내용들</a></li>
+  <li><a href="#reference">Reference</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="bronze-i-디지털-티비---2816">[Bronze I] 디지털 티비 - 2816</h2>
+        <h2 id="공간-데이터를-다뤄야-하는-상황">공간 데이터를 다뤄야 하는 상황</h2>
+<p>사용자의 모집글에는 다음과 같은 내용이 포함된다.<br />
+<img src="/assets/images/RUAlone/4-1.png" alt="image" width="80%" height="80%" /></p>
 
-<p><a href="https://www.acmicpc.net/problem/2816">문제 링크</a></p>
+<p>따라서, 사용자가 게시글을 검색할 때 자신의 현재 위치 근방 1.5km 내에 있는 음식점들에 대한 모집글만 조회할 수 있도록 기능을 만들기 위해 자신의 위치 인근 게시글을 탐색해야 하는 상황이 생긴다.</p>
 
-<h3 id="성능-요약">성능 요약</h3>
+<h2 id="postgresql의-postgis-익스텐션을-활용해보자">postgreSQL의 postGIS 익스텐션을 활용해보자.</h2>
+<p>공간 데이터를 다룰 때 사용성과 성능 측면에서 월등하다고 알려진 <code class="language-plaintext highlighter-rouge">postgreSQL</code>의 <code class="language-plaintext highlighter-rouge">postGIS</code>를 사용해보기로 했다.</p>
 
-<p>메모리: 14160 KB, 시간: 136 ms</p>
+<h2 id="라이브러리-및-설정-파일-세팅">라이브러리 및 설정 파일 세팅</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// hibernate-spatial</span>
+<span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">:</span><span class="n">hibernate</span><span class="o">-</span><span class="nl">spatial:</span><span class="mf">5.6</span><span class="o">.</span><span class="mi">11</span><span class="o">.</span><span class="na">Final</span><span class="err">'</span>
 
-<h3 id="분류">분류</h3>
+<span class="c1">// postgresql</span>
+<span class="n">runtimeOnly</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">postgresql</span><span class="o">:</span><span class="nl">postgresql:</span><span class="mf">42.5</span><span class="o">.</span><span class="mi">4</span><span class="err">'</span>
+</code></pre></div></div>
 
-<p>구현, 구성적</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">spring</span><span class="pi">:</span>
+  <span class="na">datasource</span><span class="pi">:</span>
+    <span class="na">driver-class-name</span><span class="pi">:</span> <span class="s">org.postgresql.Driver</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="c1"># url</span>
+    <span class="na">username</span><span class="pi">:</span> <span class="c1"># username</span>
+    <span class="na">password</span><span class="pi">:</span> <span class="c1"># password</span>
 
-<h3 id="문제-설명">문제 설명</h3>
+  <span class="na">jpa</span><span class="pi">:</span>
+    <span class="na">database</span><span class="pi">:</span> <span class="s">postgresql</span>
+    <span class="na">database-platform</span><span class="pi">:</span> <span class="s">org.hibernate.spatial.dialect.postgis.PostgisPG95Dialect</span>
+</code></pre></div></div>
 
-<p>2012년 12월 31일 새벽 4시부터 지상파 아날로그 TV방송이 종료되었다. TV를 자주보는 할머니를 위해서, 상근이네 집도 디지털 수신기를 구입했다.</p>
+<h2 id="point-객체를-이용해서-위치에-대한-정보를-저장하자">Point 객체를 이용해서 위치에 대한 정보를 저장하자.</h2>
+<p>사용자의 좌표, 음식점의 좌표 이 두 가지 값을 가지고 둘 사이의 거리를 측정하여 일정 거리 미만에 해당하는 값들만 불러올 예정이다. 따라서 위도, 경도로 초기화시킨 <code class="language-plaintext highlighter-rouge">point</code> 객체가 필요하다.</p>
 
-<p>원래 상근이네 집에는 KBS1과 KBS2만 나왔다. 할머니는 두 방송만 시청한다. 이제 디지털 수신기와 함께 엄청난 양의 채널을 볼 수 있게 되었다.  하지만, 할머니는 오직 KBS1과 KBS2만 보려고 한다. 따라서, 상근이는 채널 리스트를 조절해 KBS1을 첫 번째로, KBS2를 두 번째로 만들려고 한다.</p>
-
-<p>티비를 켜면 디지털 수신기는 시청 가능한 채널 리스트를 보여준다. 모든 채널의 이름은 서로 다르고, 항상 KBS1과 KBS2를 포함하고 있다. 상근이는 이 리모콘을 이용해서 리스트의 순서를 바꾸는 법을 알아냈다. 리스트의 왼편에는 작은 화살표가 있고, 이 화살표는 현재 선택한 채널을 나타낸다. 가장 처음에 화살표는 제일 첫 번째 채널을 가리키고 있다.</p>
-
-<p>다음과 같은 네 가지 버튼을 이용해서 리스트의 순서를 바꿀 수 있다. 각각은 1번부터 4번까지 번호가 적혀져있는 버튼이다.</p>
-
-<ol>
-	<li>화살표를 한 칸 아래로 내린다. (채널 i에서 i+1로)</li>
-	<li>화살표를 위로 한 칸 올린다. (채널 i에서 i-1로)</li>
-	<li>현재 선택한 채널을 한 칸 아래로 내린다. (채널 i와 i+1의 위치를 바꾼다. 화살표는 i+1을 가리키고 있는다)</li>
-	<li>현재 선택한 채널을 위로 한 칸 올린다. (채널 i와 i-1의 위치를 바꾼다. 화살표는 i-1을 가리키고 있다)</li>
-</ol>
-
-<p>화살표가 채널 리스트의 범위를 넘어간다면, 그 명령은 무시한다.</p>
-
-<p>현재 채널 리스트의 순서가 주어졌을 때, KBS1를 첫 번째로, KBS2를 두 번째로 순서를 바꾸는 방법을 구하는 프로그램을 작성하시오. 방법의 길이는 500보다 작아야 한다. 두 채널을 제외한 나머지 채널의 순서는 상관없다.</p>
-
-<h3 id="입력">입력</h3>
-
-<p>첫째 줄에 채널의 수 N이 주어진다. (2 ≤ N ≤ 100)</p>
-
-<p>다음 N개 줄에는 채널의 이름이 한 줄에 하나씩 주어진다. 채널의 이름은 최대 10글자이고, 알파벳 대문자와 숫자로만 이루어져 있다.</p>
-
-<p>이미 KBS1이 첫 번째에, KBS2가 두 번째에 있는 입력은 주어지지 않는다.</p>
-
-<h3 id="출력">출력</h3>
-
-<p>상근이가 눌러야 하는 버튼을 순서대로 공백없이 출력한다.</p>
-
-<h2 id="아이디어">아이디어</h2>
-<p>사실 좀 더 멋지게 풀고 싶었으나, 별다른 해법이 떠오르지 않아 그냥 <code class="language-plaintext highlighter-rouge">greedy</code>하게 풀었다.<br />
-1번과 4번 버튼만 이용해도 차근차근 다 풀 수 있다.</p>
-
-<h2 id="답안코드">답안코드</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
-        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">channel</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">channel</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
-        <span class="o">}</span>
-
-        <span class="c1">// KBS1 설정</span>
-        <span class="n">setting</span><span class="o">(</span><span class="n">channel</span><span class="o">,</span> <span class="s">"KBS1"</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-
-        <span class="c1">// KBS2 설정</span>
-        <span class="n">setting</span><span class="o">(</span><span class="n">channel</span><span class="o">,</span> <span class="s">"KBS2"</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">channel</span><span class="o">,</span> <span class="kt">int</span> <span class="n">idx</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">String</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">channel</span><span class="o">[</span><span class="n">idx</span><span class="o">];</span>
-        <span class="n">channel</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">=</span> <span class="n">channel</span><span class="o">[</span><span class="n">idx</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
-        <span class="n">channel</span><span class="o">[</span><span class="n">idx</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setting</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">channel</span><span class="o">,</span> <span class="nc">String</span> <span class="n">targetName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">targetIdx</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">kbsIdx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">channel</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">channel</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="n">targetName</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">kbsIdx</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-                <span class="k">break</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">kbsIdx</span> <span class="o">&gt;</span> <span class="n">targetIdx</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">swap</span><span class="o">(</span><span class="n">channel</span><span class="o">,</span> <span class="n">kbsIdx</span><span class="o">--);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"post"</span><span class="o">)</span>
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Post</span> <span class="kd">extends</span> <span class="nc">BaseEntity</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">columnDefinition</span> <span class="o">=</span> <span class="s">"geometry(Point, 4326)"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Point</span> <span class="n">restaurantPoint</span><span class="o">;</span>  <span class="c1">// 음식점(Point) 객체</span>
+    <span class="o">...</span>
 <span class="o">}</span>
 </code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.locationtech.jts.geom.*</span><span class="o">;</span>
+
+<span class="c1">// 0(좌표 평면), 4326(위도-경도 좌표계)</span>
+<span class="kd">private</span> <span class="nc">GeometryFactory</span> <span class="n">geometryFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GeometryFactory</span><span class="o">(</span><span class="k">new</span> <span class="nc">PrecisionModel</span><span class="o">(),</span> <span class="mi">4326</span><span class="o">);</span>  
+
+<span class="cm">/**
+ * 위도, 경도를 받아 Point 객체를 반환하는 메소드
+ *
+ * @param latitude
+ * @param longitude
+ * @return
+ */</span>
+<span class="kd">private</span> <span class="nc">Point</span> <span class="nf">getPoint</span><span class="o">(</span><span class="kt">double</span> <span class="n">latitude</span><span class="o">,</span> <span class="kt">double</span> <span class="n">longitude</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Point</span> <span class="n">point</span> <span class="o">=</span> <span class="n">geometryFactory</span><span class="o">.</span><span class="na">createPoint</span><span class="o">(</span><span class="k">new</span> <span class="nc">Coordinate</span><span class="o">(</span><span class="n">latitude</span><span class="o">,</span> <span class="n">longitude</span><span class="o">));</span>
+
+    <span class="k">return</span> <span class="n">point</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">SRID</code>는 좌표계를 나타내는 값으로, 자주 사용하는 값은 0(좌표평면)과 4326(위도-경도 좌표계)이다.<br />
+<code class="language-plaintext highlighter-rouge">PostGI</code>S와 <code class="language-plaintext highlighter-rouge">MySQL</code>의 가장 큰 차이점은 바로 4326 좌표계에서도 다양한 함수를 사용할 수 있다는 것이다.<br />
+(<code class="language-plaintext highlighter-rouge">MySQL</code>은 4326으로 지정해도 결국 좌표평면 좌표계 기준으로 공간 데이터를 다룬다)</p>
+
+<h2 id="인근-게시글을-조회하기-위한-쿼리를-작성해보자">인근 게시글을 조회하기 위한 쿼리를 작성해보자.</h2>
+<p><code class="language-plaintext highlighter-rouge">postGIS</code>에는 거리를 측정하는 다양한 함수가 있다.<br />
+그 중 <code class="language-plaintext highlighter-rouge">ST_DWithin</code> 함수를 사용하고자 한다.<br />
+해당 함수를 <code class="language-plaintext highlighter-rouge">JPQL</code> 형식으로 PostRepository에 적용시켜주었다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PostRepository</span> <span class="kd">extends</span> <span class="nc">JpaRepository</span><span class="o">&lt;</span><span class="nc">Post</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@Query</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"select p from Post p where dwithin(p.restaurantPoint, :point, 1500, false) is true and p.isActive is true"</span><span class="o">)</span>
+    <span class="nc">Page</span><span class="o">&lt;</span><span class="nc">Post</span><span class="o">&gt;</span> <span class="nf">findPostByDistance</span><span class="o">(</span><span class="nc">Pageable</span> <span class="n">pageable</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">point</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="더-살펴볼-내용들">더 살펴볼 내용들</h2>
+<p>아무래도 인근 좌표를 찾기 위해 왠지 post table을 full scan할 것 같다는 것이 조금 우려스럽다.<br />
+따라서,</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">point</code> 객체가 적용되어있는 restaurant_point column에 인덱스를 건다든지,</li>
+  <li><code class="language-plaintext highlighter-rouge">ST_DWithin</code> 함수 외에 <code class="language-plaintext highlighter-rouge">postGIS</code>에서 제공하는 거리 측정 관련 여러 함수들의 <code class="language-plaintext highlighter-rouge">query plan</code>을 비교하여 더 적합한 함수를 찾는 등</li>
+</ol>
+
+<p>추후에 성능적인 이슈를 생각해보려고 한다.</p>
+
+<h2 id="reference">Reference</h2>
+<p>1) <a href="https://gksdudrb922.tistory.com/245">https://gksdudrb922.tistory.com/245</a> [postGIS 초기 세팅]</p>
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         
         <!-- '카테고리 내 다른 글 보러가기' -->
         <p></p>
-        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">BOJ</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
+        <h4 class="page__meta-title"><span style="font-family:'Nanum Gothic Coding'; color: rgb(10, 157, 231);">RUAlone</span> <span style="font-family:'Nanum Gothic Coding';">카테고리 내 다른 글 보러가기</span></h4>
         <!--
 
   <nav class="pagination">
     
-      <a href="/rualone/RUAlone03/" class="pagination--pager" title="[혼자왔니] JPA - could not initialize proxy
+      <a href="/voice_pocket/Voice_Pocket03/" class="pagination--pager" title="[Voice Pocket] TTS 작업 속도 개선기
 ">이전</a>
     
     
-      <a href="/boj/2961/" class="pagination--pager" title="[2961] 도영이가 만든 맛있는 음식
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -1078,28 +1063,6 @@
 
 
 
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
   	
@@ -1111,10 +1074,10 @@
 
   <nav class="pagination_prev_next">
     
-      <a href="/boj/4949/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[4949] 균형잡힌 세상</a>
+      <a href="/rualone/RUAlone03/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[혼자왔니] JPA - could not initialize proxy</a>
     
     
-      <a href="/boj/2961/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[2961] 도영이가 만든 맛있는 음식</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child ">가장 최근 글입니다</a>
     
   </nav>
 
@@ -1147,11 +1110,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B2816%5D+%EB%94%94%EC%A7%80%ED%84%B8+%ED%8B%B0%EB%B9%84%20http%3A%2F%2Flocalhost%3A4000%2Fboj%2F2816%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%ED%98%BC%EC%9E%90%EC%99%94%EB%8B%88%5D+postGIS%EB%A5%BC+%ED%99%9C%EC%9A%A9%ED%95%9C+%EC%9D%B8%EA%B7%BC+%ED%94%BC%EB%93%9C+%EC%A1%B0%ED%9A%8C%20http%3A%2F%2Flocalhost%3A4000%2Frualone%2FRUAlone04%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fboj%2F2816%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Frualone%2FRUAlone04%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fboj%2F2816%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Frualone%2FRUAlone04%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       </footer>
@@ -1165,30 +1128,6 @@
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/rualone/RUAlone04/">[혼자왔니] postGIS를 활용한 인근 피드 조회</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.05.11
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#rualone" class="page__taxonomy-item-category" rel="tag">RUAlone</a>
-                    
-                    
-                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1430,6 +1369,34 @@
                     
                     
                     <a href="/tags/#%EC%A1%B0%ED%95%A9" class="page__taxonomy-item-tag" rel="tag">조합</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/boj/1543/">[1543] 문서 검색</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+                    
+                    
+                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EA%B5%AC%ED%98%84" class="page__taxonomy-item-tag" rel="tag">구현</a>
                 
             </span>
         </span>

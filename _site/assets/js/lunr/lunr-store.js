@@ -550,4 +550,10 @@ var store = [{
         "tags": ["Info"],
         "url": "/voice_pocket/Voice_Pocket03/",
         "teaser": null
+      },{
+        "title": "[혼자왔니] postGIS를 활용한 인근 피드 조회",
+        "excerpt":"공간 데이터를 다뤄야 하는 상황 사용자의 모집글에는 다음과 같은 내용이 포함된다. 따라서, 사용자가 게시글을 검색할 때 자신의 현재 위치 근방 1.5km 내에 있는 음식점들에 대한 모집글만 조회할 수 있도록 기능을 만들기 위해 자신의 위치 인근 게시글을 탐색해야 하는 상황이 생긴다. postgreSQL의 postGIS 익스텐션을 활용해보자. 공간 데이터를 다룰 때 사용성과 성능...","categories": ["RUAlone"],
+        "tags": ["Info"],
+        "url": "/rualone/RUAlone04/",
+        "teaser": null
       }]
