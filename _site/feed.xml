@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-05-11T16:36:10+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[혼자왔니] postGIS를 활용한 인근 피드 조회</title><link href="http://localhost:4000/rualone/RUAlone04/" rel="alternate" type="text/html" title="[혼자왔니] postGIS를 활용한 인근 피드 조회" /><published>2023-05-11T00:00:00+09:00</published><updated>2023-05-11T00:00:00+09:00</updated><id>http://localhost:4000/rualone/RUAlone04</id><content type="html" xml:base="http://localhost:4000/rualone/RUAlone04/"><![CDATA[<h2 id="공간-데이터를-다뤄야-하는-상황">공간 데이터를 다뤄야 하는 상황</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-05-11T16:40:37+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[혼자왔니] postGIS를 활용한 인근 피드 조회</title><link href="http://localhost:4000/rualone/RUAlone04/" rel="alternate" type="text/html" title="[혼자왔니] postGIS를 활용한 인근 피드 조회" /><published>2023-05-11T00:00:00+09:00</published><updated>2023-05-11T00:00:00+09:00</updated><id>http://localhost:4000/rualone/RUAlone04</id><content type="html" xml:base="http://localhost:4000/rualone/RUAlone04/"><![CDATA[<h2 id="공간-데이터를-다뤄야-하는-상황">공간 데이터를 다뤄야 하는 상황</h2>
 <p>사용자의 모집글에는 다음과 같은 내용이 포함된다.<br />
 <img src="/assets/images/RUAlone/4-1.png" alt="image" width="80%" height="80%" /></p>
 
@@ -75,6 +75,8 @@
 </code></pre></div></div>
 
 <h2 id="더-살펴볼-내용들">더 살펴볼 내용들</h2>
+<p><img src="/assets/images/RUAlone/4-2.png" alt="image" width="40%" height="40%" /></p>
+
 <p>아무래도 인근 좌표를 찾기 위해 왠지 post table을 full scan할 것 같다는 것이 조금 우려스럽다.<br />
 따라서,</p>
 <ol>
