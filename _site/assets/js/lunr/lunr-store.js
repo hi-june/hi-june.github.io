@@ -556,4 +556,10 @@ var store = [{
         "tags": ["Info"],
         "url": "/rualone/RUAlone04/",
         "teaser": null
+      },{
+        "title": "[혼자왔니] 채팅 서버 구현을 통해 알아본 redis와 kafka의 차이점",
+        "excerpt":"채팅기능이 필요하다.. 예를 들어 같이 배달을 시킬 사람을 모집하는 글을 올렸다면, 언제 모일건지, 어떤 메뉴를 시킬 건지, 결제는 어떻게 할 것인지 등등 모인 사람들끼리 대화를 할 수 있는 공간이 필요했다. 해당 기능 추가를 위해 채팅용 서버를 토이 프로젝트로 진행해보았다. pub/sub 구조란? 메시지를 공급하는 주체와 소비하는 주체를 분리하여 제공하는 메시징 방법...","categories": ["RUAlone"],
+        "tags": ["Info"],
+        "url": "/rualone/RUAlone05/",
+        "teaser": null
       }]

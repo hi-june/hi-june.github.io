@@ -326,7 +326,7 @@
   <label for="ac-toc">카테고리 Click</label>
   <ul class="nav__items" id="category_tag_menu">
       <li>
-            📂 <span style="font-family:'Nanum Gothic Coding';">전체 글 수</style> <span style="font-family:'Nanum Gothic Coding';">93</style> <span style="font-family:'Nanum Gothic Coding';">개</style> 
+            📂 <span style="font-family:'Nanum Gothic Coding';">전체 글 수</style> <span style="font-family:'Nanum Gothic Coding';">94</style> <span style="font-family:'Nanum Gothic Coding';">개</style> 
       </li>
       <li>
 
@@ -433,7 +433,7 @@
                     
                 
                     
-                        <li><a href="/categories/RUAlone" class="">RUAlone(혼자왔니) (4)</a></li>
+                        <li><a href="/categories/RUAlone" class="">RUAlone(혼자왔니) (5)</a></li>
                     
                 
                     
@@ -955,12 +955,6 @@
       <li><a href="#--음성-파일">- 음성 파일</a></li>
     </ul>
   </li>
-  <li><a href="#한-걸음-더-나아가기">한 걸음 더 나아가기</a>
-    <ul>
-      <li><a href="#--elastic-search">- Elastic Search!!</a></li>
-    </ul>
-  </li>
-  <li><a href="#reference">Reference</a></li>
 </ul>
 
             </nav>
@@ -1016,32 +1010,30 @@ member_id(사용자가 원하는 그룹 멤버의 정보) 등의 정보를 데�
   <p>이렇게 이 프로젝트를 통해 단순한 홍보효과를 넘어서 <u>새로운 가치를 발견하는 것</u>도 기대해볼 수 있다.</p>
 </blockquote>
 
-<h2 id="한-걸음-더-나아가기">한 걸음 더 나아가기</h2>
-<blockquote>
-  <p>그렇다면 더 나아가서 이 데이터들를 활용하기 위해 추가하면 좋은 기술들이 무엇이 있을까?</p>
-</blockquote>
+<!-- ## 한 걸음 더 나아가기
+> 그렇다면 더 나아가서 이 데이터들를 활용하기 위해 추가하면 좋은 기술들이 무엇이 있을까?  
 
-<h3 id="--elastic-search">- <u>Elastic Search!!</u></h3>
-<p><code class="language-plaintext highlighter-rouge">Elasticsearch</code>는 Apache Lucene(아파치 루씬) 기반의 Java 오픈소스 분산 검색 엔진이다.<br />
-<code class="language-plaintext highlighter-rouge">Elasticsearch</code>를 통해 루씬 라이브러리를 단독으로 사용할 수 있게 되었으며, 방대한 양의 데이터를 신속하게, 거의 실시간(NRT, Near Real Time)으로 저장, 검색, 분석할 수 있다.<br />
-<code class="language-plaintext highlighter-rouge">Elasticsearch</code>는 검색을 위해 단독으로 사용되기도 하며, <code class="language-plaintext highlighter-rouge">ELK</code>(Elasticsearch / Logstatsh / Kibana)스택으로 사용되기도 하는데, ELK 스택이란 다음과 같다.</p>
+### - <u>Elastic Search!!</u>
+`Elasticsearch`는 Apache Lucene(아파치 루씬) 기반의 Java 오픈소스 분산 검색 엔진이다.  
+`Elasticsearch`를 통해 루씬 라이브러리를 단독으로 사용할 수 있게 되었으며, 방대한 양의 데이터를 신속하게, 거의 실시간(NRT, Near Real Time)으로 저장, 검색, 분석할 수 있다.  
+`Elasticsearch`는 검색을 위해 단독으로 사용되기도 하며, `ELK`(Elasticsearch / Logstatsh / Kibana)스택으로 사용되기도 하는데, ELK 스택이란 다음과 같다.
 
-<p><img src="/assets/images/Team_ForV/9-4.png" alt="image" width="80%" height="80%" /></p>
+![image](/assets/images/Team_ForV/9-4.png){: width="80%" height="80%"}
 
-<p>1) <code class="language-plaintext highlighter-rouge">Logstash</code>: 다양한 소스(DB, csv파일 등)의 로그 또는 트랜잭션 데이터를 수집, 집계, 파싱하여 <code class="language-plaintext highlighter-rouge">Elasticsearch</code>로 전달<br />
-2) <code class="language-plaintext highlighter-rouge">Elasticsearch</code>: <code class="language-plaintext highlighter-rouge">Logstash</code>로부터 받은 데이터를 검색 및 집계를 하여 필요한 관심 있는 정보를 획득<br />
-3) <code class="language-plaintext highlighter-rouge">Kibana</code>: <code class="language-plaintext highlighter-rouge">Elasticsearch</code>의 빠른 검색을 통해 데이터를 시각화 및 모니터링<br />
-<br /></p>
+1) `Logstash`: 다양한 소스(DB, csv파일 등)의 로그 또는 트랜잭션 데이터를 수집, 집계, 파싱하여 `Elasticsearch`로 전달  
+2) `Elasticsearch`: `Logstash`로부터 받은 데이터를 검색 및 집계를 하여 필요한 관심 있는 정보를 획득  
+3) `Kibana`: `Elasticsearch`의 빠른 검색을 통해 데이터를 시각화 및 모니터링  
+<br>
 
-<p>이 프로젝트에서 사용된 데이터베이스는 <code class="language-plaintext highlighter-rouge">mysql</code> 즉, RDBMS의 일종이다.<br />
-관계형 DB는 Elasticsearch에서 각각 다음과 같이 대응시킬 수 있다.<br />
-<img src="/assets/images/Team_ForV/9-5.jpeg" alt="image" width="60%" height="60%" />
-<img src="/assets/images/Team_ForV/9-6.png" alt="image" width="30%" height="30%" /><br /></p>
+이 프로젝트에서 사용된 데이터베이스는 `mysql` 즉, RDBMS의 일종이다.  
+관계형 DB는 Elasticsearch에서 각각 다음과 같이 대응시킬 수 있다.  
+![image](/assets/images/Team_ForV/9-5.jpeg){: width="60%" height="60%"}
+![image](/assets/images/Team_ForV/9-6.png){: width="30%" height="30%"}<br>
 
-<p>이렇게 이 프로젝트에 <code class="language-plaintext highlighter-rouge">Elasticsearch</code>를 추가한다면 앞서 말한 데이터들을 사용하는 데 유용하게 쓰일 것 같다!</p>
+이렇게 이 프로젝트에 `Elasticsearch`를 추가한다면 앞서 말한 데이터들을 사용하는 데 유용하게 쓰일 것 같다! -->
 
-<h2 id="reference">Reference</h2>
-<p>1) <a href="https://victorydntmd.tistory.com/308">https://victorydntmd.tistory.com/308</a> [Elasticsearch 기본 개념잡기]</p>
+<!-- ## Reference
+1) <https://victorydntmd.tistory.com/308> [Elasticsearch 기본 개념잡기] -->
 
         
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -1131,6 +1123,30 @@ member_id(사용자가 원하는 그룹 멤버의 정보) 등의 정보를 데�
   
     <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
       <h4 class="page__related-title">최근 글 10 개 :)</h4>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/rualone/RUAlone05/">[혼자왔니] 채팅 서버 구현을 통해 알아본 redis와 kafka의 차이점</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.05.11
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#rualone" class="page__taxonomy-item-category" rel="tag">RUAlone</a>
+                    
+                    
+                    <a href="/tags/#info" class="page__taxonomy-item-tag" rel="tag">Info</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
         
           <div class="list__item">
     <article class="archive-item">
@@ -1364,38 +1380,6 @@ member_id(사용자가 원하는 그룹 멤버의 정보) 등의 정보를 데�
                     
                     
                     <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a>
-                
-            </span>
-        </span>
-            </small>
-        </div>
-      </article>
-</div>
-        
-          <div class="list__item">
-    <article class="archive-item">
-        <div>
-            <span>
-              <a href="/boj/6603/">[6603] 로또</a>
-            </span>
-            <small> 
-              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.04.15
-              <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-        
-        <span class="page__taxonomy">
-            <span itemprop="keywords"><a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
-                    
-                    
-                    <a href="/tags/#java" class="page__taxonomy-item-tag" rel="tag">java</a><span class="sep"> </span>
-                
-                    
-                    
-                    <a href="/tags/#%EC%88%98%ED%95%99" class="page__taxonomy-item-tag" rel="tag">수학</a><span class="sep"> </span>
-                
-                    
-                    
-                    <a href="/tags/#%EC%A1%B0%ED%95%A9" class="page__taxonomy-item-tag" rel="tag">조합</a>
                 
             </span>
         </span>

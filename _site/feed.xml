@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-05-11T16:40:37+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[혼자왔니] postGIS를 활용한 인근 피드 조회</title><link href="http://localhost:4000/rualone/RUAlone04/" rel="alternate" type="text/html" title="[혼자왔니] postGIS를 활용한 인근 피드 조회" /><published>2023-05-11T00:00:00+09:00</published><updated>2023-05-11T00:00:00+09:00</updated><id>http://localhost:4000/rualone/RUAlone04</id><content type="html" xml:base="http://localhost:4000/rualone/RUAlone04/"><![CDATA[<h2 id="공간-데이터를-다뤄야-하는-상황">공간 데이터를 다뤄야 하는 상황</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-05-15T02:39:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[혼자왔니] postGIS를 활용한 인근 피드 조회</title><link href="http://localhost:4000/rualone/RUAlone04/" rel="alternate" type="text/html" title="[혼자왔니] postGIS를 활용한 인근 피드 조회" /><published>2023-05-11T00:00:00+09:00</published><updated>2023-05-11T00:00:00+09:00</updated><id>http://localhost:4000/rualone/RUAlone04</id><content type="html" xml:base="http://localhost:4000/rualone/RUAlone04/"><![CDATA[<h2 id="공간-데이터를-다뤄야-하는-상황">공간 데이터를 다뤄야 하는 상황</h2>
 <p>사용자의 모집글에는 다음과 같은 내용이 포함된다.<br />
 <img src="/assets/images/RUAlone/4-1.png" alt="image" width="80%" height="80%" /></p>
 
@@ -87,117 +87,157 @@
 <p>추후에 성능적인 이슈를 생각해보려고 한다.</p>
 
 <h2 id="reference">Reference</h2>
-<p>1) <a href="https://gksdudrb922.tistory.com/245">https://gksdudrb922.tistory.com/245</a> [postGIS 초기 세팅]</p>]]></content><author><name>hi~ June!!</name></author><category term="RUAlone" /><category term="Info" /><summary type="html"><![CDATA[RUAlone(혼자왔니) 혼밥 메이트 구하기 프로젝트]]></summary></entry><entry><title type="html">[Voice Pocket] TTS 작업 속도 개선기</title><link href="http://localhost:4000/voice_pocket/Voice_Pocket03/" rel="alternate" type="text/html" title="[Voice Pocket] TTS 작업 속도 개선기" /><published>2023-05-03T00:00:00+09:00</published><updated>2023-05-03T00:00:00+09:00</updated><id>http://localhost:4000/voice_pocket/Voice_Pocket03</id><content type="html" xml:base="http://localhost:4000/voice_pocket/Voice_Pocket03/"><![CDATA[<h2 id="음성-합성을-위한-과정">음성 합성을 위한 과정</h2>
-<p>사용자의 요청에 따라 음성 파일을 합성하는 전반적인 과정은 다음과 같다.</p>
+<p>1) <a href="https://gksdudrb922.tistory.com/245">https://gksdudrb922.tistory.com/245</a> [postGIS 초기 세팅]</p>]]></content><author><name>hi~ June!!</name></author><category term="RUAlone" /><category term="Info" /><summary type="html"><![CDATA[RUAlone(혼자왔니) 혼밥 메이트 구하기 프로젝트]]></summary></entry><entry><title type="html">[혼자왔니] 채팅 서버 구현을 통해 알아본 redis와 kafka의 차이점</title><link href="http://localhost:4000/rualone/RUAlone05/" rel="alternate" type="text/html" title="[혼자왔니] 채팅 서버 구현을 통해 알아본 redis와 kafka의 차이점" /><published>2023-05-11T00:00:00+09:00</published><updated>2023-05-14T00:00:00+09:00</updated><id>http://localhost:4000/rualone/RUAlone05</id><content type="html" xml:base="http://localhost:4000/rualone/RUAlone05/"><![CDATA[<h2 id="채팅기능이-필요하다">채팅기능이 필요하다..</h2>
+<p>예를 들어 같이 배달을 시킬 사람을 모집하는 글을 올렸다면,<br />
+언제 모일건지, 어떤 메뉴를 시킬 건지, 결제는 어떻게 할 것인지 등등<br />
+모인 사람들끼리 대화를 할 수 있는 공간이 필요했다.<br />
+해당 기능 추가를 위해 채팅용 서버를 토이 프로젝트로 진행해보았다.</p>
 
-<p>1) 클라이언트 요청<br />
-2) 해당 음성 모델로부터 Systhesizer object initialize</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">synthesizer</span> <span class="o">=</span> <span class="n">Synthesizer</span><span class="p">(</span>
-            <span class="n">tts_checkpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_model_file_path</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
-            <span class="n">tts_config_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_config_path</span><span class="si">}</span><span class="s">"</span>
-        <span class="p">)</span>
-</code></pre></div></div>
-
-<p>3) 2에서 만든 Synthesizer object로부터 tts 함수 호출(wav 파일 생성)</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">symbol</span> <span class="o">=</span> <span class="n">synthesizer</span><span class="p">.</span><span class="n">tts_config</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">characters</span>   <span class="c1"># symbol set
-</span><span class="n">text</span> <span class="o">=</span> <span class="n">normalize_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span> <span class="c1"># text normalize
-</span><span class="n">wav</span> <span class="o">=</span> <span class="n">synthesizer</span><span class="p">.</span><span class="n">tts</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="c1"># conver text to speech
-</span><span class="n">synthesizer</span><span class="p">.</span><span class="n">save_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">wav_path</span><span class="p">)</span> <span class="c1"># write wav file
-</span></code></pre></div></div>
-
-<p>4) 생성된 wav 파일을 gcs(google cloud storage) bucket에 저장</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">upload_wav_to_bucket</span><span class="p">(</span><span class="n">wav_path</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">uuid</span><span class="p">):</span>
-    <span class="n">storage_client</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="n">Client</span><span class="p">()</span>
-    
-    <span class="n">bucket_name</span> <span class="o">=</span> <span class="n">BUCKET_NAME</span>
-    <span class="n">source_file_name</span> <span class="o">=</span> <span class="n">wav_path</span>
-    <span class="n">destination_blob_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s">.wav'</span>
-    
-    <span class="n">bucket</span> <span class="o">=</span> <span class="n">storage_client</span><span class="p">.</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
-    <span class="n">blob</span> <span class="o">=</span> <span class="n">bucket</span><span class="p">.</span><span class="n">blob</span><span class="p">(</span><span class="n">destination_blob_name</span><span class="p">)</span>
-
-    <span class="n">blob</span><span class="p">.</span><span class="n">upload_from_filename</span><span class="p">(</span><span class="n">source_file_name</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h2 id="문제는-너무-느리다는-것">문제는 너무 느리다는 것..</h2>
-<p>음성 하나 합성하는데 걸리는 시간이 너무 느리다는 것이 계속 걸렸다.</p>
-
-<p>2번과 3번 과정이 가장 핵심적인 부분이었고, 각각 과정(특히, 2번)들에서 많은 시간이 소요되었다.</p>
-
-<p>애초에 <code class="language-plaintext highlighter-rouge">coqui-tts</code>에서 제공하는 라이브러리를 사용하여 음성 합성을 진행하고 있기 때문에,<br />
-위의 과정 중 3번에 해당하는 text를 기반으로 wav 파일을 합성하는 데 걸리는 시간은 건드리기 힘들었다.</p>
-
+<h2 id="pubsub-구조란">pub/sub 구조란?</h2>
 <blockquote>
-  <p>따라서, 작업 요청마다 Synthesizer instance가 initialize되는 시간만 날려버려도, 시간을 상당히 많이 줄일 수 있을 것이라 판단했고, 해당 부분에 cache를 적용하기로 했다.</p>
+  <p>메시지를 공급하는 주체와 소비하는 주체를 분리하여 제공하는 메시징 방법</p>
 </blockquote>
 
-<h2 id="redis-cache">redis cache</h2>
-<p><code class="language-plaintext highlighter-rouge">redis</code>는 간단히 설명하자면 key-value 형식으로 데이터를 저장하는 in-memory 기반의 데이터베이스이다.</p>
+<p><img src="/assets/images/RUAlone/5-1.png" alt="image" width="85%" height="85%" class="align-center" /></p>
 
-<p>애초에 gpu 서버에서 음성 학습을 시키고, 모델이 만들어질 때,<br />
-해당 모델 파일로부터 synthesizer를 initialize하여 synthesizer object를 redis 캐시에 저장해두고,<br />
-필요한 순간에 가져다가 쓸 수 있다면, 요청마다 initiaize되는 시간을 줄일 수 있을 것이라고 생각했다.</p>
-
-<p>정리하자면,</p>
 <ul>
-  <li>
-    <p>음성 모델 학습이 끝나고<br />
-1) 음성 모델 합성이 완료되면 해당 모델을 기반으로 synthesizer object를 initialize.<br />
-2) synthesizer object를 redis에 저장</p>
+  <li>채팅방(우체통)을 생성한다: <code class="language-plaintext highlighter-rouge">pub/sub</code> 구현을 위한 <code class="language-plaintext highlighter-rouge">Topic</code>이 하나 생성된다.</li>
+  <li>채팅방(우체통)에 입장한다: <code class="language-plaintext highlighter-rouge">Topic</code>을 구독한다.</li>
+  <li>채팅방에서 메시지를 보내고 받는다: 해당 <code class="language-plaintext highlighter-rouge">Topic</code>으로 메시지를 발송하거나(<code class="language-plaintext highlighter-rouge">pub</code>-집배원) 메시지를 받는다(<code class="language-plaintext highlighter-rouge">sub</code>-구독자)</li>
+</ul>
+
+<h2 id="web-socket과-stomp">Web Socket과 STOMP</h2>
+<p><img src="/assets/images/RUAlone/5-2.png" alt="image" width="80%" height="80%" class="align-center" /></p>
+
+<ul>
+  <li>Web Socket
+    <ul>
+      <li>Websocket만을 이용해 채팅을 구현하면 해당 메시지가 어떤 요청인지, 어떻게 처리해야 되는지에 따라 채팅룸과 세션을 일일이 구현하고 메시지 발송 부분을 관리하는 추가 코드를 구현해 줘야한다.</li>
+    </ul>
   </li>
-  <li>
-    <p>음성 합성 요청 시<br />
-1) 클라이언트 요청<br />
-2) redis에 접근하여 미리 저장해둔 synthesizer objcet를 불러옴<br />
-3) 불러온 object로 TTS 수행</p>
+  <li>STOMP
+    <ul>
+      <li>메시징 전송을 효율적으로 하기 위해 나온 프로토콜</li>
+      <li>pub/sub 구조로 되어있어 메시지를 발송하고, 메시지를 받아 처리하는 부분이 명확이 구분되어 있어 개발 시 명확히 인지하고 개발하기 쉽다는 이점이 있음</li>
+      <li>통신 메시지의 헤더에 값을 세팅할 수 있어 헤더 값을 기반으로 통신 시 인증처리를 구현하는 것도 가능함</li>
+    </ul>
   </li>
 </ul>
 
-<h2 id="class의-instance를-redis에-저장할-수-있을까">class의 instance를 redis에 저장할 수 있을까?</h2>
-<p><code class="language-plaintext highlighter-rouge">redis</code>에서는 value로 다양한 data type을 지원한다.<br />
-대표적으로 string을 지원하므로 python의 pickle 모듈을 사용하여 객체를 문자열로 직렬화하여 저장하는 방식을 사용했다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pickle</span>
-<span class="kn">import</span> <span class="nn">redis</span>
-
-<span class="c1"># 레디스 연결
-</span><span class="n">rd</span> <span class="o">=</span> <span class="n">redis</span><span class="p">.</span><span class="n">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'{host_name}'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port_num</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db_num</span><span class="p">)</span>
-
-<span class="c1"># synthesizer initialize
-</span><span class="n">synthesizer</span> <span class="o">=</span> <span class="n">Synthesizer</span><span class="p">(</span>
-            <span class="n">tts_checkpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_model_file_path</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
-            <span class="n">tts_config_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_config_path</span><span class="si">}</span><span class="s">"</span>
-        <span class="p">)</span>
-
-<span class="c1"># synthesizer 객체를 pickle로 serialize하여 redis에 저장
-</span><span class="n">serialized_syn</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">synthesizer</span><span class="p">)</span>
-<span class="n">rd</span><span class="p">.</span><span class="nb">set</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">serialized_syn</span><span class="p">)</span>
-    
-<span class="c1"># redis에 저장해둔 객체를 불러옴
-</span><span class="n">serialized_syn</span> <span class="o">=</span> <span class="n">rd</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
-<span class="n">syn</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">serialized_syn</span><span class="p">)</span>
-
-<span class="n">symbol</span> <span class="o">=</span> <span class="n">syn</span><span class="p">.</span><span class="n">tts_config</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">characters</span>
-<span class="n">text</span> <span class="o">=</span> <span class="n">normalize_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
-<span class="n">wav</span> <span class="o">=</span> <span class="n">syn</span><span class="p">.</span><span class="n">tts</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
-<span class="n">syn</span><span class="p">.</span><span class="n">save_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">WAV_PATH</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h2 id="수행-결과">수행 결과</h2>
-<p>같은 길이의 문장을 기준으로 캐시를 적용하기 전과 후를 비교해보았다.</p>
+<h2 id="채팅-서비스의-고도화">채팅 서비스의 고도화</h2>
+<blockquote>
+  <p>web socket과 STOMP 만을 이용해서 만든 채팅 서버를 고도화시켜보자..!</p>
+</blockquote>
 
 <ul>
-  <li>
-    <p>적용 전<br />
-<img src="/assets/images/Voice_Pocket/3-1.png" alt="image" /><br /></p>
+  <li>서버를 재시작 할때마다 채팅방 정보들이 리셋된다.
+    <ul>
+      <li>채팅방의 저장소가 없으므로 서버의 메모리에 적재된 채팅방은 서버를 재시작할 때마다 초기화되는 이슈가 있다.
+        <ul>
+          <li>DB 혹은 다른 저장소를 이용하여 채팅방이 계속 유지되도록 처리가 필요함(<code class="language-plaintext highlighter-rouge">redis</code>)</li>
+        </ul>
+      </li>
+    </ul>
   </li>
-  <li>
-    <p>적용 후<br />
-<img src="/assets/images/Voice_Pocket/3-2.png" alt="image" /><br /></p>
+  <li>채팅서버가 여러대일 때 서버간 채팅방 공유가 불가능함
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">websocket</code>과 <code class="language-plaintext highlighter-rouge">STOMP</code> <code class="language-plaintext highlighter-rouge">pub/sub</code> 을 이용하여 구현할 시, <code class="language-plaintext highlighter-rouge">pub/sub</code>이 발생한 서버 내에서만 메시지를 주고받는 것이 가능함
+        <ul>
+          <li>채팅방(<code class="language-plaintext highlighter-rouge">topic</code>)이 생성된 서버 안에서만 유효하므로 다른 서버로 접속한 클라이언트는 접근 및 구독이 불가능하다.</li>
+        </ul>
+      </li>
+      <li>즉, 구독 대상(채팅방: <code class="language-plaintext highlighter-rouge">topic</code>)이 여러 서버에서 접근할 수 있도록 개선이 필요하다. (<code class="language-plaintext highlighter-rouge">redis</code>, <code class="language-plaintext highlighter-rouge">kafka</code>, <code class="language-plaintext highlighter-rouge">rabbitMQ</code> 등등)</li>
+    </ul>
   </li>
 </ul>
 
-<p>cache를 적용하여 해당 작업을 21초에서 8초로 줄일 수 있었다!</p>]]></content><author><name>hi~ June!!</name></author><category term="Voice_Pocket" /><category term="Info" /><summary type="html"><![CDATA[Voice Pocket의 프로젝트]]></summary></entry><entry><title type="html">[Voice Pocket] spring boot에서 celery 활용하기</title><link href="http://localhost:4000/voice_pocket/Voice_Pocket02/" rel="alternate" type="text/html" title="[Voice Pocket] spring boot에서 celery 활용하기" /><published>2023-05-03T00:00:00+09:00</published><updated>2023-05-03T00:00:00+09:00</updated><id>http://localhost:4000/voice_pocket/Voice_Pocket02</id><content type="html" xml:base="http://localhost:4000/voice_pocket/Voice_Pocket02/"><![CDATA[<h2 id="굳이-django를-써야할까">굳이 django를 써야할까..?</h2>
+<h2 id="두-가지-방법으로-구현해본-채팅-서버">두 가지 방법으로 구현해본 채팅 서버</h2>
+<p>spring boot와 web socket 및 message queue를 이용하여 채팅 서버를 만들어봤다.<br />
+구체적인 구현 방법은 잘 정리해놓은 블로그를 reference에 남겨놓는 것으로 하고,<br />
+<code class="language-plaintext highlighter-rouge">redis</code>, <code class="language-plaintext highlighter-rouge">kafka</code> 이렇게 총 2가지 message queue를 이용해서 구현해보면서 느꼈던 차이점에 대해서 정리해보려고 한다.</p>
+
+<p>전반적인 동작 과정은 다음과 같다.</p>
+<ol>
+  <li>채팅방을 생성하면, <code class="language-plaintext highlighter-rouge">redis</code> 저장소에 채팅방 정보를 저장</li>
+  <li>채팅방에 입장하면 <code class="language-plaintext highlighter-rouge">web socket</code> 연결이 수행되고, 해당 채팅방에 대한 <code class="language-plaintext highlighter-rouge">subscribe</code>(구독)을 수행한다.</li>
+  <li>해당 채팅방에 message request를 보내면, message를 받아서 <code class="language-plaintext highlighter-rouge">message queue</code>(<code class="language-plaintext highlighter-rouge">redis</code> or <code class="language-plaintext highlighter-rouge">kafka</code>)에 <code class="language-plaintext highlighter-rouge">publish</code> 한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">message queue</code>(<code class="language-plaintext highlighter-rouge">redis</code> or <code class="language-plaintext highlighter-rouge">kafka</code>)에 대한 <code class="language-plaintext highlighter-rouge">subscriber</code>가 <code class="language-plaintext highlighter-rouge">web socket</code> 구독자에게 해당 채팅 메시지를 보낸다.</li>
+</ol>
+
+<h2 id="redis를-사용하여-구현">Redis를 사용하여 구현</h2>
+<p><img src="/assets/images/RUAlone/5-3.png" alt="image" width="90%" height="90%" class="align-center" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">redis</code>를 사용할 경우,<br />
+message가 <code class="language-plaintext highlighter-rouge">publish</code> 되면 해당 <code class="language-plaintext highlighter-rouge">channel</code>을 구독하고 있는 모든 <code class="language-plaintext highlighter-rouge">subscriber</code>에게 message를 보내주게된다.<br />
+따라서, 각기 다른 채팅 서버를 통해 접속했더라도 같은 채팅방에서 서로 대화할 수 있는 것이다.</p>
+
+<p>다만, <code class="language-plaintext highlighter-rouge">redis</code>는 보낸 message를 따로 저장하지는 않기 때문에, 해당 <code class="language-plaintext highlighter-rouge">channel</code>을 <code class="language-plaintext highlighter-rouge">subscribe</code>하고 있지 않다면, message가 유실될 수 있다는 단점이 있다.</p>
+
+<p>[8080 서버: 짱구 &amp; 철수, 8090 서버: 맹구]<br />
+<img src="/assets/images/RUAlone/redis.gif" alt="image" width="100%" height="100%" class="align-center" /></p>
+
+<h2 id="kafka를-사용하여-구현">Kafka를 사용하여 구현</h2>
+<p><img src="/assets/images/RUAlone/5-4.png" alt="image" width="90%" height="90%" class="align-center" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">kafka</code>를 사용할 경우,<br />
+message가 <code class="language-plaintext highlighter-rouge">publish</code> 되면 해당 message는 <code class="language-plaintext highlighter-rouge">topic</code>의 각 <code class="language-plaintext highlighter-rouge">partition</code>에 분산되어 저장된다.<br />
+따라서, <code class="language-plaintext highlighter-rouge">redis</code>와는 다르게 message의 유실에서는 더 안전하다고 볼 수 있다.</p>
+
+<p>또, <code class="language-plaintext highlighter-rouge">kafka</code>의 경우 <code class="language-plaintext highlighter-rouge">consumer</code>가 message를 가져오는 방식으로 동작한다.<br />
+각 message에 <code class="language-plaintext highlighter-rouge">offset</code>을 할당해서 할당된 <code class="language-plaintext highlighter-rouge">offset</code>을 기반으로 <code class="language-plaintext highlighter-rouge">consumer</code>는 다음으로 가져올 메시지의 위치를 지정하여 메시지를 가져오게 된다.<br />
+이러한 특징 때문에 메시지의 순서를 보장할 수 있다.</p>
+
+<p>자, 여기까지만 알고, 기존에 짰던 <code class="language-plaintext highlighter-rouge">redis</code> 기반의 채팅 서버를 <code class="language-plaintext highlighter-rouge">kafka</code>로 바꾸니까 원하는대로 동작하지 않았다.</p>
+
+<h2 id="뭐가-문제일까">뭐가 문제일까..</h2>
+<p>각각 8080과 8090포트로 서버를 띄워 접속해봤고, 채팅 메시지가 제대로 전달되지 않는 것을 확인할 수 있었다.</p>
+
+<p>[8080 서버: 짱구 &amp; 철수, 8090 서버: 맹구]<br />
+<img src="/assets/images/RUAlone/kafka1.gif" alt="image" width="100%" height="100%" class="align-center" /></p>
+
+<p>그리고 medium에서 왜 그런 것인지 확인할 수 있었다.</p>
+
+<h2 id="redis와-kafka의-동작-방식-차이">redis와 kafka의 동작 방식 차이</h2>
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">redis</code>는 <code class="language-plaintext highlighter-rouge">kafka</code>와는 달리, <code class="language-plaintext highlighter-rouge">channel</code>에 도착한 message를 해당 <code class="language-plaintext highlighter-rouge">channel</code>을 구독하고 있는 ‘모든’ <code class="language-plaintext highlighter-rouge">subscriber</code>들에게 쏴 줄 수 있다.<br />
+따라서, 각각 다른 서버여도 같은 <code class="language-plaintext highlighter-rouge">channel</code>을 구독하고 있기만 하면 message를 받아볼 수 있는 것이다.</p>
+</blockquote>
+
+<p>medium에서는 이를 TV 채널을 시청하는 것에 비유하였다.<br />
+해당 방송사(<code class="language-plaintext highlighter-rouge">producer</code>)에서 방영하는 라이브 방송은 해당 채널을 시청 중일 때, 같은 시간대에 같은 채널의 시청자들은 모두 같은 방송을 볼 수 있는 것에 비유했다.</p>
+
+<blockquote>
+  <p>하지만 <code class="language-plaintext highlighter-rouge">kafka</code>는 다르다.<br />
+<code class="language-plaintext highlighter-rouge">topic</code>에 message가 도착하면, 이를 소비하는 것은 <code class="language-plaintext highlighter-rouge">consumer group</code> 단위로 이루어진다.<br />
+즉, <code class="language-plaintext highlighter-rouge">consumer</code> 들이 같은 <code class="language-plaintext highlighter-rouge">group</code>에 속해 있다면, message는 해당 <code class="language-plaintext highlighter-rouge">group</code>에 있는 어느 <code class="language-plaintext highlighter-rouge">consumer</code> 중 하나에 의해서 소비된다는 것이다.</p>
+</blockquote>
+
+<p>medium에서는 이를 우체통에 비유하였다.<br />
+철수(<code class="language-plaintext highlighter-rouge">producer</code>)가 편지를 써서 우체통(<code class="language-plaintext highlighter-rouge">topic</code>)에 넣어두었다면, 해당 편지는 누군가에 의해 발견될 때까지는 남아있을 것이고,<br />
+가족(<code class="language-plaintext highlighter-rouge">consumer group</code>) 중 어느 누군가에 의해 발견될 수 있을 것이다.<br />
+만약 영희네 오빠가 먼저 발견했다면, 영희는 편지의 존재조차 모르게 되는 것이다.</p>
+
+<h2 id="그럼-어떻게-해야할까">그럼 어떻게 해야할까..?</h2>
+<p>애초에 message queue를 둔 이유도, scale-out 등의 이유로 서버가 여럿이 있을 때 해결하려고 도입했던 것인데, <code class="language-plaintext highlighter-rouge">kafka</code>에서는 어떻게 해결할 수 있을까?</p>
+
+<p><img src="/assets/images/RUAlone/5-6.png" alt="image" width="90%" height="90%" class="align-center" /><br />
+이 말에서 힌트를 얻었다.</p>
+
+<p><img src="/assets/images/RUAlone/5-5.png" alt="image" width="90%" height="90%" class="align-center" /><br />
+위의 그림처럼 서버 별로 group id를 다르게 해주었다.<br />
+아쉽게도 동적으로 할당한 것은 아니지만, group id를 서버별로 다르게 하고, 빌드하여 테스트를 진행해보았다.</p>
+
+<p>[8080 서버: 짱구 &amp; 철수, 8090 서버: 맹구]<br />
+<img src="/assets/images/RUAlone/kafka2.gif" alt="image" width="100%" height="100%" class="align-center" /></p>
+
+<p><br /></p>
+
+<p>(코드 보러가기)<br />
+<a href="https://github.com/hi-june/chat-demo">https://github.com/hi-june/chat-demo</a></p>
+
+<h2 id="reference">Reference</h2>
+<p>1) <a href="https://www.daddyprogrammer.org/post/4077/spring-websocket-chatting/">https://www.daddyprogrammer.org/post/4077/spring-websocket-chatting/</a> [websocket으로 채팅 서버 만들기]
+2) <a href="https://medium.com/frientrip/pub-sub-%EC%9E%98-%EC%95%8C%EA%B3%A0-%EC%93%B0%EC%9E%90-de9dc1b9f739">https://medium.com/frientrip/pub-sub-%EC%9E%98-%EC%95%8C%EA%B3%A0-%EC%93%B0%EC%9E%90-de9dc1b9f739</a> [pub/sub 잘 알고 쓰자!]</p>]]></content><author><name>hi~ June!!</name></author><category term="RUAlone" /><category term="Info" /><summary type="html"><![CDATA[RUAlone(혼자왔니) 혼밥 메이트 구하기 프로젝트]]></summary></entry><entry><title type="html">[Voice Pocket] spring boot에서 celery 활용하기</title><link href="http://localhost:4000/voice_pocket/Voice_Pocket02/" rel="alternate" type="text/html" title="[Voice Pocket] spring boot에서 celery 활용하기" /><published>2023-05-03T00:00:00+09:00</published><updated>2023-05-03T00:00:00+09:00</updated><id>http://localhost:4000/voice_pocket/Voice_Pocket02</id><content type="html" xml:base="http://localhost:4000/voice_pocket/Voice_Pocket02/"><![CDATA[<h2 id="굳이-django를-써야할까">굳이 django를 써야할까..?</h2>
 <p>한이음 멘토님과 프로젝트 관련 이야기를 하다가, 이런 이야기가 나왔다.</p>
 
 <p><u>나</u>: 음성 합성 관련 라이브러리가 python으로 쓰여서 백엔드 서버도 <code class="language-plaintext highlighter-rouge">django</code>를 사용하고 있습니다 ㅠㅠ<br />
@@ -339,7 +379,117 @@ body에서 필요한 인자들을 뽑아내, handle 메소드 안 쪽에서 미�
 <a href="https://github.com/hi-june/boot_rabbit_celery">https://github.com/hi-june/boot_rabbit_celery</a> [Spring boot + RabbitMQ + Celery demo project]</p>
 
 <h2 id="reference">Reference</h2>
-<p>1) <a href="https://medium.com/python4you/calling-celery-tasks-not-from-python-699bd635d317">https://medium.com/python4you/calling-celery-tasks-not-from-python-699bd635d317</a> [Calling Celery Tasks not from Python]</p>]]></content><author><name>hi~ June!!</name></author><category term="Voice_Pocket" /><category term="Info" /><summary type="html"><![CDATA[Voice Pocket의 프로젝트]]></summary></entry><entry><title type="html">[Voice Pocket] 프로젝트 소개</title><link href="http://localhost:4000/voice_pocket/Voice_Pocket01/" rel="alternate" type="text/html" title="[Voice Pocket] 프로젝트 소개" /><published>2023-05-01T00:00:00+09:00</published><updated>2023-05-03T00:00:00+09:00</updated><id>http://localhost:4000/voice_pocket/Voice_Pocket01</id><content type="html" xml:base="http://localhost:4000/voice_pocket/Voice_Pocket01/"><![CDATA[<h2 id="개요">개요</h2>
+<p>1) <a href="https://medium.com/python4you/calling-celery-tasks-not-from-python-699bd635d317">https://medium.com/python4you/calling-celery-tasks-not-from-python-699bd635d317</a> [Calling Celery Tasks not from Python]</p>]]></content><author><name>hi~ June!!</name></author><category term="Voice_Pocket" /><category term="Info" /><summary type="html"><![CDATA[Voice Pocket의 프로젝트]]></summary></entry><entry><title type="html">[Voice Pocket] TTS 작업 속도 개선기</title><link href="http://localhost:4000/voice_pocket/Voice_Pocket03/" rel="alternate" type="text/html" title="[Voice Pocket] TTS 작업 속도 개선기" /><published>2023-05-03T00:00:00+09:00</published><updated>2023-05-03T00:00:00+09:00</updated><id>http://localhost:4000/voice_pocket/Voice_Pocket03</id><content type="html" xml:base="http://localhost:4000/voice_pocket/Voice_Pocket03/"><![CDATA[<h2 id="음성-합성을-위한-과정">음성 합성을 위한 과정</h2>
+<p>사용자의 요청에 따라 음성 파일을 합성하는 전반적인 과정은 다음과 같다.</p>
+
+<p>1) 클라이언트 요청<br />
+2) 해당 음성 모델로부터 Systhesizer object initialize</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">synthesizer</span> <span class="o">=</span> <span class="n">Synthesizer</span><span class="p">(</span>
+            <span class="n">tts_checkpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_model_file_path</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">tts_config_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_config_path</span><span class="si">}</span><span class="s">"</span>
+        <span class="p">)</span>
+</code></pre></div></div>
+
+<p>3) 2에서 만든 Synthesizer object로부터 tts 함수 호출(wav 파일 생성)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">symbol</span> <span class="o">=</span> <span class="n">synthesizer</span><span class="p">.</span><span class="n">tts_config</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">characters</span>   <span class="c1"># symbol set
+</span><span class="n">text</span> <span class="o">=</span> <span class="n">normalize_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span> <span class="c1"># text normalize
+</span><span class="n">wav</span> <span class="o">=</span> <span class="n">synthesizer</span><span class="p">.</span><span class="n">tts</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="c1"># conver text to speech
+</span><span class="n">synthesizer</span><span class="p">.</span><span class="n">save_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">wav_path</span><span class="p">)</span> <span class="c1"># write wav file
+</span></code></pre></div></div>
+
+<p>4) 생성된 wav 파일을 gcs(google cloud storage) bucket에 저장</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">upload_wav_to_bucket</span><span class="p">(</span><span class="n">wav_path</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">uuid</span><span class="p">):</span>
+    <span class="n">storage_client</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="n">Client</span><span class="p">()</span>
+    
+    <span class="n">bucket_name</span> <span class="o">=</span> <span class="n">BUCKET_NAME</span>
+    <span class="n">source_file_name</span> <span class="o">=</span> <span class="n">wav_path</span>
+    <span class="n">destination_blob_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s">.wav'</span>
+    
+    <span class="n">bucket</span> <span class="o">=</span> <span class="n">storage_client</span><span class="p">.</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
+    <span class="n">blob</span> <span class="o">=</span> <span class="n">bucket</span><span class="p">.</span><span class="n">blob</span><span class="p">(</span><span class="n">destination_blob_name</span><span class="p">)</span>
+
+    <span class="n">blob</span><span class="p">.</span><span class="n">upload_from_filename</span><span class="p">(</span><span class="n">source_file_name</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="문제는-너무-느리다는-것">문제는 너무 느리다는 것..</h2>
+<p>음성 하나 합성하는데 걸리는 시간이 너무 느리다는 것이 계속 걸렸다.</p>
+
+<p>2번과 3번 과정이 가장 핵심적인 부분이었고, 각각 과정(특히, 2번)들에서 많은 시간이 소요되었다.</p>
+
+<p>애초에 <code class="language-plaintext highlighter-rouge">coqui-tts</code>에서 제공하는 라이브러리를 사용하여 음성 합성을 진행하고 있기 때문에,<br />
+위의 과정 중 3번에 해당하는 text를 기반으로 wav 파일을 합성하는 데 걸리는 시간은 건드리기 힘들었다.</p>
+
+<blockquote>
+  <p>따라서, 작업 요청마다 Synthesizer instance가 initialize되는 시간만 날려버려도, 시간을 상당히 많이 줄일 수 있을 것이라 판단했고, 해당 부분에 cache를 적용하기로 했다.</p>
+</blockquote>
+
+<h2 id="redis-cache">redis cache</h2>
+<p><code class="language-plaintext highlighter-rouge">redis</code>는 간단히 설명하자면 key-value 형식으로 데이터를 저장하는 in-memory 기반의 데이터베이스이다.</p>
+
+<p>애초에 gpu 서버에서 음성 학습을 시키고, 모델이 만들어질 때,<br />
+해당 모델 파일로부터 synthesizer를 initialize하여 synthesizer object를 redis 캐시에 저장해두고,<br />
+필요한 순간에 가져다가 쓸 수 있다면, 요청마다 initiaize되는 시간을 줄일 수 있을 것이라고 생각했다.</p>
+
+<p>정리하자면,</p>
+<ul>
+  <li>
+    <p>음성 모델 학습이 끝나고<br />
+1) 음성 모델 합성이 완료되면 해당 모델을 기반으로 synthesizer object를 initialize.<br />
+2) synthesizer object를 redis에 저장</p>
+  </li>
+  <li>
+    <p>음성 합성 요청 시<br />
+1) 클라이언트 요청<br />
+2) redis에 접근하여 미리 저장해둔 synthesizer objcet를 불러옴<br />
+3) 불러온 object로 TTS 수행</p>
+  </li>
+</ul>
+
+<h2 id="class의-instance를-redis에-저장할-수-있을까">class의 instance를 redis에 저장할 수 있을까?</h2>
+<p><code class="language-plaintext highlighter-rouge">redis</code>에서는 value로 다양한 data type을 지원한다.<br />
+대표적으로 string을 지원하므로 python의 pickle 모듈을 사용하여 객체를 문자열로 직렬화하여 저장하는 방식을 사용했다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">redis</span>
+
+<span class="c1"># 레디스 연결
+</span><span class="n">rd</span> <span class="o">=</span> <span class="n">redis</span><span class="p">.</span><span class="n">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'{host_name}'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port_num</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db_num</span><span class="p">)</span>
+
+<span class="c1"># synthesizer initialize
+</span><span class="n">synthesizer</span> <span class="o">=</span> <span class="n">Synthesizer</span><span class="p">(</span>
+            <span class="n">tts_checkpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_model_file_path</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">tts_config_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">tts_config_path</span><span class="si">}</span><span class="s">"</span>
+        <span class="p">)</span>
+
+<span class="c1"># synthesizer 객체를 pickle로 serialize하여 redis에 저장
+</span><span class="n">serialized_syn</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">synthesizer</span><span class="p">)</span>
+<span class="n">rd</span><span class="p">.</span><span class="nb">set</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">serialized_syn</span><span class="p">)</span>
+    
+<span class="c1"># redis에 저장해둔 객체를 불러옴
+</span><span class="n">serialized_syn</span> <span class="o">=</span> <span class="n">rd</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+<span class="n">syn</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">serialized_syn</span><span class="p">)</span>
+
+<span class="n">symbol</span> <span class="o">=</span> <span class="n">syn</span><span class="p">.</span><span class="n">tts_config</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">characters</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">normalize_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+<span class="n">wav</span> <span class="o">=</span> <span class="n">syn</span><span class="p">.</span><span class="n">tts</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">syn</span><span class="p">.</span><span class="n">save_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">WAV_PATH</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="수행-결과">수행 결과</h2>
+<p>같은 길이의 문장을 기준으로 캐시를 적용하기 전과 후를 비교해보았다.</p>
+
+<ul>
+  <li>
+    <p>적용 전<br />
+<img src="/assets/images/Voice_Pocket/3-1.png" alt="image" /><br /></p>
+  </li>
+  <li>
+    <p>적용 후<br />
+<img src="/assets/images/Voice_Pocket/3-2.png" alt="image" /><br /></p>
+  </li>
+</ul>
+
+<p>cache를 적용하여 해당 작업을 21초에서 8초로 줄일 수 있었다!</p>]]></content><author><name>hi~ June!!</name></author><category term="Voice_Pocket" /><category term="Info" /><summary type="html"><![CDATA[Voice Pocket의 프로젝트]]></summary></entry><entry><title type="html">[Voice Pocket] 프로젝트 소개</title><link href="http://localhost:4000/voice_pocket/Voice_Pocket01/" rel="alternate" type="text/html" title="[Voice Pocket] 프로젝트 소개" /><published>2023-05-01T00:00:00+09:00</published><updated>2023-05-03T00:00:00+09:00</updated><id>http://localhost:4000/voice_pocket/Voice_Pocket01</id><content type="html" xml:base="http://localhost:4000/voice_pocket/Voice_Pocket01/"><![CDATA[<h2 id="개요">개요</h2>
 <p>이전에 진행했던 Team_ForV의 프로젝트가 끝나고 못내 아쉬운 부분들이 있었다.<br />
 사람의 목소리를 학습시켜 TTS 서비스를 만들 수 있다는 것은 꽤 흥미로운 주제라고 생각했고,<br />
 이 주제를 좀 더 완성도 있는 프로젝트로 발전시키고 싶다는 생각을 했다.</p>
@@ -914,115 +1064,4 @@ x, y, z를 z, y, x 순으로 초기화해야한다는 것을 기억하자.</p>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[6603] 로또</title><link href="http://localhost:4000/boj/6603/" rel="alternate" type="text/html" title="[6603] 로또" /><published>2023-04-15T00:00:00+09:00</published><updated>2023-04-15T00:00:00+09:00</updated><id>http://localhost:4000/boj/6603</id><content type="html" xml:base="http://localhost:4000/boj/6603/"><![CDATA[<h2 id="silver-ii-로또---6603">[Silver II] 로또 - 6603</h2>
-
-<p><a href="https://www.acmicpc.net/problem/6603">문제 링크</a></p>
-
-<h3 id="성능-요약">성능 요약</h3>
-
-<p>메모리: 19368 KB, 시간: 236 ms</p>
-
-<h3 id="분류">분류</h3>
-
-<p>수학, 조합론, 백트래킹, 재귀</p>
-
-<h3 id="문제-설명">문제 설명</h3>
-
-<p>독일 로또는 {1, 2, ..., 49}에서 수 6개를 고른다.</p>
-
-<p>로또 번호를 선택하는데 사용되는 가장 유명한 전략은 49가지 수 중 k(k&gt;6)개의 수를 골라 집합 S를 만든 다음 그 수만 가지고 번호를 선택하는 것이다.</p>
-
-<p>예를 들어, k=8, S={1,2,3,5,8,13,21,34}인 경우 이 집합 S에서 수를 고를 수 있는 경우의 수는 총 28가지이다. ([1,2,3,5,8,13], [1,2,3,5,8,21], [1,2,3,5,8,34], [1,2,3,5,13,21], ..., [3,5,8,13,21,34])</p>
-
-<p>집합 S와 k가 주어졌을 때, 수를 고르는 모든 방법을 구하는 프로그램을 작성하시오.</p>
-
-<h3 id="입력">입력</h3>
-
-<p>입력은 여러 개의 테스트 케이스로 이루어져 있다. 각 테스트 케이스는 한 줄로 이루어져 있다. 첫 번째 수는 k (6 &lt; k &lt; 13)이고, 다음 k개 수는 집합 S에 포함되는 수이다. S의 원소는 오름차순으로 주어진다.</p>
-
-<p>입력의 마지막 줄에는 0이 하나 주어진다. </p>
-
-<h3 id="출력">출력</h3>
-
-<p>각 테스트 케이스마다 수를 고르는 모든 방법을 출력한다. 이때, 사전 순으로 출력한다.</p>
-
-<p>각 테스트 케이스 사이에는 빈 줄을 하나 출력한다.</p>
-
-<h2 id="아이디어">아이디어</h2>
-<p>조합만 알면 간단하게 풀 수 있는 문제이다.</p>
-
-<h2 id="답안코드">답안코드</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Combination</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">n</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">r</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">now</span><span class="o">;</span> <span class="c1">// 현재 조합</span>
-    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">;</span> <span class="c1">// 모든 조합</span>
-
-    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;&gt;</span> <span class="nf">getResult</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="nf">Combination</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">now</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">r</span><span class="o">];</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">combination</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="kt">int</span> <span class="n">depth</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">depth</span> <span class="o">==</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">temp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">now</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="n">temp</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">now</span><span class="o">[</span><span class="n">i</span><span class="o">]));</span>
-            <span class="o">}</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">temp</span><span class="o">);</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">==</span> <span class="n">n</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
-        <span class="n">now</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">target</span><span class="o">;</span>
-        <span class="n">combination</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">target</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="n">combination</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">depth</span><span class="o">,</span> <span class="n">index</span><span class="o">,</span> <span class="n">target</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
-        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-        <span class="nc">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">));</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-
-            <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-
-            <span class="k">if</span> <span class="o">(</span><span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">bw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
-                <span class="n">bw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-                <span class="k">break</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">lotto</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="nc">String</span>  <span class="n">num</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">();</span>
-                <span class="n">lotto</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="nc">Combination</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">comb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Combination</span><span class="o">&lt;&gt;(</span><span class="n">k</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span>
-            <span class="n">comb</span><span class="o">.</span><span class="na">combination</span><span class="o">(</span><span class="n">lotto</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-
-            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">comb</span><span class="o">.</span><span class="na">getResult</span><span class="o">();</span>
-
-            <span class="k">for</span> <span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">lottoCase</span> <span class="o">:</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
-                <span class="nc">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">lottoCase</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">" "</span><span class="o">));</span>
-                <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">answer</span> <span class="o">+</span> <span class="s">"\n"</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="n">bw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">"\n"</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="수학" /><category term="조합" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry></feed>
