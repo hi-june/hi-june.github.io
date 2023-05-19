@@ -562,4 +562,10 @@ var store = [{
         "tags": ["Info"],
         "url": "/rualone/RUAlone05/",
         "teaser": null
+      },{
+        "title": "[Voice Pocket] Message Queue 뒷 단으로 보낸 작업의 결과를 확인하는 법",
+        "excerpt":"Message Queue 뒷 단에서 수행되는 task에 대해서 서버에서 어떻게 확인할 수 있을까..? 음성 합성을 위한 작업은 python 컨테이너에서 수행되므로 spring boot 서버에서 컨테이너 쪽으로 작업 메시지를 넘기면 그 작업 결과에 대해 클라이언트가 알 수가 없었다. 하지만 wav 파일 생성을 마치면 해당 wav파일을 gcs 버킷에 업로드하기 때문에, 클라이언트에서 gcs로부터 다운로드 받기...","categories": ["Voice_Pocket"],
+        "tags": ["Info"],
+        "url": "/voice_pocket/Voice_Pocket04/",
+        "teaser": null
       }]
