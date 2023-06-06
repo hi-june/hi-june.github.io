@@ -38,6 +38,15 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+        
+        <span class="nav__sub-title">Programmers DevCourse</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "java-for-framework" %}
+                        <li><a href="/categories/java-for-framework" class="">Frame Work를 위한 Java ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         <span class="nav__sub-title">Coding Test</span>
             <ul>

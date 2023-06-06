@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-05-20T00:20:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[Voice Pocket] Message Queue 뒷 단으로 보낸 작업의 결과를 확인하는 법</title><link href="http://localhost:4000/voice_pocket/Voice_Pocket04/" rel="alternate" type="text/html" title="[Voice Pocket] Message Queue 뒷 단으로 보낸 작업의 결과를 확인하는 법" /><published>2023-05-19T00:00:00+09:00</published><updated>2023-05-19T00:00:00+09:00</updated><id>http://localhost:4000/voice_pocket/Voice_Pocket04</id><content type="html" xml:base="http://localhost:4000/voice_pocket/Voice_Pocket04/"><![CDATA[<h2 id="message-queue-뒷-단에서-수행되는-task에-대해서-서버에서-어떻게-확인할-수-있을까">Message Queue 뒷 단에서 수행되는 task에 대해서 서버에서 어떻게 확인할 수 있을까..?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-07T01:11:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[1주차 - Frame Work를 위한 Java] String, StringBuffer, StringBuilder</title><link href="http://localhost:4000/java-for-framework/String/" rel="alternate" type="text/html" title="[1주차 - Frame Work를 위한 Java] String, StringBuffer, StringBuilder" /><published>2023-06-07T00:00:00+09:00</published><updated>2023-06-07T00:00:00+09:00</updated><id>http://localhost:4000/java-for-framework/String</id><content type="html" xml:base="http://localhost:4000/java-for-framework/String/"><![CDATA[<h2 id="stringbuilder와-stringbuffer는-무슨-차이가-있는가"><strong>StringBuilder와 StringBuffer는 무슨 차이가 있는가?</strong></h2>
+<p>결론부터 말하자면..<br />
+<code class="language-plaintext highlighter-rouge">StringBuffer</code>는 멀티 쓰레드 환경에서 안전하지만, 느리다.<br />
+<code class="language-plaintext highlighter-rouge">StringBuilder</code>는 멀티 쓰레드 환경에서 안전하지 않지만, 빠르다.</p>
+
+<h2 id="java에서-string을-처리하는-법">Java에서 String을 처리하는 법</h2>
+<p>String 클래스의 instance는 immutable이다.<br />
+한 번 만들어진 instance는 불변이기 때문에 굳이 내용이 같을 경우 새로운 instance를 생성할 필요가 없다.<br />
+따라서 String instance는 java에서 다음과 같이 처리한다.</p>
+
+<p>code를 통해 살펴보자..</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">ImmutableString</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="c1">// 문자열 생성 방법 1(literal)</span>
+        <span class="nc">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"Simple String"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"Simple String"</span><span class="o">;</span>
+
+        <span class="c1">// 문자열 생성 방법 2(new keyword)</span>
+        <span class="nc">String</span> <span class="n">str3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"Simple String"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">str4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"Simple String"</span><span class="o">);</span>
+        
+        <span class="k">if</span><span class="o">(</span><span class="n">str1</span> <span class="o">==</span> <span class="n">str2</span><span class="o">)</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"str1과 str2는 동일 인스턴스 참조"</span><span class="o">);</span>
+        <span class="k">else</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"str1과 str2는 다른 인스턴스 참조"</span><span class="o">);</span>
+
+        <span class="k">if</span><span class="o">(</span><span class="n">str3</span> <span class="o">==</span> <span class="n">str4</span><span class="o">)</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"str3과 str4는 동일 인스턴스 참조"</span><span class="o">);</span>
+        <span class="k">else</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"str3과 str4는 다른 인스턴스 참조"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 실행결과</span>
+str1과 str2는 동일 인스턴스 참조
+str3과 str4는 다른 인스턴스 참조
+</code></pre></div></div>
+
+<p>이러한 결과가 나오는 것은 String 인스턴스의 생성 방법에 따라 저장되는 공간이 다르기 때문이다.</p>
+
+<p><img src="/assets/images/DevCourse/java-for-framework/1-1.png" alt="image" width="90%" height="90%" /></p>
+
+<h2 id="stringbuilder-stringbuffer">StringBuilder, StringBuffer</h2>
+<p>String의 반복적인 인스턴스 생성은 프로그램의 성능을 저하시킨다.<br />
+문자열끼리의 연산은 빈번한 인스턴스의 생성을 야기시킬 수 있으므로 이를 방지하기 위해 <code class="language-plaintext highlighter-rouge">StringBuilder</code>, <code class="language-plaintext highlighter-rouge">StringBuffer</code> 클래스를 사용한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">StringBuilder</code>, <code class="language-plaintext highlighter-rouge">StringBuffer</code> 클래스는 내부적으로 문자열을 저장하기 위한 메모리 공간을 지닌다.<br />
+이 메모리공간은 String 클래스의 메모리 공간과는 다르게 문자를 ‘추가’하거나 ‘삭제’하는 것이 가능하다.<br />
+따라서, ‘수정하면서 유지해야 할 문자열’이 있다면 이 클래스에 그 내용을 담아서 관리하는 것이 효율적이다.</p>
+
+<h2 id="똑같은거-아닌가">똑같은거 아닌가?</h2>
+<p><code class="language-plaintext highlighter-rouge">StringBuffer</code>와 <code class="language-plaintext highlighter-rouge">StringBuilder</code>는</p>
+<ol>
+  <li>생성자를 포함한 메소드의 수</li>
+  <li>메소드의 기능</li>
+  <li>메소드의 이름과 매개변수의 선언<br />
+위 세 가지가 일치한다. 이는 사실상 같은 클래스임을 의미한다.</li>
+</ol>
+
+<p>기능상으로는 완전히 동일하나 그 내부 동작 과정에서는 차이가 있다.</p>
+
+<blockquote>
+  <p>StringBuffer는 쓰레드에 안전하지만, StringBuilder는 쓰레드에 안전하지 않다.</p>
+</blockquote>
+
+<p>위의 말은 같은 자원에 대해 여러 thread가 접근할 때, synchronization(동기화) 처리가 되어있는가 와도 같은 말이다.</p>
+
+<ul>
+  <li>
+    <p>StringBuffer<br />
+<img src="/assets/images/DevCourse/java-for-framework/1-2.png" alt="image" width="90%" height="90%" /></p>
+  </li>
+  <li>
+    <p>StringBuilder<br />
+<img src="/assets/images/DevCourse/java-for-framework/1-3.png" alt="image" width="90%" height="90%" /></p>
+  </li>
+</ul>
+
+<h2 id="reference">Reference</h2>
+<p><a href="https://velog.io/@heoseungyeon/StringBuilder와-StringBuffer는-무슨-차이가-있는가">StringBuilder와 StringBuffer는 무슨 차이가 있는가?</a></p>]]></content><author><name>hi~ June!!</name></author><category term="java-for-framework" /><category term="java" /><summary type="html"><![CDATA[프로그래머스 데브코스]]></summary></entry><entry><title type="html">[Voice Pocket] Message Queue 뒷 단으로 보낸 작업의 결과를 확인하는 법</title><link href="http://localhost:4000/voice_pocket/Voice_Pocket04/" rel="alternate" type="text/html" title="[Voice Pocket] Message Queue 뒷 단으로 보낸 작업의 결과를 확인하는 법" /><published>2023-05-19T00:00:00+09:00</published><updated>2023-05-19T00:00:00+09:00</updated><id>http://localhost:4000/voice_pocket/Voice_Pocket04</id><content type="html" xml:base="http://localhost:4000/voice_pocket/Voice_Pocket04/"><![CDATA[<h2 id="message-queue-뒷-단에서-수행되는-task에-대해서-서버에서-어떻게-확인할-수-있을까">Message Queue 뒷 단에서 수행되는 task에 대해서 서버에서 어떻게 확인할 수 있을까..?</h2>
 <p>음성 합성을 위한 작업은 <code class="language-plaintext highlighter-rouge">python</code> 컨테이너에서 수행되므로 <code class="language-plaintext highlighter-rouge">spring boot</code> 서버에서 컨테이너 쪽으로 작업 메시지를 넘기면 그 작업 결과에 대해 클라이언트가 알 수가 없었다.</p>
 
 <p>하지만 wav 파일 생성을 마치면 해당 wav파일을 <code class="language-plaintext highlighter-rouge">gcs</code> 버킷에 업로드하기 때문에, 클라이언트에서 <code class="language-plaintext highlighter-rouge">gcs</code>로부터 다운로드 받기 위해서는 해당 작업이 끝난 시점을 알아야만 했다.</p>
@@ -603,7 +683,139 @@ body에서 필요한 인자들을 뽑아내, handle 메소드 안 쪽에서 미�
 프로젝트를 진행하면서 중간중간에 맞이했던 이슈들, 고민들 그리고 그것들을 어떻게 해결했는지에 대해 정리할 예정이다.</p>
 
 <p>(23.05.03 게시일 기준 아직 진행중인 프로젝트)<br />
-<img src="/assets/images/Voice_Pocket/1-2.png" alt="image" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Voice_Pocket" /><category term="Info" /><summary type="html"><![CDATA[Voice Pocket의 프로젝트]]></summary></entry><entry><title type="html">[2644] 촌수계산</title><link href="http://localhost:4000/boj/2644/" rel="alternate" type="text/html" title="[2644] 촌수계산" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/2644</id><content type="html" xml:base="http://localhost:4000/boj/2644/"><![CDATA[<h2 id="silver-ii-촌수계산---2644">[Silver II] 촌수계산 - 2644</h2>
+<img src="/assets/images/Voice_Pocket/1-2.png" alt="image" /><br /></p>]]></content><author><name>hi~ June!!</name></author><category term="Voice_Pocket" /><category term="Info" /><summary type="html"><![CDATA[Voice Pocket의 프로젝트]]></summary></entry><entry><title type="html">[7569] 토마토</title><link href="http://localhost:4000/boj/7569/" rel="alternate" type="text/html" title="[7569] 토마토" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/7569</id><content type="html" xml:base="http://localhost:4000/boj/7569/"><![CDATA[<h2 id="gold-v-토마토---7569">[Gold V] 토마토 - 7569</h2>
+
+<p><a href="https://www.acmicpc.net/problem/7569">문제 링크</a></p>
+
+<h3 id="성능-요약">성능 요약</h3>
+
+<p>메모리: 119348 KB, 시간: 748 ms</p>
+
+<h3 id="분류">분류</h3>
+
+<p>너비 우선 탐색, 그래프 이론, 그래프 탐색</p>
+
+<h3 id="문제-설명">문제 설명</h3>
+
+<p>철수의 토마토 농장에서는 토마토를 보관하는 큰 창고를 가지고 있다. 토마토는 아래의 그림과 같이 격자모양 상자의 칸에 하나씩 넣은 다음, 상자들을 수직으로 쌓아 올려서 창고에 보관한다.</p>
+
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/c3f3343d-c291-40a9-9fe3-59f792a8cae9/-/preview/" style="width: 201px; height: 252px;" /></p>
+
+<p>창고에 보관되는 토마토들 중에는 잘 익은 것도 있지만, 아직 익지 않은 토마토들도 있을 수 있다. 보관 후 하루가 지나면, 익은 토마토들의 인접한 곳에 있는 익지 않은 토마토들은 익은 토마토의 영향을 받아 익게 된다. 하나의 토마토에 인접한 곳은 위, 아래, 왼쪽, 오른쪽, 앞, 뒤 여섯 방향에 있는 토마토를 의미한다. 대각선 방향에 있는 토마토들에게는 영향을 주지 못하며, 토마토가 혼자 저절로 익는 경우는 없다고 가정한다. 철수는 창고에 보관된 토마토들이 며칠이 지나면 다 익게 되는지 그 최소 일수를 알고 싶어 한다.</p>
+
+<p>토마토를 창고에 보관하는 격자모양의 상자들의 크기와 익은 토마토들과 익지 않은 토마토들의 정보가 주어졌을 때, 며칠이 지나면 토마토들이 모두 익는지, 그 최소 일수를 구하는 프로그램을 작성하라. 단, 상자의 일부 칸에는 토마토가 들어있지 않을 수도 있다.</p>
+
+<h3 id="입력">입력</h3>
+
+<p>첫 줄에는 상자의 크기를 나타내는 두 정수 M,N과 쌓아올려지는 상자의 수를 나타내는 H가 주어진다. M은 상자의 가로 칸의 수, N은 상자의 세로 칸의 수를 나타낸다. 단, 2 ≤ M ≤ 100, 2 ≤ N ≤ 100, 1 ≤ H ≤ 100 이다. 둘째 줄부터는 가장 밑의 상자부터 가장 위의 상자까지에 저장된 토마토들의 정보가 주어진다. 즉, 둘째 줄부터 N개의 줄에는 하나의 상자에 담긴 토마토의 정보가 주어진다. 각 줄에는 상자 가로줄에 들어있는 토마토들의 상태가 M개의 정수로 주어진다. 정수 1은 익은 토마토, 정수 0 은 익지 않은 토마토, 정수 -1은 토마토가 들어있지 않은 칸을 나타낸다. 이러한 N개의 줄이 H번 반복하여 주어진다.</p>
+
+<p>토마토가 하나 이상 있는 경우만 입력으로 주어진다.</p>
+
+<h3 id="출력">출력</h3>
+
+<p>여러분은 토마토가 모두 익을 때까지 최소 며칠이 걸리는지를 계산해서 출력해야 한다. 만약, 저장될 때부터 모든 토마토가 익어있는 상태이면 0을 출력해야 하고, 토마토가 모두 익지는 못하는 상황이면 -1을 출력해야 한다.</p>
+
+<h2 id="아이디어">아이디어</h2>
+<p>3차원 행렬을 다루는 것이 익숙치 않아 시간이 좀 걸렸었던 문제였다.<br />
+x, y, z를 z, y, x 순으로 초기화해야한다는 것을 기억하자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span><span class="o">[][][]</span> <span class="n">graph</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">z</span><span class="o">][</span><span class="n">y</span><span class="o">][</span><span class="n">x</span><span class="o">];</span>
+</code></pre></div></div>
+
+<h2 id="답안코드">답안코드</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">x</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">y</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">z</span><span class="o">;</span>
+
+        <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">z</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">z</span> <span class="o">=</span> <span class="n">z</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getX</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">;</span> <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getY</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">y</span><span class="o">;</span> <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getZ</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">z</span><span class="o">;</span> <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+        <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>   <span class="c1">// x</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>   <span class="c1">// y</span>
+        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>   <span class="c1">// z</span>
+
+        <span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">ripenTomato</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>   <span class="c1">// 익은 토마토</span>
+        <span class="kt">int</span> <span class="n">unRipenTomato</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// 안 익은 토마토</span>
+        <span class="kt">int</span> <span class="n">day</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// 소요 날짜</span>
+
+        <span class="c1">// initialize box</span>
+        <span class="kt">int</span><span class="o">[][][]</span> <span class="n">box</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">n</span><span class="o">][</span><span class="n">m</span><span class="o">];</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">l</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="n">box</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">][</span><span class="n">l</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+                    
+                    <span class="k">if</span> <span class="o">(</span><span class="n">box</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">][</span><span class="n">l</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="n">unRipenTomato</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// 안 익은 토마토</span>
+                    <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">box</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">][</span><span class="n">l</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">ripenTomato</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">l</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">i</span><span class="o">));</span>   <span class="c1">// 익은 토마토</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 이동: 상, 하, 좌, 우, 전, 후</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dx</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dy</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dz</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+
+        <span class="c1">// bfs(인접 토마토 익히기)</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">unRipenTomato</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">ripenTomato</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">todayRipenTomato</span> <span class="o">=</span> <span class="n">ripenTomato</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>  <span class="c1">// '오늘' 익어있는 토마토</span>
+
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">todayRipenTomato</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="nc">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">ripenTomato</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getX</span><span class="o">();</span>
+                <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getY</span><span class="o">();</span>
+                <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getZ</span><span class="o">();</span>
+
+                <span class="c1">// 6방향으로 토마토 익히기</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="kt">int</span> <span class="n">movedX</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+                    <span class="kt">int</span> <span class="n">movedY</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+                    <span class="kt">int</span> <span class="n">movedZ</span> <span class="o">=</span> <span class="n">z</span> <span class="o">+</span> <span class="n">dz</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+
+                    <span class="c1">// 범위를 벗어나거나 안 익은 토마토가 아닌 경우는 제외</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">movedX</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">movedX</span> <span class="o">&gt;=</span> <span class="n">m</span> <span class="o">||</span> <span class="n">movedY</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">movedY</span> <span class="o">&gt;=</span> <span class="n">n</span> <span class="o">||</span> <span class="n">movedZ</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">movedZ</span> <span class="o">&gt;=</span> <span class="n">k</span> <span class="o">||</span> <span class="n">box</span><span class="o">[</span><span class="n">movedZ</span><span class="o">][</span><span class="n">movedY</span><span class="o">][</span><span class="n">movedX</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span>
+
+                    <span class="n">unRipenTomato</span> <span class="o">-=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// 안 익은 토마토 개수 줄이기</span>
+                    <span class="n">box</span><span class="o">[</span><span class="n">movedZ</span><span class="o">][</span><span class="n">movedY</span><span class="o">][</span><span class="n">movedX</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>    <span class="c1">// 토마토 익히기</span>
+                    <span class="n">ripenTomato</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">movedX</span><span class="o">,</span> <span class="n">movedY</span><span class="o">,</span> <span class="n">movedZ</span><span class="o">));</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+            <span class="n">day</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">unRipenTomato</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">day</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(-</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2644] 촌수계산</title><link href="http://localhost:4000/boj/2644/" rel="alternate" type="text/html" title="[2644] 촌수계산" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/2644</id><content type="html" xml:base="http://localhost:4000/boj/2644/"><![CDATA[<h2 id="silver-ii-촌수계산---2644">[Silver II] 촌수계산 - 2644</h2>
 
 <p><a href="https://www.acmicpc.net/problem/2644">문제 링크</a></p>
 
@@ -770,242 +982,4 @@ body에서 필요한 인자들을 뽑아내, handle 메소드 안 쪽에서 미�
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2178] 미로 탐색</title><link href="http://localhost:4000/boj/2178/" rel="alternate" type="text/html" title="[2178] 미로 탐색" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/2178</id><content type="html" xml:base="http://localhost:4000/boj/2178/"><![CDATA[<h2 id="silver-i-미로-탐색---2178">[Silver I] 미로 탐색 - 2178</h2>
-
-<p><a href="https://www.acmicpc.net/problem/2178">문제 링크</a></p>
-
-<h3 id="성능-요약">성능 요약</h3>
-
-<p>메모리: 16940 KB, 시간: 204 ms</p>
-
-<h3 id="분류">분류</h3>
-
-<p>그래프 이론, 그래프 탐색, 너비 우선 탐색</p>
-
-<h3 id="문제-설명">문제 설명</h3>
-
-<p>N×M크기의 배열로 표현되는 미로가 있다.</p>
-
-<table class="table table-bordered" style="width:18%">
-	<tbody>
-		<tr>
-			<td style="width:3%">1</td>
-			<td style="width:3%">0</td>
-			<td style="width:3%">1</td>
-			<td style="width:3%">1</td>
-			<td style="width:3%">1</td>
-			<td style="width:3%">1</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>0</td>
-			<td>1</td>
-			<td>0</td>
-			<td>1</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>0</td>
-			<td>1</td>
-			<td>0</td>
-			<td>1</td>
-			<td>1</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>1</td>
-			<td>1</td>
-			<td>0</td>
-			<td>1</td>
-			<td>1</td>
-		</tr>
-	</tbody>
-</table>
-
-<p>미로에서 1은 이동할 수 있는 칸을 나타내고, 0은 이동할 수 없는 칸을 나타낸다. 이러한 미로가 주어졌을 때, (1, 1)에서 출발하여 (N, M)의 위치로 이동할 때 지나야 하는 최소의 칸 수를 구하는 프로그램을 작성하시오. 한 칸에서 다른 칸으로 이동할 때, 서로 인접한 칸으로만 이동할 수 있다.</p>
-
-<p>위의 예에서는 15칸을 지나야 (N, M)의 위치로 이동할 수 있다. 칸을 셀 때에는 시작 위치와 도착 위치도 포함한다.</p>
-
-<h3 id="입력">입력</h3>
-
-<p>첫째 줄에 두 정수 N, M(2 ≤ N, M ≤ 100)이 주어진다. 다음 N개의 줄에는 M개의 정수로 미로가 주어진다. 각각의 수들은 <strong>붙어서</strong> 입력으로 주어진다.</p>
-
-<h3 id="출력">출력</h3>
-
-<p>첫째 줄에 지나야 하는 최소의 칸 수를 출력한다. 항상 도착위치로 이동할 수 있는 경우만 입력으로 주어진다.</p>
-
-<h2 id="아이디어">아이디어</h2>
-<p><code class="language-plaintext highlighter-rouge">bfs</code>의 대표적인 문제이다.<br />
-사방면으로 탐색하며 미로에 지나온 거리를 남긴다는 아이디어가 인상적이었다.</p>
-
-<h2 id="답안코드">답안코드</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">x</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">y</span><span class="o">;</span>
-
-        <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getX</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getY</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">y</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
-        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-        <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-
-        <span class="c1">// initialize mace</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mace</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">m</span><span class="o">];</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">mace</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">""</span><span class="o">))</span>
-                    <span class="o">.</span><span class="na">mapToInt</span><span class="o">(</span><span class="nl">Integer:</span><span class="o">:</span><span class="n">parseInt</span><span class="o">)</span>
-                    <span class="o">.</span><span class="na">toArray</span><span class="o">();</span>
-        <span class="o">}</span>
-
-        <span class="c1">// move: 상, 하, 좌, 우</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">dx</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">dy</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
-
-        <span class="c1">// bfs</span>
-        <span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span>    <span class="c1">// graph의 인덱스 때문에 (1,1)을 (0,0)으로 취급</span>
-
-        <span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-            <span class="nc">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getX</span><span class="o">();</span>
-            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getY</span><span class="o">();</span>
-
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>   <span class="c1">// 상, 하, 좌, 우 각각 한 번씩 움직여보기</span>
-                <span class="kt">int</span> <span class="n">movedX</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-                <span class="kt">int</span> <span class="n">movedY</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-
-                <span class="c1">// 미로를 벗어나는 경우면 제외</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">movedX</span> <span class="o">&gt;=</span> <span class="n">n</span> <span class="o">||</span> <span class="n">movedX</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">movedY</span> <span class="o">&gt;=</span> <span class="n">m</span> <span class="o">||</span> <span class="n">movedY</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">mace</span><span class="o">[</span><span class="n">movedX</span><span class="o">][</span><span class="n">movedY</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span>
-
-                <span class="k">if</span> <span class="o">(</span><span class="n">mace</span><span class="o">[</span><span class="n">movedX</span><span class="o">][</span><span class="n">movedY</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">mace</span><span class="o">[</span><span class="n">movedX</span><span class="o">][</span><span class="n">movedY</span><span class="o">]</span> <span class="o">=</span> <span class="n">mace</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// 이동하면서 미로에 이동 거리 세기기</span>
-                    <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">movedX</span><span class="o">,</span> <span class="n">movedY</span><span class="o">));</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">mace</span><span class="o">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="o">]);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1260] DFS와 BFS</title><link href="http://localhost:4000/boj/1260/" rel="alternate" type="text/html" title="[1260] DFS와 BFS" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/1260</id><content type="html" xml:base="http://localhost:4000/boj/1260/"><![CDATA[<h2 id="silver-ii-dfs와-bfs---1260">[Silver II] DFS와 BFS - 1260</h2>
-
-<p><a href="https://www.acmicpc.net/problem/1260">문제 링크</a></p>
-
-<h3 id="성능-요약">성능 요약</h3>
-
-<p>메모리: 20224 KB, 시간: 380 ms</p>
-
-<h3 id="분류">분류</h3>
-
-<p>그래프 이론, 그래프 탐색, 너비 우선 탐색, 깊이 우선 탐색</p>
-
-<h3 id="문제-설명">문제 설명</h3>
-
-<p>그래프를 DFS로 탐색한 결과와 BFS로 탐색한 결과를 출력하는 프로그램을 작성하시오. 단, 방문할 수 있는 정점이 여러 개인 경우에는 정점 번호가 작은 것을 먼저 방문하고, 더 이상 방문할 수 있는 점이 없는 경우 종료한다. 정점 번호는 1번부터 N번까지이다.</p>
-
-<h3 id="입력">입력</h3>
-
-<p>첫째 줄에 정점의 개수 N(1 ≤ N ≤ 1,000), 간선의 개수 M(1 ≤ M ≤ 10,000), 탐색을 시작할 정점의 번호 V가 주어진다. 다음 M개의 줄에는 간선이 연결하는 두 정점의 번호가 주어진다. 어떤 두 정점 사이에 여러 개의 간선이 있을 수 있다. 입력으로 주어지는 간선은 양방향이다.</p>
-
-<h3 id="출력">출력</h3>
-
-<p>첫째 줄에 DFS를 수행한 결과를, 그 다음 줄에는 BFS를 수행한 결과를 출력한다. V부터 방문된 점을 순서대로 출력하면 된다.</p>
-
-<h2 id="아이디어">아이디어</h2>
-<p><code class="language-plaintext highlighter-rouge">bfs</code>와 <code class="language-plaintext highlighter-rouge">dfs</code>를 사용할 수 있는지를 묻는 기본적인 문제이다.<br />
-둘 다 완전탐색에 해당하고, 탐색 순서는 크게 중요하진 않지만, 출력 형식이 정해져있으므로 수행 전 정렬을 해주었다.<br />
-bfs는 큐를 dfs는 stack을 사용했다.(함수 recursive call)</p>
-
-<h2 id="답안코드">답안코드</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
-        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-
-        <span class="c1">// n, m, v 초기화</span>
-        <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-
-        <span class="c1">// graph 초기화</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">graph</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">graph</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;());</span>
-        <span class="o">}</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-
-            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-
-            <span class="n">graph</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">x</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
-            <span class="n">graph</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">y</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// 순서 유지를 위한 정렬</span>
-        <span class="n">graph</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nl">Collections:</span><span class="o">:</span><span class="n">sort</span><span class="o">);</span>
-
-        <span class="c1">// DFS</span>
-        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visitedDFS</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">graph</span><span class="o">,</span> <span class="n">v</span><span class="o">,</span> <span class="n">visitedDFS</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// BFS</span>
-        <span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
-        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visitedBFS</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-
-        <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
-        <span class="n">visitedBFS</span><span class="o">[</span><span class="n">v</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-
-        <span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">visitedNode</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">visitedNode</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">node</span> <span class="o">:</span> <span class="n">graph</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">visitedNode</span><span class="o">))</span> <span class="o">{</span>
-                <span class="k">if</span> <span class="o">(!</span><span class="n">visitedBFS</span><span class="o">[</span><span class="n">node</span><span class="o">])</span> <span class="o">{</span>
-                    <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
-                    <span class="n">visitedBFS</span><span class="o">[</span><span class="n">node</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">graph</span><span class="o">,</span> <span class="kt">int</span> <span class="n">v</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">visited</span><span class="o">[</span><span class="n">v</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">v</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">node</span> <span class="o">:</span> <span class="n">graph</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">v</span><span class="o">))</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">node</span><span class="o">])</span> <span class="o">{</span>
-                <span class="n">dfs</span><span class="o">(</span><span class="n">graph</span><span class="o">,</span> <span class="n">node</span><span class="o">,</span> <span class="n">visited</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><category term="dfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry></feed>

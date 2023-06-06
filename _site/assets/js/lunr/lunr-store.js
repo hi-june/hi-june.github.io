@@ -568,4 +568,10 @@ var store = [{
         "tags": ["Info"],
         "url": "/voice_pocket/Voice_Pocket04/",
         "teaser": null
+      },{
+        "title": "[1주차 - Frame Work를 위한 Java] String, StringBuffer, StringBuilder",
+        "excerpt":"StringBuilder와 StringBuffer는 무슨 차이가 있는가? 결론부터 말하자면.. StringBuffer는 멀티 쓰레드 환경에서 안전하지만, 느리다. StringBuilder는 멀티 쓰레드 환경에서 안전하지 않지만, 빠르다. Java에서 String을 처리하는 법 String 클래스의 instance는 immutable이다. 한 번 만들어진 instance는 불변이기 때문에 굳이 내용이 같을 경우 새로운 instance를 생성할 필요가 없다. 따라서 String instance는 java에서 다음과 같이 처리한다....","categories": ["java-for-framework"],
+        "tags": ["java"],
+        "url": "/java-for-framework/String/",
+        "teaser": null
       }]
