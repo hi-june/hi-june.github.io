@@ -1,4 +1,525 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-07T01:11:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[1주차 - Frame Work를 위한 Java] String, StringBuffer, StringBuilder</title><link href="http://localhost:4000/java-for-framework/String/" rel="alternate" type="text/html" title="[1주차 - Frame Work를 위한 Java] String, StringBuffer, StringBuilder" /><published>2023-06-07T00:00:00+09:00</published><updated>2023-06-07T00:00:00+09:00</updated><id>http://localhost:4000/java-for-framework/String</id><content type="html" xml:base="http://localhost:4000/java-for-framework/String/"><![CDATA[<h2 id="stringbuilder와-stringbuffer는-무슨-차이가-있는가"><strong>StringBuilder와 StringBuffer는 무슨 차이가 있는가?</strong></h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-08T20:13:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html"> June &amp;amp; Directory </title><subtitle>공부 &amp; 취미 블로그</subtitle><author><name>hi~ June!!</name></author><entry><title type="html">[윤성우의 열혈 Java 프로그래밍] Chapter 34 - 쓰레드 그리고 동기화</title><link href="http://localhost:4000/java%20lang/Chap34/" rel="alternate" type="text/html" title="[윤성우의 열혈 Java 프로그래밍] Chapter 34 - 쓰레드 그리고 동기화" /><published>2023-06-08T00:00:00+09:00</published><updated>2023-06-08T00:00:00+09:00</updated><id>http://localhost:4000/java%20lang/Chap34</id><content type="html" xml:base="http://localhost:4000/java%20lang/Chap34/"><![CDATA[<h2 id="34-1-쓰레드의-이해와-쓰레드의-생성">34-1. 쓰레드의 이해와 쓰레드의 생성</h2>
+
+<h3 id="--쓰레드의-이해와-쓰레드의-생성-방법">- <u>쓰레드의 이해와 쓰레드의 생성 방법</u></h3>
+
+<blockquote>
+  <p>실행중인 프로그램(프로세스) 내에서 ‘또 다른 실행의 흐름을 형성하는 주체’를 의미한다.</p>
+</blockquote>
+
+<p><img src="/assets/images/java-lang/34-1.png" alt="image" width="50%" height="50%" /><br />
+<img src="/assets/images/java-lang/34-2.png" alt="image" width="30%" height="30%" /><br /></p>
+
+<h3 id="--쓰레드를-생성하는-방법">- <u>쓰레드를 생성하는 방법</u></h3>
+
+<p>코드 레벨에서 쓰레드는 생성하는 과정은 다음과 같다.</p>
+
+<p><img src="/assets/images/java-lang/34-3.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<p>코드를 보면서 좀 더 알아보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MakeThreadDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Runnable을 구현한 인스턴스 생성</span>
+        <span class="nc">Runnable</span> <span class="n">task</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+
+            <span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="o">));</span>
+        <span class="o">};</span>
+
+        <span class="c1">// Thread 인스턴스 생성</span>
+        <span class="nc">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task</span><span class="o">);</span>
+
+        <span class="c1">// start 메소드 호출 == Thread 생성 및 실행</span>
+        <span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"End "</span> <span class="o">+</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 실행 결과</span>
+End main
+Thread-0: 30
+</code></pre></div></div>
+
+<p>main 쓰레드가 먼저 종료된 것을 볼 수 있다. 쓰레드의 생성에는 시간이 걸리므로 충분히 가능한 상황이다.</p>
+
+<p>모든 쓰레드가 일을 마치고 소멸되어야 프로그램이 종료된다.</p>
+
+<p>또, 위와 같이 생성된 쓰레드는 자신의 일을 마치면 자동으로 소멸(쓰레드의 생성을 위해 할당했던 모든 자원의 해제)된다.</p>
+
+<blockquote>
+  <p>쓰레드는 자신의 일을 마치면(run 메소드의 실행을 완료하면) 자동으로 소멸된다.</p>
+</blockquote>
+
+<p>보통은 쓰레드 하나에 CUP의 코어 하나가 할당되어 동시에 실행이 이뤄진다.</p>
+
+<p>여러 쓰레드가 실행되는 경우에는 이들은 코어를 나누어 차지하며 실행을 이어 나간다. 다만, 나누는 시간의 조각이 매우 작기 때문에 동시에 실행되는 효과를 충분히 누릴 수 있는 것이다.</p>
+
+<p>또, 쓰레드가 처한 상황에 따라서, 또는 운영체제가 코어를 쓰레드에 할당하는 방식에 다라서 두 쓰레드의 실행 속도에는 차이가 있을 수 있기 때문에, 여러 쓰레드가 동작할 경우, 그 결과를 쉽게 예상하기란 어렵다.</p>
+
+<p>다음 코드를 보면 알 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreeMultiNoSleepDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Runnable</span> <span class="n">task1</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>   <span class="c1">// 짝수 출력</span>
+                    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+
+        <span class="nc">Runnable</span> <span class="n">task2</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>   <span class="c1">// 홀수 출력</span>
+                    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+
+        <span class="nc">Thread</span> <span class="n">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task1</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task2</span><span class="o">);</span>
+
+        <span class="n">t1</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">t2</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 첫 번째 실행</span>
+1 0 3 2 5 7 4 6 9 8 11 10 13 12 15 14 17 16 19 18
+
+<span class="c"># 두 번재 실행</span>
+0 2 4 6 8 1 3 5 10 12 14 7 9 11 16 18 13 15 17 19
+
+<span class="c"># 세 번째 실행</span>
+1 3 5 7 9 11 13 15 17 19 0 2 4 6 8 10 12 14 16 18
+</code></pre></div></div>
+
+<p>여기서 보이듯이 각각의 쓰레드는 이렇게 독립적으로 자신의 일을 실행해 나간다.</p>
+
+<h3 id="--쓰레드를-생성하는-두-번째-방법">- <u>쓰레드를 생성하는 두 번째 방법</u></h3>
+
+<p>다음과 같이 Thread 클래스를 상속하여 task를 구성할 수도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Task</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+		<span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="o">));</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Task</span><span class="o">();</span>
+		<span class="nc">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Task</span><span class="o">();</span>
+		
+		<span class="n">t1</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+		<span class="n">t2</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"End "</span> <span class="o">+</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="34-2-쓰레드의-동기화">34-2. 쓰레드의 동기화</h2>
+
+<h3 id="--쓰레드의-메모리-접근-방식과-그에-따른-문제점">- <u>쓰레드의 메모리 접근 방식과 그에 따른 문제점</u></h3>
+
+<p>쓰레드를 설명할 때 사용하는 단골 예시를 들어보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Counter</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="kd">synchronized</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">increment</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">count</span><span class="o">++;</span>
+    <span class="o">}</span>
+
+    <span class="kd">synchronized</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">decrement</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">count</span><span class="o">--;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MutualAccess</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Counter</span> <span class="n">cnt</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Counter</span><span class="o">();</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+        <span class="nc">Runnable</span> <span class="n">task1</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">cnt</span><span class="o">.</span><span class="na">increment</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+
+        <span class="nc">Runnable</span> <span class="n">task2</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">cnt</span><span class="o">.</span><span class="na">decrement</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+
+        <span class="nc">Thread</span> <span class="n">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task1</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task2</span><span class="o">);</span>
+
+        <span class="n">t1</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">t2</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+				<span class="c1">// main 쓰레드가 다른 두 쓰레드의 실행이 완료되기를 기다리기 위해 추가</span>
+        <span class="n">t1</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
+        <span class="n">t2</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cnt</span><span class="o">.</span><span class="na">getCount</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 실행결과 1</span>
+2
+
+<span class="c"># 실행결과 2</span>
+0
+
+<span class="c"># 실행결과 3</span>
+4
+</code></pre></div></div>
+
+<p>결과를 보면 당연히 결과가 0이 될 것이라는 예상과는 다르게 실행할 때마다 다른 결과가 나오는 것을 볼 수 있다.</p>
+
+<p>따라서 자연스럽게 다음을 유추해 볼 수 있다.</p>
+
+<blockquote>
+  <p>둘 이상의 쓰레드가 동일한 변수에 접근하는 것은 문제를 일으킬 수 있다.</p>
+</blockquote>
+
+<p>그리고 이럴 때 필요한 개념이 바로 동기화(synchronization)이다.</p>
+
+<h3 id="--동일한-메모리-공간에-접근하는-것이-왜-문제가-되는가">- <u>동일한 메모리 공간에 접근하는 것이 왜 문제가 되는가?</u></h3>
+
+<p><img src="/assets/images/java-lang/34-4.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<p>다음과 같이 서로 다른 쓰레드가 같은 자원에 동시에 접근한다고 가정하자.</p>
+
+<p><img src="/assets/images/java-lang/34-5.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<p>값을 바꾸려면</p>
+
+<ol>
+  <li>data에서 값을 가져오고</li>
+  <li>가져온 값을 증가 시키고</li>
+  <li>증가시킨 값을 다시 data에 할당하기</li>
+</ol>
+
+<p>위 세 가지 동작 과정을 거쳐야 한다.</p>
+
+<p>하지만, 코어가 여러 개일 때나 코어가 단일 코어더라도 쓰레드가 코어를 나누어 차지하는 시간 조각이 굉장이 작기 때문에 여러 쓰레드가 거의 동시에 값을 가져가는 상황이 생길 수 있다.</p>
+
+<p>이럴 경우에는 위의 그림과 같이 task1이 완전히 끝나기 전에 task 2에서 결과를 가져갈 수도 있는 것이다.</p>
+
+<blockquote>
+  <p>따라서, 둘 이상의 쓰레드가 동일한 변수에 동시에 접근하는 상황에서는 한 순간에 한 쓰레드만 변수에 접근하도록 제한할 필요가 있다.</p>
+</blockquote>
+
+<h3 id="--동기화synchronization-메소드">- <u>동기화(Synchronization) 메소드</u></h3>
+
+<p>다음과 같이 synchronized 키워드를 통해 메소드 단위로 동기화를 걸 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Counter</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="kd">synchronized</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">increment</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">count</span><span class="o">++;</span>
+    <span class="o">}</span>
+
+    <span class="kd">synchronized</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">decrement</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">count</span><span class="o">--;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위와 같이 ‘한 클래스의 두 메소드’에 synchronized 선언이 되면, 두 메소드는 둘 이상의 쓰레드에 의해 동시에 실행될 수 없도록 동기화된다.</p>
+
+<h3 id="--동기화synchronization-블록">- <u>동기화(Synchronization) 블록</u></h3>
+
+<p>메소드 전체로 묶을 필요가 없을 때는 다음과 같이 동기화 블록을 사용하는 방법도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Counter</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">increment</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">count</span><span class="o">++;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">decrement</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">count</span><span class="o">--;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>여기서 this는 Counter 클래스의 인스턴스를 말한다.</p>
+
+<p>즉, Counter 클래스의 인스턴스 내에 위치한 두 동기화 블록은 둘 이상의 쓰레드의 의해 동시에 실행될 수 없도록 함께 동기화된다.</p>
+
+<h2 id="34-3-쓰레드를-생성하는-더-좋은-방법">34-3. 쓰레드를 생성하는 더 좋은 방법</h2>
+
+<h3 id="--지금-소개하는-이-방법으로-쓰레드를-생성하고-활용하자">- <u>지금 소개하는 이 방법으로 쓰레드를 생성하고 활용하자.</u></h3>
+
+<p>쓰레드의 생성과 소멸은 그 자체로 시스템에 부담을 준다.</p>
+
+<p>따라서, 쓰레드 풀(Thread Pool)을 만들고 그 안에서 미리 제한된 수의 쓰레드를 생성해 두고 이를 재활용하는 기술을 사용한다.</p>
+
+<p><img src="/assets/images/java-lang/34-6.png" alt="image" width="60%" height="60%" /><br /></p>
+
+<p>다만, 직접 구현할 필요는 없고, 자바에서 제공하는 concurrent 패키지를 활용하면 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExecutorsDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Runnable</span> <span class="n">task</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+
+            <span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="o">));</span>
+        <span class="o">};</span>
+
+        <span class="nc">ExecutorService</span> <span class="n">exr</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newSingleThreadExecutor</span><span class="o">();</span>
+        <span class="n">exr</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task</span><span class="o">);</span>   <span class="c1">// Thread Pool에 작업을 전달</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="n">exr</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span> <span class="c1">// Thread Pool과 그 안에 있는 Thread의 소멸</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 실행 결과</span>
+pool-1-thread-1: 30
+</code></pre></div></div>
+
+<p>위의 코드는 싱글쓰레드풀을 생성했지만 Executors 클래스의 여러 메소드들을 통해 다양한 유형의 쓰레드 풀을 생성할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1. 풀 안에 하나의 쓰레드만 생성하고 유지한다.</span>
+<span class="nc">ExecutorService</span> <span class="n">exr1</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newSingleThreadExecutor</span><span class="o">();</span>
+
+<span class="c1">// 2. 풀 안에 인자로 전달된 수의 쓰레드를 생성하고 유지한다.</span>
+<span class="nc">ExecutorService</span> <span class="n">exr2</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+<span class="c1">// 3. 풀 안의 쓰레드의 수를 작업의 수에 맞게 유동적으로 관리한다.</span>
+<span class="nc">ExecutorService</span> <span class="n">exr3</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newCachedThreadPool</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>다른 쓰레드 풀을 사용하여 여러 task를 전달해보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExecutorDemo2</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Runnable</span> <span class="n">task1</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">7</span><span class="o">));</span>
+        <span class="o">};</span>
+
+        <span class="nc">Runnable</span> <span class="n">task2</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span><span class="o">));</span>
+        <span class="o">};</span>
+
+        <span class="nc">ExecutorService</span> <span class="n">exr</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+
+        <span class="n">exr</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task1</span><span class="o">);</span>
+        <span class="n">exr</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task2</span><span class="o">);</span>
+        <span class="n">exr</span><span class="o">.</span><span class="na">submit</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span><span class="o">));</span>
+        <span class="o">});</span>
+
+        <span class="n">exr</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--callable--future">- <u>Callable &amp; Future</u></h3>
+
+<p>Runnable에 위치한 추상 메소드 run의 반환형은 void이기 때문에 작업의 결과를 받을 수 없다.</p>
+
+<p>이럴 경우, 다음 인터페이스를 기반으로 작업을 구성하면 작업의 끝에서 값을 반환하는 것이 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@FunctionalInterface</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Callable</span><span class="o">&lt;</span><span class="no">V</span><span class="o">&gt;</span> <span class="o">{</span>
+	<span class="no">V</span> <span class="nf">call</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Callable 인터페이스와 Future 인터페이스를 통해 쓰레드가 처리한 작업에 대한 결과를 얻을 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.concurrent.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CallableDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="nc">Callable</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">task</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">n</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
+        <span class="o">};</span>
+
+        <span class="nc">ExecutorService</span> <span class="n">exr</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newSingleThreadExecutor</span><span class="o">();</span>
+
+        <span class="nc">Future</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">fur</span> <span class="o">=</span> <span class="n">exr</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">fur</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+
+        <span class="n">exr</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--synchronized를-대신하는-reentrantlock">- <u>synchronized를 대신하는 ReentrantLock</u></h3>
+
+<p>동기화 블록 대신 ReentrantLock 인스턴스를 이용하는 방법도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.locks.ReentrantLock</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">CounterC</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="nc">ReentrantLock</span> <span class="n">criticObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ReentrantLock</span><span class="o">();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">increment</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">criticObj</span><span class="o">.</span><span class="na">lock</span><span class="o">();</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">count</span><span class="o">++;</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">criticObj</span><span class="o">.</span><span class="na">unlock</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">decrement</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">criticObj</span><span class="o">.</span><span class="na">lock</span><span class="o">();</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">count</span><span class="o">--;</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">criticObj</span><span class="o">.</span><span class="na">unlock</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MutualAccessReentrantLock</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">CounterC</span> <span class="n">cnt</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CounterC</span><span class="o">();</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Runnable</span> <span class="n">task1</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">cnt</span><span class="o">.</span><span class="na">increment</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+
+        <span class="nc">Runnable</span> <span class="n">task2</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">cnt</span><span class="o">.</span><span class="na">increment</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+
+        <span class="nc">ExecutorService</span> <span class="n">exr</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+
+        <span class="n">exr</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task1</span><span class="o">);</span>
+        <span class="n">exr</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task2</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cnt</span><span class="o">.</span><span class="na">getCount</span><span class="o">());</span>
+
+        <span class="n">exr</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="--컬렉션-인스턴스-동기화">- <u>컬렉션 인스턴스 동기화</u></h3>
+
+<p>동기화는 그 특성상 어쩔 수 없이 성능의 저하를 수반한다.</p>
+
+<p>이러한 이유로 컬렉션 프레임워크의 클래스 대부분도 동기화 처리가 되어 있지 않다.</p>
+
+<p>따라서, 쓰레드의 동시 접근에 안전하지 않다. 대신 Collections의 다음 메소드들을 통해 동기화 방법을 제공하고 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">synchronizedSet</span><span class="o">(</span><span class="nc">Set</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">s</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">synchronizedList</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="nf">synchronizedMap</span><span class="o">(</span><span class="nc">Map</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">m</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nc">Collections</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">synchronizedCollection</span><span class="o">(</span><span class="nc">Collection</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">e</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>간단한 예시 코드를 보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SyncArrayList</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">lst</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">synchronizedList</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;());</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">lst</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="nc">Runnable</span> <span class="n">task</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="c1">// 컬렉션 인스턴스 자체에 대한 동기화되었다고 해도 이를 기반으로 생성된 반복자까지 동기화가 이뤄지는 것은 아니기 때문</span>
+            <span class="kd">synchronized</span> <span class="o">(</span><span class="n">lst</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">ListIterator</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="na">listIterator</span><span class="o">();</span>
+
+                <span class="k">while</span> <span class="o">(</span><span class="n">itr</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="n">itr</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">itr</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+
+        <span class="nc">ExecutorService</span> <span class="n">exr</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">exr</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task</span><span class="o">);</span>
+        <span class="n">exr</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task</span><span class="o">);</span>
+        <span class="n">exr</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task</span><span class="o">);</span>
+
+        <span class="n">exr</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+        <span class="n">exr</span><span class="o">.</span><span class="na">awaitTermination</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="nc">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lst</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="reference">Reference</h2>
+
+<p><a href="https://spacebike.tistory.com/22">[운영체제] Concurrency(동시성)과 Parallelism(병렬성) 이해하기</a></p>]]></content><author><name>hi~ June!!</name></author><category term="Java lang" /><category term="java" /><summary type="html"><![CDATA[Java 문법 정리!]]></summary></entry><entry><title type="html">[1주차 - Frame Work를 위한 Java] String, StringBuffer, StringBuilder</title><link href="http://localhost:4000/java-for-framework/String/" rel="alternate" type="text/html" title="[1주차 - Frame Work를 위한 Java] String, StringBuffer, StringBuilder" /><published>2023-06-07T00:00:00+09:00</published><updated>2023-06-07T00:00:00+09:00</updated><id>http://localhost:4000/java-for-framework/String</id><content type="html" xml:base="http://localhost:4000/java-for-framework/String/"><![CDATA[<h2 id="stringbuilder와-stringbuffer는-무슨-차이가-있는가"><strong>StringBuilder와 StringBuffer는 무슨 차이가 있는가?</strong></h2>
 <p>결론부터 말하자면..<br />
 <code class="language-plaintext highlighter-rouge">StringBuffer</code>는 멀티 쓰레드 환경에서 안전하지만, 느리다.<br />
 <code class="language-plaintext highlighter-rouge">StringBuilder</code>는 멀티 쓰레드 환경에서 안전하지 않지만, 빠르다.</p>
@@ -901,85 +1422,4 @@ x, y, z를 z, y, x 순으로 초기화해야한다는 것을 기억하자.</p>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="dfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2606] 바이러스</title><link href="http://localhost:4000/boj/2606/" rel="alternate" type="text/html" title="[2606] 바이러스" /><published>2023-04-20T00:00:00+09:00</published><updated>2023-04-20T00:00:00+09:00</updated><id>http://localhost:4000/boj/2606</id><content type="html" xml:base="http://localhost:4000/boj/2606/"><![CDATA[<h2 id="silver-iii-바이러스---2606">[Silver III] 바이러스 - 2606</h2>
-
-<p><a href="https://www.acmicpc.net/problem/2606">문제 링크</a></p>
-
-<h3 id="성능-요약">성능 요약</h3>
-
-<p>메모리: 14336 KB, 시간: 140 ms</p>
-
-<h3 id="분류">분류</h3>
-
-<p>그래프 이론, 그래프 탐색, 너비 우선 탐색, 깊이 우선 탐색</p>
-
-<h3 id="문제-설명">문제 설명</h3>
-
-<p>신종 바이러스인 웜 바이러스는 네트워크를 통해 전파된다. 한 컴퓨터가 웜 바이러스에 걸리면 그 컴퓨터와 네트워크 상에서 연결되어 있는 모든 컴퓨터는 웜 바이러스에 걸리게 된다.</p>
-
-<p>예를 들어 7대의 컴퓨터가 &lt;그림 1&gt;과 같이 네트워크 상에서 연결되어 있다고 하자. 1번 컴퓨터가 웜 바이러스에 걸리면 웜 바이러스는 2번과 5번 컴퓨터를 거쳐 3번과 6번 컴퓨터까지 전파되어 2, 3, 5, 6 네 대의 컴퓨터는 웜 바이러스에 걸리게 된다. 하지만 4번과 7번 컴퓨터는 1번 컴퓨터와 네트워크상에서 연결되어 있지 않기 때문에 영향을 받지 않는다.</p>
-
-<p><img alt="" src="https://www.acmicpc.net/upload/images/zmMEZZ8ioN6rhCdHmcIT4a7.png" style="width: 239px; height: 157px; " /></p>
-
-<p>어느 날 1번 컴퓨터가 웜 바이러스에 걸렸다. 컴퓨터의 수와 네트워크 상에서 서로 연결되어 있는 정보가 주어질 때, 1번 컴퓨터를 통해 웜 바이러스에 걸리게 되는 컴퓨터의 수를 출력하는 프로그램을 작성하시오.</p>
-
-<h3 id="입력">입력</h3>
-
-<p>첫째 줄에는 컴퓨터의 수가 주어진다. 컴퓨터의 수는 100 이하이고 각 컴퓨터에는 1번 부터 차례대로 번호가 매겨진다. 둘째 줄에는 네트워크 상에서 직접 연결되어 있는 컴퓨터 쌍의 수가 주어진다. 이어서 그 수만큼 한 줄에 한 쌍씩 네트워크 상에서 직접 연결되어 있는 컴퓨터의 번호 쌍이 주어진다.</p>
-
-<h3 id="출력">출력</h3>
-
-<p>1번 컴퓨터가 웜 바이러스에 걸렸을 때, 1번 컴퓨터를 통해 웜 바이러스에 걸리게 되는 컴퓨터의 수를 첫째 줄에 출력한다.</p>
-
-<h2 id="아이디어">아이디어</h2>
-<p><code class="language-plaintext highlighter-rouge">bfs</code> 기본 문제이다.<br />
-그래프는 인접 리스트로 나타냈고, <code class="language-plaintext highlighter-rouge">queue</code> 자료구조를 사용했다.</p>
-
-<h2 id="답안코드">답안코드</h2>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
-        <span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>    <span class="c1">// 컴퓨터의 수</span>
-        <span class="kt">int</span> <span class="n">connection</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>   <span class="c1">// 연결(간선)의 수</span>
-
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">graph</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">graph</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;());</span>
-        <span class="o">}</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">connection</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-
-            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-
-            <span class="n">graph</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">x</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
-            <span class="n">graph</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">y</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
-
-        <span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">visited</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">visitedNode</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">node</span> <span class="o">:</span> <span class="n">graph</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">visitedNode</span><span class="o">))</span> <span class="o">{</span>
-                <span class="k">if</span> <span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">node</span><span class="o">])</span> <span class="o">{</span>
-                    <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
-                    <span class="n">visited</span><span class="o">[</span><span class="n">node</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="bfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>hi~ June!!</name></author><category term="BOJ" /><category term="java" /><category term="dfs" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry></feed>

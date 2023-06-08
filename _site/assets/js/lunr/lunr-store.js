@@ -574,4 +574,10 @@ var store = [{
         "tags": ["java"],
         "url": "/java-for-framework/String/",
         "teaser": null
+      },{
+        "title": "[윤성우의 열혈 Java 프로그래밍] Chapter 34 - 쓰레드 그리고 동기화",
+        "excerpt":"34-1. 쓰레드의 이해와 쓰레드의 생성 - 쓰레드의 이해와 쓰레드의 생성 방법 실행중인 프로그램(프로세스) 내에서 ‘또 다른 실행의 흐름을 형성하는 주체’를 의미한다. - 쓰레드를 생성하는 방법 코드 레벨에서 쓰레드는 생성하는 과정은 다음과 같다. 코드를 보면서 좀 더 알아보자. public class MakeThreadDemo { public static void main(String[] args) { // Runnable을 구현한...","categories": ["Java lang"],
+        "tags": ["java"],
+        "url": "/java%20lang/Chap34/",
+        "teaser": null
       }]
